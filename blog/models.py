@@ -8,21 +8,11 @@ STATUS = (
 )
 
 
-class Category(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, null=True)
-
-    # Method to return string object
-    def __str__(self):
-        return self.title
-
-
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="photo_adventures")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts')
     excerpt = models.TextField(blank=True)
     featured_image = CloudinaryField("image", default='placeholder')
     location = models.CharField(max_length=100, unique=False)
@@ -31,7 +21,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name="post_likes", blank=True)
-    featured = models.BooleanField(default=0)
+    featured = models.BooleanField(default=False, verbose_name="featured post")
 
     # Descending order of Posts
     class Meta:
