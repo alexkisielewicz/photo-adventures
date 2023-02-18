@@ -9,10 +9,20 @@ STATUS = (
 
 
 class Post(models.Model):
+    POST_CATEGORIES = (
+        ('adventure', 'Adventure'),
+        ('nature', 'Nature'),
+        ('landscape', 'Landscape'),
+        ('wildlife', 'Wildlife'),
+        ('street', 'Street'),
+        ('architecture', 'Architecture'),
+    )
+
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="photo_adventures")
+    category = models.CharField(choices=POST_CATEGORIES, max_length=20, default="adventure")
     excerpt = models.TextField(blank=True)
     featured_image = CloudinaryField("image", default='placeholder')
     location = models.CharField(max_length=100, unique=False)
