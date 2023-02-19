@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                <img class="card-img-top" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
                                 {% else %}
                                 <img class="card-img-top" src="{{ post.featured_image.url }}">
                                 {% endif %}
@@ -43,6 +43,18 @@
             </div>
         </div>
     </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 
 </div>
 
