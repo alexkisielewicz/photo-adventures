@@ -36,6 +36,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['photo-adventures.herokuapp.com', 'localhost', '127.0.0.1']
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 # Application definition
 
