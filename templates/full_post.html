@@ -1,28 +1,31 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <h1 class="post-title">{{ post.title }}</h1>
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block masthead-image">
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" width="100%">
-                {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
-                {% endif %}
-            </div>
+
+<div class="container mt-4 mb-0">
+    <div class="row g-0">
+        <div class="d-md-block">
+            {% if "placeholder" in post.featured_image.url %}
+            <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" width="100%">
+            {% else %}
+            <img src=" {{ post.featured_image.url }}" width="100%">
+            {% endif %}
         </div>
     </div>
 </div>
 
-<div class="container">
+<div class="container mt-1 mb-0">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
+        <div class="col card left top">
             <div class="card-body">
-                
+                <div class="col-md-6">
+                    <h1 class="post-title">{{ post.title }}</h1>
+                    <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                </div>
+                <div class="image-caption">
+                    <p>Author: {{ post.author }}</p>
+                    <p>Category: {{ post.category }}</p>
+                    <p>Location: {{ post.location }}</p>
+                </div>    
                 <p class="card-text ">
                     {{ post.content | safe }}
                 </p>
