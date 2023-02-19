@@ -19,6 +19,7 @@ from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('', views.index, name='home'),
     path('blog/', include('blog.urls'), name='blog_urls'),
