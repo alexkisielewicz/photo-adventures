@@ -22,10 +22,10 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <a href="{% url 'full_post' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
                             </a>
+                            <p class="card-text excerpt">{{ post.excerpt }}</p>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on }}
                                 <i class="far fa-heart"></i>

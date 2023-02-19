@@ -1,3 +1,14 @@
 *, ::after, ::before {
     box-sizing: border-box;
 }
+
+
+/* BLOG POST CARD */
+.card-title {
+
+}
+
+.excerpt {
+    font-size: medium;
+}
+
