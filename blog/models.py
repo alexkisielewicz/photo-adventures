@@ -35,7 +35,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     featured = models.BooleanField(default=False, verbose_name='featured post')
 
-    # Descending order of Posts
+    # Descending order of Posts in Admin Panel
     class Meta:
         ordering = ['-created_on']
 
