@@ -2,15 +2,14 @@
 
 {% block content %}
 
-
 <div class="container">
     <div class="row">
-        <div class="col-12 mt-3 left">
+        <div class="col-12 mt-2 left">
             <div class="row">
                 {% for post in post_list %}
 
                 <div class="col-12">
-                    <div class="card mb-4">
+                    <div class="card mt-4 mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
@@ -18,16 +17,16 @@
                                 {% else %}
                                 <img class="card-img-top" src="{{ post.featured_image.url }}">
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                <div class="image-caption">
+                                    Category: {{ post.category }} | Location: {{ post.location }}
                                 </div>
                             </div>
                             <a href="{% url 'full_post' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
+                                <h2 class="card-title mt-3">{{ post.title }}</h2>
                             </a>
                             <p class="card-text excerpt">{{ post.excerpt }}</p>
                             <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on }}
+                            <p class="card-text text-muted h6">Posted by: {{ post.author }} | {{ post.created_on }}
                                 <i class="far fa-heart"></i>
                             </p>
                         </div>
