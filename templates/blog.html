@@ -18,7 +18,7 @@
                                 <img class="card-img-top" src="{{ post.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-caption">
-                                    Category: {{ post.category }} | Location: {{ post.location }}
+                                    <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
                                 </div>
                             </div>
                             <a href="{% url 'full_post' post.slug %}" class="post-link">
@@ -26,8 +26,11 @@
                             </a>
                             <p class="card-text excerpt">{{ post.excerpt }}</p>
                             <hr />
-                            <p class="card-text text-muted h6">Posted by: {{ post.author }} | {{ post.created_on }}
-                                <i class="far fa-heart"></i>
+                            <p class="post-details text-muted mt-1 mb-1">
+                                <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
+                                <i class="fa-regular fa-folder"></i> {{ post.category }} |
+                                <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
+                                <i class="far fa-heart"></i> {{ post.number_of_likes }}
                             </p>
                         </div>
                     </div>

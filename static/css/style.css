@@ -33,12 +33,15 @@ body > .container {
 
 
 .post-link {
-    font-family: 'Gloock', serif;
-    font-size: large;
     text-decoration: none;
 }
 
+.post-details {
+    
+}
+
 .card-title {
+    font-family: 'Gloock', serif;
     color: #000;
     font-size: 2.5rem;
 }
@@ -53,4 +56,24 @@ body > .container {
     font-weight: 700;
     margin-bottom 10px;
     padding: 8px 8px;
+}
+
+.caption-likes .like {
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    top: 1%;
+    right: 1%;
+    background: transparent;
+    color: #fff;
+    font-size: large;
+    font-weight: 700;
+    padding: 10px 10px;
+}
+
+.like:hover {
+    color: #f00;
+    transform: scale(1.5);
+    transition: all .2s ease-in-out 0s;
+    -webkit-transform: all .2s ease-in-out 0s;
 }
