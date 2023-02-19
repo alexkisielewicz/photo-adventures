@@ -1,11 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+
 *, ::after, ::before {
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Merriweather', serif;
+    
+}
+
 
 /* BLOG POST CARD */
-.card-title {
+.post-link {
+    font-family: 'Gloock', serif;
+    font-size: large;
+}
 
+.post-link {
+    text-decoration: none;
 }
 
 .excerpt {
