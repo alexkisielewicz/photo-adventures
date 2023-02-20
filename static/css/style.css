@@ -6,7 +6,9 @@
 
 html {
     height: 100vh;
+    scroll-behavior: smooth;
 }
+
 
 body {
     font-family: 'Merriweather', serif;
@@ -24,15 +26,27 @@ button {
 }
 
 .navbar {
-    padding: 0;
-    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+    transition: all 300ms ease-in-out;
 }
-
 
 .btn-outline-secondary {
     color:#fff;
     border-color: #fff;
 }
+
+/* Main page hero */
+
+.hero-container {
+    background-image: linear-gradient(135deg, hsla(0, 0%, 97%, 0.1) 100%, hsla(0, 0%, 77%, 0.5) 100%);
+    background-size: cover;
+    padding: 0;
+}
+
+
 
 /* BLOG POST CARD */
 .image-container {
@@ -112,4 +126,14 @@ button {
 
 footer {
     font-size: small;
+}
+
+/* scroll stuff */
+
+.scroll-down .navbar {
+    transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up .navbar {
+    filter: drop-shadow(0 -10px 20px rgb(136, 136, 136))
 }
