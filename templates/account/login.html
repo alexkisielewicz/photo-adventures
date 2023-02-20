@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -7,18 +8,20 @@
 
 {% block content %}
 
-<div class="container mt-5">
+<div class="container white my-5 z-depth-5">
   <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h3>{% trans "Sign In" %}</h3>
-
-      <p>{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If you
-        have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
+    <div class="col-mb3 offset-md-2">
+      <h3>Welcome back!</h3>
+      <p>
+        {% blocktrans %}
+        To write posts, comment or add likes you need to be logged in.<br> 
+        If you have not created an account yet, then please <a class="link" href="{{ signup_url }}">sign up</a>
         first.{% endblocktrans %}</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
+    <div class="col-mb-3 mt-3 offset-md-2">
+
       <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}
@@ -27,6 +30,7 @@
         {% endif %}
         <button class="btn btn-success right mb-5" type="submit">{% trans "Sign In" %}</button>
       </form>
+      
     </div>
   </div>
 </div>

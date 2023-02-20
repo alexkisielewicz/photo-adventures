@@ -5,26 +5,33 @@
 }
 
 html {
-    scroll-padding-top: 70px; /* height of sticky header */
+    height: 100vh;
 }
 
 body {
     font-family: 'Merriweather', serif;
     background-color: rgb(238, 245, 235);
-}
-
-body > .container {
-    padding-top: 60px;
-}
-
-.navbar {
-    height: 70px;
-    margin-bottom: 10px;
+    background-image: url('https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676908742/background_pa_dfqyis.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* to override bootstrap default */
 button {
     border: none;
+}
+
+.navbar {
+    padding: 0;
+    margin: 0;
+}
+
+
+.btn-outline-secondary {
+    color:#fff;
+    border-color: #fff;
 }
 
 /* BLOG POST CARD */
@@ -102,3 +109,7 @@ button {
     transform: translateY(-2px);
     box-shadow: 0px 4px 12px rgb(0, 95, 8, 0.6);
   }
+
+footer {
+    font-size: small;
+}

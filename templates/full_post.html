@@ -2,9 +2,9 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container">
+<div class="container py-5 my-5">
     <div class="col-12">
-        <div class="card mt-4 mb-4">
+        <div class="card">
             <div class="card-body">
                 <div class="image-container">
                     {% if "placeholder" in post.featured_image.url %}
@@ -52,7 +52,7 @@
                 
                 <p class="card-text">{{ post.content | safe }}</p>
                 <div class="row">
-                    <div class="col-sm-8 mb-4 mt-3 ">
+                    <div class="col-sm-8 mb-4 mt-3">
                         <h3><i class="fa-regular fa-comments"></i> Comments:</h3>
                         
                             

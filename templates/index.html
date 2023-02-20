@@ -4,30 +4,37 @@
 
     <div class="carousel slide" data-bs-ride="carousel" id="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active"><img class="d-block vh-100" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676669501/dfz8nad1rokxknggnqbn.jpg" alt="Slide Image"></div>
-            <div class="carousel-item"><img class="d-block vh-100" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
-            <div class="carousel-item"><img class="d-block vh-100" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" alt="Slide Image"></div>
+            <div class="carousel-item active"><img class="d-block vh-100" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912572/DJI_0170-HDR_2048_gjukis.webp" alt="Slide Image"></div>
+            <div class="carousel-item"><img class="d-block vh-100" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676911583/BHK_9473_ctazzz.webp" alt="Slide Image"></div>
+            <div class="carousel-item"><img class="d-block vh-100" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676911583/BHK_7808_2048px_gkrgzb.webp" alt="Slide Image"></div>
+            <div class="carousel-item"><img class="d-block vh-100" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676911583/BHK_7127-HDR_2048px_qccw1h.webp" alt="Slide Image"></div>
+
         </div>
         <div><a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
         <ol class="carousel-indicators">
             <li data-bs-target="#carousel" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#carousel" data-bs-slide-to="1"></li>
             <li data-bs-target="#carousel" data-bs-slide-to="2"></li>
+            <li data-bs-target="#carousel" data-bs-slide-to="3"></li>
         </ol>
     </div>
 
     
-    <div class="container col-xxl-8 px-4 py-5">
+    <div class="container col-xxl-8 py-5 my-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-            <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+            <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp" class="d-block mx-lg-auto img-fluid" alt="Group of photographers" width="auto" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
-            <h1 class="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
-            <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+            <h1 class="display-5 fw-bold lh-1 my-4">Join us today and share your adventures</h1>
+            <p class="lead">
+                We believe that every moment is worth capturing, and we're on a mission to help photography enthusiasts share their adventures with the world. Whether you're a professional photographer or a hobbyist, we invite you to join our community and share your photos, stories, and tips with fellow enthusiasts.</p>
+            <p class="lead">
+                With our platform, you can connect with like-minded individuals, showcase your work, and discover new techniques to take your photography to the next level. So what are you waiting for? Sign up now and let's embark on a journey to capture life's most beautiful moments together!
+            </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+                <a href="{% url 'account_signup' %}" class="btn btn-success btn-lg px-4 me-md-2">Sign up</a>
+                <a href="{% url 'blog' %}" class="btn btn-outline-secondary btn-lg px-4">Visit blog</a>
             </div>
             </div>
         </div>
