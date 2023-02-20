@@ -16,9 +16,29 @@
                             <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
                         </div>
                         <div class="caption-likes">
-                            <a href="#" class="like">
-                                <i class="far fa-heart"></i>
-                            </a>
+                            
+                                {% if user.is_authenticated %}
+                                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    {% if liked %}
+                                        <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="like liked" data-toggle="tooltip-like" data-placement="left" title="Click to remove like">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    {% else %}
+                                        <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="like" data-toggle="tooltip-like" data-placement="left" title="Click to add like">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+
+
+
+                                    {% endif %}
+                                {% else %}
+                                    <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="Log in to like posts">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                {% endif %}
+                                </form>
+                            
                         </div>
                 </div>
             
