@@ -22,6 +22,10 @@ body > .container {
     margin-bottom: 10px;
 }
 
+/* to override bootstrap default */
+button {
+    border: none;
+}
 
 /* BLOG POST CARD */
 .image-container {
@@ -29,8 +33,6 @@ body > .container {
     width: 100%;
     height: 100%;
 }
-
-
 
 .post-link {
     text-decoration: none;
@@ -58,17 +60,26 @@ body > .container {
     padding: 8px 8px;
 }
 
-.caption-likes .like {
+.caption-likes {
     position: absolute;
     text-align: center;
-    width: 50px;
     top: 1%;
     right: 1%;
     background: transparent;
-    color: #fff;
-    font-size: large;
+    font-size: x-large;
     font-weight: 700;
     padding: 10px 10px;
+    border: none;
+}
+
+.like {
+    color:#fff;
+    background: transparent;
+}
+
+.liked {
+    color: #f00;
+    background: transparent;
 }
 
 .like:hover {
@@ -77,6 +88,7 @@ body > .container {
     transition: all .2s ease-in-out 0s;
     -webkit-transform: all .2s ease-in-out 0s;
 }
+
 
 /*Social icons*/
 .social-icon {
