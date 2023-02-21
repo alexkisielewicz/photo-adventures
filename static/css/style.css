@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Merriweather:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap');
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -25,6 +25,28 @@ button {
     border: none;
 }
 
+
+.btn-green {
+    background-color: #005f08cc;
+    color:#fff;
+}
+
+.btn-green:hover {
+    background-color: #003718;
+    color: #fff;
+}
+
+.btn-outline-green {
+    color: #003718;
+    border-color: #003718;
+}
+
+.btn-outline-green:hover {
+    background-color: #005f08cc;
+    color: #fff;
+}
+
+
 .navbar {
     position: fixed;
     top: 0;
@@ -34,19 +56,37 @@ button {
 }
 
 .btn-outline-secondary {
-    color:#fff;
+    color: #fff;
     border-color: #fff;
 }
+
+.navbar-brand {
+    color:#003718;
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+
+.nav-item {
+    color: #003718;
+    transition: .4s;
+    width: auto;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+    text-decoration-color: #ffbd59;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
 
 /* Main page hero */
 
 .hero-container {
-    background-image: linear-gradient(135deg, hsla(0, 0%, 97%, 0.1) 100%, hsla(0, 0%, 77%, 0.5) 100%);
+    background: linear-gradient(45deg, hsla(180, 5%, 83%, 0.6) 100%, hsla(165, 60%, 4%, 1) 100%);
     background-size: cover;
-    padding: 0;
 }
-
-
 
 /* BLOG POST CARD */
 .image-container {
@@ -59,11 +99,13 @@ button {
     text-decoration: none;
 }
 
-.post-details {
-
+.card-title {
+    font-family: 'Gloock', serif;
+    color: #000;
+    font-size: 2.5rem;
 }
 
-.card-title {
+.card-title a {
     font-family: 'Gloock', serif;
     color: #000;
     font-size: 2.5rem;
@@ -115,18 +157,12 @@ button {
 .social-icon {
     font-size: 1.5em;
     padding: 5px 5px;
-    color: rgb(0, 95, 8);
+    color: #003718;
 }
 
 .social-icon:hover {
-    color: rgb(0, 95, 8);
-    transform: translateY(-2px);
-    box-shadow: 0px 4px 12px rgb(0, 95, 8, 0.6);
+    color: #ffbd59;
   }
-
-footer {
-    font-size: small;
-}
 
 /* scroll stuff */
 
@@ -137,3 +173,62 @@ footer {
 .scroll-up .navbar {
     filter: drop-shadow(0 -10px 20px rgb(136, 136, 136))
 }
+
+.post-excerpt {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.25em;
+}
+
+div.card-text span {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+div.card-text a {
+    text-decoration: none;
+    color: #003718;
+    box-shadow: inset 0 -2px 0 0 green;
+    display: inline-block;
+    transition: all .2s ease-in-out;
+    padding: 0 3px;
+    box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 21px;
+}
+
+div.card-text a:hover {
+    border: none;
+    box-shadow: inset 0 -25px 0 0 #003718;
+    color: #FFF;
+}
+
+/* Colour */
+
+.dark {
+    background-color: #04100D;
+}
+
+.green {
+    background-color: #003718;
+}
+
+.platinum {
+    background-color: #d2d6d6;
+}
+
+.silver {
+    background-color: #cdcecf;
+}
+
+.accent-green {
+    background-color: #c9e365;
+}
+
+.accent-orange {
+    background-color: #ffbd59;
+}
+
