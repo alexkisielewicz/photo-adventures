@@ -1,19 +1,34 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.db.models import Count
 from .models import Post
 from .forms import CommentForm
 
 
 class BlogPosts(generic.ListView):
+    """
+    Class view for all blog posts. Returns all posts to blog.html template.
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
     paginate_by = 4
+    
+
+class PostList(generic.ListView):
+    
+    model = Post
+    context_object_name = 'post'
+    template_name = 'index.html'
 
 
 def index(request):
-    return render(request, 'index.html')
+    trending = Post.objects.annotate(like_count=Count('likes')).order_by('-like_count')[:3]
+    return render(request, 'index.html', {'trending': trending})
+
+# Add - top commented
+# Add - last 3
 
 
 def about(request):
@@ -87,5 +102,5 @@ class PostLike(View):
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
-        
+
         return HttpResponseRedirect(reverse('full_post', args=[slug]))
