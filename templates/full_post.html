@@ -55,7 +55,7 @@
                     <div class="col-sm-8 mb-4 mt-3">
                         <h3><i class="fa-regular fa-comments"></i> Comments:</h3>
                         
-                            
+                        {% if comments %}
                             {% for comment in comments %}
                             <div class="comments" style="padding: 10px;">
                                 <p class="font-weight-bold">
@@ -71,6 +71,9 @@
                             </div>
                             
                             {% endfor %}
+                            {% else %}
+                            <p>There are no comments yet.</p>
+                        {% endif %}
                         
                     </div>
                     <div class="col-sm-4 mb-4 mt-3 ">
