@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container bg-white mt-5 py-5">
+
+
+  
+
+  <div class="container px-4 py-5">
+  
+
+    <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+      <div class="d-flex flex-column align-items-start gap-2">
+        <h3 class="fw-bold">Welcome back {{ user }}.</h3>
+        <p>This is your dashboard from where you can manage your content. View your post history and monitor engagement, such as likes and comments.</p>
+        <a href="{% url 'add_post' %}" class="btn btn-green">Add new post</a>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 g-4">
+        <div class="d-flex flex-column gap-2">
+          
+          <h4 class="fw-semibold mb-2">Share your stories</h4>
+          <p class="text-muted">Post your best adventures.</p>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+          
+          <h4 class="fw-semibold mb-2">Check top-performing posts</h4>
+          <p class="text-muted">Are your posts trending?</p>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+          
+          <h4 class="fw-semibold mb-2">Edit or delete</h4>
+          <p class="text-muted">Manage your posts if needed.</p>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+          
+          <h4 class="fw-semibold mb-2">Enjoy!</h4>
+          <p class="text-muted">You're creator :)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Your Posts</h2>
+    <div class="row">
+      {% if user_posts %}
+        {% for post in user_posts %}
+        
+          <div class="col-md-4 align-items-stretch featured-img">
+            <div class="card mb-4 hover-manage">
+              <img class="card-img-top" src="{{ post.featured_image.url }}" alt="Featured image of the post {{ post.title}}">
+              <div class="overlay">
+                  <a href="#" title="View post" class="btn btn-info me-2">VIEW</a>
+                  <a href="#" title="Edit post" class="btn btn-success me-2">EDIT</a>
+                  <a href="#" title="Delete post" class="btn btn-danger">DELETE</a>
+                
+              </div>
+              
+              <div class="dashboard-image-caption">
+                <i class="fa-regular fa-folder"></i> {{ post.category }}
+              </div>
+              <div class="card-body">
+                <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
+                <h6>{{ post.created_on }}  | <i class="far fa-heart"></i> {{ post.number_of_likes }}</h6>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="col-md-12">
+          <p>You haven't created any posts yet.</p>
+        </div>
+      {% endif %}
+    </div>
+    
+  POSTS I LIKE
+
+  USER AVATAR
+
+  ADD BUTTONS TO EDIT/DELETE
+
+  </div>
+
+
+  </div>
+
+  
+
+  
+    
+
+
+
+{% endblock %}
