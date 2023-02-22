@@ -37,4 +37,4 @@ lastScroll = currentScroll;
 $('#summernote').summernote({
   fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather'],
   fontNamesIgnoreCheck: ['Merriweather']
-});
+}
