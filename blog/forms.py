@@ -20,4 +20,3 @@ class PostForm(forms.ModelForm):
             'location',
             'content',
             ]
-
