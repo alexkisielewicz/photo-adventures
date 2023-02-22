@@ -52,12 +52,18 @@
         
           <div class="col-md-4 align-items-stretch featured-img">
             <div class="card mb-4 hover-manage">
-              <img class="card-img-top" src="{{ post.featured_image.url }}" alt="Featured image of the post {{ post.title}}">
+              {% if "placeholder" in post.featured_image.url %}
+              <img class="card-img-top"
+                src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+              {% else %}
+              <img class="card-img-top" src="{{ post.featured_image.url }}"
+                alt="Featured image of the post {{ post.title}}">
+              {% endif %}
               <div class="overlay">
-                  <a href="#" title="View post" class="btn btn-info me-2">VIEW</a>
-                  <a href="#" title="Edit post" class="btn btn-success me-2">EDIT</a>
-                  <a href="#" title="Delete post" class="btn btn-danger">DELETE</a>
-                
+                <a href="#" title="View post" class="btn btn-info me-2">VIEW</a>
+                <a href="#" title="Edit post" class="btn btn-success me-2">EDIT</a>
+                <a href="#" title="Delete post" class="btn btn-danger">DELETE</a>
+
               </div>
               
               <div class="dashboard-image-caption">
