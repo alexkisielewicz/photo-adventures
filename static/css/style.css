@@ -67,7 +67,6 @@ button {
     font-weight: 700;
 }
 
-
 .nav-item {
     color: #003718;
     transition: .4s;
@@ -92,7 +91,7 @@ button {
     margin: 0;
     background: linear-gradient(90deg, hsla(180, 5%, 83%, 0.6) 100%, hsla(165, 60%, 4%, 1) 100%);
     background-size: cover;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
 }
 
 .display-2 {
@@ -137,13 +136,60 @@ button {
 
 
 .card-main-page {
-    background-color: #fff;
     box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
-    border-radius: 1rem;
     border: 1px solid transparent;
+}
+
+/* Dashboard */
+.dashboard-card-title a {
+    font-size: 1em;
+    text-decoration: none;
+    color: #003718;
+}
+
+.featured-img {
+    position: relative;
     overflow: hidden;
 }
 
+.hover-manage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 997;
+  }
+  
+  .featured-img:hover .overlay {
+    opacity: 1;
+  }
+
+.dashboard-image-caption {
+    position: absolute;
+    width: auto;
+    background-color: rgb(0, 95, 8, 0.8);
+    color: #fff;
+    font-size: small;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding: 8px 8px;
+    z-index: 996;
+}
 
 .card-img {
     width: 100%;
@@ -151,6 +197,10 @@ button {
     object-fit: cover;
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
+}
+
+.heart-main-page {
+    color: #f00;
 }
 
 .post-link {
