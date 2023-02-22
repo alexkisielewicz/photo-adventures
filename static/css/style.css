@@ -81,10 +81,36 @@ button {
     text-underline-offset: 5px;
   }
 
+
+/* carousel */
+
+.carousel-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background: linear-gradient(90deg, hsla(180, 5%, 83%, 0.6) 100%, hsla(165, 60%, 4%, 1) 100%);
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+
+.display-2 {
+    font-family: 'Gloock', serif;
+    color: #04100D;
+}
+
+.display-6 {
+    font-family: 'Gloock', serif;
+    color: #003718;
+}
+
+
+
 /* Main page hero */
 
 .hero-container {
-    background: linear-gradient(45deg, hsla(180, 5%, 83%, 0.6) 100%, hsla(165, 60%, 4%, 1) 100%);
+    background: linear-gradient(90deg, hsla(180, 5%, 83%, 0.6) 100%, hsla(165, 60%, 4%, 1) 100%);
     background-size: cover;
     backdrop-filter: blur(5px);
 }
