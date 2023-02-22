@@ -1,6 +1,8 @@
 // set carousel image as carousel-item's background and streches it to cover viewport
-$.each( jQuery('.carousel .carousel-item'), function( i, val ) {
-  $(this).css('background-image','url('+$(this).find('img').attr('src')+')').css('background-size','cover').find('img').css('visibility','hidden');
+$(document).ready(function() {
+  $.each( jQuery('.carousel .carousel-item'), function( i, val ) {
+    $(this).css('background-image','url('+$(this).find('img').attr('src')+')').css('background-size','cover').find('img').css('visibility','hidden');
+  });
 });
 
 
@@ -37,4 +39,4 @@ lastScroll = currentScroll;
 $('#summernote').summernote({
   fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather'],
   fontNamesIgnoreCheck: ['Merriweather']
-}
+});
