@@ -19,13 +19,13 @@
         </ol>
     </div>
 
-    <div class="container-fluid hero-container p-0">
+    <div class="container-fluid hero-container">
         <div class="container-lg">
 
         <div class="row flex-lg-row-reverse align-items-center g-0 py-5">
             
-            <div class="col-10 col-sm-8 col-lg-6">
-            <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp" class="d-block mx-lg-auto img-fluid rounded p-5" alt="Bootstrap Themes" width="700" height="auto" loading="lazy">
+            <div class="col-10 col-sm-8 col-lg-6 p-5">
+            <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp" class="d-block mx-lg-auto img-fluid rounded shadow" alt="Group of photographers on the beach" width="700" height="auto" loading="lazy">
             </div>
             
             <div class="col-lg-6">
@@ -44,34 +44,47 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
+
+
+
+
+
     
-<div class="container-fluid">
-    <div class="row my-5 py-5">
+    <div class="container my-5 py-5">
+        <h1 class="text-center y-4">Most liked</h1>
+        <div class="row g-5">
         {% for post in trending %}
 
-        <div class="col-sm-2 col-md-4">
-            <div class="row flex-md-row m-5">
-                <div class="col p-4 d-flex flex-column">
-                    
-                </div>
-                <div class="col-auto d-none d-lg-block">
-                    <img src="{{ post.featured_image.url }}" width="100%" height="auto" alt="{{ post.title }}">
-                    <strong class="d-inline-block mb-2 text-primary">{{ post.category }}</strong>
-                    
-                        <a href="{% url 'full_post' post.slug %}" class="post-link">{{ post.title }}</a>
-                    
-                    <div class="mb-1 text-muted">{{ post.created_on }}</div>
-                    <div class="mb-1 text-muted">{{ post.number_of_likes }}</div>
-                </div>
-            </div>
-        </div>
+        
+
+                    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Card featuree Image">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    <a href="{% url 'full_post' post.slug %}"
+                                        class="post-title-popular">{{ post.title }}</a>
+                                </h5>
+                                <h5 class="post-category mt-1">{{ post.category }}</h5>
+                                <h5 class="post-category mb-1">{{ post.number_of_likes }}</h5>
+                                <p class="card-text mb-4">
+                                    {{ post.excerpt }}
+                                    
+                                </p>
+                                <a href="#" class="btn btn-green mt-auto align-self-start">Book now</a>
+                            </div>
+                        </div>
+                    </div>
+                
+
+
         {% endfor %}
+            </div>
+        
     </div>
 
-    
-           
-    
+
 
 
 {% endblock %}
