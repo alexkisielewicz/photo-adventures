@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.db.models import Count
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from django.contrib.auth.decorators import login_required
 
 
 class BlogPosts(generic.ListView):
@@ -37,6 +38,12 @@ def about(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+
+@login_required
+def user_account(request):
+    user_posts = Post.objects.filter(author=request.user)
+    return render(request, 'user_account.html', {'user_posts': user_posts})
 
 
 class FullPost(View):
@@ -104,3 +111,16 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('full_post', args=[slug]))
+
+
+def add_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('blog')
+    else:
+        form = PostForm()
+    return render(request, 'add_post.html', {'form': form})
