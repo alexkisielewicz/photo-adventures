@@ -3,14 +3,24 @@
 {% block content %}
 
 <div class="container">
-    <h1>Hello from delete_post.html</h1>
-    <h2>Are you sure you want to delete "{{ post.title }}"?</h2>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, delete it</button>
-    <a href="{% url 'user_account' %}">Cancel</a>
-  </form>
+  <div class="modal modal-alert modal-overlay d-block py-5" id="myModal" tabindex="-1" role="dialog" id="modalChoice">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-body p-4 text-center">
+          <h3 class="mb-3">Are you sure?</h3>
+          <p class="warning"><i class="fa-solid fa-triangle-exclamation"></i></p>
+          <p class="mb-0">This can not be undone.</p>
+        </div>
+        <div class="modal-footer flex-nowrap justify-content-around p-0">
+          <form method="post">
+            {% csrf_token %}
+          <button type="submit" class="btn btn-danger d-inline">Yes, delete it</button>
+          <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal"><a href="{% url 'user_account' %}" class="delete-link">Cancel</a></button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 
 {% endblock %}
