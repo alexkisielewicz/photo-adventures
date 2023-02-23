@@ -21,6 +21,14 @@ body {
     background-attachment: fixed;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gloock', serif;
+}
+
+
+.box-shadow {
+    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.2);
+}
 
 a {
     text-decoration: none;
@@ -129,17 +137,23 @@ button {
 
 
 /* Post cards on main page */
-.post-category {
+.card-category {
     text-transform: uppercase;
+    font-family: 'Merriweather', serif;
     font-size: small;
 }
 
-.post-title-popular {
+.card-title-popular {
     font-family: 'Gloock', serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-decoration: none;
 }
 
+.card-title-popular a {
+    font-family: 'Gloock', serif;
+    font-size: 2rem;
+    text-decoration: none;
+}
 
 .card-main-page {
     box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
@@ -151,6 +165,11 @@ button {
     font-size: 1em;
     text-decoration: none;
     color: #003718;
+}
+
+.created-on {
+    font-family: 'Merriweather', serif;
+    font-size: small;
 }
 
 .featured-img {
@@ -305,7 +324,7 @@ button {
 div.card-text span {
     font-family: 'Merriweather', serif;
     font-weight: 400;
-    font-size: 21px;
+    font-size: 1.25em;
 }
 
 div.card-text a {
@@ -369,4 +388,44 @@ div.card-text a:hover {
 .warning {
     font-size: xx-large;
     color:#f00;
+}
+
+
+//* ======= About style ======= */
+
+.about img:hover {
+    transform: scale(0.95);
+}
+
+
+
+/* About section */
+
+.about-info .about-info-img img:hover {
+    transform: scale(0.98);
+}
+
+.about-info .about-info-img .img {
+    padding: 15px 0px 0px 15px;
+    position: relative;
+}
+
+.about-info .about-info-img .img:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 15px;
+    bottom: 30px;
+    background: #003718;
+    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
+    
+     
+}
+
+.about-info .about-info-img .img img {
+    position: relative;
+    background: transparent;
+    border-radius: 0.25em;
+    
 }
