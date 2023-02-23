@@ -29,12 +29,20 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
                 </ul>
                     {% if user.is_authenticated %}
-                        <a href="{% url 'user_account' %}" class="btn btn-outline-green mx-2">My Account</a>
-                        <a href="{% url 'account_logout' %}" class="btn btn-outline-danger mx-2">Sign Out</a>
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <a href="{% url 'admin:index' %}" class="btn btn-green">Admin panel</a>
+                    <a href="{% url 'account_logout' %}" class="btn btn-outline-danger mx-2">Sign Out</a>
+                    {% else %}
+                        <i class="fa-regular fa-user"></i> <span class="ms-2">{{ user }}</span>
+                        <a href="{% url 'user_account' %}" class="btn btn-outline-green mx-2">Dashboard</a>
+                        <a href="{% url 'account_logout' %}" class="btn btn-outline-danger">Sign Out</a>
+                        {% endif %}
                     {% else %}
                         <a href="{% url 'account_signup' %}" class="btn btn-outline-green mx-2">Sign up</a>
-                        <a href="{% url 'account_login' %}" class="btn btn-green mx-2">Sign in</a>
+                        <a href="{% url 'account_login' %}" class="btn btn-green">Sign in</a>
                     {% endif %}
+                    
+
             </div>
         </div>
     </nav>
@@ -60,7 +68,7 @@
         <!-- Content Goes here -->
         {% endblock content %}
 
-        <div class="container-fluid pt-4 pb-3 bg-white">
+        <div class="container-fluid py-3 mt-5 bg-white">
             <footer>
               <div class="container">
                 <div class="row">
