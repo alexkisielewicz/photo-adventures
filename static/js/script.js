@@ -36,12 +36,6 @@ body.classList.add('scroll-up')
 lastScroll = currentScroll;
 })
 
-$('#summernote').summernote({
-  fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather'],
-  fontNamesIgnoreCheck: ['Merriweather']
-});
-
-
 const deleteConfirmationModal = new bootstrap.Modal(document.getElementById('deleteModal'))
 document.querySelector('[data-target="#deleteModal"]').addEventListener('click', () => {
   deleteConfirmationModal.show()
