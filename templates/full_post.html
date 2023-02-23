@@ -19,7 +19,7 @@
                             
                             {% if user.is_authenticated %}
                             {% if post.author == request.user %}
-                                <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="We know that you like your own post :)">
+                                <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="You can not add like to your own post">
                                     <i class="far fa-heart"></i>
                                 </button>
                             {% else %}
