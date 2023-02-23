@@ -40,3 +40,17 @@ $('#summernote').summernote({
   fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather'],
   fontNamesIgnoreCheck: ['Merriweather']
 });
+
+
+const deleteConfirmationModal = new bootstrap.Modal(document.getElementById('deleteModal'))
+document.querySelector('[data-target="#deleteModal"]').addEventListener('click', () => {
+  deleteConfirmationModal.show()
+})
+
+
+$(document).ready(function() {
+  $('.delete-post-btn').click(function(event) {
+    var postId = $(this).data('post-id');
+    $('#deleteForm input[name="post_id"]').val(postId);
+  });
+});

@@ -12,6 +12,7 @@ html {
 
 body {
     font-family: 'Merriweather', serif;
+    color: #04100D;
     background-color: rgb(238, 245, 235);
     background-image: url('https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676908742/background_pa_dfqyis.webp');
     background-repeat: no-repeat;
@@ -20,6 +21,11 @@ body {
     background-attachment: fixed;
 }
 
+
+a {
+    text-decoration: none;
+    color: #04100D;
+}
 /* to override bootstrap default */
 button {
     border: none;
@@ -203,9 +209,15 @@ button {
     color: #f00;
 }
 
-.post-link {
+.delete-link {
     text-decoration: none;
+    color: #04100D;
 }
+
+.delete-link:hover {
+    color: #04100D;
+}
+
 
 .card-title {
     font-family: 'Gloock', serif;
@@ -217,6 +229,7 @@ button {
     font-family: 'Gloock', serif;
     color: #000;
     font-size: 2.5rem;
+    text-decoration: none;
 }
 
 .image-caption {
@@ -340,3 +353,20 @@ div.card-text a:hover {
     background-color: #ffbd59;
 }
 
+
+
+.modal-overlay {  
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+
+.warning {
+    font-size: xx-large;
+    color:#f00;
+}
