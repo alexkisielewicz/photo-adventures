@@ -17,7 +17,12 @@
                         </div>
                         <div class="caption-likes">
                             
-                                {% if user.is_authenticated %}
+                            {% if user.is_authenticated %}
+                            {% if post.author == request.user %}
+                                <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="We know that you like your own post :)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            {% else %}
                                 <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                     {% csrf_token %}
                                     {% if liked %}
@@ -26,18 +31,16 @@
                                         </button>
                                     {% else %}
                                         <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="like" data-toggle="tooltip-like" data-placement="left" title="Click to add like">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-
-
-
+                                            <i class="far fa-heart"></i>
+                                        </button>
                                     {% endif %}
-                                {% else %}
-                                    <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="Log in to like posts">
-                                        <i class="far fa-heart"></i>
-                                    </button>
-                                {% endif %}
                                 </form>
+                            {% endif %}
+                        {% else %}
+                            <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="Log in to like posts">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        {% endif %} 
                             
                         </div>
                 </div>
