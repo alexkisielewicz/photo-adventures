@@ -112,7 +112,7 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('full_post', args=[slug]))
 
-
+@login_required
 def add_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
