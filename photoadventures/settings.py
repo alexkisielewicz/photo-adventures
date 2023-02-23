@@ -65,7 +65,28 @@ LOGOUT_REDIRECT_URL = '/'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
-SUMMERNOTE_THEME = 'bs5'
+# Summernote configuration
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SUMMERNOTE_THEME = 'bs4'
+SUMMERNOTE_CONFIG = {
+    'fontNames': ['Merriweather', 'Arial', 'Courier New', 'Tahoma', 'Times New Roman', 'Verdana'],
+    'fontNamesIgnoreCheck': ['Merriweather', 'Arial', 'Courier New', 'Tahoma', 'Times New Roman', 'Verdana'],
+    'toolbar': [
+        ['font', ['bold', 'italic', 'underline', 'clear']],
+        ['fontsize', ['fontsize']],
+        ['fontname', ['fontname']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview']],
+    ],
+    'font-size': '16px',
+    'font-family': "'Merriweather', serif",
+    'height': '300px',
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
