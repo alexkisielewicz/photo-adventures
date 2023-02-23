@@ -60,10 +60,9 @@
                 alt="Featured image of the post {{ post.title}}">
               {% endif %}
               <div class="overlay">
-                <a href="#" title="View post" class="btn btn-info me-2">VIEW</a>
+                <a href="{% url 'full_post' slug=post.slug %}" title="View post" class="btn btn-info me-2">VIEW</a>
                 <a href="#" title="Edit post" class="btn btn-success me-2">EDIT</a>
-                <a href="#" title="Delete post" class="btn btn-danger">DELETE</a>
-
+                <a href="{% url 'delete_post' post_id=post.id %}" title="Delete post" class="btn btn-danger">DELETE</a>              
               </div>
               
               <div class="dashboard-image-caption">
