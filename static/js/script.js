@@ -48,3 +48,6 @@ $(document).ready(function() {
     $('#deleteForm input[name="post_id"]').val(postId);
   });
 });
+
+// About page bootstrap accordion
+const faqAccordion = new bootstrap.Accordion(document.getElementById('faqAccordion'));
