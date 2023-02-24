@@ -150,8 +150,13 @@ class PostEdit(View):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            post.status = form.cleaned_data['status']
             content = post.content
-            post.save()
-            return redirect('full_post', slug=post.slug)
-        else:
-            return render(request, 'edit_post.html', {'form': form})
+            if post.status == 1:  # "Published"
+                post.save()
+                return redirect('full_post', slug=post.slug)
+            else:  # "Save as draft"
+                post.save()
+                return redirect('user_account')
+        else:   
+                return render(request, 'edit_post.html', {'form': form})
