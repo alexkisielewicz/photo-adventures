@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container bg-white mt-3 py-3">
+<div class="container bg-white my-5 py-3">
   <div class="container px-4 py-5">
 
 
@@ -11,24 +11,24 @@
         <h2 class="fw-semibold my-3">Welcome back {{ user }}.</h2>
         <p>This is your dashboard from where you can manage your content. View your post history and monitor engagement,
           such as likes and comments.</p>
-        <a href="{% url 'add_post' %}" class="btn btn-green">Add new post</a>
+        <a href="{% url 'add_post' %}" class="btn btn-green"><i class="fas fa-pen"></i> Add new post</a>
       </div>
       <div class="row row-cols-1 row-cols-sm-2 g-4">
         <div class="d-flex flex-column gap-2">
 
-          <h4 class="fw-semibold mb-2"><i class="fas fa-pen"></i> Share your stories</h4>
-          <p class="text-muted">Post your best adventures.</p>
+          <h4 class="fw-semibold mb-2"><i class="fas fa-pen"></i> Create blog post</h4>
+          <p class="text-muted">Share your adventures with our community.</p>
         </div>
 
         <div class="d-flex flex-column gap-2">
 
-          <h4 class="fw-semibold mb-2"><i class="fas fa-fire"></i> Check top-performing posts</h4>
-          <p class="text-muted">Are your posts trending?</p>
+          <h4 class="fw-semibold mb-2"><i class="fas fa-fire"></i> Check performance</h4>
+          <p class="text-muted">Are your posts popular?</p>
         </div>
 
         <div class="d-flex flex-column gap-2">
 
-          <h4 class="fw-semibold mb-2"><i class="fas fa-list-check"></i> Edit or delete</h4>
+          <h4 class="fw-semibold mb-2"><i class="fas fa-pen-to-square"></i> Edit or delete</h4>
           <p class="text-muted">Manage your posts if needed.</p>
         </div>
 
@@ -58,7 +58,7 @@
           {% endif %}
           <div class="overlay">
             <a href="{% url 'full_post' slug=post.slug %}" title="View post" class="btn btn-info me-2">VIEW</a>
-            <a href="#" title="Edit post" class="btn btn-success me-2">EDIT</a>
+            <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
             <a href="{% url 'delete_post' post_id=post.id %}" title="Delete post" class="btn btn-danger">DELETE</a>
           </div>
 
