@@ -450,16 +450,14 @@ div.card-text a:hover {
     color: #FFF;
     font-weight: 700;
     text-decoration: none;
-    border: hidden;
-    border-color: #FFF;
-    box-shadow: 0px;
 }
 
 .accordion-button:focus {
     border-color: #FFF;
     font-weight: 700;
     outline: 0;
-    box-shadow: 0 0 0 .25rem #FFF;
+    box-shadow: 0 0 0 1px #003718;
+    border: none;
 }
 
 .accordion-body {
