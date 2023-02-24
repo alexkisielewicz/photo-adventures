@@ -7,6 +7,7 @@ from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
 
 
+
 class BlogPosts(generic.ListView):
     """
     Class view for all blog posts. Returns all posts to blog.html template.
@@ -134,3 +135,23 @@ def delete_post(request, post_id):
         return redirect('user_account')
     else:
         return render(request, 'delete_post.html', {'post': post})
+    
+
+class PostEdit(View):
+
+    def get(self, request, slug):
+        post = get_object_or_404(Post, slug=slug, author=request.user)
+        form = PostForm(instance=post)
+        return render(request, 'edit_post.html', {'form': form})
+    
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug, author=request.user)
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            content = post.content
+            post.save()
+            return redirect('full_post', slug=post.slug)
+        else:
+            return render(request, 'edit_post.html', {'form': form})
