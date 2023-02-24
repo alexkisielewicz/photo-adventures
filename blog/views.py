@@ -152,7 +152,7 @@ class PostEdit(View):
             post.author = request.user
             post.status = form.cleaned_data['status']
             content = post.content
-            if post.status == 1:  # "Published"
+            if post.status == 1:  # "Publish now"
                 post.save()
                 return redirect('full_post', slug=post.slug)
             else:  # "Save as draft"
@@ -160,3 +160,17 @@ class PostEdit(View):
                 return redirect('user_account')
         else:   
                 return render(request, 'edit_post.html', {'form': form})
+
+
+
+# def dashboard_stats(request):
+#     author = request.user
+#     published_count = Post.objects.filter(author=author, status=1).count()
+#     draft_count = Post.objects.filter(author=author, status=0).count()
+
+#     context = {
+#         'published_count': published_count,
+#         'draft_count': draft_count,
+#     }
+
+#     return render(request, 'user_account.html', context)
