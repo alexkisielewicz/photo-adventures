@@ -62,11 +62,14 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+# Crispy templates
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
-# Summernote configuration
+# Page can only be displayed within an iframe on its own domain
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# Summernote configuration to override default font
 SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
     'fontNames': ['Merriweather', 'Arial', 'Courier New', 'Tahoma', 'Times New Roman', 'Verdana'],
@@ -86,7 +89,6 @@ SUMMERNOTE_CONFIG = {
     'font-family': "'Merriweather', serif",
     'height': '300px',
 }
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
