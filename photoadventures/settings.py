@@ -70,14 +70,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Summernote configuration to override default font
+# I want user to write posts with default font only
+# fontsize and fontname arrays stay empty
 SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
-    'fontNames': ['Merriweather', 'Arial', 'Courier New', 'Tahoma', 'Times New Roman', 'Verdana'],
-    'fontNamesIgnoreCheck': ['Merriweather', 'Arial', 'Courier New', 'Tahoma', 'Times New Roman', 'Verdana'],
+    'fontNames': ['Merriweather'],
+    'fontNamesIgnoreCheck': [],
     'toolbar': [
         ['font', ['bold', 'italic', 'underline', 'clear']],
-        ['fontsize', ['fontsize']],
-        ['fontname', ['fontname']],
+        ['fontsize', []],
+        ['fontname', []],
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
         ['height', ['height']],
@@ -87,7 +89,8 @@ SUMMERNOTE_CONFIG = {
     ],
     'font-size': '16px',
     'font-family': "'Merriweather', serif",
-    'height': '300px',
+    'height': '400px',
+    'width': '100%'
 }
 
 MIDDLEWARE = [
