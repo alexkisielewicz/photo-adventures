@@ -418,14 +418,50 @@ div.card-text a:hover {
     right: 15px;
     bottom: 30px;
     background: #003718;
-    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
-    
-     
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
 }
 
 .about-info .about-info-img .img img {
     position: relative;
     background: transparent;
     border-radius: 0.25em;
-    
+}
+
+.accordion-button {
+    font-family: 'Merriweather', serif;
+    color: #003718;
+    background-color: #fff;
+}
+
+.accordion-button:link {
+    color: #003718;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #FFF;
+    background-color: #005f08cc;
+}
+
+.accordion-button:link,
+.accordion-button:visited,
+.accordion-button:hover,
+.accordion-button:active {
+    background-color: #005f08cc;
+    color: #FFF;
+    font-weight: 700;
+    text-decoration: none;
+    border: hidden;
+    border-color: #FFF;
+    box-shadow: 0px;
+}
+
+.accordion-button:focus {
+    border-color: #FFF;
+    font-weight: 700;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem #FFF;
+}
+
+.accordion-body {
+    font-weight: 700;
 }
