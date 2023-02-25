@@ -67,41 +67,36 @@
 </div>
 
 
-    <div class="container my-5 py-5">
-        <h1 class="text-center py-4">Most liked posts</h1>
-        <div class="row g-5">
-            {% for post in trending %}
-            <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                <div class="card card-main-page">
-                    {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img-top"
-                        src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
-                    {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Card featuree Image">
-                    {% endif %}
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-category mt-1">{{ post.category }}</h5>
-                        <h5 class="card-title-popular">
-                            <a href="{% url 'full_post' post.slug %}" class="card-title-popular">{{ post.title }}</a>
-                        </h5>
-                        
-                        <h5 class="card-category mb-1">
-                            <i class="far fa-heart heart-main-page"></i> {{ post.number_of_likes }}</h5>
-                        <p class="card-text mb-4">
-                            {{ post.excerpt }}
-                        </p>
-                        <a href="{% url 'full_post' post.slug %}" class="btn btn-green mt-auto align-self-start">Full
-                            story</a>
-                    </div>
+<div class="container my-5 py-5">
+    <h1 class="text-center py-4">Most liked posts</h1>
+    <div class="row g-5">
+        {% for post in trending %}
+        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+            <div class="card card-main-page">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top"
+                    src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+                {% else %}
+                <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Card featuree Image">
+                {% endif %}
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-category mt-1">{{ post.category }}</h5>
+                    <h5 class="card-title-popular">
+                        <a href="{% url 'full_post' post.slug %}" class="card-title-popular">{{ post.title }}</a>
+                    </h5>
+                    <h5 class="card-category mb-1">
+                        <i class="far fa-heart heart-main-page"></i> {{ post.number_of_likes }}</h5>
+                    <p class="card-text mb-4">
+                        {{ post.excerpt }}
+                    </p>
+                    <a href="{% url 'full_post' post.slug %}" class="btn btn-green mt-auto align-self-start">Full
+                        story</a>
                 </div>
             </div>
-
-
-
-            {% endfor %}
         </div>
-        
+        {% endfor %}
     </div>
+</div>
 
 
 
