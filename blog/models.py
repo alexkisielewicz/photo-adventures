@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from taggit.managers import TaggableManager
+from taggit.models import TaggedItemBase
 
 # Tuple for post status
 STATUS = (
@@ -34,6 +36,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     featured = models.BooleanField(default=False, verbose_name='featured post')
+    tags = TaggableManager()
 
     # Descending order of Posts in Admin Panel
     class Meta:
@@ -46,6 +49,10 @@ class Post(models.Model):
     # Method to return total number of likes
     def number_of_likes(self):
         return self.likes.count()
+
+
+class TaggedPost(TaggedItemBase):
+    content_object = models.ForeignKey('Post', on_delete=models.CASCADE)
 
 
 class Comment(models.Model):
