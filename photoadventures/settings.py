@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'crispy_bootstrap5',
+    'taggit',
     'blog',
 ]
 
@@ -65,6 +66,9 @@ LOGOUT_REDIRECT_URL = '/'
 # Crispy templates
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# Taggit
+TAGGIT_CASE_INSENSITIVE = True
 
 # Page can only be displayed within an iframe on its own domain
 X_FRAME_OPTIONS = 'SAMEORIGIN'
