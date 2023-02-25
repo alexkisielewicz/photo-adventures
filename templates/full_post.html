@@ -51,16 +51,22 @@
                 </div>
             
                     <h2 class="card-title mt-5">{{ post.title }}</h2>
-                    <p class="post-details text-muted mt-3 mb-5">
+                    <p class="post-details text-muted mt-3">
                         <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
                         <i class="fa-regular fa-folder"></i> {{ post.category }} |
                         <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
                         <i class="far fa-heart"></i> {{ post.number_of_likes }}
+                        {% if post.tags.all %}
+                        <div class="post-tags rounded mt-2 mb-5">
+                            {% for tag in post.tags.all %}
+                            <button><a href="{% url 'tagged_posts' tag.slug %}">{{ tag.name }}</a></button>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                     </p>
-                
                 <div class="card-text">{{ post.content | safe }}</div>
                 <div class="row">
-                    <div class="col-sm-8 mb-4 mt-3">
+                    <div class="col-sm-8 mb-4 mt-5">
                         <h3><i class="fa-regular fa-comments"></i> Comments:</h3>
                         
                         {% if comments %}
