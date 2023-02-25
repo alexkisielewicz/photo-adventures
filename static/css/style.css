@@ -30,10 +30,11 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.2);
 }
 
-a {
+a, a:hover {
     text-decoration: none;
     color: #04100D;
 }
+
 /* to override bootstrap default */
 button {
     border: none;
@@ -299,6 +300,25 @@ button {
 
 .edit:hover {
     color:#c9e365;
+}
+
+.post-details {
+    font-size: medium;
+}
+
+.post-tags button {
+    background-color: #cdcecf;
+    color:#04100D;
+    font-size: medium;
+    box-shadow: inset 0 -2px 0 0 green;
+    transition: all .2s ease-in-out;
+}
+
+.post-tags button:hover {
+    background-color: #ffbd59;
+    color:#04100D;
+    font-size: medium;
+    box-shadow: inset 0 -25px 0 0 #ffbd59;
 }
 
 
