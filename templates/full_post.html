@@ -19,8 +19,13 @@
                             
                             {% if user.is_authenticated %}
                             {% if post.author == request.user %}
-                                <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="You can not add like to your own post">
+                                <button type="button" class="like d-block" data-toggle="tooltip-like" data-placement="left" title="You can not add like to your own post">
                                     <i class="far fa-heart"></i>
+                                <button type="button" class="edit d-block" data-toggle="tooltip-like" data-placement="left" title="Click to edit post">
+                                    <a href="{% url 'edit_post' slug=post.slug %}" class="edit" title="Edit post">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                </button>    
                                 </button>
                             {% else %}
                                 <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">

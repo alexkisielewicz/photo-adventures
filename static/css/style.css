@@ -292,6 +292,17 @@ button {
     -webkit-transform: all .2s ease-in-out 0s;
 }
 
+.edit {
+    color:#fff;
+    background: transparent;
+}
+
+.edit:hover {
+    color:#c9e365;
+}
+
+
+
 
 /*Social icons*/
 .social-icon {
