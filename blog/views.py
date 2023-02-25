@@ -5,10 +5,11 @@ from django.db.models import Count
 from .models import Post
 from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
+from taggit.models import Tag
 
 
 
-class BlogPosts(generic.ListView):
+class BlogPosts(generic.ListView,):
     """
     Class view for all blog posts. Returns all posts to blog.html template.
     """
@@ -17,7 +18,7 @@ class BlogPosts(generic.ListView):
     template_name = 'blog.html'
     paginate_by = 5
     
-
+    
 class PostList(generic.ListView):
     
     model = Post
@@ -26,12 +27,11 @@ class PostList(generic.ListView):
 
 
 def index(request):
-    trending = Post.objects.annotate(like_count=Count('likes')).order_by('-like_count')[:3]
+    trending = Post.objects.filter(status=1).annotate(like_count=Count('likes')).order_by('-like_count')[:3]
     return render(request, 'index.html', {'trending': trending})
 
 # Add - top commented
 # Add - last 3
-
 
 def about(request):
     return render(request, 'about.html')
@@ -40,7 +40,7 @@ def about(request):
 def contact(request):
     return render(request, 'contact.html')
 
-
+# Should this be a class view with pagination?
 @login_required
 def user_account(request):
     user_posts = Post.objects.filter(author=request.user)
@@ -174,3 +174,18 @@ class PostEdit(View):
 #     }
 
 #     return render(request, 'user_account.html', context)
+
+class TaggedPosts(generic.ListView):
+    model = Post
+    template_name = 'blog.html'
+    paginate_by = 5
+
+    def get_queryset(self):
+        tag_slug = self.kwargs['tag_slug']
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        return Post.objects.filter(tags=tag).order_by('-created_on')
+
+    def get_context_data(self, **kwargs):
+        context = super(TaggedPosts, self).get_context_data(**kwargs)
+        context['tag'] = get_object_or_404(Tag, slug=self.kwargs['tag_slug'])
+        return context
