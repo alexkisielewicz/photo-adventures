@@ -2,119 +2,116 @@
 
 {% load crispy_forms_tags %}
 
+<!-- Full post start -->
 <div class="container py-5 my-5">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <div class="image-container">
                     {% if "placeholder" in post.featured_image.url %}
-                        <img class="card-img-top" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+                    <img class="card-img-top"
+                        src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
                     {% else %}
-                        <img class="card-img-top" src="{{ post.featured_image.url }}">
+                    <img class="card-img-top" src="{{ post.featured_image.url }}">
                     {% endif %}
-                        <div class="image-caption">
-                            <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
-                        </div>
-                        <div class="caption-likes">
-                            
-                            {% if user.is_authenticated %}
-                            {% if post.author == request.user %}
-                                <button type="button" class="like d-block" data-toggle="tooltip-like" data-placement="left" title="You can not add like to your own post">
-                                    <i class="far fa-heart"></i>
-                                <button type="button" class="edit d-block" data-toggle="tooltip-like" data-placement="left" title="Click to edit post">
-                                    <a href="{% url 'edit_post' slug=post.slug %}" class="edit" title="Edit post">
-                                        <i class="fa-solid fa-pencil"></i>
-                                    </a>
-                                </button>    
-                                </button>
-                            {% else %}
-                                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                                    {% csrf_token %}
-                                    {% if liked %}
-                                        <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="like liked" data-toggle="tooltip-like" data-placement="left" title="Click to remove like">
-                                            <i class="fas fa-heart"></i>
-                                        </button>
-                                    {% else %}
-                                        <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="like" data-toggle="tooltip-like" data-placement="left" title="Click to add like">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    {% endif %}
-                                </form>
-                            {% endif %}
+                    <div class="image-caption">
+                        <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
+                    </div>
+                    <div class="caption-likes">
+                        {% if user.is_authenticated %}
+                        {% if post.author == request.user %}
+                        <button type="button" class="like d-block" data-toggle="tooltip-like" data-placement="left"
+                            title="You can not add like to your own post">
+                            <i class="far fa-heart"></i>
+                            <button type="button" class="edit d-block" data-toggle="tooltip-like" data-placement="left"
+                                title="Click to edit post">
+                                <a href="{% url 'edit_post' slug=post.slug %}" class="edit" title="Edit post">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                            </button>
+                        </button>
                         {% else %}
-                            <button type="button" class="like" data-toggle="tooltip-like" data-placement="left" title="Log in to like posts">
+                        <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="like liked"
+                                data-toggle="tooltip-like" data-placement="left" title="Click to remove like">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            {% else %}
+                            <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="like"
+                                data-toggle="tooltip-like" data-placement="left" title="Click to add like">
                                 <i class="far fa-heart"></i>
                             </button>
-                        {% endif %} 
-                            
-                        </div>
-                </div>
-            
-                    <h2 class="card-title mt-5">{{ post.title }}</h2>
-                    <p class="post-details text-muted mt-3">
-                        <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
-                        <i class="fa-regular fa-folder"></i> {{ post.category }} |
-                        <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
-                        <i class="far fa-heart"></i> {{ post.number_of_likes }}
-                        {% if post.tags.all %}
-                        <div class="post-tags rounded mt-2 mb-5">
-                            {% for tag in post.tags.all %}
-                            <button><a href="{% url 'tagged_posts' tag.slug %}">{{ tag.name }}</a></button>
-                            {% endfor %}
-                        </div>
+                            {% endif %}
+                        </form>
                         {% endif %}
-                    </p>
+                        {% else %}
+                        <button type="button" class="like" data-toggle="tooltip-like" data-placement="left"
+                            title="Log in to like posts">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+                <h2 class="card-title mt-5">{{ post.title }}</h2>
+                <p class="post-details text-muted mt-3">
+                    <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
+                    <i class="fa-regular fa-folder"></i> {{ post.category }} |
+                    <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
+                    <i class="far fa-heart"></i> {{ post.number_of_likes }}
+                    {% if post.tags.all %}
+                    <div class="post-tags rounded mt-2 mb-5">
+                        {% for tag in post.tags.all %}
+                        <button><a href="{% url 'tagged_posts' tag.slug %}">{{ tag.name }}</a></button>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </p>
+                <!-- Comment section start -->
                 <div class="card-text">{{ post.content | safe }}</div>
                 <div class="row">
                     <div class="col-sm-8 mb-4 mt-5">
                         <h3><i class="fa-regular fa-comments"></i> Comments:</h3>
-                        
                         {% if comments %}
-                            {% for comment in comments %}
-                            <div class="comments" style="padding: 10px;">
-                                <p class="font-weight-bold">
-                                    
-                                    {{ comment.name }}
-                                    <span class=" text-muted font-weight-normal">
-                                        
-                                        {{ comment.created_on }}
-                                    </span> wrote:
-                                </p>
-                                
-                                {{ comment.body | linebreaks }}
-                            </div>
-                            
-                            {% endfor %}
-                            {% else %}
-                            <p>There are no comments yet.</p>
+                        {% for comment in comments %}
+                        <div class="comments" style="padding: 10px;">
+                            <p class="font-weight-bold">
+                                {{ comment.name }}
+                                <span class=" text-muted font-weight-normal">
+                                    {{ comment.created_on }}
+                                </span> wrote:
+                            </p>
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p>There are no comments yet.</p>
                         {% endif %}
-                        
                     </div>
                     <div class="col-sm-4 mb-4 mt-3 ">
-                            {% if commented %}
-                            <div class="alert alert-success" role="alert">
-                                Thank you! Your comment is awaiting approval.
-                            </div>
-                            {% else %}
-                            
-                            {% if user.is_authenticated %}
-
-                            <h3><i class="fa-regular fa-keyboard"></i> Leave a comment:</h3>
-                            <p>Posting as: {{ user.username }}</p>
-                            <form method="post" mt-3>
-                                {{ comment_form | crispy }}
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </form>
-                            {% endif %}
-                            {% endif %}
-                            
-                        
+                        {% if commented %}
+                        <div class="alert alert-success" role="alert">
+                            Thank you! Your comment is awaiting approval.
+                        </div>
+                        {% else %}
+                        {% if user.is_authenticated %}
+                        <h3><i class="fa-regular fa-keyboard"></i> Leave a comment:</h3>
+                        <p>Posting as: {{ user.username }}</p>
+                        <form method="post" mt-3>
+                            {{ comment_form | crispy }}
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
                     </div>
                 </div>
+                <!-- Comment section end -->
             </div>
         </div>
     </div>
 </div>
+<!-- Full post end -->
 
 {% endblock content %}

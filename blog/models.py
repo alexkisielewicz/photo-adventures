@@ -25,8 +25,10 @@ class Post(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='photo_adventures')
-    category = models.CharField(choices=POST_CATEGORIES, max_length=20, default='adventure')
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name='photo_adventures')
+    category = models.CharField(choices=POST_CATEGORIES, max_length=20,
+                                default='adventure')
     excerpt = models.TextField(blank=True)
     featured_image = CloudinaryField('image', default='placeholder')
     location = models.CharField(max_length=100, unique=False)
@@ -56,7 +58,8 @@ class TaggedPost(TaggedItemBase):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,
+                             related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

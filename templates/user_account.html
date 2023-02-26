@@ -2,10 +2,9 @@
 
 {% block content %}
 
+<!-- Dashboard welcome and icons start -->
 <div class="container bg-white my-5 py-3">
   <div class="container px-4 py-5">
-
-
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
       <div class="d-flex flex-column align-items-start gap-2">
         <h2 class="fw-semibold my-3">Welcome back {{ user }}.</h2>
@@ -15,126 +14,111 @@
       </div>
       <div class="row row-cols-1 row-cols-sm-2 g-4">
         <div class="d-flex flex-column gap-2">
-
           <h4 class="fw-semibold mb-2"><i class="fas fa-pen"></i> Create blog post</h4>
           <p class="text-muted">Share your adventures with our community.</p>
         </div>
-
         <div class="d-flex flex-column gap-2">
-
           <h4 class="fw-semibold mb-2"><i class="fas fa-fire"></i> Check performance</h4>
           <p class="text-muted">Are your posts popular?</p>
         </div>
-
         <div class="d-flex flex-column gap-2">
-
           <h4 class="fw-semibold mb-2"><i class="fas fa-pen-to-square"></i> Edit or delete</h4>
           <p class="text-muted">Manage your posts if needed.</p>
         </div>
-
         <div class="d-flex flex-column gap-2">
-
           <h4 class="fw-semibold mb-2"><i class="fas fa-face-smile"></i> Enjoy!</h4>
           <p class="text-muted">You're creator :)</p>
         </div>
       </div>
     </div>
   </div>
+<!-- Dashboard welcome and icons end -->
 
   <h2>Dashboard Stats</h2>
   <p>Published Posts: {{ published_count }}</p>
   <p>Draft Posts: {{ draft_count }}</p>
 
-
+  <!-- Draft posts start -->
   <div class="container">
     <h2 class="my-3"><i class="fas fa-list"></i> My drafts ({{ drafts_count }}): </h2>
     <div class="row g-3">
       {% if user_posts %}
-        {% for post in user_posts %}
-          {% if post.status == 0 %}
-            <div class="col-md-4 align-items-stretch featured-img">
-              <div class="card mb-4 hover-manage">
-                {% if "placeholder" in post.featured_image.url %}
-                  <img class="card-img-top" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
-                {% else %}
-                  <img class="card-img-top" src="{{ post.featured_image.url }}" alt="Featured image of the post {{ post.title}}">
-                {% endif %}
-                <div class="overlay">
-                  <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
-                  <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
-                </div>
-                <div class="dashboard-image-caption">
-                  <i class="fa-regular fa-folder"></i> {{ post.category }}
-                </div>
-                <div class="card-body">
-                  <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
-                  <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i> {{ post.number_of_likes }}</h6>
-                </div>
-              </div>
-            </div>
+      {% for post in user_posts %}
+      {% if post.status == 0 %}
+      <div class="col-md-4 align-items-stretch featured-img">
+        <div class="card mb-4 hover-manage">
+          {% if "placeholder" in post.featured_image.url %}
+          <img class="card-img-top"
+            src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+          {% else %}
+          <img class="card-img-top" src="{{ post.featured_image.url }}"
+            alt="Featured image of the post {{ post.title}}">
           {% endif %}
-        {% endfor %}
-      {% else %}
-        <div class="col-md-12">
-          <p>You don't have any drafts.</p>
+          <div class="overlay">
+            <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
+            <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
+          </div>
+          <div class="dashboard-image-caption">
+            <i class="fa-regular fa-folder"></i> {{ post.category }}
+          </div>
+          <div class="card-body">
+            <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
+            <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i> {{ post.number_of_likes }}</h6>
+          </div>
         </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% else %}
+      <div class="col-md-12">
+        <p>You don't have any drafts.</p>
+      </div>
       {% endif %}
     </div>
   </div>
+  <!-- Draft posts end -->
 
-
-
+  <!-- Published posts start -->
   <div class="container">
     <h2 class="my-3"><i class="fas fa-list"></i> My published posts ({{ published_count }}): </h2>
     <div class="row g-3">
       {% if user_posts %}
-        {% for post in user_posts %}
-          {% if post.status == 1 %}
-            <div class="col-md-4 align-items-stretch featured-img">
-              <div class="card mb-4 hover-manage">
-                {% if "placeholder" in post.featured_image.url %}
-                  <img class="card-img-top" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
-                {% else %}
-                  <img class="card-img-top" src="{{ post.featured_image.url }}" alt="Featured image of the post {{ post.title}}">
-                {% endif %}
-                <div class="overlay">
-                  <a href="{% url 'full_post' slug=post.slug %}" title="View post" class="btn btn-info me-2">VIEW</a>
-                  <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
-                  <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
-                </div>
-                <div class="dashboard-image-caption">
-                  <i class="fa-regular fa-folder"></i> {{ post.category }}
-                </div>
-                <div class="card-body">
-                  <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
-                  <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i> {{ post.number_of_likes }}</h6>
-                </div>
-              </div>
-            </div>
+      {% for post in user_posts %}
+      {% if post.status == 1 %}
+      <div class="col-md-4 align-items-stretch featured-img">
+        <div class="card mb-4 hover-manage">
+          {% if "placeholder" in post.featured_image.url %}
+          <img class="card-img-top"
+            src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+          {% else %}
+          <img class="card-img-top" src="{{ post.featured_image.url }}"
+            alt="Featured image of the post {{ post.title}}">
           {% endif %}
-        {% endfor %}
-      {% else %}
-        <div class="col-md-12">
-          <p>You haven't created any posts yet.</p>
+          <div class="overlay">
+            <a href="{% url 'full_post' slug=post.slug %}" title="View post" class="btn btn-info me-2">VIEW</a>
+            <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
+            <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
+          </div>
+          <div class="dashboard-image-caption">
+            <i class="fa-regular fa-folder"></i> {{ post.category }}
+          </div>
+          <div class="card-body">
+            <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
+            <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i> {{ post.number_of_likes }}</h6>
+          </div>
         </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% else %}
+      <div class="col-md-12">
+        <p>You haven't created any posts yet.</p>
+      </div>
       {% endif %}
     </div>
   </div>
-
-
-
-  
-
-  
-
-    <!-- TODO 
-  POSTS I LIKE
-
-  USER AVATAR ?
-   -->
-
-  </div>
-
+  <!-- Published posts end -->
+</div>
 </div>
 
 {% endblock %}

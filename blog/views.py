@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from taggit.models import Tag
 
 
-
 class BlogPosts(generic.ListView,):
     """
     Class view for all blog posts. Returns all posts to blog.html template.
@@ -17,21 +16,23 @@ class BlogPosts(generic.ListView,):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
     paginate_by = 5
-    
-    
+
+
 class PostList(generic.ListView):
-    
+
     model = Post
     context_object_name = 'post'
     template_name = 'index.html'
 
 
 def index(request):
-    trending = Post.objects.filter(status=1).annotate(like_count=Count('likes')).order_by('-like_count')[:3]
+    trending = Post.objects.filter(status=1).annotate(
+        like_count=Count('likes')).order_by('-like_count')[:3]
     return render(request, 'index.html', {'trending': trending})
 
 # Add - top commented
 # Add - last 3
+
 
 def about(request):
     return render(request, 'about.html')
@@ -39,6 +40,7 @@ def about(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
 
 # Should this be a class view with pagination?
 @login_required
@@ -113,6 +115,7 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('full_post', args=[slug]))
 
+
 @login_required
 def add_post(request):
     if request.method == 'POST':
@@ -135,7 +138,7 @@ def delete_post(request, slug):
         return redirect('user_account')
     else:
         return render(request, 'delete_post.html', {'post': post})
-    
+
 
 class PostEdit(View):
 
@@ -143,7 +146,7 @@ class PostEdit(View):
         post = get_object_or_404(Post, slug=slug, author=request.user)
         form = PostForm(instance=post)
         return render(request, 'edit_post.html', {'form': form})
-    
+
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug, author=request.user)
         form = PostForm(request.POST, request.FILES, instance=post)
@@ -158,9 +161,8 @@ class PostEdit(View):
             else:  # "Save as draft"
                 post.save()
                 return redirect('user_account')
-        else:   
-                return render(request, 'edit_post.html', {'form': form})
-
+        else:
+            return render(request, 'edit_post.html', {'form': form})
 
 
 # def dashboard_stats(request):
@@ -174,6 +176,7 @@ class PostEdit(View):
 #     }
 
 #     return render(request, 'user_account.html', context)
+
 
 class TaggedPosts(generic.ListView):
     model = Post

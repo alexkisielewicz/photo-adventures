@@ -26,15 +26,16 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# CHANGE THIS BEFORE SENDING THE PROJECT !!!
+
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
 DEBUG = True
+# CHANGE THIS BEFORE SENDING THE PROJECT !!!
+# CHANGE THIS BEFORE SENDING THE PROJECT !!!
 
 ALLOWED_HOSTS = ['photo-adventures.herokuapp.com', 'localhost', '127.0.0.1']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-
 
 # Application definition
 
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+# Redirect urls after login/logout
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -73,9 +75,8 @@ TAGGIT_CASE_INSENSITIVE = True
 # Page can only be displayed within an iframe on its own domain
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-# Summernote configuration to override default font
-# I want user to write posts with default font only
-# fontsize and fontname arrays stay empty
+# Summernote configuration to override default font style
+# and match website style
 SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
     'fontNames': ['Merriweather'],
@@ -127,7 +128,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'photoadventures.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -137,6 +137,7 @@ WSGI_APPLICATION = 'photoadventures.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 
 DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
