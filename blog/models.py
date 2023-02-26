@@ -4,11 +4,6 @@ from cloudinary.models import CloudinaryField
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 
-# Tuple for post status
-STATUS = (
-    (0, 'Draft'), (1, 'Published')
-)
-
 
 class Post(models.Model):
     POST_CATEGORIES = (
@@ -21,6 +16,11 @@ class Post(models.Model):
         ('street', 'Street'),
         ('architecture', 'Architecture'),
     )
+    # Tuple for post status to allow post moderation
+    STATUS = (
+        (0, 'Draft'),
+        (1, 'Published')
+        )
 
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)

@@ -2,19 +2,18 @@
 
 {% block content %}
 
-<h1>Test from add_post.html</h1>
+<main>
+  <div class="container bg-white my-5 py-5">
 
-<div class="container bg-white mt-5">
-
-<div class="container">
-  
-  <h2>Add Post</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-
-</div>
+    <div class="container">
+      <h1>Add Post</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>  
+  </div>
+</main>
 
 {% endblock %}
