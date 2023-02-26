@@ -58,7 +58,7 @@
                 <p class="post-details text-muted mt-3">
                     <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
                     <i class="fa-regular fa-folder"></i> {{ post.category }} |
-                    <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
+                    <i class="fa-regular fa-calendar-check"></i> <time>{{ post.created_on }}</time> |
                     <i class="far fa-heart"></i> {{ post.number_of_likes }}
                     {% if post.tags.all %}
                     <div class="post-tags rounded mt-2 mb-5">
@@ -71,15 +71,15 @@
                 <!-- Comment section start -->
                 <div class="card-text">{{ post.content | safe }}</div>
                 <div class="row">
-                    <div class="col-sm-8 mb-4 mt-5">
+                    <div class="col-sm-8 my-5">
                         <h3><i class="fa-regular fa-comments"></i> Comments:</h3>
                         {% if comments %}
                         {% for comment in comments %}
-                        <div class="comments" style="padding: 10px;">
+                        <div class="comments p-3">
                             <p class="font-weight-bold">
-                                {{ comment.name }}
+                                <i class="fa-regular fa-user"></i> {{ comment.name }}
                                 <span class=" text-muted font-weight-normal">
-                                    {{ comment.created_on }}
+                                    on <time>{{ comment.created_on }}</time>
                                 </span> wrote:
                             </p>
                             {{ comment.body | linebreaks }}
@@ -89,15 +89,15 @@
                         <p>There are no comments yet.</p>
                         {% endif %}
                     </div>
-                    <div class="col-sm-4 mb-4 mt-3 ">
+                    <div class="col-sm-4 my-5 ">
                         {% if commented %}
                         <div class="alert alert-success" role="alert">
-                            Thank you! Your comment is awaiting approval.
+                            Thank you {{ user.username }}! Your comment is awaiting approval.
                         </div>
                         {% else %}
                         {% if user.is_authenticated %}
                         <h3><i class="fa-regular fa-keyboard"></i> Leave a comment:</h3>
-                        <p>Posting as: {{ user.username }}</p>
+                        <p>Posting as <i class="fa-regular fa-user"></i> {{ user.username }}</p>
                         <form method="post" mt-3>
                             {{ comment_form | crispy }}
                             {% csrf_token %}

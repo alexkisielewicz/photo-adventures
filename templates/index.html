@@ -53,67 +53,71 @@
 <!-- Carousel end -->
 
 <!-- Hero container start -->
-<div class="container-fluid hero-container">
-    <div class="container-lg">
-        <div class="row flex-lg-row-reverse align-items-center g-0 py-5">
-            <div class="col-10 col-sm-8 col-lg-6 ps-5">
-                <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp"
-                    class="d-block mx-lg-auto img-fluid rounded shadow my-5" alt="Group of photographers on the beach"
-                    width="700" height="auto" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                <h1 class="display-4 fw-bold lh-1 mb-4">Join us today and share your adventures</h1>
-                <p class="lead">
-                    We believe that every moment is worth capturing, and we're on a mission to help photography
-                    enthusiasts share their adventures with the world. Whether you're a professional photographer or a
-                    hobbyist, we invite you to join our community and share your photos, stories, and tips with fellow
-                    enthusiasts.</p>
-                <p class="lead">
-                    With our platform, you can connect with like-minded individuals, showcase your work, and discover
-                    new techniques to take your photography to the next level. So what are you waiting for? Sign up now
-                    and let's embark on a journey to capture life's most beautiful moments together!
-                </p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="{% url 'account_signup' %}" class="btn btn-green btn-lg px-4 me-md-2">Sign up</a>
-                    <a href="{% url 'blog' %}" class="btn btn-outline-green btn-lg px-4">Visit blog</a>
+<main>
+    <div class="container-fluid hero-container">
+        <div class="container-lg">
+            <div class="row flex-lg-row-reverse align-items-center g-0 py-5">
+                <div class="col-10 col-sm-8 col-lg-6 ps-5">
+                    <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp"
+                        class="d-block mx-lg-auto img-fluid rounded shadow my-5" alt="Group of photographers on the beach"
+                        width="700" height="auto" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold lh-1 mb-4">Join us today and share your adventures</h1>
+                    <p class="lead">
+                        We believe that every moment is worth capturing, and we're on a mission to help photography
+                        enthusiasts share their adventures with the world. Whether you're a professional photographer or a
+                        hobbyist, we invite you to join our community and share your photos, stories, and tips with fellow
+                        enthusiasts.</p>
+                    <p class="lead">
+                        With our platform, you can connect with like-minded individuals, showcase your work, and discover
+                        new techniques to take your photography to the next level. So what are you waiting for? Sign up now
+                        and let's embark on a journey to capture life's most beautiful moments together!
+                    </p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="{% url 'account_signup' %}" class="btn btn-green btn-lg px-4 me-md-2">Sign up</a>
+                        <a href="{% url 'blog' %}" class="btn btn-outline-green btn-lg px-4">Visit blog</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 <!-- Hero container end -->
 
 <!-- Most liked post start -->
-<div class="container my-5 py-5">
-    <h1 class="text-center py-4">Most liked posts</h1>
-    <div class="row g-5">
-        {% for post in trending %}
-        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-            <div class="card card-main-page">
-                {% if "placeholder" in post.featured_image.url %}
-                <img class="card-img-top"
-                    src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
-                {% else %}
-                <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Card featuree Image">
-                {% endif %}
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-category mt-1">{{ post.category }}</h5>
-                    <h5 class="card-title-popular">
-                        <a href="{% url 'full_post' post.slug %}" class="card-title-popular">{{ post.title }}</a>
-                    </h5>
-                    <h5 class="card-category mb-1">
-                        <i class="far fa-heart heart-main-page"></i> {{ post.number_of_likes }}</h5>
-                    <p class="card-text mb-4">
-                        {{ post.excerpt }}
-                    </p>
-                    <a href="{% url 'full_post' post.slug %}" class="btn btn-green mt-auto align-self-start">Full
-                        story</a>
+<section>
+    <div class="container my-5 py-5">
+        <h1 class="text-center py-4">Most liked posts</h1>
+        <div class="row g-5">
+            {% for post in trending %}
+            <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+                <div class="card card-main-page">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img class="card-img-top"
+                        src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+                    {% else %}
+                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="Card featuree Image">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-category mt-1">{{ post.category }}</h5>
+                        <h5 class="card-title-popular">
+                            <a href="{% url 'full_post' post.slug %}" class="card-title-popular">{{ post.title }}</a>
+                        </h5>
+                        <h5 class="card-category mb-1">
+                            <i class="far fa-heart heart-main-page"></i> {{ post.number_of_likes }}</h5>
+                        <p class="card-text mb-4">
+                            {{ post.excerpt }}
+                        </p>
+                        <a href="{% url 'full_post' post.slug %}" class="btn btn-green mt-auto align-self-start">Full
+                            story</a>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
+</section>
 <!-- Most liked post end -->
 
 {% endblock %}

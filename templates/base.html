@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,41 +12,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <nav id="myNavbar" class="navbar navbar-light navbar-expand-lg bg-white py-0">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center pb-1" href="{% url 'home' %}">
-                <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676895797/logo_zjboqp.png" class="d-inline-block align-top" alt="Photo Adventures Logo">
-            </a>
-            <a class="navbar-brand" href="{% url 'home' %}">Photo Adventures</a>
-            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
-                <span class="visually-hidden">Toggle navigation</span>
-                <span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-                </ul>
-                    {% if user.is_authenticated %}
-                    {% if user.is_authenticated and user.is_superuser %}
-                    <a href="{% url 'admin:index' %}" class="btn btn-green">Admin panel</a>
-                    <a href="{% url 'account_logout' %}" class="btn btn-outline-danger mx-2">Sign Out</a>
-                    {% else %}
-                        <i class="fa-regular fa-user"></i> <span class="ms-2">{{ user }}</span>
-                        <a href="{% url 'user_account' %}" class="btn btn-outline-green mx-2">Dashboard</a>
-                        <a href="{% url 'account_logout' %}" class="btn btn-outline-danger">Sign Out</a>
-                        {% endif %}
-                    {% else %}
-                        <a href="{% url 'account_signup' %}" class="btn btn-outline-green mx-2">Sign up</a>
-                        <a href="{% url 'account_login' %}" class="btn btn-green">Sign in</a>
-                    {% endif %}
-                    
 
+<body>
+    <header>
+        <nav id="myNavbar" class="navbar navbar-light navbar-expand-lg bg-white py-0">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center pb-1" href="{% url 'home' %}">
+                    <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676895797/logo_zjboqp.png" class="d-inline-block align-top" alt="Photo Adventures Logo">
+                </a>
+                <a class="navbar-brand" href="{% url 'home' %}">Photo Adventures</a>
+                <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+                    <span class="visually-hidden">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+                    </ul>
+                        {% if user.is_authenticated %}
+                        {% if user.is_authenticated and user.is_superuser %}
+                        <a href="{% url 'admin:index' %}" class="btn btn-green">Admin panel</a>
+                        <a href="{% url 'account_logout' %}" class="btn btn-outline-danger mx-2">Sign Out</a>
+                        {% else %}
+                            <i class="fa-regular fa-user"></i> <span class="ms-2">{{ user }}</span>
+                            <a href="{% url 'user_account' %}" class="btn btn-outline-green mx-2">Dashboard</a>
+                            <a href="{% url 'account_logout' %}" class="btn btn-outline-danger">Sign Out</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="btn btn-outline-green mx-2">Sign up</a>
+                            <a href="{% url 'account_login' %}" class="btn btn-green">Sign in</a>
+                        {% endif %}
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+
     <!-- Toast with messages start -->
     <!-- <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
         <div class="toast" style="position: absolute; top: 0; right: 0;">

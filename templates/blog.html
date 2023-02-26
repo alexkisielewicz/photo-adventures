@@ -1,66 +1,70 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<div class="container pt-3 mt-5">
-    <div class="row">
-        <div class="col-12 mt-4 left">
+    <!-- Blog post card start -->
+    <article>
+        <div class="container pt-3 mt-5">
             <div class="row">
-                {% for post in post_list %}
-
-                <div class="col-12 mt-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
-                                {% else %}
-                                <img class="card-img-top" src="{{ post.featured_image.url }}">
-                                {% endif %}
-                                <div class="image-caption">
-                                    <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
+                <div class="col-12 mt-4 left">
+                    <div class="row">
+                        {% for post in post_list %}
+                        <div class="col-12 mt-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="image-container">
+                                        {% if "placeholder" in post.featured_image.url %}
+                                        <img class="card-img-top"
+                                            src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+                                        {% else %}
+                                        <img class="card-img-top" src="{{ post.featured_image.url }}">
+                                        {% endif %}
+                                        <div class="image-caption">
+                                            <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'full_post' post.slug %}" class="post-link">
+                                        <h2 class="card-title mt-3">{{ post.title }}</h2>
+                                    </a>
+                                    <p class="post-excerpt">{{ post.excerpt }}</p>
+                                    <hr />
+                                    <p class="post-details text-muted mt-1 mb-1">
+                                        <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
+                                        <i class="fa-regular fa-folder"></i> {{ post.category }} |
+                                        <i class="fa-regular fa-calendar-check"></i> <time>{{ post.created_on }}</time> |
+                                        <i class="far fa-heart"></i> {{ post.number_of_likes }}
+                                    </p>
                                 </div>
                             </div>
-                            <a href="{% url 'full_post' post.slug %}" class="post-link">
-                                <h2 class="card-title mt-3">{{ post.title }}</h2>
-                            </a>
-                            <p class="post-excerpt">{{ post.excerpt }}</p>
-                            <hr />
-                            <p class="post-details text-muted mt-1 mb-1">
-                                <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
-                                <i class="fa-regular fa-folder"></i> {{ post.category }} |
-                                <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
-                                <i class="far fa-heart"></i> {{ post.number_of_likes }}
-                            </p>
                         </div>
+                        {% if forloop.counter|divisibleby:5 %}
+                    </div>
+                    <div class="row">
+                        {% endif %}
+    
+                        {% endfor %}
                     </div>
                 </div>
-
-                {% if forloop.counter|divisibleby:5 %}
-                </div>
-                <div class="row">
-                {% endif %}
-                
-                {% endfor %}
-            </div>
             </div>
         </div>
-    </div>
+    </article>
+    <!-- Blog post card end -->
+
+    <!-- Pagination buttons start -->
     {% if is_paginated %}
-    <nav aria-label="Page navigation">
+    <nav aria-label="Pagination">
         <ul class="pagination justify-content-center pb-5">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-green btn-lg"><i class="fa-solid fa-angle-left"></i> Previous</a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-green btn-lg"><i
+                        class="fa-solid fa-angle-left"></i> Previous</a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-green btn-lg">Next <i class="fa-solid fa-angle-right"></i></a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-green btn-lg">Next <i
+                        class="fa-solid fa-angle-right"></i></a></li>
             {% endif %}
         </ul>
     </nav>
     {% endif %}
-
-</div>
-
+    <!-- Pagination buttons end -->
 
 
 {% endblock %}

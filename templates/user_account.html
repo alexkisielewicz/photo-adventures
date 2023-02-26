@@ -63,7 +63,7 @@
           </div>
           <div class="card-body">
             <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
-            <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i> {{ post.number_of_likes }}</h6>
+            <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i><time> {{ post.number_of_likes }} </time></h6>
           </div>
         </div>
       </div>
