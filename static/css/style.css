@@ -453,6 +453,23 @@ div.card-text a:hover {
     font-weight: 700;
 }
 
+/* Add/edit post template */
+.edit-post {
+    position: relative;
+    height: 300px;
+    background-image: url('https://res.cloudinary.com/ddvsgi5xw/image/upload/v1677438481/write_post_womr0w.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.edit-post-header {
+    position: absolute;
+    bottom: 10px;
+    color: #fff;
+    font-size: 3em;
+}
+
 /* Main project colours */
 
 .dark {
