@@ -19,10 +19,9 @@ class BlogPosts(generic.ListView,):
 
 
 class PostList(generic.ListView):
-
     model = Post
     context_object_name = 'post'
-    template_name = 'index.html'
+    template_name = 'blog.html'
 
 
 def index(request):
@@ -104,7 +103,10 @@ class FullPost(View):
 
 
 class PostLike(View):
-
+    """
+    Class based view that allows users to like posts.
+    It toggles to add/remove post.likes
+    """
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
 
@@ -118,13 +120,17 @@ class PostLike(View):
 
 @login_required
 def add_post(request):
+    """
+    Function based view that allows users to add new posts.
+    """
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('blog')
+            form.save_m2m()
+            return redirect('user_account')
     else:
         form = PostForm()
     return render(request, 'add_post.html', {'form': form})
@@ -132,6 +138,9 @@ def add_post(request):
 
 @login_required
 def delete_post(request, slug):
+    """
+    Function based view that allows users to delete their posts.
+    """
     post = get_object_or_404(Post, slug=slug, author=request.user)
     if request.method == "POST":
         post.delete()
@@ -141,7 +150,10 @@ def delete_post(request, slug):
 
 
 class PostEdit(View):
-
+    """
+    Class based view to allow users to edit posts.
+    It uses post model and post form to read and update values.
+    """
     def get(self, request, slug):
         post = get_object_or_404(Post, slug=slug, author=request.user)
         form = PostForm(instance=post)
@@ -153,14 +165,10 @@ class PostEdit(View):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.status = form.cleaned_data['status']
             content = post.content
-            if post.status == 1:  # "Publish now"
-                post.save()
-                return redirect('full_post', slug=post.slug)
-            else:  # "Save as draft"
-                post.save()
-                return redirect('user_account')
+            post.save()
+            form.save_m2m()
+            return redirect('user_account')
         else:
             return render(request, 'edit_post.html', {'form': form})
 
@@ -179,6 +187,10 @@ class PostEdit(View):
 
 
 class TaggedPosts(generic.ListView):
+    """
+    It renders a list of all posts with specific slug.
+    Posts are displayed 5 per page using blog.html template.
+    """
     model = Post
     template_name = 'blog.html'
     paginate_by = 5
