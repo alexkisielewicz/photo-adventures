@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
-DEBUG = False
+DEBUG = True
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
 
@@ -77,21 +77,20 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Summernote configuration to override default font style
 # and match website style
-SUMMERNOTE_THEME = 'bs4'
+SUMMERNOTE_THEME = 'bs5'
 SUMMERNOTE_CONFIG = {
-    'fontNames': ['Merriweather'],
+    'fontNames': [],
     'fontNamesIgnoreCheck': [],
     'toolbar': [
-        ['font', ['bold', 'italic', 'underline', 'clear']],
-        ['fontsize', []],
-        ['fontname', []],
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['fontname', ['fontname']],
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
-        ['height', ['height']],
         ['table', ['table']],
         ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview']],
-    ],
+        ['view', ['fullscreen', 'codeview', 'help']],
+        ],
     'font-size': '16px',
     'font-family': "'Merriweather', serif",
     'height': '400px',
