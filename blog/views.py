@@ -13,7 +13,7 @@ class BlogPosts(generic.ListView,):
     Class view for all blog posts. Returns all posts to blog.html template.
     """
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=2).order_by('-created_on')  # 2 = published
     template_name = 'blog.html'
     paginate_by = 5  # add to const pagination number
 
@@ -25,12 +25,10 @@ class PostList(generic.ListView):
 
 
 def index(request):
-    trending = Post.objects.filter(status=1).annotate(
+    # filter only published posts with more than 0 likes
+    trending = Post.objects.filter(status=2, likes__gt=0).annotate(
         like_count=Count('likes')).order_by('-like_count')[:3]
     return render(request, 'index.html', {'trending': trending})
-
-# Add - top commented
-# Add - last 3
 
 
 def about(request):
@@ -47,11 +45,11 @@ def user_account(request):
     user_posts = Post.objects.filter(author=request.user)
     return render(request, 'user_account.html', {'user_posts': user_posts})
 
-# COMMENT VIEW / # LIKE VIEW NAME CLASSES 
+# COMMENT VIEW / # LIKE VIEW NAME CLASSES
 class FullPost(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects.filter(status=2)  # 2 = published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         liked = post.likes.filter(id=self.request.user.id).exists()
@@ -72,9 +70,7 @@ class FullPost(View):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
+        liked = post.likes.filter(id=self.request.user.id).exists()  # returns bool
 
         comment_form = CommentForm(data=request.POST)
 
@@ -170,9 +166,7 @@ class PostEdit(View):
         else:
             return render(request, 'edit_post.html', {'form': form})
 
-
-
-# login requirement 
+# login requirement
 # def dashboard_stats(request):
 #     author = request.user
 #     published_count = Post.objects.filter(author=author, status=1).count()
