@@ -1,33 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from blog import constants as CONST
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 
 
 class Post(models.Model):
-    POST_CATEGORIES = (
-        ('adventure', 'Adventure'),
-        ('travel', 'Travel'),
-        ('nature', 'Nature'),
-        ('landscape', 'Landscape'),
-        ('aerial', 'Aerial'),
-        ('wildlife', 'Wildlife'),
-        ('street', 'Street'),
-        ('architecture', 'Architecture'),
-    )
-    # Tuple for post status to allow post moderation
-    STATUS = (
-        (0, 'Draft'),
-        (1, 'Published')
-        )
 
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='photo_adventures')
-    category = models.CharField(choices=POST_CATEGORIES, max_length=20,
+    category = models.CharField(choices=CONST.POST_CATEGORIES, max_length=20,
                                 default='adventure')
     excerpt = models.TextField(blank=True)
     featured_image = CloudinaryField('image', default='placeholder')
@@ -35,7 +21,7 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=CONST.STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     featured = models.BooleanField(default=False, verbose_name='featured post')
     tags = TaggableManager()
