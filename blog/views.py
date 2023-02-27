@@ -15,7 +15,7 @@ class BlogPosts(generic.ListView,):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
-    paginate_by = 5
+    paginate_by = 5  # add to const pagination number
 
 
 class PostList(generic.ListView):
@@ -47,16 +47,14 @@ def user_account(request):
     user_posts = Post.objects.filter(author=request.user)
     return render(request, 'user_account.html', {'user_posts': user_posts})
 
-
+# COMMENT VIEW / # LIKE VIEW NAME CLASSES 
 class FullPost(View):
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
+        liked = post.likes.filter(id=self.request.user.id).exists()
 
         return render(
             request,
@@ -173,6 +171,8 @@ class PostEdit(View):
             return render(request, 'edit_post.html', {'form': form})
 
 
+
+# login requirement 
 # def dashboard_stats(request):
 #     author = request.user
 #     published_count = Post.objects.filter(author=author, status=1).count()
