@@ -144,6 +144,8 @@ button {
 }
 
 .card-main-page {
+    min-width: 350px;
+    object-fit: cover;
     box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
     border: 1px solid transparent;
 }
@@ -153,8 +155,9 @@ button {
 }
 
 /* Blog post card */
-.blog-post {
-    max-width: 1200;
+.card-img-blog {
+    max-height: 850px;
+    object-fit: cover;
 }
 
 .image-container {
@@ -235,6 +238,12 @@ button {
 }
 
 /* Dashboard */
+.card-img-thumbnail {
+    max-height: 275px;
+    object-fit: cover;
+    object-position: center;
+}
+
 .dashboard-card-title a {
     font-size: 1em;
     text-decoration: none;

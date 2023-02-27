@@ -9,10 +9,10 @@
             <div class="card-body">
                 <div class="image-container">
                     {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img-top"
+                    <img class="card-img-top card-img-blog"
                         src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
                     {% else %}
-                    <img class="card-img-top" src="{{ post.featured_image.url }}">
+                    <img class="card-img-top card-img-blog" src="{{ post.featured_image.url }}">
                     {% endif %}
                     <div class="image-caption">
                         <i class="fa-solid fa-earth-europe"></i> {{ post.location }}

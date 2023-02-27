@@ -48,10 +48,10 @@
       <div class="col-md-4 align-items-stretch featured-img">
         <div class="card mb-4 hover-manage">
           {% if "placeholder" in post.featured_image.url %}
-          <img class="card-img-top"
+          <img class="card-img-top card-img-thumbnail"
             src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
           {% else %}
-          <img class="card-img-top" src="{{ post.featured_image.url }}"
+          <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
             alt="Featured image of the post {{ post.title}}">
           {% endif %}
           <div class="overlay">
@@ -88,10 +88,10 @@
       <div class="col-md-4 align-items-stretch featured-img">
         <div class="card mb-4 hover-manage">
           {% if "placeholder" in post.featured_image.url %}
-          <img class="card-img-top"
+          <img class="card-img-top card-img-thumbnail"
             src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
           {% else %}
-          <img class="card-img-top" src="{{ post.featured_image.url }}"
+          <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
             alt="Featured image of the post {{ post.title}}">
           {% endif %}
           <div class="overlay">
