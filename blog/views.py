@@ -5,6 +5,8 @@ from django.db.models import Count
 from .models import Post
 from .forms import CommentForm, PostForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from blog import constants as CONST
 from taggit.models import Tag
 
 
@@ -14,38 +16,38 @@ class BlogPosts(generic.ListView,):
     """
     model = Post
     queryset = Post.objects.filter(status=2).order_by('-created_on')  # 2 = published
-    template_name = 'blog.html'
-    paginate_by = 5  # add to const pagination number
+    template_name = CONST.BLOG
+    paginate_by = CONST.PAGINATION
 
 
 class PostList(generic.ListView):
     model = Post
     context_object_name = 'post'
-    template_name = 'blog.html'
+    template_name = CONST.BLOG
 
 
 def index(request):
     # filter only published posts with more than 0 likes
     trending = Post.objects.filter(status=2, likes__gt=0).annotate(
         like_count=Count('likes')).order_by('-like_count')[:3]
-    return render(request, 'index.html', {'trending': trending})
+    return render(request, CONST.INDEX, {'trending': trending})
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, CONST.ABOUT)
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, CONST.CONTACT)
 
 
 # Should this be a class view with pagination?
 @login_required
 def user_account(request):
     user_posts = Post.objects.filter(author=request.user)
-    return render(request, 'user_account.html', {'user_posts': user_posts})
+    return render(request, CONST.USER_ACCOUNT, {'user_posts': user_posts})
 
-# COMMENT VIEW / # LIKE VIEW NAME CLASSES
+
 class FullPost(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -56,7 +58,7 @@ class FullPost(View):
 
         return render(
             request,
-            'full_post.html',
+            CONST.FULL_POST,
             {
                 'post': post,
                 'comments': comments,
@@ -85,7 +87,7 @@ class FullPost(View):
 
         return render(
             request,
-            'full_post.html',
+            CONST.FULL_POST,
             {
                 'post': post,
                 'comments': comments,
@@ -96,7 +98,7 @@ class FullPost(View):
         )
 
 
-class PostLike(View):
+class PostLike(LoginRequiredMixin, View):
     """
     Class based view that allows users to like posts.
     It toggles to add/remove post.likes
@@ -127,7 +129,7 @@ def add_post(request):
             return redirect('user_account')
     else:
         form = PostForm()
-    return render(request, 'add_post.html', {'form': form})
+    return render(request, CONST.ADD_POST, {'form': form})
 
 
 @login_required
@@ -140,7 +142,7 @@ def delete_post(request, slug):
         post.delete()
         return redirect('user_account')
     else:
-        return render(request, 'delete_post.html', {'post': post})
+        return render(request, CONST.DELETE_POST, {'post': post})
 
 
 class PostEdit(View):
@@ -151,7 +153,7 @@ class PostEdit(View):
     def get(self, request, slug):
         post = get_object_or_404(Post, slug=slug, author=request.user)
         form = PostForm(instance=post)
-        return render(request, 'edit_post.html', {'form': form})
+        return render(request, CONST.EDIT_POST, {'form': form})
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug, author=request.user)
@@ -164,20 +166,25 @@ class PostEdit(View):
             form.save_m2m()
             return redirect('user_account')
         else:
-            return render(request, 'edit_post.html', {'form': form})
+            return render(request, CONST.EDIT_POST, {'form': form})
 
-# login requirement
-# def dashboard_stats(request):
-#     author = request.user
-#     published_count = Post.objects.filter(author=author, status=1).count()
-#     draft_count = Post.objects.filter(author=author, status=0).count()
+@login_required
+def dashboard_stats(request):
+    author = request.user
+    draft_count = Post.objects.filter(author=author, status=0).count()
+    awaiting_moderation_count = Post.objects.filter(author=author, status=1).count()
+    published_count = Post.objects.filter(author=author, status=2).count()
 
-#     context = {
-#         'published_count': published_count,
-#         'draft_count': draft_count,
-#     }
+    print(published_count)
+    print(draft_count)
+    print(awaiting_moderation_count)
 
-#     return render(request, 'user_account.html', context)
+    context = {
+        'published_count': published_count,
+        'draft_count': draft_count,
+    }
+
+    return render(request, CONST.USER_ACCOUNT, context)
 
 
 class TaggedPosts(generic.ListView):
@@ -186,8 +193,8 @@ class TaggedPosts(generic.ListView):
     Posts are displayed 5 per page using blog.html template.
     """
     model = Post
-    template_name = 'blog.html'
-    paginate_by = 5
+    template_name = CONST.BLOG
+    paginate_by = CONST.PAGINATION
 
     def get_queryset(self):
         tag_slug = self.kwargs['tag_slug']
