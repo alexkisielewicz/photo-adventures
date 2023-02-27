@@ -1,8 +1,6 @@
 from .models import Comment, Post
 from django import forms
 from django_summernote.widgets import SummernoteWidget
-from taggit.forms import TagField
-from django.forms.widgets import ClearableFileInput
 
 
 class CommentForm(forms.ModelForm):
@@ -12,6 +10,7 @@ class CommentForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
+    status = forms.ChoiceField(choices=((0, 'Draft'), (1, 'Sent for moderation')), widget=forms.RadioSelect())
 
     class Meta:
         model = Post
@@ -33,3 +32,7 @@ class PostForm(forms.ModelForm):
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'e.g. Dublin, Ireland'}),
             'content': SummernoteWidget(),
         }
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['status'].choices = ((0, 'Draft (I will finish later)'), (1, 'Publish (will be send for moderation)'))
