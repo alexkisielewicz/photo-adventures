@@ -18,6 +18,21 @@ class PostAdmin(SummernoteModelAdmin):
     def get_tags(self, obj):
         return ', '.join(o for o in obj.tags.names())
 
+    # actions in admin panel to change status of selected post/s
+    @admin.action(description='Mark selected posts as Draft')
+    def mark_as_draft(modeladmin, request, queryset):
+        queryset.update(status=0)
+
+    @admin.action(description='Mark selected posts as Sent for moderation')
+    def mark_as_sent_for_moderation(modeladmin, request, queryset):
+        queryset.update(status=1)
+
+    @admin.action(description='Mark selected posts as Published')
+    def mark_as_published(modeladmin, request, queryset):
+        queryset.update(status=2)
+
+    actions = [mark_as_published, mark_as_draft, mark_as_sent_for_moderation]
+
 
 # Customize comments display in admin panel
 @admin.register(Comment)
