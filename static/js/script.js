@@ -1,6 +1,6 @@
-// set carousel image as carousel-item's background and streches it to cover viewport
-$(document).ready(function () {
 
+$(document).ready(function () {
+// set carousel image as carousel-item's background and streches it to cover viewport
   $.each(jQuery('.carousel .carousel-item'), function (i, val) {
     $(this).css('background-image', 'url(' + $(this).find('img').attr('src') + ')').css('background-size', 'cover').find('img').css('visibility', 'hidden');
   });
@@ -44,7 +44,42 @@ $(document).ready(function () {
   }
   
   scrollNavbar();
+
+  let animationTriggered = false;
+
+  $(window).on('scroll', function() {
+    if (!animationTriggered && $('#scrollToCounters').is(':visible')) {
+      animateCounters();
+      animationTriggered = true;
+    }
+  });
   
+  function animateCounters() {
+    // Counter method found in this snippet https://bootsnipp.com/snippets/5K6WW
+  
+    $('.count-value').each(function () {
+      var finalValue = $(this).text();
+      $(this).prop('Counter', 0).animate({
+        Counter: finalValue
+      }, {
+        duration: 2000,
+        easing: 'swing',
+        step: function (now) {
+          $(this).text(now < finalValue ? Math.ceil(now) : finalValue);
+        }
+      });
+    });
+  }
+
+  $(window).on('scroll', function() {
+    var offsetY = dociment.getElementById('#scrollToCounters').window.pageYOffset; 
+    if (window.pageYOffset >= offsetY) {
+      animateCounters(); 
+    }
+  });
+  
+
+
 });
 
 // ADD STATEMENT - IF MODAL EXISTS...
@@ -56,3 +91,11 @@ document.querySelector('[data-target="#deleteModal"]').addEventListener('click',
 
 // About page bootstrap accordion
 const faqAccordion = new bootstrap.Accordion(document.getElementById('faqAccordion'));
+
+
+
+
+
+
+
+
