@@ -63,17 +63,12 @@
                         width="700" height="auto" loading="lazy">
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold lh-1 mb-4">Join us today and share your adventures</h1>
-                    <p class="lead">
+                    <h1 class="display-4 fw-bold lh-2 mb-4">Join us today and share your adventures</h1>
+                    <p class="lead lh-lg my-4 py-4">
                         We believe that every moment is worth capturing, and we're on a mission to help photography
                         enthusiasts share their adventures with the world. Whether you're a professional photographer or a
                         hobbyist, we invite you to join our community and share your photos, stories, and tips with fellow
                         enthusiasts.</p>
-                    <p class="lead">
-                        With our platform, you can connect with like-minded individuals, showcase your work, and discover
-                        new techniques to take your photography to the next level. So what are you waiting for? Sign up now
-                        and let's embark on a journey to capture life's most beautiful moments together!
-                    </p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         <a href="{% url 'account_signup' %}" class="btn btn-green btn-lg px-4 me-md-2">Sign up</a>
                         <a href="{% url 'blog' %}" class="btn btn-outline-green btn-lg px-4">Visit blog</a>
@@ -88,8 +83,8 @@
 <!-- Most liked post start -->
 <section>
     <div class="container my-5 py-5">
-        <h1 class="text-center py-4">Most liked posts</h1>
-        <div class="row g-5">
+        <h1 class="text-center mb-2 py-5">Most liked posts</h1>
+        <div class="row g-5 pb-3">
             {% for post in trending %}
             <div class="col-lg-4 mb-3 d-flex align-items-stretch justify-content-around">
                 <div class="card card-main-page">
