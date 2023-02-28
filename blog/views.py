@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.db.models import Count
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm, PostForm
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from blog import constants as CONST
@@ -30,7 +31,20 @@ def index(request):
     # filter only published posts with more than 0 likes
     trending = Post.objects.filter(status=2, likes__gt=0).annotate(
         like_count=Count('likes')).order_by('-like_count')[:3]
-    return render(request, CONST.INDEX, {'trending': trending})
+    
+    # variables to show statistics on the main page
+    total_posts = Post.objects.count()
+    total_comments = Comment.objects.count()
+    total_likes = Post.objects.aggregate(total_likes=Count('likes')).get('total_likes') or 0
+    total_users = User.objects.count()
+    
+    return render(request, CONST.INDEX, {
+        'trending': trending,
+        'total_posts': total_posts,
+        'total_comments': total_comments,
+        'total_likes': total_likes,
+        'total_users': total_users,
+        })
 
 
 def about(request):
