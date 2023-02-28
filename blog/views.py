@@ -41,13 +41,6 @@ def contact(request):
     return render(request, CONST.CONTACT)
 
 
-# Should this be a class view with pagination?
-@login_required
-def user_account(request):
-    user_posts = Post.objects.filter(author=request.user)
-    return render(request, CONST.USER_ACCOUNT, {'user_posts': user_posts})
-
-
 class FullPost(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -168,6 +161,7 @@ class PostEdit(View):
         else:
             return render(request, CONST.EDIT_POST, {'form': form})
 
+
 @login_required
 def dashboard_stats(request):
     author = request.user
@@ -175,16 +169,20 @@ def dashboard_stats(request):
     awaiting_moderation_count = Post.objects.filter(author=author, status=1).count()
     published_count = Post.objects.filter(author=author, status=2).count()
 
-    print(published_count)
-    print(draft_count)
-    print(awaiting_moderation_count)
-
     context = {
         'published_count': published_count,
         'draft_count': draft_count,
+        'awaiting_moderation_count': awaiting_moderation_count,
     }
 
-    return render(request, CONST.USER_ACCOUNT, context)
+    return context
+
+
+@login_required
+def user_account(request):
+    user_posts = Post.objects.filter(author=request.user)
+    dashboard_stats_data = dashboard_stats(request)
+    return render(request, CONST.USER_ACCOUNT, {'user_posts': user_posts, 'dashboard_stats': dashboard_stats_data})
 
 
 class TaggedPosts(generic.ListView):
