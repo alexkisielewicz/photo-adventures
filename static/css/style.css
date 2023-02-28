@@ -326,6 +326,28 @@ button {
     color:#c9e365;
 }
 
+.count-box {
+    background-color: #fff;
+    box-shadow: 0px 0 16px rgb(0 0 0 / 20%);
+    border: 1px solid #c9e365;
+    font-size: 1.25em;
+    font-weight: 700;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.count-value {
+    font-weight: 700;
+    font-size: 2em;
+}
+.count-value a {
+    color: #ffbd59;
+}
+
+.count-value a:hover {
+    color: #003718;
+}
+
 /*Social icons in Footer*/
 .social-icon {
     font-size: 1.5em;

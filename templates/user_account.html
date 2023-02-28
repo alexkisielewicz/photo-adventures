@@ -3,12 +3,13 @@
 {% block content %}
 
 <!-- Dashboard welcome and icons start -->
-<div class="container bg-white my-5 py-3">
+<div class="container bg-white rounded-3 my-2 py-2">
   <div class="container px-4 py-5">
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
       <div class="d-flex flex-column align-items-start gap-2">
         <h2 class="fw-semibold my-3">Welcome back {{ user }}.</h2>
-        <p>This is your dashboard from where you can manage your content. View your post history and monitor engagement,
+        <p class="lh-2  me-5">This is your dashboard from where you can manage your content.
+          View your post history and monitor engagement,
           such as likes and comments.</p>
         <a href="{% url 'add_post' %}" class="btn btn-green"><i class="fas fa-pen"></i> Add new post</a>
       </div>
@@ -34,18 +35,38 @@
   </div>
 <!-- Dashboard welcome and icons end -->
 
-  <h2>Dashboard Stats</h2>
-  <p>Published Posts: {{ dashboard_stats.published_count }}</p>
-  <p>Awaiting moderation: {{ dashboard_stats.awaiting_moderation_count }}</p>
-  <p>Draft Posts: {{ dashboard_stats.draft_count }}</p>
+<!-- Dashboard stats start -->
+<div class="container bg-white my-4">
+  <div class="row d-flex justify-content-around g-2">
+    <div class="col-lg-3 col-md-6 text-center align-items-stretch">
+      <div class="count-box rounded-3">
+        <p>Published Posts:</p> 
+        <p class="count-value"><a href="#published">{{ dashboard_stats.published_count }}</a></p>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="count-box rounded-3">
+        <p>Awaiting moderation:</p> 
+        <p class="count-value"><a href="#awaiting">{{ dashboard_stats.awaiting_moderation_count }}</a></p>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 text-center">
+      <div class="count-box rounded-3">
+        <p>Draft Posts:</p> 
+        <p class="count-value"><a href="#drafts">{{ dashboard_stats.draft_count }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Dashboard stats end --> 
 
-  <div class="container bg-white">
 
+  <div class="container bg-white my-4 py-4">
       <!-- Draft posts start -->
   {% if user_posts %}
   <div class="container bg-white">
     <div class="row g-3">
-      <h2 class="my-3 py-3"><i class="fas fa-list"></i> Drafts ({{ dashboard_stats.draft_count }}): </h2>
+      <h2 class="my-3 py-3" id="drafts"><i class="fas fa-list"></i> Drafts ({{ dashboard_stats.draft_count }}): </h2>
       {% for post in user_posts %}
       {% if post.status == 0 %}
       <div class="col-md-4 align-items-stretch featured-img">
@@ -80,9 +101,9 @@
 
   <!-- Posts awaiting moderation start -->
   {% if user_posts %}
-  <div class="container bg-white">
+  <div class="container bg-white my-4 py-4">
     <div class="row g-3">
-      <h2 class="my-3 py-3"><i class="fas fa-list"></i> Awaiting moderation
+      <h2 class="my-3 py-3" id="awaiting"><i class="fas fa-list"></i> Awaiting moderation
         ({{ dashboard_stats.awaiting_moderation_count }}): </h2>
       {% for post in user_posts %}
       {% if post.status == 1 %}
@@ -118,9 +139,9 @@
 
   <!-- Published posts start -->
   {% if user_posts %}
-  <div class="container bg-white">
+  <div class="container bg-white my-4 pt-4 pb-1">
     <div class="row g-3">
-      <h2 class="my-3 py-4"><i class="fas fa-list"></i> Published posts ({{ dashboard_stats.published_count }}):
+      <h2 class="my-3 py-3" id="published"><i class="fas fa-list"></i> Published posts ({{ dashboard_stats.published_count }}):
       </h2>
       {% for post in user_posts %}
       {% if post.status == 2 %}
