@@ -10,7 +10,7 @@
             <img class="d-block vh-100"
                 src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912572/DJI_0170-HDR_2048_gjukis.webp"
                 alt="Slide Image">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block" data-aos="fade-up">
                 <h1 class="display-2">Breathtaking Landscapes</h1>
                 <p class="display-6">Nature's masterpiece in all shades of green.</p>
             </div>
@@ -19,7 +19,7 @@
             <img class="d-block vh-100"
                 src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676911583/BHK_9473_ctazzz.webp"
                 alt="Slide Image">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block" data-aos="fade-up">
                 <h1 class="display-2">The beauty of the wild</h1>
                 <p class="display-6">In the heart of nature, where every living thing has a story to tell.</p>
             </div>
@@ -29,7 +29,7 @@
             <img class="d-block vh-100"
                 src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1677076603/BHK_1585-HDR_2048px_qqzctn.webp"
                 alt="Slide Image">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block" data-aos="fade-up">
                 <h1 class="display-2">Travel</h1>
                 <p class="display-6">Discovering the world, one adventure at a time</p>
             </div>
@@ -38,31 +38,35 @@
             <img class="d-block vh-100"
                 src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1677076110/BHK_6750-HDR_2048_igfxte.webp"
                 alt="Slide Image">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-none d-md-block" data-aos="fade-up">
                 <h1 class="display-2">Architecture</h1>
                 <p class="display-6">Where the city lights shine bright</p>
             </div>
         </div>
 
     </div>
-    <div><a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev"><span
-                class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a
-            class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next"><span
-                class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+    <div class="pb-5">
+        <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span>
+        </a>
+    </div>
 </div>
 <!-- Carousel end -->
 
 <!-- Hero container start -->
 <main>
     <div class="container-fluid hero-container">
-        <div class="container-lg">
+        <div class="container-lg my-5 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-0 py-5">
-                <div class="col-10 col-sm-8 col-lg-6 ps-5">
+                <div class="col-10 col-sm-8 col-lg-6 ps-5" data-aos="fade-left">
                     <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp"
                         class="d-block mx-lg-auto img-fluid rounded shadow my-5" alt="Group of photographers on the beach"
                         width="700" height="auto" loading="lazy">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right">
                     <h1 class="display-4 fw-bold lh-2 mb-4">Join us today and share your adventures</h1>
                     <p class="lead lh-lg my-4 py-4">
                         We believe that every moment is worth capturing, and we're on a mission to help photography
@@ -80,14 +84,45 @@
 </main>
 <!-- Hero container end -->
 
+<!-- Stats start -->
+<div class="container my-5 py-5" id="scrollToCounters" data-aos="fade-up">
+    <div class="row d-flex justify-content-around g-2">
+      <div class="col-lg-3 col-md-6 text-center align-items-stretch">
+        <div class="count-box rounded-3">
+          <p>Total Posts:</p> 
+          <p class="count-value">{{ total_posts }}</p>
+          </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="count-box rounded-3">
+          <p>Total Comments:</p> 
+          <p class="count-value">{{ total_comments }}</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="count-box rounded-3">
+          <p>Total reactions:</p> 
+          <p class="count-value">{{ total_likes }}</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="count-box rounded-3">
+          <p>Registered users:</p> 
+          <p class="count-value">{{ total_users }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Stats end --> 
+
 <!-- Most liked post start -->
 <section>
-    <div class="container my-5 py-5">
-        <h1 class="text-center mb-2 py-5">Most liked posts</h1>
+    <div class="container my-5 py-5" data-aos="fade-up">
+        <h1 class="text-center mb-2 mt-3 py-5">Most liked posts</h1>
         <div class="row g-5 pb-3">
             {% for post in trending %}
             <div class="col-lg-4 mb-3 d-flex align-items-stretch justify-content-around">
-                <div class="card card-main-page">
+                <div class="card card-main-page" data-aos="zoom-in-up">
                     {% if "placeholder" in post.featured_image.url %}
                     <img class="card-img-top card-img-thumbnail"
                         src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
