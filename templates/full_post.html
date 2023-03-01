@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 {% load crispy_forms_tags %}
+{% load gravatar %}
 
 <!-- Full post start -->
 <div class="container py-5 my-5">
@@ -75,15 +76,24 @@
                         <h3><i class="fa-regular fa-comments"></i> Comments:</h3>
                         {% if comments %}
                         {% for comment in comments %}
+
                         <div class="comments p-3">
-                            <p class="font-weight-bold">
-                                <i class="fa-regular fa-user"></i> {{ comment.name }}
-                                <span class=" text-muted font-weight-normal">
-                                    on <time>{{ comment.created_on }}</time>
-                                </span> wrote:
-                            </p>
-                            {{ comment.body | linebreaks }}
+                            <div class="row">
+                                <div class="col-auto pr-0">
+                                    {{ comment.email|gravatar:80 }}
+                                </div>
+                                <div class="col">
+                                    <p class="font-weight-bold">
+                                        <i class="fa-regular fa-user"></i> {{ comment.name }}
+                                        <span class="text-muted font-weight-normal">
+                                            on <time>{{ comment.created_on }}</time>
+                                        </span> wrote:
+                                    </p>
+                                    {{ comment.body | linebreaks }}
+                                </div>
+                            </div>
                         </div>
+
                         {% endfor %}
                         {% else %}
                         <p>There are no comments yet.</p>
@@ -101,7 +111,7 @@
                         <form method="post" mt-3>
                             {{ comment_form | crispy }}
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-green">Submit</button>
                         </form>
                         {% endif %}
                         {% endif %}
