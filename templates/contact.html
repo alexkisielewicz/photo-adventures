@@ -2,17 +2,50 @@
 
 {% block content %}
 
-<div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>Hello from contact.html</h1>
+<div class="wrapper">
+    <div class="container-md container-contact bg-white rounded-3 box-shadow pt-5 px-0" data-aos="fade-down">
+        <div class="accounts-body p-4 mx-3">
+            <div class="row g-5">
+                <div class="col align-items-stretch">
+                    <h3 class="card-title mb-3">Contact us</h3>
+                    <form onsubmit="return sendMail(this);">
+                        <div class="form-floating my-3">
+                            <input type="text" name="name" id="fullname" class="form-control" placeholder="John Doe" required />
+                            <label for="fullname">Your name:</label>
+                        </div>
+                        <div class="form-floating my-3">
+                            <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email" required />
+                            <label for="emailaddress">Email address:</label>
+                        </div>
+                        <div class="form-floating my-3">
+                            <textarea name="message" id="messagebody" class="form-control" placeholder="Type your message here" style="height: 300px;" required></textarea>
+                            <label for="messagebody">Message:</label>
+                        </div>
+                        <button type="submit" class="btn btn-green mt-1">Submit</button>
+                        <div class="d-none alert alert-success mt-2" id="contactFormAlert" role="alert">
+                        </div>    
+                    </form>
+                </div>
+                <div class="col">
+                    <h3 class="card-title mb-3">Office:</h3>
+                    <div class="row">
+                        <div class="col">
+                            <address>
+                                Photo Adventures, Office Suite 7<br>
+                                49 Ballybough Rd, Ballybough, Dublin<br>
+                                Phone: <a href="tel: +353555234234" class="text-link">+353555234234</a><br>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6542.927775347451!2d-6.246286073211656!3d53.360109853562975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e5e251156fd%3A0x23657ac6fb1fc076!2sBallybough%20Community%20Centre!5e0!3m2!1sen!2sie!4v1677756794518!5m2!1sen!2sie" class="rounded-3" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+      </div>
 </div>
-
 
 {% endblock %}
