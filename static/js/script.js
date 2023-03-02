@@ -1,9 +1,13 @@
 
 $(document).ready(function () {
-// set carousel image as carousel-item's background and streches it to cover viewport
+// Set carousel image as carousel-item's background and streches it to cover viewport
   $.each(jQuery('.carousel .carousel-item'), function (i, val) {
     $(this).css('background-image', 'url(' + $(this).find('img').attr('src') + ')').css('background-size', 'cover').find('img').css('visibility', 'hidden');
   });
+
+  // Get current year to display in copyright
+  const currentYear = new Date().getFullYear();
+  $('#currentYear').text(currentYear);
 
   // Tooltip for heart icons in full_post template
   $('[data-toggle="tooltip-like"]').tooltip({
