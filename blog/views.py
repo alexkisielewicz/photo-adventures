@@ -181,7 +181,7 @@ def dashboard_stats(request):
     author = request.user
     draft_count = Post.objects.filter(author=author, status=0).count()
     awaiting_moderation_count = Post.objects.filter(author=author, status=1).count()
-    published_count = Post.objects.filter(author=author, status=2).count()
+    published_count = Post.objects.filter(author=author, status=2).count() 
 
     context = {
         'published_count': published_count,
