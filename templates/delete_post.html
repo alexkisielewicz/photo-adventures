@@ -15,8 +15,8 @@
           <div class="modal-footer flex-nowrap justify-content-around p-0">
             <form method="post">
               {% csrf_token %}
-            <button type="submit" class="btn btn-danger d-inline">Yes, delete it</button>
-            <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal"><a href="{% url 'user_account' %}" class="delete-link">Cancel</a></button>
+            <button type="submit" class="btn btn-danger d-inline"><i class="fa-solid fa-trash"></i> Yes, delete it</button>
+            <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal"><a href="{% url 'user_account' %}" class="delete-link"><i class="fa-solid fa-rotate-left"></i> Cancel</a></button>
           </form>
           </div>
         </div>
