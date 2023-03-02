@@ -48,19 +48,19 @@
   <div class="row d-flex justify-content-around g-2">
     <div class="col-lg-3 col-md-6 text-center align-items-stretch">
       <div class="count-box rounded-3">
-        <p>Published Posts:</p> 
+        <p><i class="fa-solid fa-square-check"></i> Published Posts:</p> 
         <p class="count-value"><a href="#published">{{ dashboard_stats.published_count }}</a></p>
         </div>
     </div>
     <div class="col-lg-3 col-md-6 text-center">
       <div class="count-box rounded-3">
-        <p>Awaiting moderation:</p> 
+        <p><i class="fa-regular fa-square-check"></i> Awaiting moderation:</p> 
         <p class="count-value"><a href="#awaiting">{{ dashboard_stats.awaiting_moderation_count }}</a></p>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 text-center">
       <div class="count-box rounded-3">
-        <p>Draft Posts:</p> 
+        <p><i class="fa-solid fa-pencil"></i> Draft Posts:</p> 
         <p class="count-value"><a href="#drafts">{{ dashboard_stats.draft_count }}</a></p>
       </div>
     </div>
@@ -172,7 +172,7 @@
           </div>
           <div class="card-body">
             <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
-            <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i> {{ post.number_of_likes }}</h6>
+            <h6 class="created-on">{{ post.created_on }} | <i class="far fa-heart"></i> {{ post.number_of_likes }} | <i class="far fa-comments"></i> {{ post.number_of_comments }}</h6>
           </div>
         </div>
       </div>
