@@ -132,7 +132,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-category mt-1">{{ post.category }}</h5>
                         <h5 class="card-title-popular">
-                            <a href="{% url 'full_post' post.slug %}" class="card-title-popular">{{ post.title }}</a>
+                            <a href="{% url 'full_post' post.slug %}" class="stretched-link card-title-popular">{{ post.title }}</a>
                         </h5>
                         <h5 class="card-category mb-1">
                             <i class="far fa-heart heart-main-page"></i> {{ post.number_of_likes }}</h5>

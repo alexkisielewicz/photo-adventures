@@ -5,7 +5,8 @@
 }
 
 html {
-    height: 100vh;
+    position: relative;
+    min-height: 100%;
     scroll-behavior: smooth;
 }
 
@@ -19,6 +20,7 @@ body {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    margin-bottom: 160px; /* margin by footer height */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -108,7 +110,7 @@ button {
     text-decoration-color: #ffbd59;
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
-  }
+}
 
 .gravatar-main img {
     border-radius: 50%;
@@ -191,13 +193,26 @@ button {
 
 .card-title {
     font-family: 'Gloock', serif;
-    color: #000;
     font-size: 2.5rem;
+}
+
+.post-link {
+    color: #04100D;
+    transition: .4s;
+    width: auto;
+}
+
+.post-link:hover {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #ffbd59;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
 }
 
 .card-title a {
     font-family: 'Gloock', serif;
-    color: #000;
+    color: #04100D;
     font-size: 2.5rem;
     text-decoration: none;
 }
@@ -381,6 +396,16 @@ button {
 .count-value a:hover {
     color: #003718;
 }
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 160px;
+    width: 100%;
+    /* margin-top: 50px;
+    padding-top:50px; */
+}
+
 
 /*Social icons in Footer*/
 .social-icon {
