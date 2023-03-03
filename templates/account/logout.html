@@ -12,20 +12,19 @@
       <div class="header-accounts rounded-top m-0"></div>
       <div class="accounts-body p-4 mx-3">
         <h3 class="card-title mb-3">Are you sure you want to sign out?</h3>
-          <p class="py-3">
-            {% blocktrans %}
-            To write posts, comment or add likes you need to stay logged in. 
-            {% endblocktrans %}
-          </p>
-  
-          <form class="login accounts-form" method="POST" action="{% url 'account_logout' %}">
-            {% csrf_token %}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <button class="btn btn-danger my-3" type="submit">{% trans "Sign Out" %}</button>
-          </form>
-      </div>        
+        <p class="py-3">
+          {% blocktrans %}
+          To write posts, comment or add likes you need to stay logged in.
+          {% endblocktrans %}
+        </p>
+        <form class="login accounts-form" method="POST" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="btn btn-danger my-3" type="submit">{% trans "Sign Out" %}</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

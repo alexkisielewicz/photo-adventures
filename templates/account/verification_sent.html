@@ -10,9 +10,10 @@
         <div class="header-accounts rounded-top m-0"></div>
         <div class="accounts-body p-4 mx-3">
             <h3 class="card-title mb-3">{% trans "Verify Your E-mail Address" %}</h3>
-            <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the
+            <p>We have sent an e-mail to you for verification. Follow the link provided to finalize the
                 signup process. If you do not see the verification e-mail in your main inbox, check your spam folder.
-                Please contact us if you do not receive the verification e-mail within a few minutes.{% endblocktrans %}
+                Please <a href="{% url 'contact' %}" class="text-link">contact us</a> if you do not receive the
+                verification e-mail within a few minutes.
             </p>
         </div>
     </div>
