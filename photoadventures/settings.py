@@ -86,7 +86,7 @@ SUMMERNOTE_CONFIG = {
         ['table', ['table']],
         ['insert', ['link', 'picture', 'video']],
         ['view', ['fullscreen', 'codeview', 'help']],
-        ],
+    ],
     'font-size': '16px',
     'font-family': "'Merriweather', serif",
     'height': '400px',
@@ -135,8 +135,8 @@ WSGI_APPLICATION = 'photoadventures.wsgi.application'
 
 
 DATABASES = {
-     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
- }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 
 # Password validation
@@ -198,23 +198,20 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # User registration setting
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_MAX_EMAIL_ADDRESSES = 1
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False
 ACCOUNT_PRESERVE_USERNAME_CASING = True
 
 ACCOUNG_SIGNUP_PASSWORD_VERIFICATION = True
-
-ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
-
-# ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/'
-# ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/'
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
-
-ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 
 
 if DEBUG is False:
