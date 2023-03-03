@@ -20,7 +20,6 @@
           first.
           {% endblocktrans %}
         </p>
-
         <form class="login accounts-form" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
           {{ form|crispy }}

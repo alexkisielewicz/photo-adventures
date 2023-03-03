@@ -7,7 +7,6 @@
 {% blocktrans with site_name=current_site.name %}{{ site_name }} account confirmation{% endblocktrans %}
 {% endautoescape %}
 {% endblock %}
-
 {% block content %}
 {% autoescape off %}
 {% user_display user as user_display %}
@@ -17,7 +16,6 @@ To activate this account, please click the following link:
 
 {{ activate_url }}
 
-Thank you for using {{ site_name }}!
 {% endblocktrans %}
 {% endautoescape %}
 {% endblock %}
