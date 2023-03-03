@@ -213,7 +213,8 @@ class TaggedPosts(generic.ListView):
     def get_queryset(self):
         tag_slug = self.kwargs['tag_slug']
         tag = get_object_or_404(Tag, slug=tag_slug)
-        return Post.objects.filter(tags=tag).order_by('-created_on')
+        # return posts with tags that are published, order descending
+        return Post.objects.filter(tags=tag, status=2).order_by('-created_on')
 
     def get_context_data(self, **kwargs):
         context = super(TaggedPosts, self).get_context_data(**kwargs)
