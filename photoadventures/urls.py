@@ -19,13 +19,24 @@ from blog import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('summernote/', include('django_summernote.urls')),
+    # home url
     path('', views.index, name='home'),
+
+    # admin urls
+    path('admin/', admin.site.urls),
+
+    # summernote urls
+    path('summernote/', include('django_summernote.urls')),
+
+    # allauth urls
+    path('accounts/', include('allauth.urls')),
+
+    # subpages urls
     path('blog/', include('blog.urls'), name='blog_urls'),
-    path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
-    path('add_post/', views.add_post, name='add_post'),
+    path('contact/', views.contact, name='contact'),
+
+    # user dashboard urls
     path('user_account/', views.user_account, name='user_account'),
+    path('add_post/', views.add_post, name='add_post'),
 ]
