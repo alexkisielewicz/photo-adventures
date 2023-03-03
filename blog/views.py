@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Count
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from blog import constants as CONST
 from taggit.models import Tag
+
+from django.template.loader import render_to_string
 
 
 class BlogPosts(generic.ListView,):
@@ -58,7 +60,7 @@ def contact(request):
 class FullPost(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=2)  # 2 = published
+        queryset = Post.objects.filter(status=2)  # 2 == published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         liked = post.likes.filter(id=self.request.user.id).exists()
@@ -76,7 +78,7 @@ class FullPost(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects.filter(status=2)  # 2 == published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         liked = post.likes.filter(id=self.request.user.id).exists()  # returns bool
@@ -103,7 +105,7 @@ class FullPost(View):
                 'comment_form': CommentForm()
             },
         )
-
+        
 
 class PostLike(LoginRequiredMixin, View):
     """
