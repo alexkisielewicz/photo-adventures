@@ -11,20 +11,13 @@
     <div class="header-accounts rounded-top m-0"></div>
     <div class="accounts-body p-4 mx-3">
       <h3 class="card-title mb-3">Welcome!</h3>
-        <p class="py-3">
-          {% blocktrans %}
-          To write posts, comment or add likes you need to be logged in. Use form below to sing up or 
-          <a class="text-link" href="{{ login_url }}">sign in</a> if you already have an account.
-          {% endblocktrans %}
-        </p>
-
-        <form class="login accounts-form" method="POST" action="{% url 'account_login' %}">
+        <form class="login accounts-form" method="POST" action="{% url 'account_signup' %}">
           {% csrf_token %}
           {{ form|crispy }}
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
-          <button class="btn btn-green my-3" type="submit">{% trans "Sign In" %}</button>
+          <button class="btn btn-green my-3" type="submit">{% trans "Sign Up" %}</button>
         </form>
     </div>        
   </div>
