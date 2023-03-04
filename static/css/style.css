@@ -31,6 +31,36 @@ a, a:hover {
     text-decoration: none;
     color: #04100D;
 }
+/* Social media share icons */
+.social-share {
+    position: absolute;
+    text-align: center;
+    bottom: 1%;
+    right: 1%;
+    background: transparent;
+    font-size: x-large;
+    font-weight: 700;
+    padding: 10px 10px;
+    border: none;
+}
+
+.social-facebook {
+    color: #4267B2;
+}
+
+.social-twitter {
+    color: #1DA1F2;
+}
+
+.social-share button {
+    background-color: transparent;
+}
+
+.social-share button:hover {
+    transform: scale(1.5);
+    transition: all .2s ease-in-out 0s;
+    -webkit-transform: all .2s ease-in-out 0s;
+}
 
 .text-link {
     text-decoration: none;
