@@ -2,6 +2,7 @@
 
 {% load crispy_forms_tags %}
 {% load gravatar %}
+{% load social_share %}
 
 <!-- Full post start -->
 <div class="container py-5 my-5">
@@ -70,6 +71,9 @@
                     </div>
                     {% endif %}
                 </p>
+                <div>
+                    {% post_to_facebook "Check out this post on Photo Adventures Blog!" object_or_url "Share on Facebook" %}
+                </div>
                 <!-- Comment section start -->
                 <div class="card-text">{{ post.content | safe }}</div>
                 <div class="row">
