@@ -68,6 +68,10 @@
                         </button>
                         {% endif %}
                     </div>
+                    <div class="social-share">
+                        {% post_to_facebook object_or_url "Share on Facebook" %}
+                        {% post_to_twitter "Blog post: {{ post.title }}. Check this out!" object_or_url "Share on Twitter" %}
+                    </div>
                 </div>
                 <h2 class="card-title mt-5">{{ post.title }}</h2>
                 <p class="post-details text-muted mt-3">
@@ -84,11 +88,6 @@
                     </div>
                     {% endif %}
                 </p>
-                <div>
-                    <!-- {% post_to_facebook object_or_url "Post to Facebook!" %} -->
-                    {% post_to_facebook object_or_url "Check this out!" %}
-                    {% post_to_twitter object_or_url "Check this out!" %}
-                </div>
                 <!-- Comment section start -->
                 <div class="card-text">{{ post.content | safe }}</div>
                 <div class="row">
