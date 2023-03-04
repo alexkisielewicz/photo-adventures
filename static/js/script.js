@@ -83,6 +83,17 @@ if ($('#publishedHeader').text().includes('(0):')) {
   $('#publishedContainer').hide();
 }
 
+// Select the toast element to display django messages
+const toastEl = document.querySelector('.toast')
+
+// Create a new Bootstrap toast instance
+let toast = new bootstrap.Toast(toastEl)
+
+// Call the show method to display the toast
+toast.show()
+
+
+
 
 });
 
