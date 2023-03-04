@@ -1,7 +1,14 @@
 {% extends 'base.html' %} 
 
-{% block title %}
-    Photo Adventures - {{ post.title }}
+{% block meta %}
+    <!-- Open graph properties to display metadata in social media START -->
+    <meta name="description" content="Read about {{ post.title }} on Photo Adventures blog.">
+    <meta property="og:title" content="{{ post.title}} ">
+    <meta property="og:description" content="Read about {{ post.title }} on Photo Adventures blog.">
+    <meta property="og:image" content="{{ post.featured_image.url }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta name="keywords" content="{{ post.tags.all|join:', ' }}">
+    <!-- Open graph properties to display metadata in social media END -->
 {% endblock %}
 
 {% block content %}
