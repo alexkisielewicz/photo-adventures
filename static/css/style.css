@@ -300,9 +300,9 @@ button {
     color: #003718;
 }
 
-.created-on {
+.dashboard-details {
     font-family: 'Merriweather', serif;
-    font-size: small;
+    font-size: 0.75em;
 }
 
 .featured-img {
