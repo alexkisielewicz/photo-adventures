@@ -13,5 +13,5 @@ def send_new_user_email(sender, instance, created, **kwargs):
         subject = 'New user registered!'
         message = f'A new user {instance.username} has registered'
         from_email = os.environ.get('FROM_EMAIL')
-        recipient_list = [os.environ.get('RECIPIENT_LIST')]
+        recipient_list = ["os.environ.get('RECIPIENT_LIST')"]
         send_mail(subject, message, from_email, recipient_list, fail_silently=False)
