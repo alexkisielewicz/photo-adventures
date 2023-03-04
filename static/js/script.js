@@ -1,6 +1,5 @@
-
 $(document).ready(function () {
-// Set carousel image as carousel-item's background and streches it to cover viewport
+  // Set carousel image as carousel-item's background and streches it to cover viewport
   $.each(jQuery('.carousel .carousel-item'), function (i, val) {
     $(this).css('background-image', 'url(' + $(this).find('img').attr('src') + ')').css('background-size', 'cover').find('img').css('visibility', 'hidden');
   });
@@ -14,92 +13,81 @@ $(document).ready(function () {
     placement: 'left'
   });
 
-  
-  $('.delete-post-btn').click(function (event) {
-    var postId = $(this).data('post-id');
-    $('#deleteForm input[name="post_id"]').val(postId);
-  });
 
+// Function used for hiding navbar on scroll down and showing it back on scroll up.
+function scrollNavbar() {
+  const body = document.body;
+  let lastScroll = 0;
 
+  $(window).on('scroll', () => {
+    const currentScroll = $(window).scrollTop();
 
-  function scrollNavbar() {
-    const body = document.body;
-    let lastScroll = 0;
-  
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-  
-      if (currentScroll <= 0) {
-        body.classList.remove('scroll-up')
-      }
-  
-      if (currentScroll > lastScroll && !body.classList.contains('scroll-down')) {
-        body.classList.remove('scroll-up')
-        body.classList.add('scroll-down')
-      }
-  
-      if (currentScroll < lastScroll && body.classList.contains('scroll-down')) {
-        body.classList.remove('scroll-down')
-        body.classList.add('scroll-up')
-      }
-  
-      lastScroll = currentScroll;
-    })
-  }
-  
-  scrollNavbar();
-
-  let animationTriggered = false;
-
-  $(window).on('scroll', function() {
-    if (!animationTriggered && $('#scrollToCounters').is(':visible')) {
-      animateCounters();
-      animationTriggered = true;
+    if (currentScroll <= 0) {
+      body.classList.remove('scroll-up');
     }
+
+    if (currentScroll > lastScroll && !body.classList.contains('scroll-down')) {
+      body.classList.remove('scroll-up');
+      body.classList.add('scroll-down');
+    }
+
+    if (currentScroll < lastScroll && body.classList.contains('scroll-down')) {
+      body.classList.remove('scroll-down');
+      body.classList.add('scroll-up');
+    }
+
+    lastScroll = currentScroll;
   });
-  
-  function animateCounters() {
-    // Counter method found in this snippet https://bootsnipp.com/snippets/5K6WW
-  
-    $('.count-value').each(function () {
-      var finalValue = $(this).text();
-      $(this).prop('Counter', 0).animate({
-        Counter: finalValue
-      }, {
-        duration: 2000,
-        easing: 'swing',
-        step: function (now) {
-          $(this).text(now < finalValue ? Math.ceil(now) : finalValue);
-        }
-      });
+}
+
+scrollNavbar();
+
+let animationTriggered = false;
+
+function animateCounters() {
+  // Method to animate counters found in this snippet https://bootsnipp.com/snippets/5K6WW
+
+  $('.count-value').each(function () {
+    var finalValue = $(this).text();
+    $(this).prop('Counter', 0).animate({
+      Counter: finalValue
+    }, {
+      duration: 2000,
+      easing: 'swing',
+      step: function (now) {
+        $(this).text(now < finalValue ? Math.ceil(now) : finalValue);
+      }
     });
-  }
-
-  $(window).on('scroll', function() {
-    var offsetY = dociment.getElementById('#scrollToCounters').window.pageYOffset; 
-    if (window.pageYOffset >= offsetY) {
-      animateCounters(); 
-    }
   });
-  
+}
+
+$(window).on('scroll', function () {
+  let offsetY = $('#scrollToCounters').offset().top;
+  if (window.pageYOffset >= offsetY && !animationTriggered) {
+    animateCounters();
+    animationTriggered = true;
+  }
+});
+
+/* User dashboard
+Hide Divs and Headers if there's no dynamic django content inside them */
+if ($('#draftsHeader').text().includes('(0):')) {
+  $('#draftsContainer').hide();
+}
+
+if ($('#awaitingHeader').text().includes('(0):')) {
+  $('#awaitingContainer').hide();
+}
+
+if ($('#publishedHeader').text().includes('(0):')) {
+  $('#publishedContainer').hide();
+}
 
 
 });
 
-// ADD STATEMENT - IF MODAL EXISTS...
-const deleteConfirmationModal = new bootstrap.Modal(document.getElementById('deleteModal'))
-document.querySelector('[data-target="#deleteModal"]').addEventListener('click', () => {
-  deleteConfirmationModal.show()
-})
-
-
-// About page bootstrap accordion
-const faqAccordion = new bootstrap.Accordion(document.getElementById('faqAccordion'));
-
-
-
-
-
-
-
-
+// About page - initialize bootstrap accordion. 
+if (document.getElementById('faqAccordion')) {
+  let accordion = document.getElementById('faqAccordion');
+  let myAccordion = new bootstrap.Collapse(accordion);
+}
