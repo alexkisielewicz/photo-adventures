@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from blog import constants as CONST
 from taggit.models import Tag
+from django.contrib import messages
 
 from django.template.loader import render_to_string
 
@@ -90,6 +91,7 @@ class FullPost(View):
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
+            messages.success(request, 'Thank you! Your comment is awaiting approval.')
             comment.save()
         else:
             comment_form = CommentForm()
