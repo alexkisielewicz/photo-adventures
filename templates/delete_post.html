@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
 <div class="wrapper">
   <div class="container">
-    <div class="modal modal-alert modal-overlay d-block py-5" id="myModal" tabindex="-1" role="dialog" id="modalChoice">
+    <div class="modal modal-alert modal-overlay d-block py-5" id="myModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content rounded-3 shadow">
           <div class="modal-body p-4 text-center">
@@ -15,9 +16,9 @@
           <div class="modal-footer flex-nowrap justify-content-around p-0">
             <form method="post">
               {% csrf_token %}
-            <button type="submit" class="btn btn-danger d-inline"><i class="fa-solid fa-trash"></i> Yes, delete it</button>
-            <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal"><a href="{% url 'user_account' %}" class="delete-link"><i class="fa-solid fa-rotate-left"></i> Cancel</a></button>
-          </form>
+              <button type="submit" class="btn btn-danger d-inline"><i class="fa-solid fa-trash"></i> Yes, delete it</button>
+              <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal"><a href="{% url 'user_account' %}" class="delete-link"><i class="fa-solid fa-rotate-left"></i> Cancel</a></button>
+            </form>
           </div>
         </div>
       </div>
@@ -25,4 +26,8 @@
   </div>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/delete_post.js' %}"></script>
 {% endblock %}
