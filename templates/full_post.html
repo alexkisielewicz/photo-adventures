@@ -85,7 +85,9 @@
                     {% endif %}
                 </p>
                 <div>
-                    {% post_to_facebook object_or_url "Post to Facebook!" %}
+                    <!-- {% post_to_facebook object_or_url "Post to Facebook!" %} -->
+                    {% post_to_facebook "Post to Facebook!" %}
+                    {% post_to_twitter "Post to Facebook!" %}
                 </div>
                 <!-- Comment section start -->
                 <div class="card-text">{{ post.content | safe }}</div>
