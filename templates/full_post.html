@@ -1,4 +1,10 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block title %}
+    Photo Adventures - {{ post.title }}
+{% endblock %}
+
+{% block content %}
 
 {% load crispy_forms_tags %}
 {% load gravatar %}
