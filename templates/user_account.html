@@ -45,20 +45,20 @@
 
 <!-- Dashboard stats start -->
 <div class="container bg-white my-4" data-aos="fade-up">
-  <div class="row d-flex justify-content-around g-2">
-    <div class="col-lg-3 col-md-6 text-center align-items-stretch">
+  <div class="row justify-content-around align-items-stretch g-2">
+    <div class="col-lg-3 col-md-6 h-100 text-center">
       <div class="count-box rounded-3">
         <p><i class="fa-solid fa-square-check"></i> Published Posts:</p> 
         <p class="count-value"><a href="#published">{{ dashboard_stats.published_count }}</a></p>
-        </div>
+      </div>
     </div>
-    <div class="col-lg-3 col-md-6 text-center">
+    <div class="col-lg-3 col-md-6 h-100 text-center">
       <div class="count-box rounded-3">
         <p><i class="fa-regular fa-square-check"></i> Awaiting moderation:</p> 
         <p class="count-value"><a href="#awaiting">{{ dashboard_stats.awaiting_moderation_count }}</a></p>
       </div>
     </div>
-    <div class="col-lg-3 col-md-6 text-center">
+    <div class="col-lg-3 col-md-6 h-100 text-center">
       <div class="count-box rounded-3">
         <p><i class="fa-solid fa-pencil"></i> Draft Posts:</p> 
         <p class="count-value"><a href="#drafts">{{ dashboard_stats.draft_count }}</a></p>
@@ -72,9 +72,9 @@
   <div class="container bg-white my-4 py-4">
       <!-- Draft posts start -->
   {% if user_posts %}
-  <div class="container bg-white">
+  <div class="container bg-white" id="draftsContainer">
     <div class="row g-3">
-      <h2 class="my-3 py-3" id="drafts"><i class="fas fa-list"></i> Drafts ({{ dashboard_stats.draft_count }}): </h2>
+      <h2 class="my-3 py-3" id="draftsHeader"><i class="fas fa-list"></i> Drafts ({{ dashboard_stats.draft_count }}): </h2>
       {% for post in user_posts %}
       {% if post.status == 0 %}
       <div class="col-md-4 align-items-stretch featured-img">
@@ -111,9 +111,9 @@
 
   <!-- Posts awaiting moderation start -->
   {% if user_posts %}
-  <div class="container bg-white my-4 py-4">
+  <div class="container bg-white my-4 py-4" id="awaitingContainer">
     <div class="row g-3">
-      <h2 class="my-3 py-3" id="awaiting"><i class="fas fa-list"></i> Awaiting moderation
+      <h2 class="my-3 py-3" id="awaitingHeader"><i class="fas fa-list"></i> Awaiting moderation
         ({{ dashboard_stats.awaiting_moderation_count }}): </h2>
       {% for post in user_posts %}
       {% if post.status == 1 %}
@@ -151,9 +151,9 @@
 
   <!-- Published posts start -->
   {% if user_posts %}
-  <div class="container bg-white my-4 pt-4 pb-1">
+  <div class="container bg-white my-4 pt-4 pb-1" id="publishedContainer">
     <div class="row g-3">
-      <h2 class="my-3 py-3" id="published"><i class="fas fa-list"></i> Published posts ({{ dashboard_stats.published_count }}):
+      <h2 class="my-3 py-3" id="publishedHeader"><i class="fas fa-list"></i> Published posts ({{ dashboard_stats.published_count }}):
       </h2>
       {% for post in user_posts %}
       {% if post.status == 2 %}
