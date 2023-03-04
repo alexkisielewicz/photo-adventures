@@ -117,11 +117,6 @@
                         {% endif %}
                     </div>
                     <div class="col-sm-4 my-5 ">
-                        {% if commented %}
-                        <div class="alert alert-success" role="alert">
-                            Thank you {{ user.username }}! Your comment is awaiting approval.
-                        </div>
-                        {% else %}
                         {% if user.is_authenticated %}
                         <h3><i class="fa-regular fa-keyboard"></i> Leave a comment:</h3>
                         <p>Posting as <i class="fa-regular fa-user"></i> {{ user.username }}</p>
@@ -130,7 +125,6 @@
                             {% csrf_token %}
                             <button type="submit" class="btn btn-green">Submit</button>
                         </form>
-                        {% endif %}
                         {% endif %}
                     </div>
                 </div>
