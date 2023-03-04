@@ -26,8 +26,8 @@
             {% else %}
             {% url 'account_email' as email_url %}
             <p>
-                This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}"
-                    class="text-link">issue a new e-mail confirmation request</a>
+                <span style="background-color:#f00;color:#fff;">This e-mail confirmation link expired or is invalid.</span> Please click<a href="{{ email_url }}"
+                    class="text-link">this link</a> and login using e-mail and password provided in registration form. New confirmation link will be sent yo you. 
             </p>
             {% endif %}
         </div>
