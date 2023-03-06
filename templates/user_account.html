@@ -10,13 +10,13 @@
     <div class="row row-cols-1 row-cols-lg-2 mx-3">
       <div class="dashboard-welcome d-flex flex-column align-items-start px-4">
         <h2 class="fw-semibold my-3">Welcome back {{ user }}.</h2>
-        <div class="row">
-          <div class="col-9">
+        <div class="row g-2">
+          <div class="col-sm-3 dashboard-gravatar">
+            {{ request.user.email|gravatar:100 }}
+          </div>
+          <div class="col-sm-9">
             This is your dashboard from where you can manage your content.
             View your post history and monitor engagement, such as likes and comments.
-          </div>
-          <div class="col-3">
-            {{ request.user.email|gravatar:100 }}
           </div>
         </div>
           <a href="{% url 'add_post' %}" class="btn btn-green my-3"><i class="fas fa-pen"></i> Add new post</a>
@@ -78,7 +78,7 @@
       {% for post in user_posts %}
       {% if post.status == 0 %}
       <div class="col-md-4 align-items-stretch featured-img">
-        <div class="card mb-4 hover-manage">
+        <div class="card mb-4">
           {% if "placeholder" in post.featured_image.url %}
           <img class="card-img-top card-img-thumbnail"
             src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
@@ -118,7 +118,7 @@
       {% for post in user_posts %}
       {% if post.status == 1 %}
       <div class="col-md-4 align-items-stretch featured-img">
-        <div class="card mb-4 hover-manage">
+        <div class="card mb-4">
           {% if "placeholder" in post.featured_image.url %}
           <img class="card-img-top card-img-thumbnail"
             src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
@@ -153,12 +153,12 @@
   {% if user_posts %}
   <div class="container bg-white my-4 pt-4 pb-1" id="publishedContainer">
     <div class="row g-3">
-      <h2 class="my-3 py-3" id="publishedHeader"><i class="fas fa-list"></i> Published posts ({{ dashboard_stats.published_count }}):
+      <h2 class="my-3 py-4" id="publishedHeader"><i class="fas fa-list"></i> Published posts ({{ dashboard_stats.published_count }}):
       </h2>
       {% for post in user_posts %}
       {% if post.status == 2 %}
       <div class="col-md-4 align-items-stretch featured-img">
-        <div class="card mb-4 hover-manage">
+        <div class="card mb-4">
           {% if "placeholder" in post.featured_image.url %}
           <img class="card-img-top card-img-thumbnail"
             src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
