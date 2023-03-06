@@ -44,7 +44,7 @@
                     </ul>
                     {% if user.is_authenticated %}
                     {% if user.is_authenticated and user.is_superuser %}
-                    <a href="{% url 'admin:index' %}" class="btn btn-green">Admin panel</a>
+                    <a href="{% url 'admin:index' %}" class="btn btn-green me-1">Admin panel</a>
                     <a href="{% url 'account_logout' %}" class="btn btn-outline-danger me-1">Sign Out</a>
                     {% else %}
                     <div class="user-name">
