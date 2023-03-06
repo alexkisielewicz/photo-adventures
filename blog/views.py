@@ -138,7 +138,7 @@ def add_post(request):
             post.author = request.user
             post.save()
             form.save_m2m()
-            messages.success(request, 'Thank you! Your post was saved.')
+            messages.success(request, 'Thank you! Your post was saved and you can check its status in the dashboard')
             return redirect('user_account')
     else:
         form = PostForm()
@@ -178,7 +178,7 @@ class PostEdit(View):
             content = post.content
             post.save()
             form.save_m2m()
-            messages.success(request, 'Post changes have been saved.')
+            messages.success(request, 'Changes saved! You can check post status in your dashboard.')
             return redirect('user_account')
         else:
             return render(request, CONST.EDIT_POST, {'form': form})
