@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="wrapper mt-5 pt-5">
     <!-- Blog post card start -->
     <article>
-        <div class="container p-3 mt-5">
+        <div class="container">
             {% if tag %}
             <div class="container w-50 rounded-3 accent-green border border-success p-1 mt-4">
                 <h4 class="text-center m-0">You are browsing all posts with tag "{{ tag }}"</h4>
             </div>
             {% endif %}
             <div class="row">
-                <div class="col-12 mt-2 left">
+                <div class="col-12 left">
                     <div class="row">
                         {% for post in post_list %}
-                        <div class="col-12 mt-4 mb-4">
+                        <div class="col-12 my-4">
                             <div class="card" data-aos="zoom-in-up">
                                 <div class="card-body">
                                     <div class="image-container">
@@ -70,6 +71,7 @@
     </nav>
     {% endif %}
     <!-- Pagination buttons end -->
+</div>
 
 
 {% endblock %}
