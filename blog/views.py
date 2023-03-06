@@ -1,17 +1,16 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect, HttpResponse
+from blog import constants as CONST
 from django.db.models import Count
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from blog import constants as CONST
-from taggit.models import Tag
 from django.contrib import messages
-
 from django.template.loader import render_to_string
+from taggit.models import Tag
 
 
 class BlogPosts(generic.ListView,):
@@ -34,13 +33,13 @@ def index(request):
     # filter only published posts with more than 0 likes
     trending = Post.objects.filter(status=2, likes__gt=0).annotate(
         like_count=Count('likes')).order_by('-like_count')[:3]
-    
+
     # variables to show statistics on the main page
     total_posts = Post.objects.count()
     total_comments = Comment.objects.count()
     total_likes = Post.objects.aggregate(total_likes=Count('likes')).get('total_likes') or 0
     total_users = User.objects.count()
-    
+
     return render(request, CONST.INDEX, {
         'trending': trending,
         'total_posts': total_posts,
@@ -107,7 +106,7 @@ class FullPost(View):
                 'comment_form': CommentForm()
             },
         )
-        
+
 
 class PostLike(LoginRequiredMixin, View):
     """
@@ -119,8 +118,10 @@ class PostLike(LoginRequiredMixin, View):
 
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
+            messages.success(request, 'Like removed!')
         else:
             post.likes.add(request.user)
+            messages.success(request, 'Like added!')
 
         return HttpResponseRedirect(reverse('full_post', args=[slug]))
 
@@ -137,6 +138,7 @@ def add_post(request):
             post.author = request.user
             post.save()
             form.save_m2m()
+            messages.success(request, 'Thank you! Your post was saved.')
             return redirect('user_account')
     else:
         form = PostForm()
@@ -151,6 +153,7 @@ def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug, author=request.user)
     if request.method == "POST":
         post.delete()
+        messages.warning(request, 'Your post was deleted!')
         return redirect('user_account')
     else:
         return render(request, CONST.DELETE_POST, {'post': post})
@@ -175,6 +178,7 @@ class PostEdit(View):
             content = post.content
             post.save()
             form.save_m2m()
+            messages.success(request, 'Post changes have been saved.')
             return redirect('user_account')
         else:
             return render(request, CONST.EDIT_POST, {'form': form})
@@ -185,7 +189,7 @@ def dashboard_stats(request):
     author = request.user
     draft_count = Post.objects.filter(author=author, status=0).count()
     awaiting_moderation_count = Post.objects.filter(author=author, status=1).count()
-    published_count = Post.objects.filter(author=author, status=2).count() 
+    published_count = Post.objects.filter(author=author, status=2).count()
 
     context = {
         'published_count': published_count,
