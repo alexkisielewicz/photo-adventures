@@ -9,33 +9,33 @@ $(document).ready(function () {
   });
 
 
-// Function used for hiding navbar on scroll down and showing it back on scroll up.
-function scrollNavbar() {
-  const body = document.body;
-  let lastScroll = 0;
+// // Function used for hiding navbar on scroll down and showing it back on scroll up.
+// function scrollNavbar() {
+//   const body = document.body;
+//   let lastScroll = 0;
 
-  $(window).on('scroll', () => {
-    const currentScroll = $(window).scrollTop();
+//   $(window).on('scroll', () => {
+//     const currentScroll = $(window).scrollTop();
 
-    if (currentScroll <= 0) {
-      body.classList.remove('scroll-up');
-    }
+//     if (currentScroll <= 0) {
+//       body.classList.remove('scroll-up');
+//     }
 
-    if (currentScroll > lastScroll && !body.classList.contains('scroll-down')) {
-      body.classList.remove('scroll-up');
-      body.classList.add('scroll-down');
-    }
+//     if (currentScroll > lastScroll && !body.classList.contains('scroll-down')) {
+//       body.classList.remove('scroll-up');
+//       body.classList.add('scroll-down');
+//     }
 
-    if (currentScroll < lastScroll && body.classList.contains('scroll-down')) {
-      body.classList.remove('scroll-down');
-      body.classList.add('scroll-up');
-    }
+//     if (currentScroll < lastScroll && body.classList.contains('scroll-down')) {
+//       body.classList.remove('scroll-down');
+//       body.classList.add('scroll-up');
+//     }
 
-    lastScroll = currentScroll;
-  });
-}
+//     lastScroll = currentScroll;
+//   });
+// }
 
-scrollNavbar();
+// scrollNavbar();
 
 let animationTriggered = false;
 
