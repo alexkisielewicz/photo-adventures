@@ -1,9 +1,4 @@
 $(document).ready(function () {
-  // Set carousel image as carousel-item's background and streches it to cover viewport
-  $.each(jQuery('.carousel .carousel-item'), function (i, val) {
-    $(this).css('background-image', 'url(' + $(this).find('img').attr('src') + ')').css('background-size', 'cover').find('img').css('visibility', 'hidden');
-  });
-
   // Get current year to display in copyright
   const currentYear = new Date().getFullYear();
   $('#currentYear').text(currentYear);
@@ -52,7 +47,7 @@ function animateCounters() {
     $(this).prop('Counter', 0).animate({
       Counter: finalValue
     }, {
-      duration: 2000,
+      duration: 1200,
       easing: 'swing',
       step: function (now) {
         $(this).text(now < finalValue ? Math.ceil(now) : finalValue);
@@ -91,8 +86,6 @@ let toast = new bootstrap.Toast(toastEl)
 
 // Call the show method to display the toast
 toast.show()
-
-
 
 
 });
