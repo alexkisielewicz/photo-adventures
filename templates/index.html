@@ -83,7 +83,7 @@
       <div class="col-lg-3 col-md-6 text-center align-items-stretch">
         <div class="count-box rounded-3">
           <p><i class="fa-regular fa-file-lines"></i> Total Posts:</p> 
-          <p class="count-value"><span><i class="fa-regular fa-file-lines"></i></span> {{ total_posts }}</p>
+          <p class="count-value">{{ total_posts }}</p>
           </div>
       </div>
       <div class="col-lg-3 col-md-6 text-center">
@@ -111,10 +111,10 @@
 <!-- Most liked post start -->
 <section>
     <div class="container my-5 py-5" data-aos="fade-up">
-        <h1 class="text-center mb-2 mt-3 py-5">Most liked posts</h1>
-        <div class="row pb-3">
+        <h1 class="text-center mb-2 mt-2 py-5">Most liked posts</h1>
+        <div class="row g-5 pb-3">
             {% for post in trending %}
-            <div class="col-lg-4 mb-3 d-flex align-items-stretch justify-content-around">
+            <div class="col-lg-4 col-md-12 col-sm-12 d-flex align-items-stretch justify-content-around">
                 <div class="card card-main-page" data-aos="zoom-in-up">
                     {% if "placeholder" in post.featured_image.url %}
                     <img class="card-img-top card-img-thumbnail"
