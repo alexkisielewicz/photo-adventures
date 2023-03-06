@@ -90,6 +90,23 @@ a, a:hover {
     padding-bottom: 25px;
 }
 
+nav button {
+    margin-right: 25px;
+}
+
+.user-name {
+    padding: 10px;
+}
+
+.navbar-collapse .collapse .show {
+    margin-bottom: 20px;
+}
+
+.navbar-toggler-icon {
+    font-size: medium;
+    margin: 0;
+}
+
 /* Bootstrap toast */
 .toast-green {
     background-color: #005f08cc;
@@ -236,7 +253,7 @@ button {
 }
 
 .card-main-page {
-    min-width: 350px;
+    min-width: 300px;
     object-fit: cover;
     box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
     border: 1px solid transparent;
@@ -358,7 +375,7 @@ button {
 }
 
 .card-img-thumbnail {
-    max-height: 275px;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
     object-position: center;
 }
@@ -686,9 +703,22 @@ div.card-text a:hover {
 /* MEDIA QUERIES */
 
 /* Tablets, up to 576-768px */
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 575.98px) {
 .carousel-image {
-    height: 40vh;
+    height: 100vh;
+}
+
+.logo {
+    display: none;
+}
+
+.navbar-brand {
+    font-size: 2em;   
+}
+
+.navbar-collapse {
+    text-align: center;
+    padding: 5px;
 }
 
 .carousel-caption {
@@ -723,6 +753,17 @@ div.card-text a:hover {
     padding: 0 5px;
 }
 
+.count-box {
+    width: 60%;
+    font-size: medium;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.count-value {
+    font-size: large;
+}
+
 .card {
     width: 100%;
     margin: 20px 0px 20px 0px;
@@ -755,21 +796,111 @@ div.card-text a:hover {
     padding: 5px;
 }
 
-
-
 .footer {
     text-align: center;
 }
 
-
-
 }
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+    .logo {
+        display: none;
+    }
+
+    .navbar-brand {
+        font-size: 2em;   
+    }
+
+    .navbar-collapse {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .count-box {
+        width: 60%;
+        font-size: large;
+        padding: 10px;
+        margin: 0 auto;
+    }
+    
+    .count-value {
+        font-size: larger;
+    }
+
+    .card-main-page {
+        width: 500px;
+        margin-bottom: 30px;
+    }
+    
+    
+    .footer {
+        text-align: center;
+    }
+}
+
 
 /* Medium devices (tablets, bigger than 768 px but less than 992px) */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-collapse {
+        text-align: center;
+        padding: 5px;
+    }
 
+    nav .container {
+        margin: 5px auto;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .card-main-page {
+        width: 600px;
+        margin: 30px 0 30px 0;
+    }
+    
 }
 /* Large devices (laptops, desktops, 992-1200px) */
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
 
+    .logo img {
+        width: 100px;
+    }
+
+    .navbar-brand {
+        margin: 5px;
+        padding: 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.75em;   
+    }
+
+    .count-box {
+        font-size: medium;
+        padding: 10px;
+    }
+
+    .count-value {
+        font-size: large;
+    }
+
+    .dashboard-welcome img {
+        padding: 10px;
+    }
+
+    .most-liked {
+        width: 100%;
+    }
+
+
+    .card-main-page {
+        max-width: 100px;
+    }
+
+    .
 }
