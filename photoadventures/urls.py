@@ -35,6 +35,7 @@ urlpatterns = [
     path('blog/', include('blog.urls'), name='blog_urls'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
+    path('rules/', views.rules, name='rules'),
 
     # user dashboard urls
     path('user_account/', views.user_account, name='user_account'),
