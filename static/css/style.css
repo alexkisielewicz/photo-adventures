@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap');
 
-*, ::after, ::before {
+*,
+::after,
+::before {
     box-sizing: border-box;
 }
 
@@ -26,14 +28,21 @@ body {
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Gloock', serif;
 }
 
-a, a:hover {
+a,
+a:hover {
     text-decoration: none;
     color: #04100D;
 }
+
 /* Social media share icons */
 .social-share {
     position: absolute;
@@ -110,7 +119,7 @@ nav button {
 /* Bootstrap toast */
 .toast-green {
     background-color: #005f08cc;
-    color:#fff;
+    color: #fff;
 }
 
 /* Buttons */
@@ -120,7 +129,7 @@ button {
 
 .btn-green {
     background-color: #005f08cc;
-    color:#fff;
+    color: #fff;
 }
 
 .btn-green:hover {
@@ -153,7 +162,7 @@ button {
 }
 
 .navbar-brand {
-    color:#003718;
+    color: #003718;
     font-family: 'Lobster', cursive;
     font-size: 36px;
     font-weight: 700;
@@ -230,7 +239,7 @@ button {
 }
 
 .box-shadow {
-    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.2);
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 /* Post cards on main page */
@@ -255,7 +264,7 @@ button {
 .card-main-page {
     min-width: 300px;
     object-fit: cover;
-    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
     border: 1px solid transparent;
 }
 
@@ -326,7 +335,7 @@ button {
 }
 
 .like {
-    color:#fff;
+    color: #fff;
     background: transparent;
 }
 
@@ -348,7 +357,7 @@ button {
 
 .post-tags button {
     background-color: #cdcecf;
-    color:#04100D;
+    color: #04100D;
     font-size: medium;
     box-shadow: inset 0 -2px 0 0 green;
     transition: all .2s ease-in-out;
@@ -358,7 +367,7 @@ button {
 
 .post-tags button:hover {
     background-color: #ffbd59;
-    color:#04100D;
+    color: #04100D;
     font-size: medium;
     box-shadow: inset 0 -25px 0 0 #ffbd59;
 }
@@ -454,12 +463,12 @@ button {
 }
 
 .edit {
-    color:#fff;
+    color: #fff;
     background: transparent;
 }
 
 .edit:hover {
-    color:#c9e365;
+    color: #c9e365;
     transform: scale(1.5);
     transition: all .2s ease-in-out 0s;
     -webkit-transform: all .2s ease-in-out 0s;
@@ -468,7 +477,6 @@ button {
 .count-box {
     background-color: #fff;
     box-shadow: 0px 0 16px rgb(0 0 0 / 20%);
-    border: 1px solid #c9e365;
     font-size: 1.25em;
     font-weight: 700;
     padding: 20px;
@@ -479,6 +487,7 @@ button {
     font-weight: 700;
     font-size: 2em;
 }
+
 .count-value a {
     color: #ffbd59;
 }
@@ -486,6 +495,7 @@ button {
 .count-value a:hover {
     color: #003718;
 }
+
 /* Footer */
 .footer {
     position: relative;
@@ -507,7 +517,7 @@ button {
 
 .social-icon:hover {
     color: #ffbd59;
-  }
+}
 
 /* Hide/show navbar on scroll */
 
@@ -552,7 +562,7 @@ div.card-text a:hover {
 }
 
 /* Delete post page */
-.modal-overlay {  
+.modal-overlay {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -560,17 +570,18 @@ div.card-text a:hover {
     -webkit-backdrop-filter: blur(30px);
     opacity: 1;
     transition: opacity 0.5s;
-  }
+}
 
 .warning {
     font-size: xx-large;
-    color:#f00;
+    color: #f00;
 }
 
 /* About page */
 .container-about {
     padding: 25px;
 }
+
 .about img:hover {
     transform: scale(0.95);
 }
@@ -708,123 +719,123 @@ div.card-text a:hover {
 
 /* Tablets, up to 576-768px */
 @media only screen and (max-width: 575.98px) {
-.carousel-image {
-    height: 100vh;
-}
+    .carousel-image {
+        height: 100vh;
+    }
 
-.logo {
-    display: none;
-}
+    .logo {
+        display: none;
+    }
 
-.navbar-brand {
-    font-size: 2em;   
-}
+    .navbar-brand {
+        font-size: 2em;
+    }
 
-.navbar-collapse {
-    text-align: center;
-    padding: 5px;
-}
+    .navbar-collapse {
+        text-align: center;
+        padding: 5px;
+    }
 
-.carousel-caption {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
-    padding: 15px;
-    background-color: #fff;
-    background-size: cover;
-    backdrop-filter: blur(3px);
-}
+    .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+        background-color: #fff;
+        background-size: cover;
+        backdrop-filter: blur(3px);
+    }
 
-.display-2 {
-    font-size: 2.25em;
-    font-family: 'Gloock', serif;
-    color: #04100D;
-}
+    .display-2 {
+        font-size: 2.25em;
+        font-family: 'Gloock', serif;
+        color: #04100D;
+    }
 
-.display-6 {
-    font-size: 1.75em;
-    font-family: 'Gloock', serif;
-    color: #003718;
-}
+    .display-6 {
+        font-size: 1.75em;
+        font-family: 'Gloock', serif;
+        color: #003718;
+    }
 
-.container-fluid {
-    margin: 0;
-}
+    .container-fluid {
+        margin: 0;
+    }
 
-.container-lg {
-    margin: 0 5px;
-    padding: 0 5px;
-}
+    .container-lg {
+        margin: 0 5px;
+        padding: 0 5px;
+    }
 
-.count-box {
-    width: 60%;
-    font-size: medium;
-    padding: 10px;
-    margin: 0 auto;
-}
+    .count-box {
+        width: 60%;
+        font-size: medium;
+        padding: 10px;
+        margin: 0 auto;
+    }
 
-.count-value {
-    font-size: large;
-}
+    .count-value {
+        font-size: large;
+    }
 
-.card {
-    width: 100%;
-    margin: 20px 0px 20px 0px;
-}
+    .card {
+        width: 100%;
+        margin: 20px 0px 20px 0px;
+    }
 
-.card-title {
-    font-size: 1.5em;
-}
+    .card-title {
+        font-size: 1.5em;
+    }
 
-.post-excerpt {
-    font-size: 1em;
-}
+    .post-excerpt {
+        font-size: 1em;
+    }
 
-.image-caption {
-    font-size: 0.75em;
-    font-weight: 400;
-}
+    .image-caption {
+        font-size: 0.75em;
+        font-weight: 400;
+    }
 
 
-.caption-likes {
-    padding: 2px 2px;
-    top: 2px;
-    right: 2px;
-}
+    .caption-likes {
+        padding: 2px 2px;
+        top: 2px;
+        right: 2px;
+    }
 
-.social-share {
-    padding: 2px 2px;
-    right: 2px;
-    bottom: 2px;
-}
+    .social-share {
+        padding: 2px 2px;
+        right: 2px;
+        bottom: 2px;
+    }
 
-.post-tags button {
-    font-size: small;
-}
+    .post-tags button {
+        font-size: small;
+    }
 
-.post-details {
-    font-size: 0.75em;
-}
+    .post-details {
+        font-size: 0.75em;
+    }
 
-.comments img {
-    width: 50px;
-    height: 50px;
-}
+    .comments img {
+        width: 50px;
+        height: 50px;
+    }
 
-.container-about {
-    margin: 0;
-    padding: 5px;
-}
+    .container-about {
+        margin: 0;
+        padding: 5px;
+    }
 
-.container-contact {
-    margin: 0;
-    padding: 5px;
-}
+    .container-contact {
+        margin: 0;
+        padding: 5px;
+    }
 
-.footer {
-    text-align: center;
-}
+    .footer {
+        text-align: center;
+    }
 
 }
 
@@ -834,7 +845,7 @@ div.card-text a:hover {
     }
 
     .navbar-brand {
-        font-size: 2em;   
+        font-size: 2em;
     }
 
     .navbar-collapse {
@@ -852,7 +863,7 @@ div.card-text a:hover {
         padding: 10px;
         margin: 0 auto;
     }
-    
+
     .count-value {
         font-size: larger;
     }
@@ -861,8 +872,8 @@ div.card-text a:hover {
         width: 500px;
         margin-bottom: 30px;
     }
-    
-    
+
+
     .footer {
         text-align: center;
     }
@@ -888,13 +899,14 @@ div.card-text a:hover {
         width: 600px;
         margin: 30px 0 30px 0;
     }
-    
+
     .controls a {
         font-size: 0.75em;
         padding: 5px;
     }
 
 }
+
 /* Large devices (laptops, desktops, 992-1200px) */
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
 
@@ -908,7 +920,7 @@ div.card-text a:hover {
     }
 
     .navbar-brand {
-        font-size: 1.75em;   
+        font-size: 1.75em;
     }
 
     .count-box {
@@ -932,6 +944,4 @@ div.card-text a:hover {
     .card-main-page {
         max-width: 100px;
     }
-
-    .
 }
