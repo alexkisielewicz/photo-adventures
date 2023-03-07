@@ -105,8 +105,8 @@ class FullPost(View):
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
-            messages.success(request, 'Thank you! Your comment is awaiting approval.')
             comment.save()
+            messages.success(request, 'Thank you! Your comment is awaiting approval.')
         else:
             comment_form = CommentForm()
 
@@ -153,7 +153,7 @@ def add_post(request):
             post.author = request.user
             post.save()
             form.save_m2m()
-            messages.success(request, 'Thank you! Your post was saved and you can check its status in the dashboard')
+            messages.success(request, 'Thank you! Your post was saved. Check its status in your dashboard')
             return redirect('user_account')
     else:
         form = PostForm()
