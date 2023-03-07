@@ -56,6 +56,9 @@ def about(request):
 def contact(request):
     return render(request, CONST.CONTACT)
 
+def rules(request):
+    return render(request, CONST.RULES)
+
 
 class FullPost(View):
 
