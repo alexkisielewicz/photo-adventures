@@ -168,7 +168,7 @@
           <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
             alt="Featured image of the post {{ post.title}}">
           {% endif %}
-          <div class="overlay">
+          <div class="overlay controls">
             <a href="{% url 'full_post' slug=post.slug %}" title="View post" class="btn btn-info me-2">VIEW</a>
             <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
             <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>

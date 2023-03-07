@@ -889,6 +889,11 @@ div.card-text a:hover {
         margin: 30px 0 30px 0;
     }
     
+    .controls a {
+        font-size: 0.75em;
+        padding: 5px;
+    }
+
 }
 /* Large devices (laptops, desktops, 992-1200px) */
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
