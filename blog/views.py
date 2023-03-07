@@ -54,7 +54,19 @@ def about(request):
 
 
 def contact(request):
-    return render(request, CONST.CONTACT)
+    """
+    Function based view to return user name and user email to the template.
+    They are used to prepopulate contact form fields if user is authenticated.
+    For anonymous user variables become empty strings to avoid property error.
+    Anonymous user does not have email property.
+    """
+    user_name = request.user.username if request.user.is_authenticated else ""
+    user_email = request.user.email if request.user.is_authenticated else ""
+    context = {
+        'user_name': user_name,
+        'user_email': user_email,
+    }
+    return render(request, CONST.CONTACT, context)
 
 def rules(request):
     return render(request, CONST.RULES)
