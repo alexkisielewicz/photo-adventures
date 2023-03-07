@@ -153,6 +153,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="{% static 'js/email_init.js' %}"></script>
     <script src="{% static 'js/sendEmail.js' %}"></script>
+    {% block extrascripts %}{% endblock %}
     <script src="{% static 'js/script.js' %}"></script>
     <script>
         AOS.init({
