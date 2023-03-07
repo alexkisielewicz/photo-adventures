@@ -1,4 +1,5 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% block title %}Photo Adventures - {{ post.title }}{% endblock %}
 
 {% block meta %}
     <!-- Open graph properties to display metadata in social media START -->
@@ -93,10 +94,10 @@
                 <div class="card-text">{{ post.content | safe }}</div>
                 <div class="row">
                     <div class="col-sm-8 my-5">
-                        <h3><i class="fa-regular fa-comments"></i> Comments:</h3>
+                        <h3><i class="fa-regular fa-comments mb-3"></i> Comments:</h3>
                         {% if comments %}
                         {% for comment in comments %}
-                        <div class="comments p-3">
+                        <div class="comments py-3">
                             <div class="row">
                                 <div class="col-auto pr-0">
                                     {{ comment.email|gravatar:80 }}
@@ -119,8 +120,13 @@
                     </div>
                     <div class="col-sm-4 my-5 ">
                         {% if user.is_authenticated %}
-                        <h3><i class="fa-regular fa-keyboard"></i> Leave a comment:</h3>
+                        <h3><i class="fa-regular fa-keyboard mb-3"></i> Leave a comment:</h3>
                         <p>Posting as <i class="fa-regular fa-user"></i> {{ user.username }}</p>
+                        <p class="text-muted">
+                            <small>
+                                Please follow our community <a href="{% url 'rules' %}" class="text-link">rules</a>.
+                            </small>
+                        </p> 
                         <form method="post" mt-3>
                             {{ comment_form | crispy }}
                             {% csrf_token %}
