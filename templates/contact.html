@@ -15,9 +15,9 @@
                         </div>
                         <div class="form-floating my-3">
                             {% if user.is_authenticated %}
-                            <input type="email" name="email" id="emailaddress" class="form-control" value="{{ user_email }}" required />
+                            <input type="email" name="email" id="emailaddress" class="form-control" placeholder="{{ user_email }}" value="{{ user_email }}" required />
                             {% else %}
-                            <input type="email" name="email" id="emailaddress" class="form-control" required />
+                            <input type="email" name="email" id="emailaddress" class="form-control" placeholder="email@example.com" required />
                             {% endif %}
                             <label for="emailaddress">Email address:</label>
                         </div>
