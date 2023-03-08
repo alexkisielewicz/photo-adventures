@@ -12,7 +12,7 @@
     <div class="header-accounts rounded-top m-0"></div>
     <div class="accounts-body p-4 mx-3">
       <h3 class="card-title mb-3">Register new account:</h3>
-        <form class="login accounts-form" method="POST" action="{% url 'account_signup' %}">
+        <form class="login accounts-form" method="POST" action="{% url 'account_signup' %}" onsubmit="return checkCaptcha(event)">
           {% csrf_token %}
           {{ form|crispy }}
           {% if redirect_field_value %}
