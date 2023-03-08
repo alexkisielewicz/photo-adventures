@@ -1,4 +1,16 @@
 function sendMail(contactForm) {
+
+    let contactFormAlert = document.getElementById("contactFormAlert");
+
+    // Display the error text if the user didn't solve the captcha
+    let userResponse = grecaptcha.getResponse();
+    if (userResponse.length === 0) {
+        contactFormAlert.classList.remove("d-none");
+        contactFormAlert.classList.add("alert-danger");
+        contactFormAlert.innerHTML = `Please complete the captcha before submition.`;
+        return false;
+    }
+
     let templateParams = {
         "from_name": contactForm.fullname.value,
         "from_email": contactForm.emailaddress.value,
@@ -13,18 +25,16 @@ function sendMail(contactForm) {
     emailjs.send(service, template, templateParams, publicKey)
         .then(
             function (response) {
-                // should reveive response 200 if message was sent
+                // Should reveive response 200 if message was sent
                 if (response.status === 200) {
-                    let contactFormAlert = document.getElementById("contactFormAlert");
                     contactFormAlert.classList.remove("d-none");
+                    contactFormAlert.classList.add("alert-success")
                     contactFormAlert.innerHTML = `Thank you! Your message was sent successfully.`;
                 }
             },
-            // in case of an error when message is not sent 
+            // In case of an error when message is not sent 
             function (error) {
-                let contactFormAlert = document.getElementById("contactFormAlert");
                 contactFormAlert.classList.remove("d-none");
-                contactFormAlert.classList.remove("alert-success");
                 contactFormAlert.classList.add("alert-danger");
                 contactFormAlert.innerHTML = `Oooops! There was a problem, your message was not sent.`;
             });
