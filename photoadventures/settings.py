@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'cloudinary_storage',
-    'cloudinary',
     'django.contrib.staticfiles',
+    'cloudinary',
     'django_summernote',
     'crispy_forms',
     'crispy_bootstrap5',
@@ -68,7 +68,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 TAGGIT_CASE_INSENSITIVE = False
 
 # Page can only be displayed within an iframe on its own domain
-X_FRAME_OPTIONS = 'SAME_ORIGIN'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Summernote configuration to override default font style
 # and match website style
