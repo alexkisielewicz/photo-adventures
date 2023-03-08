@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    // Selectors
+    /* 
+    I learned about regular expressions here and selected different
+    sets of allowed characters for each validating input.
+    https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/ 
+    */
+    
+    // Define 7 form input fields and form submit button
     const inputTitle = document.getElementById('idTitle');
     const inputSlug = document.getElementById('id_slug');
     const inputCategory = document.getElementById('id_category');
@@ -8,14 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputExcerpt = document.getElementById('id_excerpt');
     // const inputImage = document.querySelector('#id_featured_image');
     const inputLocation = document.getElementById('id_location');
-    
-    // const radioButtons = document.querySelectorAll('input[type="radio"][name="status"]');
-    const formGroup = document.getElementById('div_id_status');
-
-
+    const radioButtons = document.querySelectorAll('input[type="radio"][name="status"]');
     const submitButton = document.getElementById("submitButton");
-    console.log(submitButton);
 
+
+    // Process title input value to prefill slug input as words separated with dash
     inputTitle.addEventListener("input", (event) => {
         const titleValue = event.target.value;
         const slugValue = titleValue
@@ -26,11 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
         inputSlug.value = slugValue;
     });
 
-    // set all validation status to false
-    let titleIsValid, slugIsValid, categoryIsValid, tagsIsValid, excerptIsValid, locationIsValid = false;
-
-    // I learned about regular expressions here 
-    // https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/ 
+    // Initially set all 7 validation inputs values to false in order to disable submit button by default
+    let isValid = {
+        title: false,
+        slug: false,
+        category: false,
+        tags: false,
+        excerpt: false,
+        location: false,
+        status: false,
+      };
+    
+    // Validate each of 7 input field against allowed regular expression
     const validateTitle = (value) => {
         const titleValidation = /^[a-zA-Z0-9 ,]+$/;
         if (value.match(titleValidation) && value.length >= 5 && value.length <= 50) {
@@ -47,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     };
 
+    // THERE'S AN ISSUE HERE, FIRST CATEGORY "ADVENTURES" NOT SELECTABLE BEFORE OTHER CHOICE IS SELECTED
     const validateCategory = (value) => {
         if (inputCategory.value) {
             return true;
@@ -54,14 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     };
 
+    // Allowed minimal tag length is 3 characters, coma separated words
+    // Shortest input should be 1 tag, max 60 characters
     const validateTags = (value) => {
         const tagsValidation = /^([a-zA-Z]{3,}\s*,\s*)*[a-zA-Z]{3,}$/;
-        if (value.match(tagsValidation) && value.length >= 4 && value.length <= 60) {
+        if (value.match(tagsValidation) && value.length >= 3 && value.length <= 60) {
             return true;
         }
         return false;
     };
 
+    // Allowed length range for excerpt is 10-200 characters
     const validateExcerpt = (value) => {
         if (value.length >= 10 && value.length <= 200) {
             return true;
@@ -69,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     };
 
+    // Allowed aplha characters and coma, length range 4-40 characters
     const validateLocation = (value) => {
         const locationValidation = /^[a-zA-Z ,]+$/;
         if (value.match(locationValidation) && value.length >= 4 && value.length <= 40) {
@@ -77,54 +91,82 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     };
 
+    // Add event listeners to each radio buttons
+    radioButtons.forEach(function (radioButton) {
+        radioButton.addEventListener('click', function () {
+            // Remove is-valid class from all radio buttons
+            radioButtons.forEach(function (radioButton) {
+                radioButton.classList.remove('is-valid');
+            });
+    
+            if (this.checked) {
+                // Apply is-valid bootstrap class to clicked radio button
+                this.classList.add('is-valid');
+                isValid.status = true;
+            } else {
+                // Apply is-invalid bootstrap class to clicked radio button
+                this.classList.remove('is-valid');
+                isValid.status = false;
+            }
+            updateSubmitButton()
+        });
+    });
+
     // Togle disable property on submit button, 
     // disable if any input is invalid, enable if all are valid
     const toggleSubmitButton = () => {
-        if (titleIsValid && slugIsValid && categoryIsValid && tagsIsValid && excerptIsValid && locationIsValid) {
-            submitButton.disabled = false;
+        const isValidDict = Object.values(isValid);
+        if (isValidDict.every(value => value === true)) {
+          submitButton.disabled = false;
         } else {
-            submitButton.disabled = true;
+          submitButton.disabled = true;
         }
-    };
+      };
 
-    // Apply bootstrap style
+    // Apply bootstrap style for valid input
     const addInvalidStyle = (el) => {
         el.classList.remove("is-valid");
         el.classList.add("is-invalid");
     };
 
-    // Apply bootstrap style
+    // Apply bootstrap style for invalid input
     const addValidStyle = (el) => {
         el.classList.remove("is-invalid");
         el.classList.add("is-valid");
     };
 
+    // Set disable property for form submit button = not clickable
     const disableSubmitButton = () => {
         submitButton.disabled = true;
         submitButton.classList.add("submit-disabled-state");
     };
 
+    // Remove disable property for form submit button = clickable
     const enableSubmitButton = () => {
         submitButton.disabled = false;
         submitButton.classList.remove("submit-disabled-state");
     };
 
+    // Check if dictionary isValid has all input key values equals to True
     const updateSubmitButton = () => {
-        if (titleIsValid && slugIsValid && categoryIsValid && tagsIsValid && excerptIsValid && locationIsValid) {
+        const isValidDict = Object.values(isValid);
+        if (isValidDict.every(value => value === true)) {
+            // Allow to proceed with form submition
             enableSubmitButton();
         } else {
+            // Don't allow to submit the form
             disableSubmitButton();
         }
     };
 
-    // Event listeners
+    // Event listeners for all input fields
     inputTitle.addEventListener("input", (event) => {
         const titleValue = event.target.value;
         if (validateTitle(titleValue)) {
-            titleIsValid = true;
+            isValid.title = true;
             addValidStyle(inputTitle);
         } else {
-            titleIsValid = false;
+            isValid.title = false;
             addInvalidStyle(inputTitle);
         }
         updateSubmitButton();
@@ -133,10 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
     inputSlug.addEventListener("input", (event) => {
         const slugValue = event.target.value;
         if (validateSlug(slugValue)) {
-            slugIsValid = true;
+            isValid.slug = true;
             addValidStyle(inputSlug);
         } else {
-            slugIsValid = false;
+            isValid.slug = false;
             addInvalidStyle(inputSlug);
         }
         updateSubmitButton();
@@ -145,10 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
     inputCategory.addEventListener("input", (event) => {
         const categoryValue = event.target.value;
         if (validateCategory(categoryValue)) {
-            categoryIsValid = true;
+            isValid.category = true;
             addValidStyle(inputCategory);
         } else {
-            categoryIsValid = false;
+            isValid.category = false;
             addInvalidStyle(inputCategory);
         }
         updateSubmitButton();
@@ -157,10 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
     inputTags.addEventListener("input", (event) => {
         const tagsValue = event.target.value;
         if (validateTags(tagsValue)) {
-            tagsIsValid = true;
+            isValid.tags = true;
             addValidStyle(inputTags);
         } else {
-            tagsIsValid = false;
+            isValid.tags = false;
             addInvalidStyle(inputTags);
         }
         updateSubmitButton();
@@ -169,10 +211,10 @@ document.addEventListener("DOMContentLoaded", () => {
     inputExcerpt.addEventListener("input", (event) => {
         const excerptValue = event.target.value;
         if (validateExcerpt(excerptValue)) {
-            excerptIsValid = true;
+            isValid.excerpt = true;
             addValidStyle(inputExcerpt);
         } else {
-            excerptIsValid = false;
+            isValid.excerpt = false;
             addInvalidStyle(inputExcerpt);
         }
         updateSubmitButton();
@@ -181,15 +223,15 @@ document.addEventListener("DOMContentLoaded", () => {
     inputLocation.addEventListener("input", (event) => {
         const locationValue = event.target.value;
         if (validateLocation(locationValue)) {
-            locationIsValid = true;
+            isValid.location = true;
             addValidStyle(inputLocation);
         } else {
-            locationIsValid = false;
+            isValid.location = false;
             addInvalidStyle(inputLocation);
         }
         updateSubmitButton();
     });
 
-    // Call the function
+    // Call the function that checks if all validations are set to True
     updateSubmitButton();
 });
