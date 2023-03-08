@@ -11,7 +11,6 @@ html {
     height: 100%;
 }
 
-
 body {
     font-family: 'Merriweather', serif;
     color: #04100D;
@@ -231,7 +230,6 @@ button {
 }
 
 /* Main page Hero */
-
 .hero-container {
     background: linear-gradient(90deg, hsla(180, 5%, 83%, 0.6) 100%, hsla(165, 60%, 4%, 1) 100%);
     background-size: cover;
@@ -659,13 +657,6 @@ div.card-text a:hover {
     background-size: cover;
 }
 
-.edit-post-header {
-    position: absolute;
-    bottom: 10px;
-    color: #fff;
-    font-size: 3em;
-}
-
 /* Account templates */
 .container-accounts {
     max-width: 600px;
@@ -714,10 +705,9 @@ div.card-text a:hover {
     background-color: #ffbd59;
 }
 
-
 /* MEDIA QUERIES */
 
-/* Tablets, up to 576-768px */
+/* Smartphones and small tablets, 576-768px */
 @media only screen and (max-width: 575.98px) {
     .carousel-image {
         height: 100vh;
@@ -797,7 +787,6 @@ div.card-text a:hover {
         font-weight: 400;
     }
 
-
     .caption-likes {
         padding: 2px 2px;
         top: 2px;
@@ -838,7 +827,7 @@ div.card-text a:hover {
     }
 
 }
-
+/* Tablets */
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     .logo {
         display: none;
@@ -880,7 +869,7 @@ div.card-text a:hover {
 }
 
 
-/* Medium devices (tablets, bigger than 768 px but less than 992px) */
+/* Medium devices (bigger than 768px but less than 992px) */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     .navbar-collapse {
         text-align: center;
@@ -939,7 +928,6 @@ div.card-text a:hover {
     .most-liked {
         width: 100%;
     }
-
 
     .card-main-page {
         max-width: 100px;
