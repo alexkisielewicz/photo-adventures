@@ -7,7 +7,7 @@ function sendMail(contactForm) {
     if (userResponse.length === 0) {
         contactFormAlert.classList.remove("d-none");
         contactFormAlert.classList.add("alert-danger");
-        contactFormAlert.innerHTML = `Please complete the captcha before submition.`;
+        contactFormAlert.innerHTML = `Please complete the captcha before submission.`;
         return false;
     }
 
