@@ -1,16 +1,16 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Photo Adventures - Edit post{% endblock %}
 
 {% load crispy_forms_tags %}
 
 {% block content %}
-
 <main class="my-5 py-5">
   <div class="container bg-white rounded-3 my-5 py-3">
     <div class="container edit-post align-content-center rounded-3 p-2">
-      <h1 class="edit-post-header mb-3 p-3">Edit Post</h1>
     </div>
     <div class="container mt-5 mb-3 p-3">    
+      <h1 class="mb-3">Edit Post</h1>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
@@ -19,5 +19,7 @@
     </div>
   </div>
 </main>
-
+{% endblock %}
+{% block extrascripts %}
+    <script src="{% static 'js/validate_form.js' %}"></script>
 {% endblock %}
