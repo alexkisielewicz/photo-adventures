@@ -40,9 +40,8 @@ $(document).ready(function () {
     });
 
 
-    submitButton = document.querySelector('button[type=submit]');
-    submitButton.setAttribute('disabled', true);
-
+    
+    
     document.getElementById("contactForm").addEventListener("submit", function (event) {
         let recaptcha = grecaptcha.getResponse();
         if (recaptcha.length === 0) {
@@ -53,9 +52,7 @@ $(document).ready(function () {
             contactFormAlert.classList.remove("alert-success");
             contactFormAlert.classList.add("alert-danger");
             contactFormAlert.innerHTML = `Please validate the reCAPTCHA before submit.`;
-        } else {
-            submitButton.removeAttribute('disabled');
-        }
+        } 
     });
 
 });
