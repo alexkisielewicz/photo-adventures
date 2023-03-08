@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     /* 
-    I learned about regular expressions here and selected different
+    I learned about regular expressions on this website and selected different
     sets of allowed characters for each validating input.
     https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/ 
     */
