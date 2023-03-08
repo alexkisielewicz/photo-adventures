@@ -31,7 +31,7 @@ $(document).ready(function () {
     // Animation function executes on scroll when containers reach bottom of the window
     // Trigger position is callculated from top of the window - windows height + 100px 
     $(window).on('scroll', function () {
-        let windowHeight = window.innerHeight; 
+        let windowHeight = window.innerHeight;
         let offsetY = $('#scrollToCounters').offset().top - windowHeight + 100;
         if (window.pageYOffset >= offsetY && !animationTriggered) {
             animateCounters();
@@ -40,12 +40,10 @@ $(document).ready(function () {
     });
 
 
-    // Enable google reCaptcha 
     submitButton = document.querySelector('button[type=submit]');
     submitButton.setAttribute('disabled', true);
 
     document.getElementById("contactForm").addEventListener("submit", function (event) {
-
         let recaptcha = grecaptcha.getResponse();
         if (recaptcha.length === 0) {
             event.preventDefault();
@@ -58,7 +56,6 @@ $(document).ready(function () {
         } else {
             submitButton.removeAttribute('disabled');
         }
-
     });
 
 });
