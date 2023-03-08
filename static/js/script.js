@@ -39,18 +39,6 @@ $(document).ready(function () {
         }
     });
 
-
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-        let contactFormAlert = document.getElementById("contactFormAlert");
-        let recaptcha = grecaptcha.getResponse();
-        if (recaptcha.length === 0) {
-            event.preventDefault();
-            contactFormAlert.classList.remove("d-none", "alert-success");
-            contactFormAlert.classList.add("alert-danger");
-            contactFormAlert.innerHTML = `Please validate the reCAPTCHA before submit.`;
-        }
-    });
-
 });
 
 function hideEmptySections() {
