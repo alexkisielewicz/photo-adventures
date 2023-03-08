@@ -10,7 +10,6 @@ function sendMail(contactForm) {
         contactFormAlert.innerHTML = `Please complete the captcha before submition.`;
         return false;
     }
-    }
 
     let templateParams = {
         "from_name": contactForm.fullname.value,
