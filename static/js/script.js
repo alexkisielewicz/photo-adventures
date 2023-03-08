@@ -55,7 +55,7 @@ $(document).ready(function () {
             contactFormAlert.classList.add("alert-danger");
             contactFormAlert.innerHTML = `Please validate the reCAPTCHA before submit.`;
         } else {
-            submitButton.setAttribute('disabled', false);
+            submitButton.setAttribute('disabled');
         }
 
     });
