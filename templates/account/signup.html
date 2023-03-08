@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% load i18n %}
 {% load crispy_forms_tags %}
@@ -17,10 +18,17 @@
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}
+          <div class="g-recaptcha mb-2" data-sitekey="6Le5msgkAAAAAAqa5UWAdwncmvITv3hgj7E_VvIz"></div>
           <button class="btn btn-green my-3" type="submit">{% trans "Sign Up" %}</button>
+          <div class="d-none alert mt-2" id="captchaAlert" role="alert"></div>
         </form>
         <a class="text-link" href="{{ login_url }}">Already have an account?</a>
     </div>        
   </div>
 </div>
 {% endblock %}
+{% block extrascripts %}
+    <script src="{% static 'js/signup_captcha.js' %}"></script>
+{% endblock %}
+
+
