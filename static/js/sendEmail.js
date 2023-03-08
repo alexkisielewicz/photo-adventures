@@ -27,7 +27,7 @@ function sendMail(contactForm) {
             function (response) {
                 // Should reveive response 200 if message was sent
                 if (response.status === 200) {
-                    contactFormAlert.classList.remove("d-none");
+                    contactFormAlert.classList.remove("d-none alert-danger");
                     contactFormAlert.classList.add("alert-success")
                     contactFormAlert.innerHTML = `Thank you! Your message was sent successfully.`;
                 }
