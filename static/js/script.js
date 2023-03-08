@@ -40,19 +40,15 @@ $(document).ready(function () {
     });
 
 
-    
-    
     document.getElementById("contactForm").addEventListener("submit", function (event) {
+        let contactFormAlert = document.getElementById("contactFormAlert");
         let recaptcha = grecaptcha.getResponse();
         if (recaptcha.length === 0) {
             event.preventDefault();
-            alert("Please validate the reCAPTCHA.");
-            let contactFormAlert = document.getElementById("contactFormAlert");
-            contactFormAlert.classList.remove("d-none");
-            contactFormAlert.classList.remove("alert-success");
+            contactFormAlert.classList.remove("d-none", "alert-success");
             contactFormAlert.classList.add("alert-danger");
             contactFormAlert.innerHTML = `Please validate the reCAPTCHA before submit.`;
-        } 
+        }
     });
 
 });
