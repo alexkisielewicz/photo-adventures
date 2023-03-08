@@ -8,7 +8,7 @@
             <div class="row g-0">
                 <div class="col col-md mx-4 py-5">
                     <h3 class="card-title mb-3">Contact us</h3>
-                    <form onsubmit="return sendMail(this);">
+                    <form onsubmit="return sendMail(this);" id="contactForm">
                         <div class="form-floating my-3">
                             <input type="text" name="name" id="fullname" class="form-control" placeholder="John Doe" {% if user.is_authenticated %}value="{{ user_name }}"{% endif %} required />
                             <label for="fullname">Your name:</label>
@@ -51,5 +51,4 @@
             </div>
       </div>
 </div>
-
 {% endblock %}
