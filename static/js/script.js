@@ -57,4 +57,19 @@ function hideEmptySections() {
     }
 }
 
+
+function showToastMsg() {
+    // Function initializes bootstrap toast to display django messages in it
+    
+    // Select html the toast element to target 
+    const toastEl = document.querySelector('.toast')
+
+    // Create a new Bootstrap toast instance
+    let toast = new bootstrap.Toast(toastEl)
+
+    // Call the show method to display the toast
+    toast.show()
+}
+
 hideEmptySections()
+showToastMsg()
