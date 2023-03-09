@@ -240,6 +240,11 @@ button {
     box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.2);
 }
 
+.most-liked {
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(255,255,255,.8), 0 0 20px rgba(255,255,255,.8);
+}
+
 /* Post cards on main page */
 .card-category {
     text-transform: uppercase;
