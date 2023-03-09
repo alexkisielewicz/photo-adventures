@@ -4,11 +4,12 @@ from urllib.parse import quote_plus
 from django import template
 from django.utils.safestring import mark_safe
 
-
-# Method to create and register custom template tag found in django docs
-# https://docs.djangoproject.com/en/4.1/howto/custom-template-tags/
-
-
+"""
+Method to create and register custom template tag found in django docs
+https://docs.djangoproject.com/en/4.1/howto/custom-template-tags/
+Method suggested in gravatar docs:
+https://en.gravatar.com/site/implement
+"""
 register = template.Library()
 
 # return only the URL of the gravatar

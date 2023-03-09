@@ -54,7 +54,22 @@ def about(request):
 
 
 def contact(request):
-    return render(request, CONST.CONTACT)
+    """
+    Function based view to return user name and user email to the template.
+    They are used to prepopulate contact form fields if user is authenticated.
+    For anonymous user variables become empty strings to avoid property error.
+    Anonymous user does not have email property.
+    """
+    user_name = request.user.username if request.user.is_authenticated else ""
+    user_email = request.user.email if request.user.is_authenticated else ""
+    context = {
+        'user_name': user_name,
+        'user_email': user_email,
+    }
+    return render(request, CONST.CONTACT, context)
+
+def rules(request):
+    return render(request, CONST.RULES)
 
 
 class FullPost(View):
@@ -90,8 +105,8 @@ class FullPost(View):
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
-            messages.success(request, 'Thank you! Your comment is awaiting approval.')
             comment.save()
+            messages.success(request, 'Thank you! Your comment is awaiting approval.')
         else:
             comment_form = CommentForm()
 
@@ -138,7 +153,7 @@ def add_post(request):
             post.author = request.user
             post.save()
             form.save_m2m()
-            messages.success(request, 'Thank you! Your post was saved and you can check its status in the dashboard')
+            messages.success(request, 'Thank you! Your post was saved. Check its status in your dashboard')
             return redirect('user_account')
     else:
         form = PostForm()

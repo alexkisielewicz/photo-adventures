@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %}Photo Adventures - Error 500 - Internal Server Error{% endblock %}
 
 {% block content %}
 <div class="wrapper mt-5 pt-5">
@@ -7,6 +8,7 @@
         <div class="accounts-body p-4 mx-3">
             <h3 class="card-title mb-3">ERROR 500</h3>
             <p>Internal server error occured, return to <a href="{% url 'home' %}" class="text-link">home page</a></p>
+            <p>You can also report an issue by contacting use <a href="{% url 'contact' %}" class="text-link">here</a>.</p>
         </div>
     </div>
 </div>
