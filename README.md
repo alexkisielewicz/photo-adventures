@@ -1,108 +1,333 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Photo Adventures Website - Full-Stack Toolkit Project</h1>
 
-Welcome Aleksander Kisielewicz,
+### Developer: Aleksander Kisielewicz
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+<b>[View live website here](https://photo-adventures.herokuapp.com/)</b> :computer:
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Program mockup](docs/img/responsive_mockup.png)
 
-## Gitpod Reminders
+Photo Adventures Website was created as Portfolio Project #4 (Full-Stack Toolkit) for Diploma in Full Stack Software Development at [Code Institute](https://www.codeinstitute.net).
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Project purpose was to build a full-stack site using agile methodology to plan and design web application using MVC framework and related contemporary technologies.
 
-`python3 -m http.server`
+# Table of content
 
-A blue button should appear to click: _Make Public_,
+*   [Project](#project)
+    *   [Strategy/Scope](#strategyscope)
+    *   [Site owner goals](#site-owner-goals)
+    *   [External user's goal](#external-users-goal)
+*   [User Experience (UX/UI)](#user-experience-ux)
+    *   [Colour Scheme](#colour-scheme)
+*   [Logic and features](#logic-and-features)
+    *   [Python logic](#python-logic)
+    *   [Database structure](#database-structure)
+    *   [Features](#features)
+        *   [Main menu](#main-menu)
+        *   [Add book](#add-book)
+        *   [Edit book](#edit-book)
+        *   [Remove book](#remove-book)
+        *   [View all books](#view-all-books)
+        *   [Change sorting method](#change-sorting-method)
+        *   [Show book details](#show-book-details)
+        *   [Quit](#quit)
+*   [Technology](#technology)
+    *   [Software used](#software-used)
+    *   [Python libraries/modules](#python-librariesmodules)
+*   [Testing](#testing)
+    *   [Accessibility](#accessibility)
+    *   [Validation](#validation)
+    *   [Manual testing](#manual-testing)
+    *   [Bugs/known issues](#bugsknown-issues)
+*   [Deployment](#deployment)
+    *   [Git and GitHub](#git-and-github)
+    *   [Deployment to Heroku](#deployment-to-heroku)
+*   [Possible future development](#possible-future-development)
+*   [Credits](#credits)
+    *   [Code](#code)
+    *   [Media](#media)
+    *   [Acknowledgements](#acknowledgements)
 
-Another blue button should appear to click: _Open Browser_.
+#   Project
+##  Strategy/Scope
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+I chose to develop an application that can be used in real life. Home Library allows users to manage their personal book libraries. Application offers such functionalities as: viewing book database, adding/editing and removing books. User can display details of every database entry and also sort database in chosen order.
 
-A blue button should appear to click: _Make Public_,
+Application should have clean and intuitive user interface and offer easy access and navigation to all functionalities.
 
-Another blue button should appear to click: _Open Browser_.
+To achieve the strategy goals I implemented following features:
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- clean user interface for easy navigation and readability,
+- menu with easy acces to all features and possibility to exit program,
+- colours in terminal to give user feedback depends on his actions,
+- reliable and quick connection with database provided by Google,
+- customised terminal display page for better visual experience,
 
-To log into the Heroku toolbelt CLI:
+![Agile](docs/img/agile.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Site owner goals
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+##  External user's goal
 
-------
+#   User Experience (UX)
 
-## Release History
+##  Colour Scheme
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Colour palette was selected using <b>coolors.co</b> generator. 
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![Colour Scheme](docs/img/design_palette.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+# Logic and features
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Python Logic
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Database structure
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Features
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Navbar and main menu
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+Default nabvar
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![navbar-default](docs/img/navbar_default.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Nabar for authenticated user
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![navbar-loggedin-user](docs/img/navbar_loggedin_user.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Navbar for admin user
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+![navbar-admin](docs/img/navbar_admin.png)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+Mobile navbar for medium screen devices
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+![navbar-mobile1](docs/img/navbar_mobile1.png)
 
-------
+Mobile navbar for small screen devices
 
-## FAQ about the uptime script
+![navbar-mobile2](docs/img/navbar_mobile2.png)
 
-**Why have you added this script?**
+### Footer
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+![footer](docs/img/footer.png)
 
-**How will this affect me?**
+### Index page / Carousel
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![index-carousel](docs/img/index_carousel.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![index-hero](docs/img/hero.png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![index-counters](docs/img/counters.png)
 
-**So….?**
+![index-most-liked](docs/img/most_liked_posts.png)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Blog
 
-**Can I opt out?**
+![blog](docs/img/blog.png)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+![blog](docs/img/blog_tags.png)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Full Post
 
-**Anything more?**
+![full_post1](docs/img/full_post1.png)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+![full_post2](docs/img/full_post2.png)
 
----
+![full_post3](docs/img/comments.png)
 
-Happy coding!
+![full_post3](docs/img/full_post_guidelines.png)
+
+### About Page
+
+![about1](docs/img/about_top.png)
+
+![about2](docs/img/about_faq.png)
+
+### Contact Page
+
+![contact1](docs/img/contact.png)
+
+### Admin Panel
+
+![admin](docs/img/admin_posts.png)
+
+### User Dashboard
+
+![dashboard1](docs/img/dashboard_top.png)
+
+![dashboard2](docs/img/dashboard_drafts.png)
+
+![dashboard3](docs/img/dashboard_awaiting.png)
+
+![dashboard1](docs/img/dashboard_published.png)
+
+![dashboard1](docs/img/dashboard_delete.png)
+
+### Accounts Templates
+
+![accounts1](docs/img/accounts_signup.png)
+
+![accounts1](docs/img/accounts_signup_captcha.png)
+
+![accounts1](docs/img/accounts_email_account_exists.png)
+
+![accounts1](docs/img/accounts_verify_email.png)
+
+![accounts1](docs/img/accounts_email_confirm.png)
+
+![accounts1](docs/img/accoints_bad_token.png)
+
+![accounts1](docs/img/accounts_confirm_email.png)
+
+![accounts1](docs/img/accounts_signin.png)
+
+![accounts1](docs/img/accounts_password_reset.png)
+
+![accounts1](docs/img/accounts_password_reset_sent.png)
+
+![accounts1](docs/img/accounts_password_reset_email.png)
+
+![accounts1](docs/img/accounts_change_password.png)
+
+![accounts1](docs/img/accounts_change_password_confirmation.png)
+
+#   Technology
+    
+##  Languages used
+
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5) - markup language used for structuring webpage content
+-   [CSS3](https://en.wikipedia.org/wiki/CSS) - stylesheet language
+-   [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - high-level, imperative, programming language.
+-   [Python](https://www.python.org/) - high-level, imperative, general-purpose programming language.
+-   [Markdown](https://en.wikipedia.org/wiki/Markdown) - markup language used to write README and TESTING documents.
+
+##  Software used
+- [Bootstrap5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter. 
+- [Cloudinary](https://cloudinary.com/) - cloude-based image and video API
+- [Django](https://www.djangoproject.com/) - python-based web framework with MTV architectural pattern.
+- [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) - web template engine for python/django apps
+- [Coolors.co](https://coolors.co/) - was used to create colour palette for terminal display page.
+- [Favicon.io](https://www.favicon.io) - tool used to create favicon.
+- [Font Awesome:](https://fontawesome.com/) - Font Awesome icons were used for social links in terminal display page.
+- [Git](https://git-scm.com/) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+- [GitHub](https://github.com/) - GitHub is used to store the project's code after being pushed from Git.
+- [Heroku](https://heroku.com) - online app used to deploy project.
+- [Pexels.com](https://www.pexels.com/) - was used to source bacground picture for terminal display page.
+- [WebAIM](https://webaim.org/resources/contrastchecker/) - online tool to check colour contrast/accesibility.
+- [Gravatar](https://en.gravatar.com/)
+- [EmailJS](https://www.emailjs.com/) - JavaScript library used to send emails usung only client-side technologies.
+- [GoogleMaps](https://www.google.com/maps)
+- [GooglereCaptchav2](https://developers.google.com/recaptcha/docs/display?hl=en)
+- [Gmail](https://mail.google.com/)
+- [Canva](https://www.canva.com/) - used to design logo picture
+- [Convertio.io](https://convertio.co/) - used to convert images to webp format
+
+##  Python libraries/modules
+
+- [os](https://docs.python.org/3/library/os.html) - built-in pythod module - used to save and import env variables.
+- [cloudinary](https://pypi.org/project/cloudinary/)
+- [CrispyBootstrap5](https://pypi.org/project/crispy-bootstrap5/)
+- [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/)
+- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/)
+- [django-allauth==0.52.0](https://pypi.org/project/django-allauth/) - integrated django accounts management
+- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/)
+- [django-social-share](https://pypi.org/project/django-social-share/) - used for facebook and twitter share buttons
+- [django-summernote](https://pypi.org/project/django-summernote/) - WYSIWYG editor widget used for writing/editing post content 
+- [django-taggit](https://pypi.org/project/django-taggit/) - used for post categorizing by tag name
+- [gunicorn](https://pypi.org/project/gunicorn/) - python WSGI HTTP Server for UNIX
+- [oauthlib](https://pypi.org/project/oauthlib/) - 
+- [psycopg2](https://pypi.org/project/psycopg2/) - 
+- [PyJWT](https://pypi.org/project/PyJWT/)
+- [pytz](https://pypi.org/project/pytz/) 
+- [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuth library suppor for python requests
+- [sqlparse](https://pypi.org/project/sqlparse/) - non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
+
+#    Testing
+
+##   Accessibility
+
+[WebAIM](https://webaim.org/resources/contrastchecker/) online tool was used to check terminal colour contrast. All used colours passsed the test satisfactory.
+
+![color1](docs/img/contrast1.png)
+
+![color2](docs/img/contrast2.png)
+
+![color3](docs/img/contrast4.png)
+
+![color4](docs/img/contrast5.png)
+
+## Validation
+
+### PEP8
+
+## Manual testing
+
+Details of manual testing can be found in [TESTING.md file](link)
+
+##   Bugs/known issues
+
+- <b>Issue #1:</b> 
+
+- <b>Solution:</b> Putting "break" instruction in the correct place, that allows to "escape" from the while loop.
+
+- <b>Issue #2:</b> 
+
+- <b>Solution:</b> 
+
+#   Deployment
+
+## Git and GitHub
+
+## Deployment to Heroku
+
+1. I visited [https://heroku.com/](https://heroku.com/) and opened dashboard. Then I clicked button "New" and selected "Create new app" button.
+
+2. I entered my app name as "photo-adventures", chose region to Europe and clicked on "Create app" button
+
+3. The next step was to go to "Deploy" tab and then to "Deployment method" section to authorize and connect my GitHub account.
+
+4. Upon succesfull connection I selected main branch from "photo-adventures" repository.
+
+5. Then I went to "Settings" tab...
+
+6. In the next step I went to "Config Vars" section and added KEY "CREDS" - that maches my token name defined in python constant in [api/google_sheets_api.py](https://github.com/alexkisielewicz/home-library-app/blob/main/api/google_sheets_api.py) - with value of my credentials token (copy all and paste).
+
+7. I added key "PORT" with value "8080" and save changes.
+
+8. In the next step I went back to "Deploy" tab and decided to use automatic deploys, however manual mode is also available to deploy chosen branch.
+
+9. The link to my deployed app was shown on screen: [https://photo-adventures.herokuapp.com/](https://photo-adventures.herokuapp.com/)
+
+<br>
+
+# Possible future development
+
+If I had more time or decide to develop app further I would add/improve following functionalities: 
+
+#   Credits
+
+##  Code
+
+##  Media
+
+- [Photos Pawel Zygmunt](https://www.breakinglightpictures.com/) - thanks to my friend Pawel for 3 photos from Tenerife, Connemara and Dolomites.  
+- [Alek Kisielewicz Photography](https://www.facebook.com/alex.perfect.photo) - all other post images are my own photographs.
+
+- [Pexels.com](https://www.pexels.com) - post placeholder image/background image/accounts background
+
+## Learning resources
+
+- [Code Institute course and learning platform](https://codeinstitute.net/)
+- [The book "Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction To Programming"](https://nostarch.com/pythoncrashcourse2e)
+- [StackOverflow](https://stackoverflow.com/)
+- [W3Schools](https://www.w3schools.com/python/default.asp)
+- [Django](https://www.djangoproject.com/) - Django documentation.
+- [Bootstrap](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - Bootstrap documentation.
+- Documentation of python modules and libraries used in the project.
+
+##  Acknowledgements
+
+-   My Mentor Reuben Ferrante for helpful feedback and guidance at all stages of the project.
+-   Code Institute Slack Community for being invaluable knowledge base.
+
+## Disclaimer
+-   Photo Adventures Website was created for educational purpose only. 
