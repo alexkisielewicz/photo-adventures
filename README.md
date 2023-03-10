@@ -10,6 +10,21 @@ Photo Adventures Website was created as Portfolio Project #4 (Full-Stack Toolkit
 
 Project purpose was to build a full-stack site using agile methodology to plan and design web application using MVC framework and related contemporary technologies.
 
+Application offers such functionalities as:
+- **Secure user registration** Users can register with captcha protection and e-mail verification
+- **Password reset via email** Users can easily reset their forgotten password with just a few clicks
+- **Sign in/out** Users can conveniently sign in and out of their account
+- **Role-based access** Access to functionalities is granted based on the user's assigned role
+- **User dashboard** Users can view their own personalized dashboard, complete with user content
+- **Post management** Users can view, add, edit, and delete their posts with ease (CRUD)
+- **Saving drafts and publishing** Users can save their edited posts as drafts or publish them (send to modaration)
+- **Moderation** Admins can moderate posts and comments
+- **Commenting** Users can leave comments on posts and have their Gravatar user picture displayed
+- **Liking** Users can add likes to posts to show their appreciation
+- **Messages/feedbac** Users receive feedback and confirmation to their actions
+- **Social media sharing:** Posts can be easily shared on Facebook and Twitter
+- **Contact form:** Users can send messages to the admin through a contact form that includes captcha protection
+
 # Table of content
 
 *   [Project](#project)
@@ -50,17 +65,16 @@ Project purpose was to build a full-stack site using agile methodology to plan a
 #   Project
 ##  Strategy/Scope
 
-I chose to develop an application that can be used in real life. Home Library allows users to manage their personal book libraries. Application offers such functionalities as: viewing book database, adding/editing and removing books. User can display details of every database entry and also sort database in chosen order.
-
-Application should have clean and intuitive user interface and offer easy access and navigation to all functionalities.
+I chose to develop an web application that can be used in real life. My main focus was always on providing an excellent user experience, which is why I decided to create a web application that is both practical and engaging. Photo Adventures is a user-friendly blog-style website where users can share their photo adventures by creating visually appealing blog posts that include both images and text.
+Application should have clean and intuitive user interface and offer easy access and navigation to all functionalities. Application should also be responsive on devices of all screen sizes.
 
 To achieve the strategy goals I implemented following features:
 
-- clean user interface for easy navigation and readability,
-- menu with easy acces to all features and possibility to exit program,
-- colours in terminal to give user feedback depends on his actions,
-- reliable and quick connection with database provided by Google,
-- customised terminal display page for better visual experience,
+- a clean and intuitive user interface for ease of navigation and readability,
+- a menu that provides easy access to all website sections, including personalized content via user dashboard,
+- cloud hosting of images for optimized website speed and user experience,
+- media queries to ensure responsiveness across all types of devices,
+- feedback to users for all actions taken on the website.
 
 ![Agile](docs/img/agile.png)
 
