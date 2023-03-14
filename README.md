@@ -38,6 +38,7 @@ Application offers such functionalities as:
     *   [Wireframes](#wireframes)
 *   [User Experience (UX/UI)](#user-experience-ux)
     *   [Colour Scheme](#colour-scheme)
+    *   [Typography](#typography)
 *   [Logic and features](#logic-and-features)
     *   [Python logic](#python-logic)
     *   [Database structure](#database-structure)
@@ -102,7 +103,7 @@ To achieve the strategy goals I implemented following features:
 - #39 As Site Admin, I want to validate inputs in add/edit post forms so that I can have control on what input values are allowed
 - #41 As Site Admin, I can distinguish specific post as featured post so that I can direct user's attention to that post
 
-##  External user's goal
+## External user's goal
 
 - #1 As Site User, I can view a list of all posts so that I can select one to read
 - #4 As Site User, I want to be able to create an account on the blog so that I can add posts, comments, and likes
@@ -161,9 +162,31 @@ All accounts pages
 
 ##  Colour Scheme
 
-Colour palette was selected using <b>coolors.co</b> generator. 
+Colour palette was selected using <b>coolors.co</b> generator.
+
+I created CSS classes and assigned them roles (examples):
+
+- #04100D "dark" - main text, headers, post titles
+- #003718 "green" - links inside paragraphs (text and hover outline), social icons, accordion buttonsm, buttons
+- #CDCECF "silver" - post tags bacground
+- #C9E365 "accent-green" - edit post icon (hover)
+- #FFBD59 "accent-orange" - links (hover), social icons (hover), navigation items (hover), user dashboard background
 
 ![Colour Scheme](docs/img/design_palette.png)
+
+## Typography
+
+The [Merriweather](https://fonts.google.com/specimen/Merriweather) font is the main font used throughout the whole website with Sans Serif as the fallback. Merriweather is a clean, modern looking and well known font. It is sourced from Google fonts and it's linked to css document via @import method.
+
+![typography-merriweather](docs/img/typography_merriweather.png)
+
+The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-contrast serif typeface intended for display use. It draws inspiration from newspaper's headlines but with a contemporary approach. I used this font to use for headings and post titles.
+
+![typography-gloock](docs/img/typography_gloock.png)
+
+[Lobster](https://fonts.google.com/specimen/Lobster) font is used as Photo Adventures text logo, cursive font is set as fallback.
+
+![typography-lobster](docs/img/typography_lobster.png)
 
 # Logic and features
 
