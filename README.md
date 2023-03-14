@@ -1,4 +1,6 @@
-<h1 align="center">Photo Adventures Website - Full-Stack Toolkit Project</h1>
+<h1 align="center">Photo Adventures Website</h1>
+<h3 align="center">Full-Stack Toolkit Project</h3>
+
 
 ### Developer: Aleksander Kisielewicz
 
@@ -8,9 +10,10 @@
 
 Photo Adventures Website was created as Portfolio Project #4 (Full-Stack Toolkit) for Diploma in Full Stack Software Development at [Code Institute](https://www.codeinstitute.net).
 
-Project purpose was to build a full-stack site using agile methodology to plan and design web application using MVC framework and related contemporary technologies.
+Project purpose was to build a full-stack site using agile methodology to plan and design web application using MVC framework and related contemporary technologies. Appplication offers users full CRUD (create, read, update, delete) functionality.
 
 Application offers such functionalities as:
+
 - **Secure user registration** Users can register with captcha protection and e-mail verification
 - **Password reset via email** Users can easily reset their forgotten password with just a few clicks
 - **Sign in/out** Users can conveniently sign in and out of their account
@@ -27,10 +30,12 @@ Application offers such functionalities as:
 
 # Table of content
 
-*   [Project](#project)
+-   [Project](#project)
     *   [Strategy/Scope](#strategyscope)
+    *   [Agile Methodology for project planning](#agile-methodology-for-project-planning)
     *   [Site owner goals](#site-owner-goals)
     *   [External user's goal](#external-users-goal)
+    *   [Wireframes](#wireframes)
 *   [User Experience (UX/UI)](#user-experience-ux)
     *   [Colour Scheme](#colour-scheme)
 *   [Logic and features](#logic-and-features)
@@ -76,11 +81,81 @@ To achieve the strategy goals I implemented following features:
 - media queries to ensure responsiveness across all types of devices,
 - feedback to users for all actions taken on the website.
 
+## Agile Methodology for project planning
+
 ![Agile](docs/img/agile.png)
 
 ## Site owner goals
 
+- #2 As Site Admin, I can log in to admin panel so that I can manage posts
+- #3 As Site Admin, I can perform CRUD operations on posts so that I can manage the content on the blog
+- #6 As Site Admin, I can view the number of likes on posts so that I can see which is the most popular
+- #7 As Site Admin, I can view comments on posts so that I can read the conversation
+- #11 As Site Admin, I can approve/delete users comments so that I can moderate inappropriate ones
+- #13 As Site Admin, I can add posts in categories so that I can group photos by this criteria
+- #14 As Site Admin, I can add tags to the posts so that others can easily find posts related to specific topics
+- #23 As Site Admin, I can prevent users from liking their own posts so that posts can be liked only by other users
+- #30 As Site Admin, I want to allow users to have a profile image displayed alongside their comments on the blog so it's easier for readers to identify who is commenting
+- #31 As Site Admin, I want to present the user with a custom 404 page if he navigates to a page that doesn't exist so that he can see a user-friendly message that offers some guidance or suggestions
+- #33 As Site Admin, I want to ensure that only human users can submit the contact form so that I can prevent spam or bot submissions
+- #38 As Site Admin, I want to display success, error, and warning messages to my users using Bootstrap toasts so that they always receive easy-to-understand feedback regarding their actions
+- #39 As Site Admin, I want to validate inputs in add/edit post forms so that I can have control on what input values are allowed
+- #41 As Site Admin, I can distinguish specific post as featured post so that I can direct user's attention to that post
+
 ##  External user's goal
+
+- #1 As Site User, I can view a list of all posts so that I can select one to read
+- #4 As Site User, I want to be able to create an account on the blog so that I can add posts, comments, and likes
+- #5 As Site User, I can select a post so that I can read it
+- #6 As Site User, I can view the number of likes on posts so that I can see which is the most popular
+- #7 As Site User, I can view comments on posts so that I can read the conversation
+- #8 As Site User, I can write comments on posts so that I can be the part of the conversation
+- #9 As Site User, I can like/unlike posts so that I can give feedback in form of likes
+- #10 As Site User, I can create draft posts so that I can finish publishing later
+- #12 As Site User, I can create blog posts with photos and text so that I can share my photography adventures
+- #13 As Site User, I can add posts in categories so that I can group photos by this criteria
+- #14 As Site User, I can add tags to the posts so that others can easily find posts related to specific topics
+- #15 As Site User, I can edit an delete my posts so that I can update them or remove if necessary
+- #16 As Site User, I can use the contact form so that I can contact the website owner if needed
+- #17 As Site User, I can view page content so that I can browse the website and interact with the content
+- #19 As Site User, I can see the posts with the highest number of likes so that I know which posts are the most popular
+- #20 As Site user, I can see my account page so that I can manage my posts
+- #21 As Site User, I can view all posts added by me so that I keep track of my blogging activity
+- #25 As Site User, I can view my drafts in my dashboard so that I can select them and continue editing
+- #26 As Site user, I can click on the edit button in full post view so that I can edit post quickly without the need of searching for the post in the dashboard
+- #29 As Site User, I can get recommendations to read similar posts on the blog so that I can read stories that are in my interest range
+- #35 As Site User, I can view a list of all posts written in specific category so that I can read the posts from categories that I am interested in
+- #37 As Site User, I can share interesting posts on popular social media platforms so that my friends can learn about posts that I enjoyed reading
+- #40 As Site User, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud
+
+## Wireframes
+
+[Wireframes - PDF File](docs/photo_adventures_wireframes.pdf)
+
+Index - main page
+
+![index-top](docs/img/wireframes/index_carousel.png)
+![index-down](docs/img/wireframes/index_under_carousel.png)
+
+Blog
+
+![blog](docs/img/wireframes/blog.png)
+
+Single full post
+
+![full-post](docs/img/wireframes/full_post.png)
+
+About
+
+![about](docs/img/wireframes/about.png)
+
+Contact
+
+![contact](docs/img/wireframes/contact.png)
+
+All accounts pages
+
+![accounts](docs/img/wireframes/all_accounts_pages.png)
 
 #   User Experience (UX)
 
