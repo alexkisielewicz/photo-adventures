@@ -43,14 +43,16 @@ Application offers such functionalities as:
     *   [Python logic](#python-logic)
     *   [Database structure](#database-structure)
     *   [Features](#features)
-        *   [Main menu](#main-menu)
-        *   [Add book](#add-book)
-        *   [Edit book](#edit-book)
-        *   [Remove book](#remove-book)
-        *   [View all books](#view-all-books)
-        *   [Change sorting method](#change-sorting-method)
-        *   [Show book details](#show-book-details)
-        *   [Quit](#quit)
+        *   [Navbar and menu](#navbar-and-main-menu)
+        *   [Footer](#footer)
+        *   [Carousel](#index-page--carousel)
+        *   [Blog](#blog)
+        *   [Full Post View](#full-post)
+        *   [About Page](#about-page)
+        *   [Contact Page](#contact-page)
+        *   [Admin Panel](#admin-panel)
+        *   [User Dashboard](#user-dashboard)
+        *   [Accounts](#accounts-templates)
 *   [Technology](#technology)
     *   [Software used](#software-used)
     *   [Python libraries/modules](#python-librariesmodules)
@@ -180,7 +182,7 @@ The [Merriweather](https://fonts.google.com/specimen/Merriweather) font is the m
 
 ![typography-merriweather](docs/img/typography_merriweather.png)
 
-The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-contrast serif typeface intended for display use. It draws inspiration from newspaper's headlines but with a contemporary approach. I used this font to use for headings and post titles.
+The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-contrast serif typeface intended for display use. It draws inspiration from newspaper's headlines but with a contemporary approach. I used this font to use for headings and post titles. Serif font is set as fallback.
 
 ![typography-gloock](docs/img/typography_gloock.png)
 
@@ -198,47 +200,71 @@ The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-co
 
 ### Navbar and main menu
 
-Default nabvar
+Bootstrap navbar component was used to create navigation bar. It is always visible and stays fixed at the top of the screen. Navbar consists of image logo, text logo and links to main areas of the site (home, blog, about and contact pages). There is also place for Sign up and Sign in buttons which are displayed to unauthenticated user.
 
 ![navbar-default](docs/img/navbar_default.png)
 
-Nabar for authenticated user
+Nabar displayed to authenticated user includes user name, gravatar and button link leading to user dashboard.
 
 ![navbar-loggedin-user](docs/img/navbar_loggedin_user.png)
 
-Navbar for admin user
+Navbar displayed to staff/admin user includes button with link leading to admin panel (accounts).
 
 ![navbar-admin](docs/img/navbar_admin.png)
 
-Mobile navbar for medium screen devices
+Mobile navbar for medium screen devices with hamburger menu button and collapsible menu.
 
 ![navbar-mobile1](docs/img/navbar_mobile1.png)
 
-Mobile navbar for small screen devices
+Mobile navbar for small screen devices, without image logo to save screen space.
 
 ![navbar-mobile2](docs/img/navbar_mobile2.png)
 
 ### Footer
 
+The footer consists of 3 columns. The first column contains copyright info and address. The second one has quick navigation links for easy navigation. The third one includes site logo and social media links with icons, allowing visitors to connect with the brand on popular social media platforms.
+
+On small devices all elements are centered in one column that takes all width of the screen.
+
 ![footer](docs/img/footer.png)
 
 ### Index page / Carousel
 
+User is welcomed with image slideshow with pictures related to such categories as Landscape, Nature, Architecture and Travel. Bootstrap carousel component was used to showcase different types of pictures and provide users with a visually engaging and dynamic experience. Slideshow has automatic transition but users can take control of the slides using "previous" and "next" buttons. Each slide picture has header and short slogan description located in overlay. Carousel takes all viewport width and height on big screens and is reduced on small devices that are usually used in portrait mode.
+
 ![index-carousel](docs/img/index_carousel.png)
+
+Hero section is designed to catch visitor's attention and provide them basic introduction to site content and purpose. Hero section consists of two columns, one with text and second with image. Unauthorised users can see "Sign up" and "Visit blog" call-to-action buttons. Authenticated user can see "Add post" and "Visit blog" buttons instead.  
 
 ![index-hero](docs/img/hero.png)
 
+Below hero section there are animated counters that present "page in numbers" statistics.
+They show total number of posts, comments, reactions and registered users.
+
 ![index-counters](docs/img/counters.png)
+
+Most liked posts is a section that presents three posts with highest numer of "likes". Posts are displayed as bootstrap cards, they include links to full articles.
 
 ![index-most-liked](docs/img/most_liked_posts.png)
 
 ### Blog
 
+Blog page is a list of all posts. Each post is presented as bootstrap card that includes featured image (or default placeholder if picture is not provided by user), post title, brief excerpt. In addition to this elements user can also find post details such as its location, author, creation date and number of likes and comments. The posts are paginated by 5 articles per page.
+
 ![blog](docs/img/blog.png)
+
+It is possible to browse posts by tags.
 
 ![blog](docs/img/blog_tags.png)
 
 ### Full Post
+
+When viewing a post in full, users will see either a featured image or a placeholder if the author hasn't provided one. As on the blog page, the post title and other details are displayed beneath the image. On the left side of the picture, an overlay shows the location information. In the top right corner, users will find a like button. Only authenticated users can like posts, and if the user is also the author of the post, they will see an edit button below the like button. In the bottom right corner of the picture, there are social media sharing buttons, allowing users to easily share the post on Facebook or Twitter.
+
+In the full post view, users can also see post tags, which can be clicked to bring the user to a list of related posts. This feature helps readers discover other content on the same topic and explore related ideas.
+
+Beneath the main content of the article, you'll find a comment section. On the left-hand side of the page, all comments are displayed, along with the author's Gravatar, username, and date of the comment. For users who do not have a Gravatar account, a placeholder image will be displayed instead. This ensures that all comments are visually consistent.
+To post a comment, users must be authenticated and can use the form provided in the right-hand column. A link to guidelines and posting rules is also included to ensure that all comments are respectful and related to topic.
 
 ![full_post1](docs/img/full_post1.png)
 
@@ -250,19 +276,39 @@ Mobile navbar for small screen devices
 
 ### About Page
 
+The About page is divided into three paragraphs. The first paragraph introduces who we are as a group, while the second highlights passion for photography. The third paragraph outlines the mission and what we hope to achieve. Images are included within the text to visually enhance the content.
+
 ![about1](docs/img/about_top.png)
+
+At the bottom of the page, a bootstrap accordion houses a FAQ section. The answers to common questions are provided in a concise format, making it easy for users to quickly find the information they need.
 
 ![about2](docs/img/about_faq.png)
 
 ### Contact Page
 
+The Contact page is designed with a two-column layout, featuring the contact form on the left and the location, address, and Google Maps on the right. Users can use the contact form to get in touch with the site admin directly. To facilitate sending emails through client-side technologies, the Email.js library has been integrated. The form allows users to fill in their name, email address, and message, and authenticated users can have their name and email fields pre-filled for convenience.
+
+To prevent spam, a [Google reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) widget has been implemented.
+
+On the right-hand side, the location, address, and Google Maps provide users with a visual representation of where we are located and make it easy for them to find us.
+
 ![contact1](docs/img/contact.png)
 
 ### Admin Panel
 
+The admin panel provides access to various details related to blog posts, including the post title, slug, author, category, tags, status, and creation date. These details make it easy for the admin to manage and organize posts effectively. There is also existing "featured" field in the model, this functionality was left as potential future enhancement and has been described in project's user stories.
+
+In addition, actions have been registered that allow the admin to select multiple posts and change their status in one click. This feature saves time and helps to manage larger number of posts.
+
+Also a list of filters have been registered in the admin view, admin can sort and display posts by author, status, etc.
+
 ![admin](docs/img/admin_posts.png)
 
 ### User Dashboard
+
+The page displays a dashboard for the user with basic statistics about their blog posts and gives user the ability to manage them (full CRUD functionality). The user's gravatar is displayed in the top left of the page, along with a welcome message that greets the user by name. In this section user can also find "Add post" button to click and start writing new post. The form of keypoints inform users that they can manage their content from the dashboard and can view their post history and monitor engagement such as likes and comments.
+
+Three sections below show all posts written by user in a form of bootstrap cards. They are divideded into tabs: drafts, awaiting moderation and published posts. The sections stay hidden until there is related content to be presented. Each card can be clicked and overlay contains relevant control buttons allowing viewing, editing or deleteing posts.
 
 ![dashboard1](docs/img/dashboard_top.png)
 
@@ -271,6 +317,8 @@ Mobile navbar for small screen devices
 ![dashboard3](docs/img/dashboard_awaiting.png)
 
 ![dashboard1](docs/img/dashboard_published.png)
+
+Form of defensive development, post deletion confirmation screen.
 
 ![dashboard1](docs/img/dashboard_delete.png)
 
