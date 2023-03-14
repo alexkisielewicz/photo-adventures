@@ -292,7 +292,7 @@ To prevent spam, a [Google reCAPTCHA v2](https://developers.google.com/recaptcha
 
 On the right-hand side, the location, address, and Google Maps provide users with a visual representation of where we are located and make it easy for them to find us.
 
-![contact1](docs/img/contact.png)
+![contact](docs/img/contact.png)
 
 ### Admin Panel
 
@@ -300,9 +300,11 @@ The admin panel provides access to various details related to blog posts, includ
 
 In addition, actions have been registered that allow the admin to select multiple posts and change their status in one click. This feature saves time and helps to manage larger number of posts.
 
+![admin](docs/img/admin_posts.png)
+
 Also a list of filters have been registered in the admin view, admin can sort and display posts by author, status, etc.
 
-![admin](docs/img/admin_posts.png)
+![admin](docs/img/admin_actions.png)
 
 ### User Dashboard
 
@@ -324,29 +326,51 @@ Form of defensive development, post deletion confirmation screen.
 
 ### Accounts Templates
 
+All accounts subpages are based on one template designed for this purpose. It's a narrow container with header image and form or other relevant information.
+
+User can sign up using registration form. Google reCaptcha v2 widget was implemented to ensure that only human users can register and to protect site against spam and bots. Users who have already registered can click a link at the bottom of the page to sign in.
+
 ![accounts1](docs/img/accounts_signup.png)
 
 ![accounts1](docs/img/accounts_signup_captcha.png)
 
-![accounts1](docs/img/accounts_email_account_exists.png)
+Account verification setting has been set to "mandatory". Gmail SMTP service has been configured to provide email backend service for this functionality. Upon successful registration, user receives e-mail verification message.
 
 ![accounts1](docs/img/accounts_verify_email.png)
 
+User is asked to click the link to activate the account.
+
 ![accounts1](docs/img/accounts_email_confirm.png)
 
-![accounts1](docs/img/accoints_bad_token.png)
+The link (if valid) brings user to confirmation page. On successful confirmation user is automatically signed in and redirected to home page.
 
 ![accounts1](docs/img/accounts_confirm_email.png)
 
+If the link is invalid or the token has expired, the user will be prompted to log in with their email and password to receive a new confirmation email.
+
+![accounts1](docs/img/accounts_bad_token.png)
+
+If a user who already has an account attempts to sign up again using the same email, they will receive a notification email.
+
+![accounts1](docs/img/accounts_email_account_exists.png)
+
+Returning registered user can sign in.
+
 ![accounts1](docs/img/accounts_signin.png)
+
+Forgotten password can be reset.
 
 ![accounts1](docs/img/accounts_password_reset.png)
 
 ![accounts1](docs/img/accounts_password_reset_sent.png)
 
+Message that user receives if requested password reset. Again, if link/token is valid user can proceed with password change, if not, will see "bad token" error page and can repeat the process.
+
 ![accounts1](docs/img/accounts_password_reset_email.png)
 
 ![accounts1](docs/img/accounts_change_password.png)
+
+On successful password change user is asked to go to sign in page to continue.
 
 ![accounts1](docs/img/accounts_change_password_confirmation.png)
 
