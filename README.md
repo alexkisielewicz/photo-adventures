@@ -1,7 +1,6 @@
 <h1 align="center">Photo Adventures Website</h1>
 <h3 align="center">Full-Stack Toolkit Project</h3>
 
-
 ### Developer: Aleksander Kisielewicz
 
 <b>[View live website here](https://photo-adventures.herokuapp.com/)</b> :computer:
@@ -24,54 +23,60 @@ Application offers such functionalities as:
 - **Moderation** Admins can moderate posts and comments
 - **Commenting** Users can leave comments on posts and have their Gravatar user picture displayed
 - **Liking** Users can add likes to posts to show their appreciation
-- **Messages/feedbac** Users receive feedback and confirmation to their actions
+- **Messages/feedback** Users receive feedback and confirmation to their actions
 - **Social media sharing:** Posts can be easily shared on Facebook and Twitter
 - **Contact form:** Users can send messages to the admin through a contact form that includes captcha protection
 
 # Table of content
 
--   [Project](#project)
-    *   [Strategy/Scope](#strategyscope)
-    *   [Agile Methodology for project planning](#agile-methodology-for-project-planning)
-    *   [Site owner goals](#site-owner-goals)
-    *   [External user's goal](#external-users-goal)
-    *   [Wireframes](#wireframes)
-*   [User Experience (UX/UI)](#user-experience-ux)
-    *   [Colour Scheme](#colour-scheme)
-    *   [Typography](#typography)
-*   [Logic and features](#logic-and-features)
-    *   [Python logic](#python-logic)
-    *   [Database structure](#database-structure)
-    *   [Features](#features)
-        *   [Navbar and menu](#navbar-and-main-menu)
-        *   [Footer](#footer)
-        *   [Carousel](#index-page--carousel)
-        *   [Blog](#blog)
-        *   [Full Post View](#full-post)
-        *   [About Page](#about-page)
-        *   [Contact Page](#contact-page)
-        *   [Admin Panel](#admin-panel)
-        *   [User Dashboard](#user-dashboard)
-        *   [Accounts](#accounts-templates)
-*   [Technology](#technology)
-    *   [Software used](#software-used)
-    *   [Python libraries/modules](#python-librariesmodules)
-*   [Testing](#testing)
-    *   [Accessibility](#accessibility)
-    *   [Validation](#validation)
-    *   [Manual testing](#manual-testing)
-    *   [Bugs/known issues](#bugsknown-issues)
-*   [Deployment](#deployment)
-    *   [Git and GitHub](#git-and-github)
-    *   [Deployment to Heroku](#deployment-to-heroku)
-*   [Possible future development](#possible-future-development)
-*   [Credits](#credits)
-    *   [Code](#code)
-    *   [Media](#media)
-    *   [Acknowledgements](#acknowledgements)
+- [Project](#project)
+  - [Strategy/Scope](#strategyscope)
+  - [Agile Methodology for project planning](#agile-methodology-for-project-planning)
+  - [Site owner goals](#site-owner-goals)
+  - [External user's goal](#external-users-goal)
+  - [Wireframes](#wireframes)
+- [User Experience (UX/UI)](#user-experience-ux)
+  - [Colour Scheme](#colour-scheme)
+  - [Typography](#typography)
+- [Logic and features](#logic-and-features)
+  - [Python logic](#python-logic)
+  - [Database structure](#database-structure)
+  - [Features](#features)
+    - [Navbar and menu](#navbar-and-main-menu)
+    - [Footer](#footer)
+    - [Home page - carousel](#home-page---carousel)
+    - [Home page - hero](#home-page---hero)
+    - [Home page - counters](#home-page---counters)
+    - [Home page - most liked posts](#home-page---most-liked-posts)
+    - [Blog](#blog)
+    - [Full Post View](#full-post)
+    - [About Page](#about-page)
+    - [Contact Page](#contact-page)
+    - [Admin Panel](#admin-panel)
+    - [User Dashboard](#user-dashboard)
+    - [Accounts](#accounts-templates)
+    - [Add/edit post](#addedit-post)
+    - [Messages](#messages)
+- [Technology](#technology)
+  - [Software used](#software-used)
+  - [Python libraries/modules](#python-librariesmodules)
+- [Testing](#testing)
+  - [Accessibility](#accessibility)
+  - [Validation](#validation)
+  - [Manual testing](#manual-testing)
+  - [Bugs/known issues](#bugsknown-issues)
+- [Deployment](#deployment)
+  - [Git and GitHub](#git-and-github)
+  - [Deployment to Heroku](#deployment-to-heroku)
+- [Possible future development](#possible-future-development)
+- [Credits](#credits)
+  - [Code](#code)
+  - [Media](#media)
+  - [Acknowledgements](#acknowledgements)
 
-#   Project
-##  Strategy/Scope
+# Project
+
+## Strategy/Scope
 
 I chose to develop an web application that can be used in real life. My main focus was always on providing an excellent user experience, which is why I decided to create a web application that is both practical and engaging. Photo Adventures is a user-friendly blog-style website where users can share their photo adventures by creating visually appealing blog posts that include both images and text.
 Application should have clean and intuitive user interface and offer easy access and navigation to all functionalities. Application should also be responsive on devices of all screen sizes.
@@ -90,46 +95,46 @@ To achieve the strategy goals I implemented following features:
 
 ## Site owner goals
 
-- #2 As Site Admin, I can log in to admin panel so that I can manage posts
-- #3 As Site Admin, I can perform CRUD operations on posts so that I can manage the content on the blog
-- #6 As Site Admin, I can view the number of likes on posts so that I can see which is the most popular
-- #7 As Site Admin, I can view comments on posts so that I can read the conversation
-- #11 As Site Admin, I can approve/delete users comments so that I can moderate inappropriate ones
-- #13 As Site Admin, I can add posts in categories so that I can group photos by this criteria
-- #14 As Site Admin, I can add tags to the posts so that others can easily find posts related to specific topics
-- #23 As Site Admin, I can prevent users from liking their own posts so that posts can be liked only by other users
-- #30 As Site Admin, I want to allow users to have a profile image displayed alongside their comments on the blog so it's easier for readers to identify who is commenting
-- #31 As Site Admin, I want to present the user with a custom 404 page if he navigates to a page that doesn't exist so that he can see a user-friendly message that offers some guidance or suggestions
-- #33 As Site Admin, I want to ensure that only human users can submit the contact form so that I can prevent spam or bot submissions
-- #38 As Site Admin, I want to display success, error, and warning messages to my users using Bootstrap toasts so that they always receive easy-to-understand feedback regarding their actions
-- #39 As Site Admin, I want to validate inputs in add/edit post forms so that I can have control on what input values are allowed
-- #41 As Site Admin, I can distinguish specific post as featured post so that I can direct user's attention to that post
+- [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2) As Site Admin, I can log in to admin panel so that I can manage posts
+- [#3](https://github.com/alexkisielewicz/photo-adventures/issues/3) As Site Admin, I can perform CRUD operations on posts so that I can manage the content on the blog
+- [#6](https://github.com/alexkisielewicz/photo-adventures/issues/6) As Site Admin, I can view the number of likes on posts so that I can see which is the most popular
+- [#7](https://github.com/alexkisielewicz/photo-adventures/issues/7) As Site Admin, I can view comments on posts so that I can read the conversation
+- [#11](https://github.com/alexkisielewicz/photo-adventures/issues/11) As Site Admin, I can approve/delete users comments so that I can moderate inappropriate ones
+- [#13](https://github.com/alexkisielewicz/photo-adventures/issues/13) As Site Admin, I can add posts in categories so that I can group photos by this criteria
+- [#14](https://github.com/alexkisielewicz/photo-adventures/issues/14) As Site Admin, I can add tags to the posts so that others can easily find posts related to specific topics
+- [#23](https://github.com/alexkisielewicz/photo-adventures/issues/23) As Site Admin, I can prevent users from liking their own posts so that posts can be liked only by other users
+- [#30](https://github.com/alexkisielewicz/photo-adventures/issues/30) As Site Admin, I want to allow users to have a profile image displayed alongside their comments on the blog so it's easier for readers to identify who is commenting
+- [#31](https://github.com/alexkisielewicz/photo-adventures/issues/31) As Site Admin, I want to present the user with a custom 404 page if he navigates to a page that doesn't exist so that he can see a user-friendly message that offers some guidance or suggestions
+- [#33](https://github.com/alexkisielewicz/photo-adventures/issues/33) As Site Admin, I want to ensure that only human users can submit the contact form so that I can prevent spam or bot submissions
+- [#38](https://github.com/alexkisielewicz/photo-adventures/issues/38) As Site Admin, I want to display success, error, and warning messages to my users using Bootstrap toasts so that they always receive easy-to-understand feedback regarding their actions
+- [#39](https://github.com/alexkisielewicz/photo-adventures/issues/39) As Site Admin, I want to validate inputs in add/edit post forms so that I can have control on what input values are allowed
+- [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41) As Site Admin, I can distinguish specific post as featured post so that I can direct user's attention to that post
 
 ## External user's goal
 
-- #1 As Site User, I can view a list of all posts so that I can select one to read
-- #4 As Site User, I want to be able to create an account on the blog so that I can add posts, comments, and likes
-- #5 As Site User, I can select a post so that I can read it
-- #6 As Site User, I can view the number of likes on posts so that I can see which is the most popular
-- #7 As Site User, I can view comments on posts so that I can read the conversation
-- #8 As Site User, I can write comments on posts so that I can be the part of the conversation
-- #9 As Site User, I can like/unlike posts so that I can give feedback in form of likes
-- #10 As Site User, I can create draft posts so that I can finish publishing later
-- #12 As Site User, I can create blog posts with photos and text so that I can share my photography adventures
-- #13 As Site User, I can add posts in categories so that I can group photos by this criteria
-- #14 As Site User, I can add tags to the posts so that others can easily find posts related to specific topics
-- #15 As Site User, I can edit an delete my posts so that I can update them or remove if necessary
-- #16 As Site User, I can use the contact form so that I can contact the website owner if needed
-- #17 As Site User, I can view page content so that I can browse the website and interact with the content
-- #19 As Site User, I can see the posts with the highest number of likes so that I know which posts are the most popular
-- #20 As Site user, I can see my account page so that I can manage my posts
-- #21 As Site User, I can view all posts added by me so that I keep track of my blogging activity
-- #25 As Site User, I can view my drafts in my dashboard so that I can select them and continue editing
-- #26 As Site user, I can click on the edit button in full post view so that I can edit post quickly without the need of searching for the post in the dashboard
-- #29 As Site User, I can get recommendations to read similar posts on the blog so that I can read stories that are in my interest range
-- #35 As Site User, I can view a list of all posts written in specific category so that I can read the posts from categories that I am interested in
-- #37 As Site User, I can share interesting posts on popular social media platforms so that my friends can learn about posts that I enjoyed reading
-- #40 As Site User, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud
+- [#1](https://github.com/alexkisielewicz/photo-adventures/issues/1) As Site User, I can view a list of all posts so that I can select one to read
+- [#4](https://github.com/alexkisielewicz/photo-adventures/issues/4) As Site User, I want to be able to create an account on the blog so that I can add posts, comments, and likes
+- [#5](https://github.com/alexkisielewicz/photo-adventures/issues/5) As Site User, I can select a post so that I can read it
+- [#6](https://github.com/alexkisielewicz/photo-adventures/issues/6) As Site User, I can view the number of likes on posts so that I can see which is the most popular
+- [#7](https://github.com/alexkisielewicz/photo-adventures/issues/7) As Site User, I can view comments on posts so that I can read the conversation
+- [#8](https://github.com/alexkisielewicz/photo-adventures/issues/8) As Site User, I can write comments on posts so that I can be the part of the conversation
+- [#9](https://github.com/alexkisielewicz/photo-adventures/issues/9) As Site User, I can like/unlike posts so that I can give feedback in form of likes
+- [#10](https://github.com/alexkisielewicz/photo-adventures/issues/10) As Site User, I can create draft posts so that I can finish publishing later
+- [#12](https://github.com/alexkisielewicz/photo-adventures/issues/12) As Site User, I can create blog posts with photos and text so that I can share my photography adventures
+- [#13](https://github.com/alexkisielewicz/photo-adventures/issues/13) As Site User, I can add posts in categories so that I can group photos by this criteria
+- [#14](https://github.com/alexkisielewicz/photo-adventures/issues/14) As Site User, I can add tags to the posts so that others can easily find posts related to specific topics
+- [#15](https://github.com/alexkisielewicz/photo-adventures/issues/15) As Site User, I can edit an delete my posts so that I can update them or remove if necessary
+- [#16](https://github.com/alexkisielewicz/photo-adventures/issues/16) As Site User, I can use the contact form so that I can contact the website owner if needed
+- [#17](https://github.com/alexkisielewicz/photo-adventures/issues/17) As Site User, I can view page content so that I can browse the website and interact with the content
+- [#19](https://github.com/alexkisielewicz/photo-adventures/issues/19) As Site User, I can see the posts with the highest number of likes so that I know which posts are the most popular
+- [#20](https://github.com/alexkisielewicz/photo-adventures/issues/20) As Site user, I can see my account page so that I can manage my posts
+- [#21](https://github.com/alexkisielewicz/photo-adventures/issues/21) As Site User, I can view all posts added by me so that I keep track of my blogging activity
+- [#25](https://github.com/alexkisielewicz/photo-adventures/issues/25) As Site User, I can view my drafts in my dashboard so that I can select them and continue editing
+- [#26](https://github.com/alexkisielewicz/photo-adventures/issues/26) As Site user, I can click on the edit button in full post view so that I can edit post quickly without the need of searching for the post in the dashboard
+- [#29](https://github.com/alexkisielewicz/photo-adventures/issues/29) As Site User, I can get recommendations to read similar posts on the blog so that I can read stories that are in my interest range
+- [#35](https://github.com/alexkisielewicz/photo-adventures/issues/35) As Site User, I can view a list of all posts written in specific category so that I can read the posts from categories that I am interested in
+- [#37](https://github.com/alexkisielewicz/photo-adventures/issues/37) As Site User, I can share interesting posts on popular social media platforms so that my friends can learn about posts that I enjoyed reading
+- [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) As Site User, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud
 
 ## Wireframes
 
@@ -160,9 +165,9 @@ All accounts pages
 
 ![accounts](docs/img/wireframes/all_accounts_pages.png)
 
-#   User Experience (UX)
+# User Experience (UX)
 
-##  Colour Scheme
+## Colour Scheme
 
 Colour palette was selected using <b>coolors.co</b> generator.
 
@@ -228,7 +233,7 @@ On small devices all elements are centered in one column that takes all width of
 
 ![footer](docs/img/footer.png)
 
-### Index page / Carousel
+### Home page - carousel
 
 User is welcomed with image slideshow with pictures related to such categories as Landscape, Nature, Architecture and Travel. Bootstrap carousel component was used to showcase different types of pictures and provide users with a visually engaging and dynamic experience. Slideshow has automatic transition but users can take control of the slides using "previous" and "next" buttons. Each slide picture has header and short slogan description located in overlay. Carousel takes all viewport width and height on big screens and is reduced on small devices that are usually used in portrait mode.
 
@@ -236,14 +241,20 @@ User is welcomed with image slideshow with pictures related to such categories a
 
 Hero section is designed to catch visitor's attention and provide them basic introduction to site content and purpose. Hero section consists of two columns, one with text and second with image. Unauthorised users can see "Sign up" and "Visit blog" call-to-action buttons. Authenticated user can see "Add post" and "Visit blog" buttons instead.  
 
+### Home page - hero
+
 ![index-hero](docs/img/hero.png)
 
 Below hero section there are animated counters that present "page in numbers" statistics.
 They show total number of posts, comments, reactions and registered users.
 
+### Home page - counters
+
 ![index-counters](docs/img/counters.png)
 
 Most liked posts is a section that presents three posts with highest numer of "likes". Posts are displayed as bootstrap cards, they include links to full articles.
+
+### Home page - most liked posts
 
 ![index-most-liked](docs/img/most_liked_posts.png)
 
@@ -300,11 +311,11 @@ The admin panel provides access to various details related to blog posts, includ
 
 In addition, actions have been registered that allow the admin to select multiple posts and change their status in one click. This feature saves time and helps to manage larger number of posts.
 
-![admin](docs/img/admin_posts.png)
+![admin1](docs/img/admin_posts.png)
 
 Also a list of filters have been registered in the admin view, admin can sort and display posts by author, status, etc.
 
-![admin](docs/img/admin_actions.png)
+![admi2](docs/img/admin_actions.png)
 
 ### User Dashboard
 
@@ -318,11 +329,11 @@ Three sections below show all posts written by user in a form of bootstrap cards
 
 ![dashboard3](docs/img/dashboard_awaiting.png)
 
-![dashboard1](docs/img/dashboard_published.png)
+![dashboard4](docs/img/dashboard_published.png)
 
 Form of defensive development, post deletion confirmation screen.
 
-![dashboard1](docs/img/dashboard_delete.png)
+![dashboard5](docs/img/dashboard_delete.png)
 
 ### Accounts Templates
 
@@ -332,60 +343,69 @@ User can sign up using registration form. Google reCaptcha v2 widget was impleme
 
 ![accounts1](docs/img/accounts_signup.png)
 
-![accounts1](docs/img/accounts_signup_captcha.png)
+![accounts2](docs/img/accounts_signup_captcha.png)
 
 Account verification setting has been set to "mandatory". Gmail SMTP service has been configured to provide email backend service for this functionality. Upon successful registration, user receives e-mail verification message.
 
-![accounts1](docs/img/accounts_verify_email.png)
+![accounts3](docs/img/accounts_verify_email.png)
 
 User is asked to click the link to activate the account.
 
-![accounts1](docs/img/accounts_email_confirm.png)
+![accounts4](docs/img/accounts_email_confirm.png)
 
 The link (if valid) brings user to confirmation page. On successful confirmation user is automatically signed in and redirected to home page.
 
-![accounts1](docs/img/accounts_confirm_email.png)
+![accounts5](docs/img/accounts_confirm_email.png)
 
 If the link is invalid or the token has expired, the user will be prompted to log in with their email and password to receive a new confirmation email.
 
-![accounts1](docs/img/accounts_bad_token.png)
+![accounts6](docs/img/accounts_bad_token.png)
 
 If a user who already has an account attempts to sign up again using the same email, they will receive a notification email.
 
-![accounts1](docs/img/accounts_email_account_exists.png)
+![accounts7](docs/img/accounts_email_account_exists.png)
 
 Returning registered user can sign in.
 
-![accounts1](docs/img/accounts_signin.png)
+![accounts8](docs/img/accounts_signin.png)
 
 Forgotten password can be reset.
 
-![accounts1](docs/img/accounts_password_reset.png)
+![accounts9](docs/img/accounts_password_reset.png)
 
-![accounts1](docs/img/accounts_password_reset_sent.png)
+![accounts10](docs/img/accounts_password_reset_sent.png)
 
 Message that user receives if requested password reset. Again, if link/token is valid user can proceed with password change, if not, will see "bad token" error page and can repeat the process.
 
-![accounts1](docs/img/accounts_password_reset_email.png)
+![accounts11](docs/img/accounts_password_reset_email.png)
 
-![accounts1](docs/img/accounts_change_password.png)
+![accounts12](docs/img/accounts_change_password.png)
 
 On successful password change user is asked to go to sign in page to continue.
 
-![accounts1](docs/img/accounts_change_password_confirmation.png)
+![accounts13](docs/img/accounts_change_password_confirmation.png)
 
-#   Technology
-    
-##  Languages used
+### Add/Edit Post
 
--   [HTML5](https://en.wikipedia.org/wiki/HTML5) - markup language used for structuring webpage content
--   [CSS3](https://en.wikipedia.org/wiki/CSS) - stylesheet language
--   [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - high-level, imperative, programming language.
--   [Python](https://www.python.org/) - high-level, imperative, general-purpose programming language.
--   [Markdown](https://en.wikipedia.org/wiki/Markdown) - markup language used to write README and TESTING documents.
+### Messages
 
-##  Software used
-- [Bootstrap5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter. 
+Django messages are implemented in the website's app. These messages are displayed using the Bootstrap toast component on several occasions when feedback is needed, such as signing in/out, commenting, saving drafts, and editing changes to posts.
+
+![messages](docs/img/message_edit_saved.png)
+
+# Technology
+
+## Languages used
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) - markup language used for structuring webpage content
+- [CSS3](https://en.wikipedia.org/wiki/CSS) - stylesheet language
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - high-level, imperative, programming language.
+- [Python](https://www.python.org/) - high-level, imperative, general-purpose programming language.
+- [Markdown](https://en.wikipedia.org/wiki/Markdown) - markup language used to write README and TESTING documents.
+
+## Software used
+
+- [Bootstrap5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter.
 - [Cloudinary](https://cloudinary.com/) - cloude-based image and video API
 - [Django](https://www.djangoproject.com/) - python-based web framework with MTV architectural pattern.
 - [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) - web template engine for python/django apps
@@ -405,7 +425,7 @@ On successful password change user is asked to go to sign in page to continue.
 - [Canva](https://www.canva.com/) - used to design logo picture
 - [Convertio.io](https://convertio.co/) - used to convert images to webp format
 
-##  Python libraries/modules
+## Python libraries/modules
 
 - [os](https://docs.python.org/3/library/os.html) - built-in pythod module - used to save and import env variables.
 - [cloudinary](https://pypi.org/project/cloudinary/)
@@ -415,19 +435,19 @@ On successful password change user is asked to go to sign in page to continue.
 - [django-allauth==0.52.0](https://pypi.org/project/django-allauth/) - integrated django accounts management
 - [django-crispy-forms](https://pypi.org/project/django-crispy-forms/)
 - [django-social-share](https://pypi.org/project/django-social-share/) - used for facebook and twitter share buttons
-- [django-summernote](https://pypi.org/project/django-summernote/) - WYSIWYG editor widget used for writing/editing post content 
+- [django-summernote](https://pypi.org/project/django-summernote/) - WYSIWYG editor widget used for writing/editing post content
 - [django-taggit](https://pypi.org/project/django-taggit/) - used for post categorizing by tag name
 - [gunicorn](https://pypi.org/project/gunicorn/) - python WSGI HTTP Server for UNIX
-- [oauthlib](https://pypi.org/project/oauthlib/) - 
-- [psycopg2](https://pypi.org/project/psycopg2/) - 
+- [oauthlib](https://pypi.org/project/oauthlib/) -
+- [psycopg2](https://pypi.org/project/psycopg2/) -
 - [PyJWT](https://pypi.org/project/PyJWT/)
-- [pytz](https://pypi.org/project/pytz/) 
+- [pytz](https://pypi.org/project/pytz/)
 - [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuth library suppor for python requests
 - [sqlparse](https://pypi.org/project/sqlparse/) - non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
 
-#    Testing
+# Testing
 
-##   Accessibility
+## Accessibility
 
 [WebAIM](https://webaim.org/resources/contrastchecker/) online tool was used to check terminal colour contrast. All used colours passsed the test satisfactory.
 
@@ -447,17 +467,22 @@ On successful password change user is asked to go to sign in page to continue.
 
 Details of manual testing can be found in [TESTING.md file](link)
 
-##   Bugs/known issues
+## Bugs/known issues
 
-- <b>Issue #1:</b> 
-
+- <b>Bug issue #22:</b>
+  [#22](https://github.com/alexkisielewicz/photo-adventures/issues/22)
 - <b>Solution:</b> Putting "break" instruction in the correct place, that allows to "escape" from the while loop.
 
-- <b>Issue #2:</b> 
+- <b>Bug issue #27:</b>
+  [#27](https://github.com/alexkisielewicz/photo-adventures/issues/27)
+- <b>Solution:</b>
 
-- <b>Solution:</b> 
+- <b>Bug issue #36:</b>
+  [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36)
+- <b>Solution:</b>
 
-#   Deployment
+
+# Deployment
 
 ## Git and GitHub
 
@@ -485,13 +510,13 @@ Details of manual testing can be found in [TESTING.md file](link)
 
 # Possible future development
 
-If I had more time or decide to develop app further I would add/improve following functionalities: 
+If I had more time or decide to develop app further I would add/improve following functionalities:
 
-#   Credits
+# Credits
 
-##  Code
+## Code
 
-##  Media
+## Media
 
 - [Photos Pawel Zygmunt](https://www.breakinglightpictures.com/) - thanks to my friend Pawel for 3 photos from Tenerife, Connemara and Dolomites.  
 - [Alek Kisielewicz Photography](https://www.facebook.com/alex.perfect.photo) - all other post images are my own photographs.
@@ -508,10 +533,11 @@ If I had more time or decide to develop app further I would add/improve followin
 - [Bootstrap](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - Bootstrap documentation.
 - Documentation of python modules and libraries used in the project.
 
-##  Acknowledgements
+## Acknowledgements
 
--   My Mentor Reuben Ferrante for helpful feedback and guidance at all stages of the project.
--   Code Institute Slack Community for being invaluable knowledge base.
+- My Mentor Reuben Ferrante for helpful feedback and guidance at all stages of the project.
+- Code Institute Slack Community for being invaluable knowledge base.
 
 ## Disclaimer
--   Photo Adventures Website was created for educational purpose only. 
+
+- Photo Adventures Website was created for educational purpose only.
