@@ -138,11 +138,13 @@ No errors have been found in displaying layouts, style and functionalities.
 
 # HTML Validation
 
-The [W3C Markup Validation Service](https://validator.w3.org/) has been used to validate html files, also W3C Web Validator VSC extension was used throughtout development to mark and elimanate errors.
+The [W3C Markup Validation Service](https://validator.w3.org/) has been used to validate html files, also W3C Web Validator VSC extension was used throughtout development to mark and elimanate errors. For pages that require authentication I used "validate by direct input" method with source code.
+
+![html-validation](docs/img/validation_html.png)
 
 | Template | Validation Result |  Final validation
 |--------|-----------|---------|
-| index.html | p nested inside ul | pass
+| index.html | p nested inside ul, gravatar without alt tag | pass
 | blog.html | missing picture alt tags | pass |
 | about.html | no errors | pass
 | contact.html | no errors | pass
@@ -174,6 +176,26 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) 
 ![css-validation](docs/img/validation_css.png)
 
 # Python PEP8 Validation
+
+[CI Python Linter](https://pep8ci.herokuapp.com/) was used for PEP8 validation, also IDE extension was used throughout development to spot errors.
+
+![ci-linter](docs/img/validation_pep8)
+
+| File | Validation Result |
+|--------|-----------|
+| manage.py | pass |
+| photoadventures/settings.py | breaking long lines in AUTH_PASSWORD_VALIDATORS results in django error, code was left unedited |
+| photoadventures/urls.py | pass |
+| photoadventures/manage.py | pass |
+| blog/views.py | pass |
+| blog/urls.py | pass |
+| blog/models.py | pass |
+| blog/constants.py | pass |
+| blog/apps.py | pass |
+| blog/admin.py | pass |
+| blog/templatetags/gravatar.py | pass |
+
+
 
 # JavaScript Validation
 

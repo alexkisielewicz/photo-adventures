@@ -18,7 +18,8 @@ class BlogPosts(generic.ListView,):
     Class view for all blog posts. Returns all posts to blog.html template.
     """
     model = Post
-    queryset = Post.objects.filter(status=2).order_by('-created_on')  # 2 = published
+    # query all published posts - status 2
+    queryset = Post.objects.filter(status=2).order_by('-created_on')
     template_name = CONST.BLOG
     paginate_by = CONST.PAGINATION
 
@@ -37,7 +38,8 @@ def index(request):
     # variables to show statistics on the main page
     total_posts = Post.objects.count()
     total_comments = Comment.objects.count()
-    total_likes = Post.objects.aggregate(total_likes=Count('likes')).get('total_likes') or 0
+    total_likes = Post.objects.aggregate(total_likes=Count('likes')).get(
+        'total_likes') or 0
     total_users = User.objects.count()
 
     return render(request, CONST.INDEX, {
@@ -68,6 +70,7 @@ def contact(request):
     }
     return render(request, CONST.CONTACT, context)
 
+
 def rules(request):
     return render(request, CONST.RULES)
 
@@ -96,7 +99,8 @@ class FullPost(View):
         queryset = Post.objects.filter(status=2)  # 2 == published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
-        liked = post.likes.filter(id=self.request.user.id).exists()  # returns bool
+        # filter below returns boolean
+        liked = post.likes.filter(id=self.request.user.id).exists()
 
         comment_form = CommentForm(data=request.POST)
 
@@ -106,7 +110,8 @@ class FullPost(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.success(request, 'Thank you! Your comment is awaiting approval.')
+            messages.success(
+                request, 'Thank you! Your comment is awaiting approval.')
         else:
             comment_form = CommentForm()
 
@@ -153,7 +158,9 @@ def add_post(request):
             post.author = request.user
             post.save()
             form.save_m2m()
-            messages.success(request, 'Thank you! Your post was saved. Check its status in your dashboard')
+            messages.success(
+                request, 'Thank you! Your post was saved.'
+                'Check its status in your dashboard')
             return redirect('user_account')
     else:
         form = PostForm()
@@ -193,7 +200,8 @@ class PostEdit(View):
             content = post.content
             post.save()
             form.save_m2m()
-            messages.success(request, 'Changes saved! You can check post status in your dashboard.')
+            messages.success(request, 'Changes saved!'
+                             'You can check post status in your dashboard.')
             return redirect('user_account')
         else:
             return render(request, CONST.EDIT_POST, {'form': form})
@@ -203,7 +211,8 @@ class PostEdit(View):
 def dashboard_stats(request):
     author = request.user
     draft_count = Post.objects.filter(author=author, status=0).count()
-    awaiting_moderation_count = Post.objects.filter(author=author, status=1).count()
+    awaiting_moderation_count = Post.objects.filter(
+        author=author, status=1).count()
     published_count = Post.objects.filter(author=author, status=2).count()
 
     context = {
@@ -219,7 +228,9 @@ def dashboard_stats(request):
 def user_account(request):
     user_posts = Post.objects.filter(author=request.user)
     dashboard_stats_data = dashboard_stats(request)
-    return render(request, CONST.USER_ACCOUNT, {'user_posts': user_posts, 'dashboard_stats': dashboard_stats_data})
+    return render(request, CONST.USER_ACCOUNT,
+                  {'user_posts': user_posts,
+                   'dashboard_stats': dashboard_stats_data})
 
 
 class TaggedPosts(generic.ListView):
