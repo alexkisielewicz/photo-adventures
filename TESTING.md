@@ -139,6 +139,36 @@ No errors have been found in displaying layouts, style and functionalities.
 
 # HTML Validation
 
+The [W3C Markup Validation Service](https://validator.w3.org/) has been used to validate html files.
+
+| Template | Validation |  Final validation
+|--------|-----------|---------|
+| index.html | pass |
+| blog.html | pass |
+| about.html | pass |
+| contact.html | pass | 
+| full_post.html | pass | 
+| rules.html | pass | 
+| user_account.html | pass |
+| add_post.html | pass | 
+| edit_post.html | pass | 
+| delete_post.html | pass | 
+| 404.html | pass | 
+| 500.html | pass | 
+| email_confirm.html | pass | 
+| account_inactive.html | pass | 
+| email.html | pass | 
+| logout.html | pass | 
+| password_change.html | pass | 
+| password_reset_done.html | pass | 
+| password_reset_from_key_done.html | pass | 
+| password_reset_from_key.html | pass | 
+| password_reset.html | pass | 
+| signup_closed.html | pass | 
+| signup.html | pass | 
+| verification_sent.html | pass |
+| verified_email_required.html | pass | 
+
 # CSS Validation
 
 The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) has been used to validate custom CSS through direct code input, no errors found.
