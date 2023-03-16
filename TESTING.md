@@ -1,16 +1,17 @@
 A reasonable amount of manual testing was done and results can be found below:
 
 # Table of content
--   [User story testing](#user-story-testing)
--   [Functionality testing](#functionality-testing)
--   [Responsiveness testing](#responsiveness-testing)
--   [Browser compatibility testing](#browser-compatibility-testing)
--   [HTML Validation](#html-validation)
--   [CSS Validation](#css-validation)
--   [Python PEP8 Validation](#python-pep8-validation)
--   [JavaScript Validation](#javascript-validation-jshint)
--   [Lighthouse performance audit](#lighthouse-performance-audit)
--   [WAVE Accesibility testing](#wave-accesibility-testing)
+
+- [User story testing](#user-story-testing)
+- [Functionality testing](#functionality-testing)
+- [Responsiveness testing](#responsiveness-testing)
+- [Browser compatibility testing](#browser-compatibility-testing)
+- [HTML Validation](#html-validation)
+- [CSS Validation](#css-validation)
+- [Python PEP8 Validation](#python-pep8-validation)
+- [JavaScript Validation](#javascript-validation-jshint)
+- [Lighthouse performance audit](#lighthouse-performance-audit)
+- [WAVE Accesibility testing](#wave-accesibility-testing)
 
 # User story testing
 
@@ -86,6 +87,13 @@ Comprehensive testing has been conducted to ensure that all website functionalit
 
 Website has been thoroughly tested for responsiveness on a wide range of devices to ensure a seamless user experience, no matter how our visitors access the site.
 
+Following adjustments in media queries have been implemented in CSS:
+
+- small devices up to 576px wide,
+- small tablets from 576px to 768px wide,
+- medium tablets/small laptops 768px to 992px,
+- laptops/desktops 992px to 1200px
+
 | Template | Apple iPad 2017 | Macbook Air 13 | Iphone X | Widescreen 27"
 |--------|-----------|-----------|----------|----------|
 | index.html | pass | pass | pass | pass |
@@ -120,6 +128,7 @@ Website has been thoroughly tested for responsiveness on a wide range of devices
 All templates listed in [Responsiveness testing](#responsiveness-testing) have been displayed on different browsers with various viewport size.
 
 Following browsers were checked:
+
 - Google Chrome,
 - Safari,
 - Firefox,
@@ -128,13 +137,17 @@ Following browsers were checked:
 
 No errors have been found in displaying layouts, style and functionalities.
 
-# HTML Validation ()
+# HTML Validation
 
-# CSS Validation ()
+# CSS Validation
 
-# Python PEP8 Validation ()
+The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) has been used to validate custom CSS through direct code input, no errors found.
 
-# JavaScript Validation (JShint)
+![css-validation](docs/img/validation_css.png)
+
+# Python PEP8 Validation
+
+# JavaScript Validation
 
 # Lighthouse performance audit
 
