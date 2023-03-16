@@ -1,9 +1,10 @@
 <h1 align="center">Photo Adventures Website</h1>
+
 <h3 align="center">Full-Stack Toolkit Project</h3>
 
 ### Developer: Aleksander Kisielewicz
 
-<b>[View live website here](https://photo-adventures.herokuapp.com/)</b> :computer:
+**[View live website here](https://photo-adventures.herokuapp.com/)** :computer:
 
 ![Program mockup](docs/img/responsive_mockup.png)
 
@@ -200,6 +201,16 @@ The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-co
 ## Python Logic
 
 ## Database structure
+
+To generate model diagrams I used django-extensions with [python library pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
+
+All django apps:
+
+![all-model](docs/img/django_all_models.png)
+
+Custom app "blog" with models Post, Comment and TaggedPost.
+
+![db-model](docs/img/model.png)
 
 ## Features
 
@@ -405,7 +416,8 @@ Django messages are implemented in the website's app. These messages are display
 
 ## Software used
 
-- [Bootstrap5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter.
+- [Bootstrap 5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter.
+- [Balsamiq](https://balsamiq.com/) - used to create project wireframes.
 - [Cloudinary](https://cloudinary.com/) - cloude-based image and video API
 - [Django](https://www.djangoproject.com/) - python-based web framework with MTV architectural pattern.
 - [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) - web template engine for python/django apps
@@ -415,15 +427,19 @@ Django messages are implemented in the website's app. These messages are display
 - [Git](https://git-scm.com/) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - [GitHub](https://github.com/) - GitHub is used to store the project's code after being pushed from Git.
 - [Heroku](https://heroku.com) - online app used to deploy project.
-- [Pexels.com](https://www.pexels.com/) - was used to source bacground picture for terminal display page.
+- [Pexels](https://www.pexels.com/) - was used to source bacground picture for terminal display page.
 - [WebAIM](https://webaim.org/resources/contrastchecker/) - online tool to check colour contrast/accesibility.
 - [Gravatar](https://en.gravatar.com/)
 - [EmailJS](https://www.emailjs.com/) - JavaScript library used to send emails usung only client-side technologies.
-- [GoogleMaps](https://www.google.com/maps)
-- [GooglereCaptchav2](https://developers.google.com/recaptcha/docs/display?hl=en)
+- [Google DevTools](https://developer.chrome.com/docs/devtools/) - used for developing HTML/CSS/DOM navigating/JavaScript console
+- [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - used for testing website performance
+- [Google Maps](https://www.google.com/maps)
+- [Google reCaptcha v2](https://developers.google.com/recaptcha/docs/display?hl=en)
 - [Gmail](https://mail.google.com/)
 - [Canva](https://www.canva.com/) - used to design logo picture
 - [Convertio.io](https://convertio.co/) - used to convert images to webp format
+- [WAVE](https://wave.webaim.org/) - web accessibility online tool
+- [Techsini.com](https://techsini.com/multi-mockup/) - website mockup generator
 
 ## Python libraries/modules
 
@@ -444,6 +460,7 @@ Django messages are implemented in the website's app. These messages are display
 - [pytz](https://pypi.org/project/pytz/)
 - [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuth library suppor for python requests
 - [sqlparse](https://pypi.org/project/sqlparse/) - non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
+- [pygraphviz](https://pypi.org/project/pygraphviz/) - used to generate visualization of database model
 
 # Testing
 
@@ -481,6 +498,9 @@ Details of manual testing can be found in [TESTING.md file](link)
   [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36)
 - <b>Solution:</b>
 
+- <b>Bug issue #43:</b>
+  [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43)
+- <b>Solution:</b>
 
 # Deployment
 
@@ -506,11 +526,15 @@ Details of manual testing can be found in [TESTING.md file](link)
 
 9. The link to my deployed app was shown on screen: [https://photo-adventures.herokuapp.com/](https://photo-adventures.herokuapp.com/)
 
-<br>
-
 # Possible future development
 
-If I had more time or decide to develop app further I would add/improve following functionalities:
+If I had more time or decide to develop app further I would add/improve following functionalities that I moved to [Future enhancements](https://github.com/alexkisielewicz/photo-adventures/issues?q=label%3A%22future+enhancement%22+) column on project board:
+
+- [#29](https://github.com/alexkisielewicz/photo-adventures/issues/29) Similar posts recommendation to suggest user next read
+- [#34](https://github.com/alexkisielewicz/photo-adventures/issues/34) Post list by category
+- [#35](https://github.com/alexkisielewicz/photo-adventures/issues/35) Post list by author
+- [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) File size/format/dimension validation of uploaded images
+- [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41) Featured post - functionality that allows admin to mark selected post as featured and highlight it on main page.
 
 # Credits
 
