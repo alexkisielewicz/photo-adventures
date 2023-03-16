@@ -110,16 +110,16 @@
 <!-- Most liked post start -->
 <section>
     <div class="container my-5 py-5" data-aos="fade-up">
-        <h1 class="most-liked text-center mb-2 mt-2 py-5">Most liked posts</h1>
+        <h2 class="most-liked text-center mb-2 mt-2 py-5">Most liked posts</h2>
         <div class="row g-5 pb-3">
             {% for post in trending %}
             <div class="col-lg-4 col-md-12 col-sm-12 d-flex align-items-stretch justify-content-around">
                 <div class="card card-main-page" data-aos="zoom-in-up">
                     {% if "placeholder" in post.featured_image.url %}
                     <img class="card-img-top card-img-thumbnail"
-                        src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+                        src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" alt="Feature image for post {{ post.title }}">
                     {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top card-img-thumbnail" alt="Card featuree Image">
+                    <img src="{{ post.featured_image.url }}" class="card-img-top card-img-thumbnail" alt="Feature image for post {{ post.title }}">
                     {% endif %}
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-category mt-1">{{ post.category }}</h5>

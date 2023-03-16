@@ -21,9 +21,9 @@
                                     <div class="image-container">
                                         {% if "placeholder" in post.featured_image.url %}
                                         <img class="card-img-top"
-                                            src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp">
+                                            src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" alt="Featured image for article {{ post.title }}">
                                         {% else %}
-                                        <img class="card-img-top card-img-blog" src="{{ post.featured_image.url }}">
+                                        <img class="card-img-top card-img-blog" src="{{ post.featured_image.url }}" alt="Featured image for article {{ post.title }}">
                                         {% endif %}
                                         <div class="image-caption">
                                             <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
@@ -33,11 +33,11 @@
                                         <h2 class="card-title mt-3">{{ post.title }}</h2>
                                     </a>
                                     <p class="post-excerpt">{{ post.excerpt }}</p>
-                                    <hr />
+                                    <hr>
                                     <p class="post-details text-muted mt-1 mb-1">
                                         <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
                                         <i class="fa-regular fa-folder"></i> {{ post.category }} |
-                                        <i class="fa-regular fa-calendar-check"></i> <time>{{ post.created_on }}</time> |
+                                        <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
                                         <i class="far fa-heart"></i> {{ post.number_of_likes }} |
                                         <i class="far fa-comments"></i> {{ post.number_of_comments }}
                                     </p>
