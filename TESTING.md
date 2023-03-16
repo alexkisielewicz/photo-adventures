@@ -118,7 +118,6 @@ Following adjustments in media queries have been implemented in CSS:
 | password_reset_from_key_done.html | pass | pass | pass | pass |
 | password_reset_from_key.html | pass | pass | pass | pass |
 | password_reset.html | pass | pass | pass | pass |
-| signup_closed.html | pass | pass | pass | pass |
 | signup.html | pass | pass | pass | pass |
 | verification_sent.html | pass | pass | pass | pass |
 | verified_email_required.html | pass | pass | pass | pass |
@@ -139,35 +138,34 @@ No errors have been found in displaying layouts, style and functionalities.
 
 # HTML Validation
 
-The [W3C Markup Validation Service](https://validator.w3.org/) has been used to validate html files.
+The [W3C Markup Validation Service](https://validator.w3.org/) has been used to validate html files, also W3C Web Validator VSC extension was used throughtout development to mark and elimanate errors.
 
-| Template | Validation |  Final validation
+| Template | Validation Result |  Final validation
 |--------|-----------|---------|
-| index.html | pass |
-| blog.html | pass |
-| about.html | pass |
-| contact.html | pass | 
-| full_post.html | pass | 
-| rules.html | pass | 
-| user_account.html | pass |
-| add_post.html | pass | 
-| edit_post.html | pass | 
-| delete_post.html | pass | 
-| 404.html | pass | 
-| 500.html | pass | 
-| email_confirm.html | pass | 
-| account_inactive.html | pass | 
-| email.html | pass | 
-| logout.html | pass | 
-| password_change.html | pass | 
-| password_reset_done.html | pass | 
-| password_reset_from_key_done.html | pass | 
-| password_reset_from_key.html | pass | 
-| password_reset.html | pass | 
-| signup_closed.html | pass | 
-| signup.html | pass | 
-| verification_sent.html | pass |
-| verified_email_required.html | pass | 
+| index.html | p nested inside ul | pass
+| blog.html | missing picture alt tags | pass |
+| about.html | no errors | pass
+| contact.html | no errors | pass
+| full_post.html | summernote widget has errors | pass/third party code errors
+| rules.html | no errors | pass
+| user_account.html | gravatar img doesn't have alt tag | pass |
+| add_post.html | summernote widget has errors | pass/third party code errors |
+| edit_post.html | summernote widget has errors | pass/third party code errors |
+| delete_post.html | a nested inside button | pass
+| 404.html | no errors | pass |
+| 500.html | no errors | pass |
+| email_confirm.html | no errors | pass |
+| account_inactive.html | no errors |pass |
+| email.html | no errors | pass |
+| logout.html | no errors | pass |
+| password_change.html | no errors | pass |
+| password_reset_done.html | no errors | pass |
+| password_reset_from_key_done.html | no errors |pass |
+| password_reset_from_key.html | no errors | pass |
+| password_reset.html | no errors |pass |
+| signup.html | no errors | pass
+| verification_sent.html | no errors | pass |
+| verified_email_required.html | no errors | pass |
 
 # CSS Validation
 
