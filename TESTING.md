@@ -16,6 +16,8 @@ A reasonable amount of manual testing was done and results can be found below:
 
 # Functionality testing
 
+Comprehensive testing has been conducted to ensure that all website functionalities are working as intended, providing users with a reliable and enjoyable browsing experience.
+
 | Functionality | What's being tested | Result |
 |------|-------------|--------|
 | Registration | A new user can create an account successfully. | Pass |
@@ -82,7 +84,49 @@ A reasonable amount of manual testing was done and results can be found below:
 
 # Responsiveness testing
 
+Website has been thoroughly tested for responsiveness on a wide range of devices to ensure a seamless user experience, no matter how our visitors access the site.
+
+| Template | Apple iPad 2017 | Macbook Air 13 | Iphone X | Widescreen 27"
+|--------|-----------|-----------|----------|----------|
+| index.html | pass | pass | pass | pass |
+| blog.html | pass | pass | pass | pass |
+| about.html | pass | pass | pass | pass |
+| contact.html | pass | pass | pass | pass |
+| full_post.html | pass | pass | pass | pass |
+| rules.html | pass | pass | pass | pass |
+| user_account.html | pass | pass | pass | pass |
+| add_post.html | pass | pass | pass | pass |
+| edit_post.html | pass | pass | pass | pass |
+| delete_post.html | pass | pass | pass | pass |
+| 404.html | pass | pass | pass | pass |
+| 500.html | pass | pass | pass | pass |
+| email_confirm.html | pass | pass | pass | pass |
+| account_inactive.html | pass | pass | pass | pass |
+| email.html | pass | pass | pass | pass |
+| login.html | pass | pass | pass | pass |
+| logout.html | pass | pass | pass | pass |
+| password_change.html | pass | pass | pass | pass |
+| password_reset_done.html | pass | pass | pass | pass |
+| password_reset_from_key_done.html | pass | pass | pass | pass |
+| password_reset_from_key.html | pass | pass | pass | pass |
+| password_reset.html | pass | pass | pass | pass |
+| signup_closed.html | pass | pass | pass | pass |
+| signup.html | pass | pass | pass | pass |
+| verification_sent.html | pass | pass | pass | pass |
+| verified_email_required.html | pass | pass | pass | pass |
+
 # Browser compatibility testing
+
+All templates listed in [Responsiveness testing](#responsiveness-testing) have been displayed on different browsers with various viewport size.
+
+Following browsers were checked:
+- Google Chrome,
+- Safari,
+- Firefox,
+- Brave,
+- Microsoft Edge
+
+No errors have been found in displaying layouts, style and functionalities.
 
 # HTML Validation ()
 
