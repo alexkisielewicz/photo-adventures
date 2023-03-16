@@ -7,7 +7,7 @@ from taggit.models import TaggedItemBase
 
 
 class Post(models.Model):
-
+    # Model of the blog post
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
@@ -43,10 +43,12 @@ class Post(models.Model):
 
 
 class TaggedPost(TaggedItemBase):
+    # Model of post with tags (taggit)
     content_object = models.ForeignKey('Post', on_delete=models.CASCADE)
 
 
 class Comment(models.Model):
+    # Model of post comment
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=80)
