@@ -326,7 +326,7 @@ button {
     font-size: medium;
 }
 
-.post-tags button {
+.post-tags a {
     background-color: #cdcecf;
     color: #04100D;
     font-size: medium;
@@ -334,9 +334,10 @@ button {
     transition: all .2s ease-in-out;
     border-top-left-radius: 0.25em;
     border-top-right-radius: 0.25em;
+    padding: 3px;
 }
 
-.post-tags button:hover {
+.post-tags a:hover {
     background-color: #ffbd59;
     color: #04100D;
     font-size: medium;
@@ -540,7 +541,7 @@ div.card-text a:hover {
     background-color: transparent;
 }
 
-.social-share button a {
+.social-share button {
     color: #fff;
 }
 

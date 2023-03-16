@@ -11,17 +11,16 @@
     <div class="container edit-post align-content-center rounded-3 p-2">
     </div>
     <div class="container mt-5 mb-3 p-3">
-      <h1 class="mb-3">Add Post</h1>    
+      <h1 class="mb-3">Add Post</h1>
       <form id="postForm" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button type="submit" id="submitButton" class="btn btn-green">Submit</button>
-        </form>
-      </div>
-    </div>  
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" id="submitButton" class="btn btn-green">Submit</button>
+      </form>
+    </div>
   </div>
 </main>
 {% endblock %}
 {% block extrascripts %}
-    <script src="{% static 'js/validate_form.js' %}"></script>
+<script src="{% static 'js/validate_form.js' %}"></script>
 {% endblock %}
