@@ -29,5 +29,11 @@
    },
    "[markdown]": {
       "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+   },
+   "[css]": {
+      "editor.defaultFormatter": "aeschli.vscode-css-formatter"
+   },
+   "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
    }
 }
