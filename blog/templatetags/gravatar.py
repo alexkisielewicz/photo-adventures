@@ -26,4 +26,4 @@ def gravatar_url(email, size=40):
 @register.filter
 def gravatar(email, size=40):
     url = gravatar_url(email, size)
-    return mark_safe('<img src="{}" width="{}" height="{}">'.format(url, size, size))
+    return mark_safe('<img src="{}" width="{}" height="{}" alt="User profile picture">'.format(url, size, size))
