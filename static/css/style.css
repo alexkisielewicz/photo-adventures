@@ -1,5 +1,7 @@
+/* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap');
 
+/* General */
 *,
 ::after,
 ::before {
@@ -27,6 +29,12 @@ body {
     padding: 0;
 }
 
+.wrapper {
+    margin: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 h1,
 h2,
 h3,
@@ -40,40 +48,6 @@ a,
 a:hover {
     text-decoration: none;
     color: #04100D;
-}
-
-/* Social media share icons */
-.social-share {
-    position: absolute;
-    text-align: center;
-    bottom: 1%;
-    right: 1%;
-    font-size: x-large;
-    font-weight: 700;
-    padding: 15px 10px;
-    border: none;
-}
-
-.social-share button {
-    background-color: transparent;
-}
-
-.social-share button a {
-    color: #fff;
-}
-
-.social-facebook:hover {
-    color: #4267B2;
-    transform: scale(1.5);
-    transition: all .2s ease-in-out 0s;
-    -webkit-transform: all .2s ease-in-out 0s;
-}
-
-.social-twitter:hover {
-    color: #1DA1F2;
-    transform: scale(1.5);
-    transition: all .2s ease-in-out 0s;
-    -webkit-transform: all .2s ease-in-out 0s;
 }
 
 .text-link {
@@ -90,65 +64,6 @@ a:hover {
     border: none;
     box-shadow: inset 0 -25px 0 0 #003718;
     color: #FFF;
-}
-
-.wrapper {
-    margin: 0;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-nav button {
-    margin-right: 25px;
-}
-
-.user-name {
-    padding: 10px;
-}
-
-.navbar-collapse .collapse .show {
-    margin-bottom: 20px;
-}
-
-.navbar-toggler-icon {
-    font-size: medium;
-    margin: 0;
-}
-
-/* Bootstrap toast */
-.toast-green {
-    background-color: #005f08cc;
-    color: #fff;
-}
-
-/* Buttons */
-button {
-    border: none;
-}
-
-.btn-green {
-    background-color: #005f08cc;
-    color: #fff;
-}
-
-.btn-green:hover {
-    background-color: #003718;
-    color: #fff;
-}
-
-.btn-outline-green {
-    color: #003718;
-    border-color: #003718;
-}
-
-.btn-outline-green:hover {
-    background-color: #005f08cc;
-    color: #fff;
-}
-
-.btn-outline-secondary {
-    color: #fff;
-    border-color: #fff;
 }
 
 /* Navbar */
@@ -184,7 +99,60 @@ button {
     border-radius: 50%;
 }
 
-/* Carousel */
+nav button {
+    margin-right: 25px;
+}
+
+.user-name {
+    padding: 10px;
+}
+
+.navbar-collapse .collapse .show {
+    margin-bottom: 20px;
+}
+
+.navbar-toggler-icon {
+    font-size: medium;
+    margin: 0;
+}
+
+/* Bootstrap toast - Messages */
+.toast-green {
+    background-color: #005f08cc;
+    color: #fff;
+}
+
+/* Buttons */
+button {
+    border: none;
+}
+
+.btn-green {
+    background-color: #005f08cc;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background-color: #003718;
+    color: #fff;
+}
+
+.btn-outline-green {
+    color: #003718;
+    border-color: #003718;
+}
+
+.btn-outline-green:hover {
+    background-color: #005f08cc;
+    color: #fff;
+}
+
+.btn-outline-secondary {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Bootstrap carousel - home page */
 .carousel-image {
     height: 100vh;
     background-repeat: no-repeat;
@@ -229,7 +197,7 @@ button {
     color: #003718;
 }
 
-/* Main page Hero */
+/* Hero - home page */
 .hero-container {
     background: linear-gradient(90deg, hsla(180, 5%, 83%, 0.6) 100%, hsla(165, 60%, 4%, 1) 100%);
     background-size: cover;
@@ -242,10 +210,10 @@ button {
 
 .most-liked {
     font-weight: 700;
-    text-shadow: 0 0 20px rgba(255,255,255,.8), 0 0 20px rgba(255,255,255,.8);
+    text-shadow: 0 0 20px rgba(255, 255, 255, .8), 0 0 20px rgba(255, 255, 255, .8);
 }
 
-/* Post cards on main page */
+/* Post cards - home page */
 .card-category {
     text-transform: uppercase;
     font-family: 'Merriweather', serif;
@@ -477,6 +445,7 @@ button {
     -webkit-transform: all .2s ease-in-out 0s;
 }
 
+/* Dashboard counters */
 .count-box {
     background-color: #fff;
     box-shadow: 0px 0 16px rgb(0 0 0 / 20%);
@@ -511,7 +480,7 @@ button {
     font-size: medium;
 }
 
-/*Social icons in Footer*/
+/* Social icons in Footer*/
 .social-icon {
     font-size: 1.5em;
     padding: 5px 5px;
@@ -522,16 +491,7 @@ button {
     color: #ffbd59;
 }
 
-/* Hide/show navbar on scroll */
-
-.scroll-down .navbar {
-    transform: translate3d(0, -100%, 0);
-}
-
-.scroll-up .navbar {
-    filter: drop-shadow(0 -10px 20px rgb(136, 136, 136))
-}
-
+/* Full post */
 .post-excerpt {
     font-family: 'Merriweather', serif;
     font-style: italic;
@@ -562,6 +522,40 @@ div.card-text a:hover {
     border: none;
     box-shadow: inset 0 -25px 0 0 #003718;
     color: #FFF;
+}
+
+/* Social media share icons - full post page */
+.social-share {
+    position: absolute;
+    text-align: center;
+    bottom: 1%;
+    right: 1%;
+    font-size: x-large;
+    font-weight: 700;
+    padding: 15px 10px;
+    border: none;
+}
+
+.social-share button {
+    background-color: transparent;
+}
+
+.social-share button a {
+    color: #fff;
+}
+
+.social-facebook:hover {
+    color: #4267B2;
+    transform: scale(1.5);
+    transition: all .2s ease-in-out 0s;
+    -webkit-transform: all .2s ease-in-out 0s;
+}
+
+.social-twitter:hover {
+    color: #1DA1F2;
+    transform: scale(1.5);
+    transition: all .2s ease-in-out 0s;
+    -webkit-transform: all .2s ease-in-out 0s;
 }
 
 /* Delete post page */
@@ -652,6 +646,16 @@ div.card-text a:hover {
     font-weight: 700;
 }
 
+/* Contact page */
+.container-contact {
+    padding: 25px;
+}
+
+.google-map {
+    width: 100%;
+    height: 500px;
+}
+
 /* Add/edit post template */
 .edit-post {
     position: relative;
@@ -672,16 +676,6 @@ div.card-text a:hover {
     height: 250px;
     background-image: url('https://res.cloudinary.com/ddvsgi5xw/image/upload/v1677704831/accounts_jjvu40.png');
     background-size: cover;
-}
-
-/* Contact templase */
-.container-contact {
-    padding: 25px;
-}
-
-.google-map {
-    width: 100%;
-    height: 500px;
 }
 
 /* Main project colours */
@@ -712,7 +706,7 @@ div.card-text a:hover {
 
 /* MEDIA QUERIES */
 
-/* Smartphones and small tablets, 576-768px */
+/* Small devices */
 @media only screen and (max-width: 575.98px) {
     .carousel-image {
         height: 100vh;
@@ -832,7 +826,8 @@ div.card-text a:hover {
     }
 
 }
-/* Tablets */
+
+/* Tablets, medium devices */
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     .logo {
         display: none;
@@ -872,7 +867,6 @@ div.card-text a:hover {
         text-align: center;
     }
 }
-
 
 /* Medium devices (bigger than 768px but less than 992px) */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
