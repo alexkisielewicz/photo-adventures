@@ -40,8 +40,7 @@ Application offers such functionalities as:
   - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
 - [Logic and features](#logic-and-features)
-  - [Python logic](#python-logic)
-  - [Database structure](#database-structure)
+  - [Database model and database structure](#data-model-ad-database-structure)
   - [Features](#features)
     - [Navbar and menu](#navbar-and-main-menu)
     - [Footer](#footer)
@@ -206,9 +205,7 @@ The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-co
 
 # Logic and features
 
-## Python Logic
-
-## Database structure
+## Data model ad database structure
 
 To generate model diagrams I used django-extensions with [python library pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
@@ -219,6 +216,12 @@ All django apps:
 Custom app "blog" with models Post, Comment and TaggedPost.
 
 ![db-model](docs/img/model.png)
+
+| Model | Description |
+|-------|-------------|
+| Post | This model represents a blog post and contains fields for the post's title, author, category, excerpt, featured image, location, content, creation and update times, status, and likes. It also has a slug field to generate unique URLs for each post and uses the TaggableManager (taggit library) to add tags. |
+| TaggedPost | This model is used to associate tags with posts and is created automatically by the TaggableManager (taggit library). |
+| Comment | This model represents a comment on a blog post and contains fields for the post it belongs to, the commenter's name and email, the comment's body, and creation time. It also has an approved field that can be used to moderate comments by admin. |
 
 ## Features
 
@@ -448,24 +451,25 @@ Django messages are implemented in the website's app. These messages are display
 - [Convertio.io](https://convertio.co/) - used to convert images to webp format
 - [WAVE](https://wave.webaim.org/) - web accessibility online tool
 - [Techsini.com](https://techsini.com/multi-mockup/) - website mockup generator
+- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database as a service
 
 ## Python libraries/modules
 
-- [os](https://docs.python.org/3/library/os.html) - built-in pythod module - used to save and import env variables.
-- [cloudinary](https://pypi.org/project/cloudinary/)
-- [CrispyBootstrap5](https://pypi.org/project/crispy-bootstrap5/)
-- [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/)
-- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/)
-- [django-allauth==0.52.0](https://pypi.org/project/django-allauth/) - integrated django accounts management
-- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/)
+- [os](https://docs.python.org/3/library/os.html) - built-in Pythod module - used to save and import env variables
+- [cloudinary](https://pypi.org/project/cloudinary/) - cloud hosting used to store pictures
+- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - provides django integration with Cloudinary service
+- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) - renders elegant div based forms
+- [CrispyBootstrap5](https://pypi.org/project/crispy-bootstrap5/) - template pack for django-crispy-forms
+- [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/) - utility that allows configure environment variable to a connection string that includes the database engine
+- [django-allauth](https://pypi.org/project/django-allauth/) - integrated django accounts management
 - [django-social-share](https://pypi.org/project/django-social-share/) - used for facebook and twitter share buttons
 - [django-summernote](https://pypi.org/project/django-summernote/) - WYSIWYG editor widget used for writing/editing post content
 - [django-taggit](https://pypi.org/project/django-taggit/) - used for post categorizing by tag name
-- [gunicorn](https://pypi.org/project/gunicorn/) - python WSGI HTTP Server for UNIX
-- [oauthlib](https://pypi.org/project/oauthlib/) -
-- [psycopg2](https://pypi.org/project/psycopg2/) -
-- [PyJWT](https://pypi.org/project/PyJWT/)
-- [pytz](https://pypi.org/project/pytz/)
+- [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX
+- [oauthlib](https://pypi.org/project/oauthlib/) - framework for implementing open standard for authorization
+- [psycopg2](https://pypi.org/project/psycopg2/) - PostgresSQL database adapter for Python language
+- [PyJWT](https://pypi.org/project/PyJWT/) - Python library for encoding, decoding and veryfying JSON Web Tokens
+- [pytz](https://pypi.org/project/pytz/) -  library that provides support for working with time zones, converts the dates between zones
 - [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuth library suppor for python requests
 - [sqlparse](https://pypi.org/project/sqlparse/) - non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
 - [pygraphviz](https://pypi.org/project/pygraphviz/) - used to generate visualization of database model
