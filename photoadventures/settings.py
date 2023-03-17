@@ -26,12 +26,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-
-# CHANGE THIS BEFORE SENDING THE PROJECT !!!
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
 DEBUG = False
 # CHANGE THIS BEFORE SENDING THE PROJECT !!!
-# CHANGE THIS BEFORE SENDING THE PROJECT !!!
+
 
 ALLOWED_HOSTS = ['photo-adventures.herokuapp.com', 'localhost', '127.0.0.1']
 
