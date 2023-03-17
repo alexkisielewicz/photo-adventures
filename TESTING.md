@@ -9,7 +9,7 @@ A reasonable amount of manual testing was done and results can be found below:
 - [HTML Validation](#html-validation)
 - [CSS Validation](#css-validation)
 - [Python PEP8 Validation](#python-pep8-validation)
-- [JavaScript Validation](#javascript-validation-jshint)
+- [JavaScript Validation](#javascript-validation)
 - [Lighthouse performance audit](#lighthouse-performance-audit)
 - [WAVE Accesibility testing](#wave-accesibility-testing)
 
@@ -238,9 +238,18 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) 
 | blog/admin.py | pass |
 | blog/templatetags/gravatar.py | pass |
 
-
-
 # JavaScript Validation
+
+JavaScript files were validated using online service [jshint.com](https://jshint.com/).
+The common finding was missing semicolon at the end of the line, they were all added to clear warnings.
+
+| File | Screenshot |
+|------|------------|
+| send_email.js| ![js-hint1](docs/img/validation_js1.png) |
+| email_init.js| ![js-hint2](docs/img/validation_js2.png) |
+| script.js| ![js-hint3](docs/img/validation_js3.png) |
+| signup_captcha.js| ![js-hint4](docs/img/validation_js4.png) |
+| validate_form.js| ![js-hint5](docs/img/validation_js5.png) |
 
 # Lighthouse performance audit
 
