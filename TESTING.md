@@ -15,6 +15,49 @@ A reasonable amount of manual testing was done and results can be found below:
 
 # User story testing
 
+| User story - site admin | Result |
+|----------|------|
+| [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2) As Site Admin, I can log in to admin panel so that I can manage posts | pass |
+| [#3](https://github.com/alexkisielewicz/photo-adventures/issues/3) As Site Admin, I can perform CRUD operations on posts so that I can manage the content on the blog | pass |
+| [#6](https://github.com/alexkisielewicz/photo-adventures/issues/6) As Site Admin, I can view the number of likes on posts so that I can see which is the most popular | pass |
+| [#7](https://github.com/alexkisielewicz/photo-adventures/issues/7) As Site Admin, I can view comments on posts so that I can read the conversation | pass |
+| [#11](https://github.com/alexkisielewicz/photo-adventures/issues/11) As Site Admin, I can approve/delete users comments so that I can moderate inappropriate ones | pass |
+| [#13](https://github.com/alexkisielewicz/photo-adventures/issues/13) As Site Admin, I can add posts in categories so that I can group photos by this criteria | pass |
+| [#14](https://github.com/alexkisielewicz/photo-adventures/issues/14) As Site Admin, I can add tags to the posts so that others can easily find posts related to specific topics | pass |
+| [#23](https://github.com/alexkisielewicz/photo-adventures/issues/23) As Site Admin, I can prevent users from liking their own posts so that posts can be liked only by other users | pass |
+| [#30](https://github.com/alexkisielewicz/photo-adventures/issues/30) As Site Admin, I want to allow users to have a profile image displayed alongside their comments on the blog so it's easier for readers to identify who is commenting | pass |
+| [#31](https://github.com/alexkisielewicz/photo-adventures/issues/31) As Site Admin, I want to present the users with a custom 404 page if he navigates to a page that doesn't exist so that they can see a user-friendly message that offers some guidance or suggestions | pass |
+| [#33](https://github.com/alexkisielewicz/photo-adventures/issues/33) As Site Admin, I want to ensure that only human users can submit the contact form so that I can prevent spam or bot submissions | pass |
+| [#38](https://github.com/alexkisielewicz/photo-adventures/issues/38) As Site Admin, I want to display success, error, and warning messages to my users using Bootstrap toasts so that they always receive easy-to-understand feedback regarding their actions | test | pass |
+| [#39](https://github.com/alexkisielewicz/photo-adventures/issues/39) As Site Admin, I want to validate inputs in add/edit post forms so that I can have control on what input values are allowed | pass |
+| [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) As Site Admin, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud | not developed, moved to future enhancements board |
+| [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41) As Site Admin, I can distinguish specific post as featured post so that I can direct user's attention to that post | not developed, moved to future enhancements board |
+
+| User story - site user | Result |
+|----------|------|
+| [#1](https://github.com/alexkisielewicz/photo-adventures/issues/1) As Site User, I can view a list of all posts so that I can select one to read | pass |
+| [#4](https://github.com/alexkisielewicz/photo-adventures/issues/4) As Site User, I want to be able to create an account on the blog so that I can add posts, comments, and likes | pass |
+| [#5](https://github.com/alexkisielewicz/photo-adventures/issues/5) As Site User, I can select a post so that I can read it | pass |
+| [#6](https://github.com/alexkisielewicz/photo-adventures/issues/6) As Site User, I can view the number of likes on posts so that I can see which is the most popular | pass |
+| [#7](https://github.com/alexkisielewicz/photo-adventures/issues/7) As Site User, I can view comments on posts so that I can read the conversation | pass |
+| [#8](https://github.com/alexkisielewicz/photo-adventures/issues/8) As Site User, I can write comments on posts so that I can be the part of the conversation | pass |
+| [#9](https://github.com/alexkisielewicz/photo-adventures/issues/9) As Site User, I can like/unlike posts so that I can give feedback in form of likes | pass |
+| [#10](https://github.com/alexkisielewicz/photo-adventures/issues/10) As Site User, I can create draft posts so that I can finish publishing later | pass |
+| [#12](https://github.com/alexkisielewicz/photo-adventures/issues/12) As Site User, I can create blog posts with photos and text so that I can share my photography adventures | pass |
+| [#13](https://github.com/alexkisielewicz/photo-adventures/issues/13) As Site User, I can add posts in categories so that I can group photos by this criteria | adding category is possible but viewing posts by category is future enhancement |
+| [#14](https://github.com/alexkisielewicz/photo-adventures/issues/14) As Site User, I can add tags to the posts so that others can easily find posts related to specific topics | pass |
+| [#15](https://github.com/alexkisielewicz/photo-adventures/issues/15) As Site User, I can edit an delete my posts so that I can update them or remove if necessary | pass |
+| [#16](https://github.com/alexkisielewicz/photo-adventures/issues/16) As Site User, I can use the contact form so that I can contact the website owner if needed | pass |
+| [#17](https://github.com/alexkisielewicz/photo-adventures/issues/17) As Site User, I can view page content so that I can browse the website and interact with the content | pass |
+| [#19](https://github.com/alexkisielewicz/photo-adventures/issues/19) As Site User, I can see the posts with the highest number of likes so that I know which posts are the most popular | pass |
+| [#20](https://github.com/alexkisielewicz/photo-adventures/issues/20) As Site user, I can see my account page so that I can manage my posts | pass |
+| [#21](https://github.com/alexkisielewicz/photo-adventures/issues/21) As Site User, I can view all posts added by me so that I can keep track of my blogging activity | pass |
+| [#25](https://github.com/alexkisielewicz/photo-adventures/issues/25) As Site User, I can view my drafts in my dashboard so that I can select them and continue editing | pass |
+| [#26](https://github.com/alexkisielewicz/photo-adventures/issues/26) As Site user, I can click on the edit button in full post view so that I can edit post quickly without the need of searching for the post in the dashboard | pass |
+| [#29](https://github.com/alexkisielewicz/photo-adventures/issues/29) As Site User, I can get recommendations to read similar posts on the blog so that I can read stories that are in my interest range | not developed, moved to future enhancements board |
+| [#35](https://github.com/alexkisielewicz/photo-adventures/issues/35) As Site User, I can view a list of all posts written in specific category so that I can read the posts from categories that I am interested in | not developed, moved to future enhancements board |
+| [#37](https://github.com/alexkisielewicz/photo-adventures/issues/37) As Site User, I can share interesting posts on popular social media platforms so that my friends can learn about posts that I enjoyed reading | pass |
+
 # Functionality testing
 
 Comprehensive testing has been conducted to ensure that all website functionalities are working as intended, providing users with a reliable and enjoyable browsing experience.
@@ -179,12 +222,12 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) 
 
 [CI Python Linter](https://pep8ci.herokuapp.com/) was used for PEP8 validation, also IDE extension was used throughout development to spot errors.
 
-![ci-linter](docs/img/validation_pep8)
+![ci-linter](docs/img/validation_pep8.png)
 
 | File | Validation Result |
 |--------|-----------|
 | manage.py | pass |
-| photoadventures/settings.py | breaking long lines in AUTH_PASSWORD_VALIDATORS results in django error, code was left unedited |
+| photoadventures/settings.py | breaking long lines in AUTH_PASSWORD_VALIDATORS results in django error, code was left unedited for this reason, it is django default code |
 | photoadventures/urls.py | pass |
 | photoadventures/manage.py | pass |
 | blog/views.py | pass |
@@ -200,5 +243,7 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator) 
 # JavaScript Validation
 
 # Lighthouse performance audit
+
+![lighthouse](docs/img/validation_lighthouse.png)
 
 # WAVE Accesibility testing
