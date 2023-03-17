@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.classList.remove('is-valid');
                 isValid.status = false;
             }
-            updateSubmitButton()
+            updateSubmitButton();
         });
     });
 

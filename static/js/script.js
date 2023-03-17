@@ -57,7 +57,6 @@ function hideEmptySections() {
     }
 }
 
-
 function showToastMsg() {
     // Function initializes bootstrap toast to display django messages in it
     
