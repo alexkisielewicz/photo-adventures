@@ -14,19 +14,19 @@ Project purpose was to build a full-stack site using agile methodology to plan a
 
 Application offers such functionalities as:
 
-- **Secure user registration** Users can register with captcha protection and e-mail verification
-- **Password reset via email** Users can easily reset their forgotten password with just a few clicks
-- **Sign in/out** Users can conveniently sign in and out of their account
-- **Role-based access** Access to functionalities is granted based on the user's assigned role
-- **User dashboard** Users can view their own personalized dashboard, complete with user content
-- **Post management** Users can view, add, edit, and delete their posts with ease (CRUD)
-- **Saving drafts and publishing** Users can save their edited posts as drafts or publish them (send to modaration)
-- **Moderation** Admins can moderate posts and comments
-- **Commenting** Users can leave comments on posts and have their Gravatar user picture displayed
-- **Liking** Users can add likes to posts to show their appreciation
-- **Messages/feedback** Users receive feedback and confirmation to their actions
-- **Social media sharing:** Posts can be easily shared on Facebook and Twitter
-- **Contact form:** Users can send messages to the admin through a contact form that includes captcha protection
+- **Secure user registration** - Users can register with captcha protection and e-mail verification
+- **Password reset via email** - Users can easily reset their forgotten password with just a few clicks
+- **Sign in/out** - Users can conveniently sign in and out of their account
+- **Role-based access** - Access to functionalities is granted based on the user's assigned role
+- **User dashboard** - Users can view their own personalized dashboard, complete with user content
+- **Post management** - Users can view, add, edit, and delete their posts with ease (CRUD)
+- **Saving drafts and publishing** - Users can save their edited posts as drafts or publish them (send to modaration)
+- **Moderation** - Admins can moderate posts and comments
+- **Commenting** - Users can leave comments on posts and have their Gravatar user picture displayed
+- **Liking** - Users can add likes to posts to show their appreciation
+- **Messages/feedback** - Users receive feedback and confirmation to their actions
+- **Social media sharing:** - Posts can be easily shared on Facebook and Twitter
+- **Contact form:** - Users can send messages to the admin through a contact form that includes captcha protection
 
 # Table of content
 
@@ -62,9 +62,6 @@ Application offers such functionalities as:
   - [Software used](#software-used)
   - [Python libraries/modules](#python-librariesmodules)
 - [Testing](#testing)
-  - [Accessibility](#accessibility)
-  - [Validation](#validation)
-  - [Manual testing](#manual-testing)
   - [Bugs/known issues](#bugsknown-issues)
 - [Deployment](#deployment)
   - [Git and GitHub](#git-and-github)
@@ -82,17 +79,28 @@ Application offers such functionalities as:
 I chose to develop an web application that can be used in real life. My main focus was always on providing an excellent user experience, which is why I decided to create a web application that is both practical and engaging. Photo Adventures is a user-friendly blog-style website where users can share their photo adventures by creating visually appealing blog posts that include both images and text.
 Application should have clean and intuitive user interface and offer easy access and navigation to all functionalities. Application should also be responsive on devices of all screen sizes.
 
+The website's target audience is anyone who is passionate about photography and enjoys sharing their experiences and stories through pictures. It is inclusive of both amateur and professional photographers who are looking for a platform to showcase their work and connect with like-minded individuals. Whether it's capturing stunning landscapes, wildlife images, or simply capturing moments of everyday life, Photo Adventures Website welcomes anyone who wants to share their love of photography with the world.
+
 To achieve the strategy goals I implemented following features:
 
 - a clean and intuitive user interface for ease of navigation and readability,
 - a menu that provides easy access to all website sections, including personalized content via user dashboard,
 - cloud hosting of images for optimized website speed and user experience,
 - media queries to ensure responsiveness across all types of devices,
-- feedback to users for all actions taken on the website.
+- feedback messages to users for all important actions taken on the website.
 
 ## Agile Methodology for project planning
 
+I used agile methodology for the first time when planning full-stack django website with a focus on delivering the basic functionalities. I prioritized features by labeling them as "must-have" or "could-have" and moved some less critical ones to future development. To guide my development process, I created user stories for both the admin user and regular visitors. These stories helped to define the features and functionalities that were most important to project's target audience.
+
+As a solo developer who was learning a lot during the development, I faced challenges in estimating the time required for each task, so I kept things simple and focused on achievable goals. To keep track of progress, I used a kanban board divided into following sections: "to do", "in progress" "done", "future enhancements" and "bugs" that allowed to visualize all tasks and prioritize next steps.
+
+By using agile methodology, I was able to stay organized and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me valuable insight and lessons that I can apply to future projects.
+
 ![Agile](docs/img/agile.png)
+
+![Agile](docs/img/agile_boards.png)
+
 
 ## Site owner goals
 
@@ -109,6 +117,7 @@ To achieve the strategy goals I implemented following features:
 - [#33](https://github.com/alexkisielewicz/photo-adventures/issues/33) As Site Admin, I want to ensure that only human users can submit the contact form so that I can prevent spam or bot submissions
 - [#38](https://github.com/alexkisielewicz/photo-adventures/issues/38) As Site Admin, I want to display success, error, and warning messages to my users using Bootstrap toasts so that they always receive easy-to-understand feedback regarding their actions
 - [#39](https://github.com/alexkisielewicz/photo-adventures/issues/39) As Site Admin, I want to validate inputs in add/edit post forms so that I can have control on what input values are allowed
+- [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) As Site User, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud
 - [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41) As Site Admin, I can distinguish specific post as featured post so that I can direct user's attention to that post
 
 ## External user's goal
@@ -135,7 +144,6 @@ To achieve the strategy goals I implemented following features:
 - [#29](https://github.com/alexkisielewicz/photo-adventures/issues/29) As Site User, I can get recommendations to read similar posts on the blog so that I can read stories that are in my interest range
 - [#35](https://github.com/alexkisielewicz/photo-adventures/issues/35) As Site User, I can view a list of all posts written in specific category so that I can read the posts from categories that I am interested in
 - [#37](https://github.com/alexkisielewicz/photo-adventures/issues/37) As Site User, I can share interesting posts on popular social media platforms so that my friends can learn about posts that I enjoyed reading
-- [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) As Site User, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud
 
 ## Wireframes
 
@@ -464,43 +472,20 @@ Django messages are implemented in the website's app. These messages are display
 
 # Testing
 
-## Accessibility
-
-[WebAIM](https://webaim.org/resources/contrastchecker/) online tool was used to check terminal colour contrast. All used colours passsed the test satisfactory.
-
-![color1](docs/img/contrast1.png)
-
-![color2](docs/img/contrast2.png)
-
-![color3](docs/img/contrast4.png)
-
-![color4](docs/img/contrast5.png)
-
-## Validation
-
-### PEP8
-
-## Manual testing
-
-Details of manual testing can be found in [TESTING.md file](link)
+Details of testing can be found in [TESTING.md](link)
 
 ## Bugs/known issues
 
-- <b>Bug issue #22:</b>
-  [#22](https://github.com/alexkisielewicz/photo-adventures/issues/22)
-- <b>Solution:</b> Putting "break" instruction in the correct place, that allows to "escape" from the while loop.
+Minor syntax and spelling errors were eliminated during development, below is a list of registered issues.
 
-- <b>Bug issue #27:</b>
-  [#27](https://github.com/alexkisielewicz/photo-adventures/issues/27)
-- <b>Solution:</b>
+| Issue | Problem | Solution |
+|-------|---------|----------|
+| [#22](https://github.com/alexkisielewicz/photo-adventures/issues/22) | Bootstrap cards for posts without uploaded images are not displayed correctly | If/else statement added in the template to diplay placeholder image if featured image is not available |
+| [#27](https://github.com/alexkisielewicz/photo-adventures/issues/27) | When the user sends the form with a new post or edits an existing post draft, the tag field stays empty after saving. The database is not being updated as expected.| Save many to many method was added within if statement |
+| [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36) | Error 404 - not found occurs when sending a comment on full_post.html. | Queryset was changed to filted only published posts |
+| [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43) | 2 template syntax errors found using django-extensions validate_templates. One in account/email.html and one in account/verified_email_required.html | Misspelled "load" in templates/accounts/email.html was corrected, head_title block was removed from accounts/verified_email_required.html |
+  
 
-- <b>Bug issue #36:</b>
-  [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36)
-- <b>Solution:</b>
-
-- <b>Bug issue #43:</b>
-  [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43)
-- <b>Solution:</b>
 
 # Deployment
 
