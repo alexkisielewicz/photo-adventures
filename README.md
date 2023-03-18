@@ -14,19 +14,19 @@ Project purpose was to build a full-stack site using agile methodology to plan a
 
 Application offers such functionalities as:
 
-- **Secure user registration** Users can register with captcha protection and e-mail verification
-- **Password reset via email** Users can easily reset their forgotten password with just a few clicks
-- **Sign in/out** Users can conveniently sign in and out of their account
-- **Role-based access** Access to functionalities is granted based on the user's assigned role
-- **User dashboard** Users can view their own personalized dashboard, complete with user content
-- **Post management** Users can view, add, edit, and delete their posts with ease (CRUD)
-- **Saving drafts and publishing** Users can save their edited posts as drafts or publish them (send to modaration)
-- **Moderation** Admins can moderate posts and comments
-- **Commenting** Users can leave comments on posts and have their Gravatar user picture displayed
-- **Liking** Users can add likes to posts to show their appreciation
-- **Messages/feedback** Users receive feedback and confirmation to their actions
-- **Social media sharing:** Posts can be easily shared on Facebook and Twitter
-- **Contact form:** Users can send messages to the admin through a contact form that includes captcha protection
+- **Secure user registration** - Users can register with captcha protection and e-mail verification
+- **Password reset via email** - Users can easily reset their forgotten password with just a few clicks
+- **Sign in/out** - Users can conveniently sign in and out of their account
+- **Role-based access** - Access to functionalities is granted based on the user's assigned role
+- **User dashboard** - Users can view their own personalized dashboard, complete with user content
+- **Post management** - Users can view, add, edit, and delete their posts with ease (CRUD)
+- **Saving drafts and publishing** - Users can save their edited posts as drafts or publish them (send to modaration)
+- **Moderation** - Admins can moderate posts and comments
+- **Commenting** - Users can leave comments on posts and have their Gravatar user picture displayed
+- **Liking** - Users can add likes to posts to show their appreciation
+- **Messages/feedback** - Users receive feedback and confirmation to their actions
+- **Social media sharing:** - Posts can be easily shared on Facebook and Twitter
+- **Contact form:** - Users can send messages to the admin through a contact form that includes captcha protection
 
 # Table of content
 
@@ -40,8 +40,7 @@ Application offers such functionalities as:
   - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
 - [Logic and features](#logic-and-features)
-  - [Python logic](#python-logic)
-  - [Database structure](#database-structure)
+  - [Database model and database structure](#data-model-ad-database-structure)
   - [Features](#features)
     - [Navbar and menu](#navbar-and-main-menu)
     - [Footer](#footer)
@@ -62,9 +61,6 @@ Application offers such functionalities as:
   - [Software used](#software-used)
   - [Python libraries/modules](#python-librariesmodules)
 - [Testing](#testing)
-  - [Accessibility](#accessibility)
-  - [Validation](#validation)
-  - [Manual testing](#manual-testing)
   - [Bugs/known issues](#bugsknown-issues)
 - [Deployment](#deployment)
   - [Git and GitHub](#git-and-github)
@@ -82,17 +78,28 @@ Application offers such functionalities as:
 I chose to develop an web application that can be used in real life. My main focus was always on providing an excellent user experience, which is why I decided to create a web application that is both practical and engaging. Photo Adventures is a user-friendly blog-style website where users can share their photo adventures by creating visually appealing blog posts that include both images and text.
 Application should have clean and intuitive user interface and offer easy access and navigation to all functionalities. Application should also be responsive on devices of all screen sizes.
 
+The website's target audience is anyone who is passionate about photography and enjoys sharing their experiences and stories through pictures. It is inclusive of both amateur and professional photographers who are looking for a platform to showcase their work and connect with like-minded individuals. Whether it's capturing stunning landscapes, wildlife images, or simply capturing moments of everyday life, Photo Adventures Website welcomes anyone who wants to share their love of photography with the world.
+
 To achieve the strategy goals I implemented following features:
 
 - a clean and intuitive user interface for ease of navigation and readability,
 - a menu that provides easy access to all website sections, including personalized content via user dashboard,
 - cloud hosting of images for optimized website speed and user experience,
 - media queries to ensure responsiveness across all types of devices,
-- feedback to users for all actions taken on the website.
+- feedback messages to users for all important actions taken on the website.
 
 ## Agile Methodology for project planning
 
+I used agile methodology for the first time when planning full-stack django website with a focus on delivering the basic functionalities. I prioritized features by labeling them as "must-have" or "could-have" and moved some less critical ones to future development. To guide my development process, I created user stories for both the admin user and regular visitors. These stories helped to define the features and functionalities that were most important to project's target audience.
+
+As a solo developer who was learning a lot during the development, I faced challenges in estimating the time required for each task, so I kept things simple and focused on achievable goals. To keep track of progress, I used a kanban board divided into following sections: "to do", "in progress" "done", "future enhancements" and "bugs" that allowed to visualize all tasks and prioritize next steps.
+
+By using agile methodology, I was able to stay organized and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me valuable insight and lessons that I can apply to future projects.
+
 ![Agile](docs/img/agile.png)
+
+![Agile](docs/img/agile_boards.png)
+
 
 ## Site owner goals
 
@@ -109,6 +116,7 @@ To achieve the strategy goals I implemented following features:
 - [#33](https://github.com/alexkisielewicz/photo-adventures/issues/33) As Site Admin, I want to ensure that only human users can submit the contact form so that I can prevent spam or bot submissions
 - [#38](https://github.com/alexkisielewicz/photo-adventures/issues/38) As Site Admin, I want to display success, error, and warning messages to my users using Bootstrap toasts so that they always receive easy-to-understand feedback regarding their actions
 - [#39](https://github.com/alexkisielewicz/photo-adventures/issues/39) As Site Admin, I want to validate inputs in add/edit post forms so that I can have control on what input values are allowed
+- [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) As Site User, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud
 - [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41) As Site Admin, I can distinguish specific post as featured post so that I can direct user's attention to that post
 
 ## External user's goal
@@ -135,7 +143,6 @@ To achieve the strategy goals I implemented following features:
 - [#29](https://github.com/alexkisielewicz/photo-adventures/issues/29) As Site User, I can get recommendations to read similar posts on the blog so that I can read stories that are in my interest range
 - [#35](https://github.com/alexkisielewicz/photo-adventures/issues/35) As Site User, I can view a list of all posts written in specific category so that I can read the posts from categories that I am interested in
 - [#37](https://github.com/alexkisielewicz/photo-adventures/issues/37) As Site User, I can share interesting posts on popular social media platforms so that my friends can learn about posts that I enjoyed reading
-- [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) As Site User, I can check image dimensions, format, and file size before user upload new image so that I have full control on what files are uploaded to the cloud
 
 ## Wireframes
 
@@ -198,9 +205,7 @@ The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-co
 
 # Logic and features
 
-## Python Logic
-
-## Database structure
+## Data model ad database structure
 
 To generate model diagrams I used django-extensions with [python library pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
@@ -211,6 +216,12 @@ All django apps:
 Custom app "blog" with models Post, Comment and TaggedPost.
 
 ![db-model](docs/img/model.png)
+
+| Model | Description |
+|-------|-------------|
+| Post | This model represents a blog post and contains fields for the post's title, author, category, excerpt, featured image, location, content, creation and update times, status, and likes. It also has a slug field to generate unique URLs for each post and uses the TaggableManager (taggit library) to add tags. |
+| TaggedPost | This model is used to associate tags with posts and is created automatically by the TaggableManager (taggit library). |
+| Comment | This model represents a comment on a blog post and contains fields for the post it belongs to, the commenter's name and email, the comment's body, and creation time. It also has an approved field that can be used to moderate comments by admin. |
 
 ## Features
 
@@ -440,67 +451,45 @@ Django messages are implemented in the website's app. These messages are display
 - [Convertio.io](https://convertio.co/) - used to convert images to webp format
 - [WAVE](https://wave.webaim.org/) - web accessibility online tool
 - [Techsini.com](https://techsini.com/multi-mockup/) - website mockup generator
+- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database as a service
 
 ## Python libraries/modules
 
-- [os](https://docs.python.org/3/library/os.html) - built-in pythod module - used to save and import env variables.
-- [cloudinary](https://pypi.org/project/cloudinary/)
-- [CrispyBootstrap5](https://pypi.org/project/crispy-bootstrap5/)
-- [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/)
-- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/)
-- [django-allauth==0.52.0](https://pypi.org/project/django-allauth/) - integrated django accounts management
-- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/)
+- [os](https://docs.python.org/3/library/os.html) - built-in Pythod module - used to save and import env variables
+- [cloudinary](https://pypi.org/project/cloudinary/) - cloud hosting used to store pictures
+- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - provides django integration with Cloudinary service
+- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) - renders elegant div based forms
+- [CrispyBootstrap5](https://pypi.org/project/crispy-bootstrap5/) - template pack for django-crispy-forms
+- [dj-database-url](https://pypi.org/project/dj-database-url/0.5.0/) - utility that allows configure environment variable to a connection string that includes the database engine
+- [django-allauth](https://pypi.org/project/django-allauth/) - integrated django accounts management
 - [django-social-share](https://pypi.org/project/django-social-share/) - used for facebook and twitter share buttons
 - [django-summernote](https://pypi.org/project/django-summernote/) - WYSIWYG editor widget used for writing/editing post content
 - [django-taggit](https://pypi.org/project/django-taggit/) - used for post categorizing by tag name
-- [gunicorn](https://pypi.org/project/gunicorn/) - python WSGI HTTP Server for UNIX
-- [oauthlib](https://pypi.org/project/oauthlib/) -
-- [psycopg2](https://pypi.org/project/psycopg2/) -
-- [PyJWT](https://pypi.org/project/PyJWT/)
-- [pytz](https://pypi.org/project/pytz/)
+- [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX
+- [oauthlib](https://pypi.org/project/oauthlib/) - framework for implementing open standard for authorization
+- [psycopg2](https://pypi.org/project/psycopg2/) - PostgresSQL database adapter for Python language
+- [PyJWT](https://pypi.org/project/PyJWT/) - Python library for encoding, decoding and veryfying JSON Web Tokens
+- [pytz](https://pypi.org/project/pytz/) -  library that provides support for working with time zones, converts the dates between zones
 - [requests-oauthlib](https://pypi.org/project/requests-oauthlib/) - OAuth library suppor for python requests
 - [sqlparse](https://pypi.org/project/sqlparse/) - non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
 - [pygraphviz](https://pypi.org/project/pygraphviz/) - used to generate visualization of database model
 
 # Testing
 
-## Accessibility
-
-[WebAIM](https://webaim.org/resources/contrastchecker/) online tool was used to check terminal colour contrast. All used colours passsed the test satisfactory.
-
-![color1](docs/img/contrast1.png)
-
-![color2](docs/img/contrast2.png)
-
-![color3](docs/img/contrast4.png)
-
-![color4](docs/img/contrast5.png)
-
-## Validation
-
-### PEP8
-
-## Manual testing
-
-Details of manual testing can be found in [TESTING.md file](link)
+Details of testing can be found in [TESTING.md](link)
 
 ## Bugs/known issues
 
-- <b>Bug issue #22:</b>
-  [#22](https://github.com/alexkisielewicz/photo-adventures/issues/22)
-- <b>Solution:</b> Putting "break" instruction in the correct place, that allows to "escape" from the while loop.
+Minor syntax and spelling errors were eliminated during development, below is a list of registered issues.
 
-- <b>Bug issue #27:</b>
-  [#27](https://github.com/alexkisielewicz/photo-adventures/issues/27)
-- <b>Solution:</b>
+| Issue | Problem | Solution |
+|-------|---------|----------|
+| [#22](https://github.com/alexkisielewicz/photo-adventures/issues/22) | Bootstrap cards for posts without uploaded images are not displayed correctly | If/else statement added in the template to diplay placeholder image if featured image is not available |
+| [#27](https://github.com/alexkisielewicz/photo-adventures/issues/27) | When the user sends the form with a new post or edits an existing post draft, the tag field stays empty after saving. The database is not being updated as expected.| Save many to many method was added within if statement |
+| [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36) | Error 404 - not found occurs when sending a comment on full_post.html. | Queryset was changed to filted only published posts |
+| [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43) | 2 template syntax errors found using django-extensions validate_templates. One in account/email.html and one in account/verified_email_required.html | Misspelled "load" in templates/accounts/email.html was corrected, head_title block was removed from accounts/verified_email_required.html |
+  
 
-- <b>Bug issue #36:</b>
-  [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36)
-- <b>Solution:</b>
-
-- <b>Bug issue #43:</b>
-  [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43)
-- <b>Solution:</b>
 
 # Deployment
 
