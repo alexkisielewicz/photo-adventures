@@ -638,6 +638,8 @@ python3 manage.py runserver
 
 4. Go to "Settings" tab, click on "Reveal Config Vars" and add following keys and values (all values should be strings without any quotation marks):
 
+NOTE: DISSABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deoplyment it should be removed.
+
 |Key|Value|
 |---|-----|
 |CLOUDINARY_URL| cloudinary url beginning with cloudinary:// |
@@ -663,9 +665,9 @@ web: gunicorn photoadventures.wsgi
 
 7. After adding enviromental variables and editing Procfile project is ready for deployment. In Heroku app's dashboard navigate to "Deploy" tab, scroll down to "Manual deploy" section. Select main branch from dropdown menu and click on "Deploy Branch".
 
-8. After built is done, you should be able to see the button with the link leading to deployed app. In my case [http://photo-adventures.herokuapp.com](http://photo-adventures.herokuapp.com).
+8. **Step required for final deployment:** Navigate again to app's settings, reveal config vars and delete DISABLE_COLLECTSTATIC entry if it was set before.
 
-9. Navigate again to app's settings, reveal config vars and delete DISABLE_COLLECTSTATIC entry.
+9. After built is done, you should be able to see the button with the link leading to deployed app. In my case [http://photo-adventures.herokuapp.com](http://photo-adventures.herokuapp.com).
 
 # Possible future development
 
