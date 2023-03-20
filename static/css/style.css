@@ -799,7 +799,8 @@ div.card-text a:hover {
         bottom: 2px;
     }
 
-    .post-tags button {
+    .post-tags a,
+    .post-tags a:hover {
         font-size: small;
     }
 
