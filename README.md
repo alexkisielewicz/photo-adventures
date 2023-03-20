@@ -207,9 +207,11 @@ The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-co
 
 ## Data model ad database structure
 
-To generate model diagrams I used django-extensions with [python library pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
+Project uses cloud-based PostgreSQL database provided by [ElephantSQL](https://www.elephantsql.com/) as a service. ElephantSQL is known for its ease of use, reliability, and is a popular choice for Django projects that requires PostgreSQL database. It offers web interface with console for SQL queries. Database URL including API key is stored as enviromental variable in heroku.
 
-All django apps:
+To generate model diagrams I used django-extensions with [python library pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16). They show relationship between models. 
+
+All django apps including generic/default apps:
 
 ![all-model](docs/img/django_all_models.png)
 
@@ -427,26 +429,26 @@ Django messages are implemented in the website's app. These messages are display
 
 ## Software used
 
-- [Bootstrap 5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter.
-- [Balsamiq](https://balsamiq.com/) - used to create project wireframes.
+- [Bootstrap 5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter
+- [Balsamiq](https://balsamiq.com/) - used to create project wireframes
 - [Cloudinary](https://cloudinary.com/) - cloude-based image and video API
-- [Django](https://www.djangoproject.com/) - python-based web framework with MTV architectural pattern.
+- [Django](https://www.djangoproject.com/) - python-based web framework with MTV architectural pattern
 - [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) - web template engine for python/django apps
-- [Coolors.co](https://coolors.co/) - was used to create colour palette for terminal display page.
-- [Favicon.io](https://www.favicon.io) - tool used to create favicon.
-- [Font Awesome:](https://fontawesome.com/) - Font Awesome icons were used for social links in terminal display page.
-- [Git](https://git-scm.com/) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-- [GitHub](https://github.com/) - GitHub is used to store the project's code after being pushed from Git.
-- [Heroku](https://heroku.com) - online app used to deploy project.
-- [Pexels](https://www.pexels.com/) - was used to source bacground picture for terminal display page.
-- [WebAIM](https://webaim.org/resources/contrastchecker/) - online tool to check colour contrast/accesibility.
-- [Gravatar](https://en.gravatar.com/)
-- [EmailJS](https://www.emailjs.com/) - JavaScript library used to send emails usung only client-side technologies.
+- [Coolors.co](https://coolors.co/) - was used to create colour palette for terminal display page
+- [Favicon.io](https://www.favicon.io) - tool used to create favicon
+- [Font Awesome:](https://fontawesome.com/) - Font Awesome icons were used for social links in terminal display page
+- [Git](https://git-scm.com/) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub
+- [GitHub](https://github.com/) - GitHub is used to store the project's code after being pushed from Git
+- [Heroku](https://heroku.com) - online app used to deploy project
+- [Pexels](https://www.pexels.com/) - was used to source bacground picture for terminal display page
+- [WebAIM](https://webaim.org/resources/contrastchecker/) - online tool to check colour contrast/accesibility
+- [Gravatar](https://en.gravatar.com/) - global avatar, allows to display user profile picture related to email
+- [EmailJS](https://www.emailjs.com/) - JavaScript library used to send emails usung only client-side technologies
 - [Google DevTools](https://developer.chrome.com/docs/devtools/) - used for developing HTML/CSS/DOM navigating/JavaScript console
 - [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - used for testing website performance
-- [Google Maps](https://www.google.com/maps)
-- [Google reCaptcha v2](https://developers.google.com/recaptcha/docs/display?hl=en)
-- [Gmail](https://mail.google.com/)
+- [Google Maps](https://www.google.com/maps) - google map used in contact page
+- [Google reCaptcha v2](https://developers.google.com/recaptcha/docs/display?hl=en) - captcha widget used to prevent spam
+- [Gmail](https://mail.google.com/) - SMTP service used for sending emails
 - [Canva](https://www.canva.com/) - used to design logo picture
 - [Convertio.io](https://convertio.co/) - used to convert images to webp format
 - [WAVE](https://wave.webaim.org/) - web accessibility online tool
@@ -476,7 +478,7 @@ Django messages are implemented in the website's app. These messages are display
 
 # Testing
 
-Details of testing can be found in [TESTING.md](link)
+Details of testing can be found in [TESTING.md](TESTING.md) file.
 
 ## Bugs/known issues
 
@@ -488,8 +490,6 @@ Minor syntax and spelling errors were eliminated during development, below is a 
 | [#27](https://github.com/alexkisielewicz/photo-adventures/issues/27) | When the user sends the form with a new post or edits an existing post draft, the tag field stays empty after saving. The database is not being updated as expected.| Save many to many method was added within if statement |
 | [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36) | Error 404 - not found occurs when sending a comment on full_post.html. | Queryset was changed to filted only published posts |
 | [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43) | 2 template syntax errors found using django-extensions validate_templates. One in account/email.html and one in account/verified_email_required.html | Misspelled "load" in templates/accounts/email.html was corrected, head_title block was removed from accounts/verified_email_required.html |
-  
-
 
 # Deployment
 
@@ -529,11 +529,15 @@ If I had more time or decide to develop app further I would add/improve followin
 
 ## Code
 
+- send_email.js - basic configuration was done as in Code Institute walkthrough and then further developed,
+- in order to implement gravatar I used method suggested in [gravatar docs](https://en.gravatar.com/site/implement), that required to create and register custom template tag as described in [django docs](https://docs.djangoproject.com/en/4.1/howto/custom-template-tags/),
+- idea for counters animation on the main page found in [this snippet](https://bootsnipp.com/snippets/5K6WW),
+- patterns for regular expressions used for input validaiton found [here](https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/).
+
 ## Media
 
 - [Photos Pawel Zygmunt](https://www.breakinglightpictures.com/) - thanks to my friend Pawel for 3 photos from Tenerife, Connemara and Dolomites.  
 - [Alek Kisielewicz Photography](https://www.facebook.com/alex.perfect.photo) - all other post images are my own photographs.
-
 - [Pexels.com](https://www.pexels.com) - post placeholder image/background image/accounts background
 
 ## Learning resources
