@@ -4,18 +4,22 @@ from django_summernote.widgets import SummernoteWidget
 
 
 class CommentForm(forms.ModelForm):
+    # This class represents a form for adding post comments
     class Meta:
         model = Comment
         fields = ('body',)
 
 
 class PostForm(forms.ModelForm):
+    # #This class represents a form for creading and editing a blog post
     status = forms.ChoiceField(
         choices=((0, 'Save as draft (finish later)'),
                  (1, 'Publish (will be awaiting moderation)')),
         widget=forms.RadioSelect())
 
     class Meta:
+        # The fields represents the fields of Post model that 
+        # can be modified through this form.
         model = Post
         fields = [
             'title',
@@ -28,6 +32,7 @@ class PostForm(forms.ModelForm):
             'content',
             'status',
         ]
+        # widgets represent HTML form elements of the form
         widgets = {
             'title': forms.TextInput(
                 attrs={'id': 'idTitle', 'placeholder': 'Post title'}),

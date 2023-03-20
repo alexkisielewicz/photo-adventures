@@ -18,24 +18,32 @@ class BlogPosts(generic.ListView,):
     Class view for all blog posts. Returns all posts to blog.html template.
     """
     model = Post
-    # query all published posts - status 2
+    # Query all published posts - status 2
     queryset = Post.objects.filter(status=2).order_by('-created_on')
     template_name = CONST.BLOG
     paginate_by = CONST.PAGINATION
 
 
 class PostList(generic.ListView):
+    """
+    Class represents a view that lists all published posts
+    and renders it in template "blog.html"
+    """
     model = Post
     context_object_name = 'post'
     template_name = CONST.BLOG
 
 
 def index(request):
-    # filter only published posts with more than 0 likes
+    """
+    Function represents variables and context to be rendered
+    in index.html template.
+    """
+    # Filter only published posts with more than 0 likes
     trending = Post.objects.filter(status=2, likes__gt=0).annotate(
         like_count=Count('likes')).order_by('-like_count')[:3]
 
-    # variables to show statistics on the main page
+    # Variables to show statistics on the main page
     total_posts = Post.objects.count()
     total_comments = Comment.objects.count()
     total_likes = Post.objects.aggregate(total_likes=Count('likes')).get(
@@ -52,6 +60,9 @@ def index(request):
 
 
 def about(request):
+    """
+    Function represents a view that renders about.html page
+    """
     return render(request, CONST.ABOUT)
 
 
@@ -76,8 +87,12 @@ def rules(request):
 
 
 class FullPost(View):
-
+    """
+    Class represents a view that renders sigle blog post template.
+    """
     def get(self, request, slug, *args, **kwargs):
+        # Method represents a view that displays a single blog post
+        # It gets published posts with specific slug, comments and likes
         queryset = Post.objects.filter(status=2)  # 2 == published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
@@ -96,14 +111,16 @@ class FullPost(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
+        # Method represents a view that allows users to submit
+        # comments on single blog post.
         queryset = Post.objects.filter(status=2)  # 2 == published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
-        # filter below returns boolean
+        # This checks if current user liked post, filter returns boolean
         liked = post.likes.filter(id=self.request.user.id).exists()
-
+        # Creates a new comment form instance with data from request
         comment_form = CommentForm(data=request.POST)
-
+        # If the form is valid, save the comment and confirm with message
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
@@ -112,9 +129,11 @@ class FullPost(View):
             comment.save()
             messages.success(
                 request, 'Thank you! Your comment is awaiting approval.')
+        # If the form is invalid, show form again
         else:
             comment_form = CommentForm()
 
+        # Renders full post template with context variables
         return render(
             request,
             CONST.FULL_POST,
@@ -136,11 +155,14 @@ class PostLike(LoginRequiredMixin, View):
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
 
+        # check if user already liked post
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
+            # display message when like removed
             messages.success(request, 'Like removed!')
         else:
             post.likes.add(request.user)
+            # display message when like added
             messages.success(request, 'Like added!')
 
         return HttpResponseRedirect(reverse('full_post', args=[slug]))
@@ -180,7 +202,6 @@ def delete_post(request, slug):
     else:
         return render(request, CONST.DELETE_POST, {'post': post})
 
-
 class PostEdit(View):
     """
     Class based view to allow users to edit posts.
@@ -200,8 +221,10 @@ class PostEdit(View):
             content = post.content
             post.save()
             form.save_m2m()
+            # display confirmation message
             messages.success(request, 'Changes saved!'
                              'You can check post status in your dashboard.')
+            # redirect to user dashboard
             return redirect('user_account')
         else:
             return render(request, CONST.EDIT_POST, {'form': form})
@@ -209,6 +232,11 @@ class PostEdit(View):
 
 @login_required
 def dashboard_stats(request):
+    """
+    Function represents user dashboard stats and includes
+    context variables to render total number of user's published posts,
+    total number of drafts and total nubmer of posts awaiting moderation.
+    """
     author = request.user
     draft_count = Post.objects.filter(author=author, status=0).count()
     awaiting_moderation_count = Post.objects.filter(
@@ -226,6 +254,10 @@ def dashboard_stats(request):
 
 @login_required
 def user_account(request):
+    """
+    Function represents user dashboard view and includes
+    variables used to display statistics in the template
+    """
     user_posts = Post.objects.filter(author=request.user)
     dashboard_stats_data = dashboard_stats(request)
     return render(request, CONST.USER_ACCOUNT,
@@ -235,20 +267,23 @@ def user_account(request):
 
 class TaggedPosts(generic.ListView):
     """
-    It renders a list of all posts with specific slug.
-    Posts are displayed 5 per page using blog.html template.
+    Class represents a list of all posts with specific slug.
+    It uses Post model and blog.html template to display posts
+    in paginated manner.
     """
     model = Post
     template_name = CONST.BLOG
     paginate_by = CONST.PAGINATION
 
     def get_queryset(self):
+        # get tab form the url slug
         tag_slug = self.kwargs['tag_slug']
         tag = get_object_or_404(Tag, slug=tag_slug)
         # return posts with tags that are published, order descending
         return Post.objects.filter(tags=tag, status=2).order_by('-created_on')
 
     def get_context_data(self, **kwargs):
+        # add tag to context to be used in the template
         context = super(TaggedPosts, self).get_context_data(**kwargs)
         context['tag'] = get_object_or_404(Tag, slug=self.kwargs['tag_slug'])
         return context

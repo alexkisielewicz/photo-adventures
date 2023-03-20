@@ -38,12 +38,13 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+    # Method to return total number of approved comments.
     def number_of_comments(self):
         return self.comments.filter(approved=True).count()
 
 
 class TaggedPost(TaggedItemBase):
-    # Model of post with tags (taggit)
+    # Model of post with tags created by TaggableManager (taggit)
     content_object = models.ForeignKey('Post', on_delete=models.CASCADE)
 
 
@@ -60,6 +61,7 @@ class Comment(models.Model):
     # Ascending order of Comments
     class Meta:
         ordering = ['created_on']
-
+    
+    # Method to return string
     def __str__(self):
         return f'Comment {self.body} by {self.name}'
