@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
     https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/ 
     */
     
-    // Define 7 form input fields and form submit button
+    // Define 7 form input fields and form submit button,
+    // validaiotn of uploaded image file was marked as feature for potential future enhancement
     const inputTitle = document.getElementById('idTitle');
     const inputSlug = document.getElementById('id_slug');
     const inputCategory = document.getElementById('id_category');
     const inputTags = document.getElementById('id_tags');
     const inputExcerpt = document.getElementById('id_excerpt');
-    // const inputImage = document.querySelector('#id_featured_image');
     const inputLocation = document.getElementById('id_location');
     const radioButtons = document.querySelectorAll('input[type="radio"][name="status"]');
     const submitButton = document.getElementById("submitButton");

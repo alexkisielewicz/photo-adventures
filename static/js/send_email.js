@@ -1,4 +1,5 @@
 // Function is called on contact form submit
+// Basic configuration was done as in Code Institute lesson
 function sendMail(contactForm) {
     // Define div container to display the alert message
     let contactFormAlert = document.getElementById("contactFormAlert");

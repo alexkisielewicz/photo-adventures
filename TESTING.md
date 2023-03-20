@@ -256,3 +256,30 @@ The common finding was missing semicolon at the end of the line, they were all a
 ![lighthouse](docs/img/validation_lighthouse.png)
 
 # WAVE Accesibility testing
+
+[Wave](https://wave.webaim.org/) web accessibility evaluation tool was used to check website's content.
+
+Home page:
+
+![wave1](docs/img/validation_wave1.png)
+
+Blog page:
+
+![wave2](docs/img/validation_wave2.png)
+
+About page:
+
+![wave3](docs/img/validation_wave3.png)
+
+Contact page: 1 error related to third party Google reCaptcha code, report says that label is missing for the captcha response textarea, however this element is hidden by desing. [Issue on Stack Overflow](https://stackoverflow.com/questions/43462038/google-recaptcha-is-not-accessibility-compliant). 
+"Since the Google reCAPTCHA textarea in question has the inline style display: none, it shouldn't need the aria-hidden=true or any other additional attribute, since it is already removed from the accessibility tree via the API and won't be focusable by users with screen readers."
+
+![wave4](docs/img/validation_wave4.png)
+
+Login page:
+
+![wave5](docs/img/validation_wave5.png)
+
+Single blog post page:
+
+![wave6](docs/img/validation_wave6.png)
