@@ -1,9 +1,10 @@
 <h1 align="center">Photo Adventures Website</h1>
 
-<h3 align="center">Full-Stack Toolkit Project</h3>
-<h4 align="center">(HTML5 CSS3, Bootstrap, Django, Python, JavaScript, PostgreSQL, Cloudinary)</h4>
+<h2 align="center">Full-Stack Project (HTML5 CSS3, Bootstrap, Django, Python, JavaScript, PostgreSQL, Cloudinary)</h2>
 
-### Developer: Aleksander Kisielewicz
+<br>
+
+**Developer:** Aleksander Kisielewicz
 
 **[View live website here](https://photo-adventures.herokuapp.com/)** :computer:
 
@@ -124,6 +125,7 @@ By using agile methodology, I was able to stay organized and focused on deliveri
 |  | Milestone 2: Popular posts and likes display | [#6](https://github.com/alexkisielewicz/photo-adventures/issues/6), [#19](https://github.com/alexkisielewicz/photo-adventures/issues/19), [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41)|
 
 ![agile-milestones](docs/img/agile_milestones.png)
+
 ## Site owner goals
 
 - [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2) As Site Admin, I can log in to admin panel so that I can manage posts
@@ -200,7 +202,7 @@ All accounts pages
 
 ## Colour Scheme
 
-Colour palette was selected using <b>coolors.co</b> generator.
+Colour palette was selected using coolors.co generator.
 
 I created CSS classes and assigned them roles (examples):
 
@@ -232,7 +234,7 @@ The [Gloock](https://fonts.google.com/specimen/Gloock) is a contemporary high-co
 
 Project uses cloud-based PostgreSQL database provided by [ElephantSQL](https://www.elephantsql.com/) as a service. ElephantSQL is known for its ease of use, reliability, and is a popular choice for Django projects that requires PostgreSQL database. It offers web interface with console for SQL queries. Database URL including API key is stored as enviromental variable in heroku.
 
-To generate model diagrams I used django-extensions with [python library pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16). They show relationship between models. 
+To generate model diagrams I used django-extensions with [python library pygraphviz](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16). They show relationship between models.
 
 All django apps including generic/default apps:
 
@@ -501,7 +503,7 @@ Django messages are implemented in the website's app. These messages are display
 
 # Testing
 
-## Manual testing 
+## Manual testing
 
 Details of manual testing can be found in [TESTING.md](TESTING.md) file.
 
@@ -531,9 +533,9 @@ App was deployed to heroku for the first time when django installation was compl
 6. Copy URL starting with "postgress://"
 7. Paste this URL into env.py file as DATABASE_URL value and save the file.
 
-```python
-os.environ["DATABASE_URL"] = "postgres://yourLinkFromDatabaseDashboard"
-```
+  ```python
+  os.environ["DATABASE_URL"] = "postgres://yourLinkFromDatabaseDashboard"
+  ```
 
 ## Cloudinary
 
@@ -581,69 +583,66 @@ Note: Repository was created using Code Institute template: [https://github.com/
 
 3. Open your repository in local IDE or using Gitpod. Preferred way is to used [Chrome Gitpod Extension](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki). When you install extension, green "Gitpod" button appears in your repository. Click on it to cread new workspace.
 
-4. Go to workspace terminal and install all requirements using command: "pip install -r requirements.txt". All te packages will be installed.
+4. Go to workspace terminal and install all requirements using command: "pip install -r requirements.txt". All te packages will be installed. requirements.txt content:
 
-requirements.txt content:
+    ```python
+    asgiref==3.6.0
+    cloudinary==1.32.0
+    crispy-bootstrap5==0.7
+    dj-database-url==0.5.0
+    dj3-cloudinary-storage==0.0.6
+    Django==3.2.18
+    django-allauth==0.52.0
+    django-crispy-forms==2.0
+    django-social-share==2.3.0
+    django-summernote==0.8.20.0
+    django-taggit==3.1.0
+    gunicorn==20.1.0
+    oauthlib==3.2.2
+    psycopg2==2.9.5
+    PyJWT==2.6.0
+    python3-openid==3.2.0
+    pytz==2022.7.1
+    requests-oauthlib==1.3.1
+    sqlparse==0.4.3
+    ```
 
-```python
-asgiref==3.6.0
-cloudinary==1.32.0
-crispy-bootstrap5==0.7
-dj-database-url==0.5.0
-dj3-cloudinary-storage==0.0.6
-Django==3.2.18
-django-allauth==0.52.0
-django-crispy-forms==2.0
-django-social-share==2.3.0
-django-summernote==0.8.20.0
-django-taggit==3.1.0
-gunicorn==20.1.0
-oauthlib==3.2.2
-psycopg2==2.9.5
-PyJWT==2.6.0
-python3-openid==3.2.0
-pytz==2022.7.1
-requests-oauthlib==1.3.1
-sqlparse==0.4.3
-```
 5. Local env.py file should be configured as on example below:
 
-```python
-import os
+    ```python
+    import os
 
-# Env vars
-os.environ["DATABASE_URL"] = "postgres://yourLinkCopiedFromElephantSQLDashboard"
-os.environ["SECRET_KEY"] = "YourSecretKey"
-os.environ["CLOUDINARY_URL"] = "cloudinary://yourLinkCopiedFromCloudinaryDashboard"
+    # Env vars
+    os.environ["DATABASE_URL"] = "postgres://yourLinkCopiedFromElephantSQLDashboard"
+    os.environ["SECRET_KEY"] = "YourSecretKey"
+    os.environ["CLOUDINARY_URL"] = "cloudinary://yourLinkCopiedFromCloudinaryDashboard"
 
-# Gmail vars
-os.environ["EMAIL_HOST_USER"] = "youremail@gmail.com"
-os.environ["EMAIL_HOST_PASSWORD"] = "passwordObtainedFromGoogleAccount"
-os.environ["DEFAULT_FROM_EMAIL"] = "Photo Adventures"
-```
+    # Gmail vars
+    os.environ["EMAIL_HOST_USER"] = "youremail@gmail.com"
+    os.environ["EMAIL_HOST_PASSWORD"] = "passwordObtainedFromGoogleAccount"
+    os.environ["DEFAULT_FROM_EMAIL"] = "Photo Adventures"
+    ```
 
 6. In order to save django changes in database migration needs to be made.
 
 7. Use terminal commands:
 
-  ```text
-  python3 manage.py makemigrations
-  python3 manage.py migrate
-  ```
+    ```text
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    ```
 
-8. Create superuser to access admin area using terminal command:
+8. Create superuser to access admin area using terminal command (email is optional, password won't be visible when typing, confirm password twice):
 
-```text
-python3 manage.py createsuperuser
-```
-
-Email is optional, password won't be visible when typing, confirm password twice.
+    ```text
+    python3 manage.py createsuperuser
+    ```
 
 9. App can be run in gitpod enviroment using terminal command:
 
-```text
-python3 manage.py runserver
-```
+    ```text
+    python3 manage.py runserver
+    ```
 
 10. Go to Heroku and follow further instructions below.
 
@@ -659,28 +658,28 @@ python3 manage.py runserver
 
 NOTE: DISSABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deoplyment it should be removed.
 
-|Key|Value|
-|---|-----|
-|CLOUDINARY_URL| cloudinary url beginning with cloudinary:// |
-|DATABASE_URL| postgress url beginning with postgress:// |
-|DEFAULT_FROM_EMAIL| Photo Adventures |
-|DISABLE_COLLECTSTATIC|1|
-|EMAIL_HOST_PASSWORD| YourPassword obtained from google account|
-|EMAIL_HOST_USER| youremailaccount@gmail.com |
-| PORT| 8000|
-|SECRET_KEY| YourSecretKey, the same as in env.py |
+  |Key|Value|
+  |---|-----|
+  |CLOUDINARY_URL| cloudinary url beginning with cloudinary:// |
+  |DATABASE_URL| postgress url beginning with postgress:// |
+  |DEFAULT_FROM_EMAIL| Photo Adventures |
+  |DISABLE_COLLECTSTATIC|1|
+  |EMAIL_HOST_PASSWORD| YourPassword obtained from google account|
+  |EMAIL_HOST_USER| youremailaccount@gmail.com |
+  | PORT| 8000|
+  |SECRET_KEY| YourSecretKey, the same as in env.py |
 
-![envvars](docs/img/deployment/deployment_envvars.png)
+  ![envvars](docs/img/deployment/deployment_envvars.png)
 
 5. Return to your Gitpod workspace and navigate to file photoadventures/settings.py. Change allowed hosts including the name of the app that you created in previous steps. In my case it was 'photo-adventures.herokuapp.com'. Save the file.
 
-![hosts](docs/img/deployment/deployment_hosts.png)
+  ![hosts](docs/img/deployment/deployment_hosts.png)
 
 6. Procfile required to run project on Heroku was already created but if you change your app's name please make sure that this change is reflected in Procfile. It can be found in your project's main directory. In my case Procfile looks as below:
 
-```python
-web: gunicorn photoadventures.wsgi
-```
+    ```python
+    web: gunicorn photoadventures.wsgi
+    ```
 
 7. After adding enviromental variables and editing Procfile project is ready for deployment. In Heroku app's dashboard navigate to "Deploy" tab, scroll down to "Manual deploy" section. Select main branch from dropdown menu and click on "Deploy Branch".
 
