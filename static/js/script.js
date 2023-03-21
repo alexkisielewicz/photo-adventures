@@ -31,15 +31,18 @@ $(document).ready(function () {
     // Animation function executes on scroll when containers reach bottom of the window
     // Trigger position is callculated from top of the window - windows height + 100px 
     $(window).on('scroll', function () {
-        let windowHeight = window.innerHeight;
-        let offsetY = $('#scrollToCounters').offset().top - windowHeight + 100;
-        if (window.pageYOffset >= offsetY && !animationTriggered) {
+        let scrollToCounters = $('#scrollToCounters');
+        if (scrollToCounters.length > 0) {
+          let windowHeight = window.innerHeight;
+          let offsetY = scrollToCounters.offset().top - windowHeight + 100;
+          if (window.pageYOffset >= offsetY && !animationTriggered) {
             animateCounters();
             animationTriggered = true;
+          }
         }
-    });
+      });
 
-});
+}); // code executed when document is loaded ends here
 
 function hideEmptySections() {
     /* User dashboard function
