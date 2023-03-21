@@ -61,10 +61,15 @@ Application offers such functionalities as:
   - [Software used](#software-used)
   - [Python libraries/modules](#python-librariesmodules)
 - [Testing](#testing)
+  - [Manual testing](#manual-testing)
   - [Bugs/known issues](#bugsknown-issues)
 - [Deployment](#deployment)
-  - [Git and GitHub](#git-and-github)
-  - [Deployment to Heroku](#deployment-to-heroku)
+  - [Database](#database-elephangsql)
+  - [Cloudinary](#cloudinary)
+  - [Django secret key](#django-secret-key)
+  - [Gmail SMTP](#gmail-smtp)
+  - [Github and Gitpod](#github-and-gitpod)
+  - [Heroku](#heroku)
 - [Possible future development](#possible-future-development)
 - [Credits](#credits)
   - [Code](#code)
@@ -92,15 +97,34 @@ To achieve the strategy goals I implemented following features:
 
 I used agile methodology for the first time when planning full-stack django website with a focus on delivering the basic functionalities. I prioritized features by labeling them as "must-have" or "could-have" and moved some less critical ones to future development. To guide my development process, I created user stories for both the admin user and regular visitors. These stories helped to define the features and functionalities that were most important to project's target audience.
 
-As a solo developer who was learning a lot during the development, I faced challenges in estimating the time required for each task, so I kept things simple and focused on achievable goals. To keep track of progress, I used a kanban board divided into following sections: "to do", "in progress" "done", "future enhancements" and "bugs" that allowed to visualize all tasks and prioritize next steps.
+As a solo developer who was learning a lot during development, I faced challenges in estimating the time required for each task and only had a basic concept of what I would create. Therefore, I kept things simple and focused on achievable goals. As the project grew, I was able to add more advanced features and group user stories into milestones. However, I could not find the "epics" feature in GitHub Projects, only milestones (it provides only [milestones and issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)). Epics are supposed to be larger in scope than milestones, representing a significant amount of work. Milestones, on the other hand, are meant to mark significant points in time in terms of project completion. In this document, I added epics, but on the project board, I used only [milestones](https://github.com/alexkisielewicz/photo-adventures/milestones) to stay in order with GitHub's features.
+
+To keep track of progress, I used a kanban board divided into following sections: "to do", "in progress" "done", "future enhancements" and "bugs" that allowed to visualize all tasks and prioritize next steps.
 
 By using agile methodology, I was able to stay organized and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me valuable insight and lessons that I can apply to future projects.
 
-![Agile](docs/img/agile.png)
+![agile](docs/img/agile.png)
 
-![Agile](docs/img/agile_boards.png)
+![agile-boards](docs/img/agile_boards.png)
 
+## Epics, milestones and user stories
 
+| Epic | Milestone | User stories |
+|------|-----------|--------------|
+| Epic 1: Basic Site Functionality | Milestone 1: User authentication | [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2), [#4](https://github.com/alexkisielewicz/photo-adventures/issues/4) |
+|  | Milestone 2: View and select posts | [#1](https://github.com/alexkisielewicz/photo-adventures/issues/1), [#5](https://github.com/alexkisielewicz/photo-adventures/issues/5), [#17](https://github.com/alexkisielewicz/photo-adventures/issues/17) |
+|  | Milestone 3: Post CRUD operations  | [#3](https://github.com/alexkisielewicz/photo-adventures/issues/3), [#10](https://github.com/alexkisielewicz/photo-adventures/issues/10), [#12](https://github.com/alexkisielewicz/photo-adventures/issues/12), [#15](https://github.com/alexkisielewicz/photo-adventures/issues/15), [#26](https://github.com/alexkisielewicz/photo-adventures/issues/26)|
+|  | Milestone 4: Commenting and Liking  | [#7](https://github.com/alexkisielewicz/photo-adventures/issues/7), [#8](https://github.com/alexkisielewicz/photo-adventures/issues/8), [#9](https://github.com/alexkisielewicz/photo-adventures/issues/9), [#11](https://github.com/alexkisielewicz/photo-adventures/issues/11), [#23](https://github.com/alexkisielewicz/photo-adventures/issues/23), [#30](https://github.com/alexkisielewicz/photo-adventures/issues/30) |
+| Epic 2: User Management | Milestone 1: User profile and dashboard | [#20](https://github.com/alexkisielewicz/photo-adventures/issues/20), [#21](https://github.com/alexkisielewicz/photo-adventures/issues/21), [#25](https://github.com/alexkisielewicz/photo-adventures/issues/25) |
+|  | Milestone 2: Contact form and spam prevention | [#16](https://github.com/alexkisielewicz/photo-adventures/issues/16), [#33](https://github.com/alexkisielewicz/photo-adventures/issues33) |
+|  | Milestone 3: Validation | [#39](https://github.com/alexkisielewicz/photo-adventures/issues/39), [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) |
+|  | Milestone 4: Error handling and feedback | [#31](https://github.com/alexkisielewicz/photo-adventures/issues/31), [#38](https://github.com/alexkisielewicz/photo-adventures/issues/38) |
+| Epic 3: Content Management | Milestone 1: Draft posts and featured posts | [#10](https://github.com/alexkisielewicz/photo-adventures/issues/10), [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41) |
+|  | Milestone 2: Categories and tags | [#13](https://github.com/alexkisielewicz/photo-adventures/issues/13), [#14](https://github.com/alexkisielewicz/photo-adventures/issues/14), [#28](https://github.com/alexkisielewicz/photo-adventures/issues/28), [#29](https://github.com/alexkisielewicz/photo-adventures/issues/29), [#34](https://github.com/alexkisielewicz/photo-adventures/issues/34), [#35](https://github.com/alexkisielewicz/photo-adventures/issues/35) |
+| Epic 4: Social media Integration | Milestone 1: Share posts on social media | [#37](https://github.com/alexkisielewicz/photo-adventures/issues/37) |
+|  | Milestone 2: Popular posts and likes display | [#6](https://github.com/alexkisielewicz/photo-adventures/issues/6), [#19](https://github.com/alexkisielewicz/photo-adventures/issues/19), [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41)|
+
+![agile-milestones](docs/img/agile_milestones.png)
 ## Site owner goals
 
 - [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2) As Site Admin, I can log in to admin panel so that I can manage posts
@@ -478,7 +502,9 @@ Django messages are implemented in the website's app. These messages are display
 
 # Testing
 
-Details of testing can be found in [TESTING.md](TESTING.md) file.
+## Manual testing 
+
+Details of manual testing can be found in [TESTING.md](TESTING.md) file.
 
 ## Bugs/known issues
 
@@ -493,27 +519,174 @@ Minor syntax and spelling errors were eliminated during development, below is a 
 
 # Deployment
 
-## Git and GitHub
+App was deployed to heroku for the first time when django installation was completed to make sure that everything is working correctly.
 
-## Deployment to Heroku
+## Database (ElephangSQL)
 
-1. I visited [https://heroku.com/](https://heroku.com/) and opened dashboard. Then I clicked button "New" and selected "Create new app" button.
+1. Navitate to [ElephantSQL website](https://www.elephantsql.com/), log in to your account
+2. In top-right corner click on green button "Create New Instance".
+3. Enter database name, leave plan field as is, optionaly enter tags.
+4. Select region, click on "Review" and then on "Create instance".
+5. Go to your dashboard, find newly created database instance, click on it.
+6. Copy URL starting with "postgress://"
+7. Paste this URL into env.py file as DATABASE_URL value and save the file.
 
-2. I entered my app name as "photo-adventures", chose region to Europe and clicked on "Create app" button
+```python
+os.environ["DATABASE_URL"] = "postgres://yourLinkFromDatabaseDashboard"
+```
 
-3. The next step was to go to "Deploy" tab and then to "Deployment method" section to authorize and connect my GitHub account.
+## Cloudinary
 
-4. Upon succesfull connection I selected main branch from "photo-adventures" repository.
+1. Navigate to [https://cloudinary.com/](https://cloudinary.com/) and log in to your account.
+2. Navigate to dashboard/console [https://console.cloudinary.com/console/](https://console.cloudinary.com/console/) and copy API Enviroment variable starting with "cloudinary://".
+3. Paste copied url into env.py file as CLOUDINARY_URL value and save the file.
 
-5. Then I went to "Settings" tab...
+```python
+os.environ["CLOUDINARY_URL"] = "cloudinary://yourLinkFromCloudinaryDashboard"
+```
 
-6. In the next step I went to "Config Vars" section and added KEY "CREDS" - that maches my token name defined in python constant in [api/google_sheets_api.py](https://github.com/alexkisielewicz/home-library-app/blob/main/api/google_sheets_api.py) - with value of my credentials token (copy all and paste).
+## Django secret key
 
-7. I added key "PORT" with value "8080" and save changes.
+In order to protect django app secret key it was set as anviroment variable and stored in env.py. Please change your password accordingly.
 
-8. In the next step I went back to "Deploy" tab and decided to use automatic deploys, however manual mode is also available to deploy chosen branch.
+```python
+os.environ["SECRET_KEY"] = "yourSecretKey"
+```
 
-9. The link to my deployed app was shown on screen: [https://photo-adventures.herokuapp.com/](https://photo-adventures.herokuapp.com/)
+## Gmail SMTP
+
+Warning: Gitpod doesn't allow to use smtp service, emails won't be send if you run http server on Gitpod. If debug mode is switched to True, emails will be visible in the console. Emails will be sent correctly on deployed project assuming all enviromental variables are configured correctly.
+
+In order to have google smtp service running in local env, make sure you add following variables to env.py:
+
+```python
+import os
+
+os.environ["EMAIL_HOST_USER"] = "youremail@gmail.com"
+os.environ["EMAIL_HOST_PASSWORD"] = "yourpassword"
+os.environ["DEFAULT_FROM_EMAIL"] = "Photo Adventures"
+```
+
+Email password needs to be generated in order to use gmail with third party apps. Go to [https://myaccount.google.com/](https://myaccount.google.com/) navigate to security section to generate password. If you need more help on that, please follow this [tutorial](https://www.youtube.com/watch?v=1YXVdyVuFGA).
+
+![envvars](docs/img/deployment/deployment_googlepassword.png)
+
+## GitHub and Gitpod
+
+Note: Repository was created using Code Institute template: [https://github.com/Code-Institute-Org/gitpod-full-template](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+1. Login to Github and navigate to repository: [https://github.com/alexkisielewicz/photo-adventures](https://github.com/alexkisielewicz/photo-adventures)
+
+2. Click on "Fork button" in upper-right corner and create a new form in your own account.
+
+3. Open your repository in local IDE or using Gitpod. Preferred way is to used [Chrome Gitpod Extension](https://chrome.google.com/webstore/detail/gitpod-always-ready-to-co/dodmmooeoklaejobgleioelladacbeki). When you install extension, green "Gitpod" button appears in your repository. Click on it to cread new workspace.
+
+4. Go to workspace terminal and install all requirements using command: "pip install -r requirements.txt". All te packages will be installed.
+
+requirements.txt content:
+
+```python
+asgiref==3.6.0
+cloudinary==1.32.0
+crispy-bootstrap5==0.7
+dj-database-url==0.5.0
+dj3-cloudinary-storage==0.0.6
+Django==3.2.18
+django-allauth==0.52.0
+django-crispy-forms==2.0
+django-social-share==2.3.0
+django-summernote==0.8.20.0
+django-taggit==3.1.0
+gunicorn==20.1.0
+oauthlib==3.2.2
+psycopg2==2.9.5
+PyJWT==2.6.0
+python3-openid==3.2.0
+pytz==2022.7.1
+requests-oauthlib==1.3.1
+sqlparse==0.4.3
+```
+5. Local env.py file should be configured as on example below:
+
+```python
+import os
+
+# Env vars
+os.environ["DATABASE_URL"] = "postgres://yourLinkCopiedFromElephantSQLDashboard"
+os.environ["SECRET_KEY"] = "YourSecretKey"
+os.environ["CLOUDINARY_URL"] = "cloudinary://yourLinkCopiedFromCloudinaryDashboard"
+
+# Gmail vars
+os.environ["EMAIL_HOST_USER"] = "youremail@gmail.com"
+os.environ["EMAIL_HOST_PASSWORD"] = "passwordObtainedFromGoogleAccount"
+os.environ["DEFAULT_FROM_EMAIL"] = "Photo Adventures"
+```
+
+6. In order to save django changes in database migration needs to be made.
+
+7. Use terminal commands:
+
+  ```text
+  python3 manage.py makemigrations
+  python3 manage.py migrate
+  ```
+
+8. Create superuser to access admin area using terminal command:
+
+```text
+python3 manage.py createsuperuser
+```
+
+Email is optional, password won't be visible when typing, confirm password twice.
+
+9. App can be run in gitpod enviroment using terminal command:
+
+```text
+python3 manage.py runserver
+```
+
+10. Go to Heroku and follow further instructions below.
+
+## Heroku
+
+1. Navigate to [https://heroku.com/](https://heroku.com/) login to your account and open dashboard. Click button "New" and select "Create new app" button.
+
+2. Enter app name, I used "photo-adventures", chose your region and click on "Create app" button.
+
+3. Click on newly created app and go to "Deploy" tab and then to "Deployment method" section. Authorize and connect your GitHub account, then find and select your repository.
+
+4. Go to "Settings" tab, click on "Reveal Config Vars" and add following keys and values (all values should be strings without any quotation marks):
+
+NOTE: DISSABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deoplyment it should be removed.
+
+|Key|Value|
+|---|-----|
+|CLOUDINARY_URL| cloudinary url beginning with cloudinary:// |
+|DATABASE_URL| postgress url beginning with postgress:// |
+|DEFAULT_FROM_EMAIL| Photo Adventures |
+|DISABLE_COLLECTSTATIC|1|
+|EMAIL_HOST_PASSWORD| YourPassword obtained from google account|
+|EMAIL_HOST_USER| youremailaccount@gmail.com |
+| PORT| 8000|
+|SECRET_KEY| YourSecretKey, the same as in env.py |
+
+![envvars](docs/img/deployment/deployment_envvars.png)
+
+5. Return to your Gitpod workspace and navigate to file photoadventures/settings.py. Change allowed hosts including the name of the app that you created in previous steps. In my case it was 'photo-adventures.herokuapp.com'. Save the file.
+
+![hosts](docs/img/deployment/deployment_hosts.png)
+
+6. Procfile required to run project on Heroku was already created but if you change your app's name please make sure that this change is reflected in Procfile. It can be found in your project's main directory. In my case Procfile looks as below:
+
+```python
+web: gunicorn photoadventures.wsgi
+```
+
+7. After adding enviromental variables and editing Procfile project is ready for deployment. In Heroku app's dashboard navigate to "Deploy" tab, scroll down to "Manual deploy" section. Select main branch from dropdown menu and click on "Deploy Branch".
+
+8. **Step required for final deployment:** Navigate again to app's settings, reveal config vars and delete DISABLE_COLLECTSTATIC entry if it was set before.
+
+9. After built is done, you should be able to see the button with the link leading to deployed app. In my case [http://photo-adventures.herokuapp.com](http://photo-adventures.herokuapp.com).
 
 # Possible future development
 
@@ -538,7 +711,7 @@ If I had more time or decide to develop app further I would add/improve followin
 
 - [Photos Pawel Zygmunt](https://www.breakinglightpictures.com/) - thanks to my friend Pawel for 3 photos from Tenerife, Connemara and Dolomites.  
 - [Alek Kisielewicz Photography](https://www.facebook.com/alex.perfect.photo) - all other post images are my own photographs.
-- [Pexels.com](https://www.pexels.com) - post placeholder image/background image/accounts background
+- [Pexels.com](https://www.pexels.com) - post placeholder image/background image/accounts background.
 
 ## Learning resources
 

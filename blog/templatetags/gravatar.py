@@ -13,10 +13,13 @@ https://en.gravatar.com/site/implement
 register = template.Library()
 
 
-# return only the URL of the gravatar
-# TEMPLATE USE:  {{ email|gravatar_url:150 }}
 @register.filter
 def gravatar_url(email, size=40):
+    """
+    Return only the URL of the gravatar
+    associated with email address.
+    Parameter size is measured in pixels.
+    """
     email_bytes = email.lower().encode('utf-8')
     # default gravatar placeholder if user doesn't have registered gravatar
     default = "https://res.cloudinary.com/ddvsgi5xw/image/upload/"
@@ -26,10 +29,12 @@ def gravatar_url(email, size=40):
             'd={}&s={}'.format(default, size)))
 
 
-# return an image tag with the gravatar
-# TEMPLATE USE:  {{ email|gravatar:150 }}
 @register.filter
 def gravatar(email, size=40):
+    """
+    Returns an image tag with the gravatar
+    Template use:  {{ email|gravatar:150 }}
+    """
     url = gravatar_url(email, size)
-    return mark_safe('<img src="{}" width="{}" height="{}"'
+    return mark_safe('<img src="{}" width="{}" height="{}" '
                      'alt="User profile picture">'.format(url, size, size))

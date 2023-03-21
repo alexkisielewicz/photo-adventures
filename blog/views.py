@@ -83,16 +83,21 @@ def contact(request):
 
 
 def rules(request):
+    """
+    Function renders rules.html template
+    """
     return render(request, CONST.RULES)
 
 
 class FullPost(View):
     """
-    Class represents a view that renders sigle blog post template.
+    Class represents a view that renders sigle blog post template
     """
     def get(self, request, slug, *args, **kwargs):
-        # Method represents a view that displays a single blog post
-        # It gets published posts with specific slug, comments and likes
+        """
+        Method represents a view that displays a single blog post
+        It gets published posts with specific slug, comments and likes
+        """
         queryset = Post.objects.filter(status=2)  # 2 == published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
@@ -111,8 +116,10 @@ class FullPost(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        # Method represents a view that allows users to submit
-        # comments on single blog post.
+        """
+        Method represents a view that allows users to submit
+        comments on single blog post.
+        """
         queryset = Post.objects.filter(status=2)  # 2 == published
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
@@ -202,6 +209,7 @@ def delete_post(request, slug):
     else:
         return render(request, CONST.DELETE_POST, {'post': post})
 
+
 class PostEdit(View):
     """
     Class based view to allow users to edit posts.
@@ -222,7 +230,7 @@ class PostEdit(View):
             post.save()
             form.save_m2m()
             # display confirmation message
-            messages.success(request, 'Changes saved!'
+            messages.success(request, 'Changes saved! '
                              'You can check post status in your dashboard.')
             # redirect to user dashboard
             return redirect('user_account')

@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     https://html.form.guide/snippets/javascript-form-validation-using-regular-expression/ 
     */
     
-    // Define 7 form input fields and form submit button,
-    // validaiotn of uploaded image file was marked as feature for potential future enhancement
+    /* Define 7 form input fields and form submit button,
+    validaiotn of uploaded image file was marked as feature for potential future enhancement */
     const inputTitle = document.getElementById('idTitle');
     const inputSlug = document.getElementById('id_slug');
     const inputCategory = document.getElementById('id_category');
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     };
 
-    // THERE'S AN ISSUE HERE, FIRST CATEGORY "ADVENTURES" NOT SELECTABLE BEFORE OTHER CHOICE IS SELECTED
+    // Validate select input, one has to be selected
     const validateCategory = (value) => {
         if (inputCategory.value) {
             return true;
@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     };
 
-    // Allowed minimal tag length is 3 characters, coma separated words
-    // Shortest input should be 1 tag, max 60 characters
+    /* Allowed minimal tag length is 3 characters, coma separated words
+    Shortest input should be 1 tag, max 60 characters */
     const validateTags = (value) => {
         const tagsValidation = /^([a-zA-Z]{3,}\s*,\s*)*[a-zA-Z]{3,}$/;
         if (value.match(tagsValidation) && value.length >= 3 && value.length <= 60) {
@@ -112,8 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Togle disable property on submit button, 
-    // disable if any input is invalid, enable if all are valid
+    /* Togle disable property on submit button, 
+    disable if any input is invalid, enable if all are valid */
     const toggleSubmitButton = () => {
         const isValidDict = Object.values(isValid);
         if (isValidDict.every(value => value === true)) {
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Event listeners for all input fields
+    // Event listeners for all input fields that are being validated
     inputTitle.addEventListener("input", (event) => {
         const titleValue = event.target.value;
         if (validateTitle(titleValue)) {
