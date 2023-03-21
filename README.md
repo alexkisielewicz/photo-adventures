@@ -97,15 +97,34 @@ To achieve the strategy goals I implemented following features:
 
 I used agile methodology for the first time when planning full-stack django website with a focus on delivering the basic functionalities. I prioritized features by labeling them as "must-have" or "could-have" and moved some less critical ones to future development. To guide my development process, I created user stories for both the admin user and regular visitors. These stories helped to define the features and functionalities that were most important to project's target audience.
 
-As a solo developer who was learning a lot during the development, I faced challenges in estimating the time required for each task, so I kept things simple and focused on achievable goals. To keep track of progress, I used a kanban board divided into following sections: "to do", "in progress" "done", "future enhancements" and "bugs" that allowed to visualize all tasks and prioritize next steps.
+As a solo developer who was learning a lot during development, I faced challenges in estimating the time required for each task and only had a basic concept of what I would create. Therefore, I kept things simple and focused on achievable goals. As the project grew, I was able to add more advanced features and group user stories into milestones. However, I could not find the "epics" feature in GitHub Projects, only milestones (it provides only [milestones and issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)). Epics are supposed to be larger in scope than milestones, representing a significant amount of work. Milestones, on the other hand, are meant to mark significant points in time in terms of project completion. In this document, I added epics, but on the project board, I used only [milestones](https://github.com/alexkisielewicz/photo-adventures/milestones) to stay in order with GitHub's features.
+
+To keep track of progress, I used a kanban board divided into following sections: "to do", "in progress" "done", "future enhancements" and "bugs" that allowed to visualize all tasks and prioritize next steps.
 
 By using agile methodology, I was able to stay organized and focused on delivering the most important features, while also allowing flexibility for future development. This experience gave me valuable insight and lessons that I can apply to future projects.
 
-![Agile](docs/img/agile.png)
+![agile](docs/img/agile.png)
 
-![Agile](docs/img/agile_boards.png)
+![agile-boards](docs/img/agile_boards.png)
 
+## Epics, milestones and user stories
 
+| Epic | Milestone | User stories |
+|------|-----------|--------------|
+| Epic 1: Basic Site Functionality | Milestone 1: User authentication | [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2), [#4](https://github.com/alexkisielewicz/photo-adventures/issues/4) |
+|  | Milestone 2: View and select posts | [#1](https://github.com/alexkisielewicz/photo-adventures/issues/1), [#5](https://github.com/alexkisielewicz/photo-adventures/issues/5), [#17](https://github.com/alexkisielewicz/photo-adventures/issues/17) |
+|  | Milestone 3: Post CRUD operations  | [#3](https://github.com/alexkisielewicz/photo-adventures/issues/3), [#10](https://github.com/alexkisielewicz/photo-adventures/issues/10), [#12](https://github.com/alexkisielewicz/photo-adventures/issues/12), [#15](https://github.com/alexkisielewicz/photo-adventures/issues/15), [#26](https://github.com/alexkisielewicz/photo-adventures/issues/26)|
+|  | Milestone 4: Commenting and Liking  | [#7](https://github.com/alexkisielewicz/photo-adventures/issues/7), [#8](https://github.com/alexkisielewicz/photo-adventures/issues/8), [#9](https://github.com/alexkisielewicz/photo-adventures/issues/9), [#11](https://github.com/alexkisielewicz/photo-adventures/issues/11), [#23](https://github.com/alexkisielewicz/photo-adventures/issues/23), [#30](https://github.com/alexkisielewicz/photo-adventures/issues/30) |
+| Epic 2: User Management | Milestone 1: User profile and dashboard | [#20](https://github.com/alexkisielewicz/photo-adventures/issues/20), [#21](https://github.com/alexkisielewicz/photo-adventures/issues/21), [#25](https://github.com/alexkisielewicz/photo-adventures/issues/25) |
+|  | Milestone 2: Contact form and spam prevention | [#16](https://github.com/alexkisielewicz/photo-adventures/issues/16), [#33](https://github.com/alexkisielewicz/photo-adventures/issues33) |
+|  | Milestone 3: Validation | [#39](https://github.com/alexkisielewicz/photo-adventures/issues/39), [#40](https://github.com/alexkisielewicz/photo-adventures/issues/40) |
+|  | Milestone 4: Error handling and feedback | [#31](https://github.com/alexkisielewicz/photo-adventures/issues/31), [#38](https://github.com/alexkisielewicz/photo-adventures/issues/38) |
+| Epic 3: Content Management | Milestone 1: Draft posts and featured posts | [#10](https://github.com/alexkisielewicz/photo-adventures/issues/10), [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41) |
+|  | Milestone 2: Categories and tags | [#13](https://github.com/alexkisielewicz/photo-adventures/issues/13), [#14](https://github.com/alexkisielewicz/photo-adventures/issues/14), [#28](https://github.com/alexkisielewicz/photo-adventures/issues/28), [#29](https://github.com/alexkisielewicz/photo-adventures/issues/29), [#34](https://github.com/alexkisielewicz/photo-adventures/issues/34), [#35](https://github.com/alexkisielewicz/photo-adventures/issues/35) |
+| Epic 4: Social media Integration | Milestone 1: Share posts on social media | [#37](https://github.com/alexkisielewicz/photo-adventures/issues/37) |
+|  | Milestone 2: Popular posts and likes display | [#6](https://github.com/alexkisielewicz/photo-adventures/issues/6), [#19](https://github.com/alexkisielewicz/photo-adventures/issues/19), [#41](https://github.com/alexkisielewicz/photo-adventures/issues/41)|
+
+![agile-milestones](docs/img/agile_milestones.png)
 ## Site owner goals
 
 - [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2) As Site Admin, I can log in to admin panel so that I can manage posts
