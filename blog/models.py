@@ -7,7 +7,9 @@ from taggit.models import TaggedItemBase
 
 
 class Post(models.Model):
-    # Model of the blog post
+    """
+    Model of the blog post
+    """
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
@@ -26,30 +28,43 @@ class Post(models.Model):
     featured = models.BooleanField(default=False, verbose_name='featured post')
     tags = TaggableManager()
 
-    # Descending order of Posts in Admin Panel
     class Meta:
+        """
+        Class to set descending order of Posts in Admin Panel
+        """
         ordering = ['-created_on']
 
-    # Method to return string object
     def __str__(self):
+        """
+        Method to return string object
+        """
         return self.title
 
-    # Method to return total number of likes
     def number_of_likes(self):
+        """
+        Method to rerunt total number of likes
+        """
         return self.likes.count()
 
-    # Method to return total number of approved comments.
     def number_of_comments(self):
+        """
+        Method to return total number of approved comments
+        """
         return self.comments.filter(approved=True).count()
 
 
 class TaggedPost(TaggedItemBase):
-    # Model of post with tags created by TaggableManager (taggit)
+    """
+    Class represents model of post with tags created
+    by TaggableManager (taggit)
+    """
     content_object = models.ForeignKey('Post', on_delete=models.CASCADE)
 
 
 class Comment(models.Model):
-    # Model of post comment
+    """
+    Class represents comments that can be added to posts
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=80)
@@ -58,10 +73,14 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
-    # Ascending order of Comments
     class Meta:
+        """
+        Class to set ascending order of Comments
+        """
         ordering = ['created_on']
-    
-    # Method to return string
+
     def __str__(self):
+        """
+        Method to return string
+        """
         return f'Comment {self.body} by {self.name}'
