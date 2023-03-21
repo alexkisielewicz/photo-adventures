@@ -1,6 +1,7 @@
 <h1 align="center">Photo Adventures Website</h1>
 
 <h3 align="center">Full-Stack Toolkit Project</h3>
+<h4 align="center">(HTML5 CSS3, Bootstrap, Django, Python, JavaScript, PostgreSQL, Cloudinary)</h4>
 
 ### Developer: Aleksander Kisielewicz
 
@@ -107,11 +108,9 @@ By using agile methodology, I was able to stay organized and focused on deliveri
 
 ![agile-boards](docs/img/agile_boards.png)
 
-## Epics, milestones and user stories
-
 | Epic | Milestone | User stories |
 |------|-----------|--------------|
-| Epic 1: Basic Site Functionality | Milestone 1: User authentication | [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2), [#4](https://github.com/alexkisielewicz/photo-adventures/issues/4) |
+| Epic 1: Basic Site Functionality | Milestone 1: Authentication | [#2](https://github.com/alexkisielewicz/photo-adventures/issues/2), [#4](https://github.com/alexkisielewicz/photo-adventures/issues/4) |
 |  | Milestone 2: View and select posts | [#1](https://github.com/alexkisielewicz/photo-adventures/issues/1), [#5](https://github.com/alexkisielewicz/photo-adventures/issues/5), [#17](https://github.com/alexkisielewicz/photo-adventures/issues/17) |
 |  | Milestone 3: Post CRUD operations  | [#3](https://github.com/alexkisielewicz/photo-adventures/issues/3), [#10](https://github.com/alexkisielewicz/photo-adventures/issues/10), [#12](https://github.com/alexkisielewicz/photo-adventures/issues/12), [#15](https://github.com/alexkisielewicz/photo-adventures/issues/15), [#26](https://github.com/alexkisielewicz/photo-adventures/issues/26)|
 |  | Milestone 4: Commenting and Liking  | [#7](https://github.com/alexkisielewicz/photo-adventures/issues/7), [#8](https://github.com/alexkisielewicz/photo-adventures/issues/8), [#9](https://github.com/alexkisielewicz/photo-adventures/issues/9), [#11](https://github.com/alexkisielewicz/photo-adventures/issues/11), [#23](https://github.com/alexkisielewicz/photo-adventures/issues/23), [#30](https://github.com/alexkisielewicz/photo-adventures/issues/30) |
@@ -515,7 +514,8 @@ Minor syntax and spelling errors were eliminated during development, below is a 
 | [#22](https://github.com/alexkisielewicz/photo-adventures/issues/22) | Bootstrap cards for posts without uploaded images are not displayed correctly | If/else statement added in the template to diplay placeholder image if featured image is not available |
 | [#27](https://github.com/alexkisielewicz/photo-adventures/issues/27) | When the user sends the form with a new post or edits an existing post draft, the tag field stays empty after saving. The database is not being updated as expected.| Save many to many method was added within if statement |
 | [#36](https://github.com/alexkisielewicz/photo-adventures/issues/36) | Error 404 - not found occurs when sending a comment on full_post.html. | Queryset was changed to filted only published posts |
-| [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43) | 2 template syntax errors found using django-extensions validate_templates. One in account/email.html and one in account/verified_email_required.html | Misspelled "load" in templates/accounts/email.html was corrected, head_title block was removed from accounts/verified_email_required.html |
+| [#43](https://github.com/alexkisielewicz/photo-adventures/issues/43) | 2 template syntax errors found using django-extensions validate_templates. One in account/email.html and one in account/verified_email_required.html | Misspelled "load" in templates/accounts/email.html was corrected, head_title block was removed from accounts/verified_email_required.html (screenshot added to issue) |
+| [#44](https://github.com/alexkisielewicz/photo-adventures/issues/44) | During the tests, I found out that Google Maps iframe element (third party code) on contact.html page generates a console errors (screenshot added to issue) | It appears that the errors are linked to the use of ad blockers in the browser. After testing with filters turned off and in private mode, I was able to browse without encountering any errors. |
 
 # Deployment
 
