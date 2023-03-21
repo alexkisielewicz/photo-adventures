@@ -28,8 +28,8 @@ $(document).ready(function () {
         });
     }
 
-    // Animation function executes on scroll when containers reach bottom of the window
-    // Trigger position is callculated from top of the window - windows height + 100px 
+    /* Animation function executes on scroll when containers reach bottom of the window
+    Trigger position is callculated from top of the window - windows height + 100px */ 
     $(window).on('scroll', function () {
         let scrollToCounters = $('#scrollToCounters');
         if (scrollToCounters.length > 0) {
