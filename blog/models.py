@@ -15,8 +15,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=50, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name='photo_adventures')
-    category = models.CharField(choices=CONST.POST_CATEGORIES, max_length=20,
-                                default='adventure')
+    category = models.CharField(choices=CONST.POST_CATEGORIES, max_length=20)
     excerpt = models.TextField(blank=False)
     featured_image = CloudinaryField('image', default='placeholder')
     location = models.CharField(max_length=100, unique=False)
