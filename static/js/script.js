@@ -61,16 +61,16 @@ function hideEmptySections() {
 }
 
 function showToastMsg() {
-    // Function initializes bootstrap toast to display django messages in it
+    // Function initializes bootstrap toast to display Django messages in it
     
-    // Select html the toast element to target 
     const toastEl = document.querySelector('.toast');
+    // If `.toast` exists, create new instance of Bootstrap toast
+    if (toastEl) {
+        let toast = new bootstrap.Toast(toastEl);
 
-    // Create a new Bootstrap toast instance
-    let toast = new bootstrap.Toast(toastEl);
-
-    // Call the show method to display the toast
-    toast.show();
+        // Call the show method to display the toast
+        toast.show();
+    }
 }
 
 hideEmptySections();
