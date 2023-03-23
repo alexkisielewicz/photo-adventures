@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const radioButtons = document.querySelectorAll('input[type="radio"][name="status"]');
     const submitButton = document.getElementById("submitButton");
 
-
     // Process title input value to prefill slug input as words separated with dash
     inputTitle.addEventListener("input", (event) => {
         const titleValue = event.target.value;
@@ -137,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Set disable property for form submit button = not clickable
     const disableSubmitButton = () => {
+        console.log(submitButton);
         submitButton.disabled = true;
         submitButton.classList.add("submit-disabled-state");
     };
