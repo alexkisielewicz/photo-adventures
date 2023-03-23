@@ -1,6 +1,6 @@
 <h1 align="center">Photo Adventures Website</h1>
 
-<h2 align="center">Full-Stack Project (HTML5 CSS3, Bootstrap, Django, Python, JavaScript, PostgreSQL, Cloudinary)</h2>
+<h3 align="center">Full-Stack Project (HTML5 CSS3, Bootstrap, Django, Python, JavaScript, PostgreSQL, Cloudinary)</h3>
 
 <br>
 
@@ -57,7 +57,7 @@ Application offers such functionalities as:
     - [Admin Panel](#admin-panel)
     - [User Dashboard](#user-dashboard)
     - [Accounts](#accounts-templates)
-    - [Add/edit post](#addedit-post)
+    - [Add/edit post](#addedit-post---form-validation)
     - [Messages](#messages)
 - [Technology](#technology)
   - [Software used](#software-used)
@@ -434,7 +434,35 @@ On successful password change user is asked to go to sign in page to continue.
 
 ![accounts13](docs/img/accounts_change_password_confirmation.png)
 
-### Add/Edit Post
+### Add/Edit Post - form validation
+
+Users can access the "Add Post" page from the user dashboard. The form on the page is used for submitting a new post. Basic validation has been implemented into the form using JavaScript.
+
+The form fields reflect the model post fields: Title, Slug, Category, Tags, Excerpt, Image, Location, Content, and Status. All fields are required; however if users don't upload an image, a placeholder will be present in the template.
+
+Slug field is being filled automatically (and converted to dash-separated lowercase words) when user type in title field, user still needs to interact with this field in order to make it valid. Event listener "input" is attached.
+
+![add-post1](docs/img/add_post1.png)
+
+Fields that are not validated with JavaScript:
+
+- Image field: I left this feature as possible future enhancement and described [here](https://github.com/alexkisielewicz/photo-adventures/issues/40).
+- Content field: Summernote WYSIWYG widget is used for this field. Django only checks if field is not empty, this is sufficient as any character would be allowed in post body.
+
+| Field | Allowed input | Matching charset, regular expression | Length (min, max) |
+|-------|---------------|--------------------------------------|-------------------|
+| Title | Alphanumeric, space, coma | /^[a-zA-Z0-9 ,]+$/| 5 - 50 |
+| Slug | Lowercase alphanumeric, dash | /^[a-z0-9]+(?:-[a-z0-9]+)*$/ | 5 - 50 |
+| Category (select) | One option from dropdown menu | Any option (no default is selected)| N/A |
+| Tags | Comma-separated words with alpha char, space | /^([a-zA-Z]{3,}\s*,\s*)*[a-zA-Z]{3,}$/ | 3 - 60, the shortest tag - 3 |
+| Excerpt | Alphanumeric, space, special | any | 10 - 200 |
+| Location | Alpha, space, coma | /^[a-zA-Z ,]+$/ | 4 - 40 |
+| Status (radio checkbox)| Any option from two available| Valid if any is checked | N/A |
+
+The validation functions have been connected to the field inputs using "input" event listeners. The script checks if the form is valid and then uses the Bootstrap classes "is-valid" or "is-invalid" to highlight the field in green or red. This gives the user feedback about whether the input is correct or incorrect. When all fields become valid and highlighted with green, the "submit" button becomes active and form can be send. Submit button is disabled by default when page is loaded. The same script and mechanism works on "Edit page", user need to interact with the fields, make them valid in order to be able to save changes.
+
+![add-post2](docs/img/add_post_validation1.png)
+![add-post3](docs/img/add_post_validation2.png)
 
 ### Messages
 
@@ -654,26 +682,26 @@ Note: Repository was created using Code Institute template: [https://github.com/
 
 3. Click on newly created app and go to "Deploy" tab and then to "Deployment method" section. Authorize and connect your GitHub account, then find and select your repository.
 
-4. Go to "Settings" tab, click on "Reveal Config Vars" and add following keys and values (all values should be strings without any quotation marks):
+4. Go to the "Settings" tab, click on "Reveal Config Vars" and add the following keys and values (all values should be strings without any quotation marks):
 
-NOTE: DISSABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deoplyment it should be removed.
+    NOTE: DISABLE_COLLECTSTATIC variable should be set to "1" for initial deployment. Before final deployment it should be removed.
 
-  |Key|Value|
-  |---|-----|
-  |CLOUDINARY_URL| cloudinary url beginning with cloudinary:// |
-  |DATABASE_URL| postgress url beginning with postgress:// |
-  |DEFAULT_FROM_EMAIL| Photo Adventures |
-  |DISABLE_COLLECTSTATIC|1|
-  |EMAIL_HOST_PASSWORD| YourPassword obtained from google account|
-  |EMAIL_HOST_USER| youremailaccount@gmail.com |
-  | PORT| 8000|
-  |SECRET_KEY| YourSecretKey, the same as in env.py |
+    | Key                    | Value                                                            |
+    |------------------------|------------------------------------------------------------------|
+    | CLOUDINARY_URL         | cloudinary url beginning with cloudinary://                      |
+    | DATABASE_URL           | postgress url beginning with postgress://                        |
+    | DEFAULT_FROM_EMAIL     | Photo Adventures                                                 |
+    | DISABLE_COLLECTSTATIC  | 1                                                                |
+    | EMAIL_HOST_PASSWORD    | YourPassword obtained from Google account                        |
+    | EMAIL_HOST_USER        | youremailaccount@gmail.com                                       |
+    | PORT                   | 8000                                                             |
+    | SECRET_KEY             | YourSecretKey, the same as in env.py                             |
 
-  ![envvars](docs/img/deployment/deployment_envvars.png)
+    ![envvars](docs/img/deployment/deployment_envvars.png)
 
-5. Return to your Gitpod workspace and navigate to file photoadventures/settings.py. Change allowed hosts including the name of the app that you created in previous steps. In my case it was 'photo-adventures.herokuapp.com'. Save the file.
+5. Return to your Gitpod workspace and navigate to the file `photoadventures/settings.py`. Change allowed hosts including the name of the app that you created in previous steps. In my case, it was 'photo-adventures.herokuapp.com'. Save the file.
 
-  ![hosts](docs/img/deployment/deployment_hosts.png)
+    ![hosts](docs/img/deployment/deployment_hosts.png)
 
 6. Procfile required to run project on Heroku was already created but if you change your app's name please make sure that this change is reflected in Procfile. It can be found in your project's main directory. In my case Procfile looks as below:
 
