@@ -6,185 +6,198 @@
 {% block content %}
 
 <div class="wrapper mt-5 pt-5">
-  <!-- Dashboard welcome and icons start -->
-<div class="container bg-white rounded-3">
-  <div class="container my-4 py-4">
-    <div class="row row-cols-1 row-cols-lg-2 mx-3">
-      <div class="dashboard-welcome d-flex flex-column align-items-start px-4">
-        <h2 class="fw-semibold my-3">Welcome back {{ user }}.</h2>
-        <div class="row g-2">
-          <div class="col-sm-3 dashboard-gravatar">
-            {{ request.user.email|gravatar:100 }}
-          </div>
-          <div class="col-sm-9">
-            This is your dashboard from where you can manage your content.
-            View your post history and monitor engagement, such as likes and comments.
-          </div>
-        </div>
-          <a href="{% url 'add_post' %}" class="btn btn-green my-3"><i class="fas fa-pen"></i> Add new post</a>
-      </div>
-      <div class="row row-cols-1 row-cols-lg-2 dashboard-keypoints text-center g-0 py-3">
-        <div class="d-flex flex-column gap-2">
-          <h4 class="fw-semibold mb-2"><i class="fas fa-pen"></i> Create blog post</h4>
-          <p class="text-muted">Share your adventures with our community.</p>
-        </div>
-        <div class="d-flex flex-column gap-2">
-          <h4 class="fw-semibold mb-2"><i class="fas fa-fire"></i> Check performance</h4>
-          <p class="text-muted">Are your posts popular?</p>
-        </div>
-        <div class="d-flex flex-column gap-2">
-          <h4 class="fw-semibold mb-2"><i class="fas fa-pen-to-square"></i> Edit or delete</h4>
-          <p class="text-muted">Manage your posts if needed.</p>
-        </div>
-        <div class="d-flex flex-column gap-2">
-          <h4 class="fw-semibold mb-2"><i class="fas fa-face-smile"></i> Enjoy!</h4>
-          <p class="text-muted">You're creator :)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Dashboard welcome and icons end -->
-<!-- Dashboard stats start -->
-<div class="container bg-white my-4" data-aos="fade-up">
-  <div class="row justify-content-around g-2">
-    <div class="col-lg-4 col-md-4 col-sm-12 h-100 text-center">
-      <div class="count-box rounded-3">
-        <p><i class="fa-solid fa-square-check"></i> Published Posts:</p> 
-        <p class="count-value"><a href="#publishedContainer">{{ dashboard_stats.published_count }}</a></p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-12 h-100 text-center">
-      <div class="count-box rounded-3">
-        <p><i class="fa-regular fa-square-check"></i> Awaiting moderation:</p> 
-        <p class="count-value"><a href="#awaitingContainer">{{ dashboard_stats.awaiting_moderation_count }}</a></p>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-12 h-100 text-center">
-      <div class="count-box rounded-3">
-        <p><i class="fa-solid fa-pencil"></i> Draft Posts:</p> 
-        <p class="count-value"><a href="#draftsContainer">{{ dashboard_stats.draft_count }}</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Dashboard stats end --> 
-<div class="container bg-white my-4 py-4">
-    <!-- Draft posts start -->
-{% if user_posts %}
-<div class="container bg-white" id="draftsContainer">
-  <div class="row g-3">
-    <h3 class="my-2 py-2" id="draftsHeader"><i class="fas fa-list"></i> Drafts ({{ dashboard_stats.draft_count }}): </h3>
-    {% for post in user_posts %}
-    {% if post.status == 0 %}
-    <div class="col-md-4 align-items-stretch featured-img">
-      <div class="card card-dashboard mb-4">
-        {% if "placeholder" in post.featured_image.url %}
-        <img class="card-img-top card-img-thumbnail"
-          src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" alt="Thumbnail image for post {{ post.title }}">
-        {% else %}
-        <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
-          alt="Thumbnail image for post {{ post.title }}">
-        {% endif %}
-        <div class="overlay controls">
-          <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
-          <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
-        </div>
-        <div class="dashboard-image-caption">
-          <i class="fa-regular fa-folder"></i> {{ post.category }}
-        </div>
-        <div class="card-body">
-          <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
-          <div class="dashboard-details">{{ post.created_on }} | 
-            <i class="far fa-heart"></i> {{ post.number_of_likes }} |
-            <i class="far fa-comments"></i> {{ post.number_of_comments }}
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-<!-- Draft posts end -->
-<!-- Posts awaiting moderation start -->
-{% if user_posts %}
-<div class="container bg-white my-4 py-4" id="awaitingContainer">
-  <div class="row g-3">
-    <h3 class="my-2 py-2" id="awaitingHeader"><i class="fas fa-list"></i> Awaiting moderation
-      ({{ dashboard_stats.awaiting_moderation_count }}): </h3>
-    {% for post in user_posts %}
-    {% if post.status == 1 %}
-    <div class="col-md-4 align-items-stretch featured-img">
-      <div class="card card-dashboard mb-4">
-        {% if "placeholder" in post.featured_image.url %}
-        <img class="card-img-top card-img-thumbnail"
-          src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" alt="Thumbnail image for post {{ post.title }}">
-        {% else %}
-        <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
-          alt="Thumbnail image fot the post {{ post.title}}">
-        {% endif %}
-        <div class="overlay controls">
-          <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
-          <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
-        </div>
-        <div class="dashboard-image-caption">
-          <i class="fa-regular fa-folder"></i> {{ post.category }}
-        </div>
-        <div class="card-body">
-          <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
-          <div class="dashboard-details">{{ post.created_on }} | 
-            <i class="far fa-heart"></i> {{ post.number_of_likes }} |
-            <i class="far fa-comments"></i> {{ post.number_of_comments }}
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-<!-- Posts awaiting moderation end -->
-<!-- Published posts start -->
-{% if user_posts %}
-<div class="container bg-white my-4 pt-4 pb-1" id="publishedContainer">
-  <div class="row card-row g-3">
-    <h3 class="my-2 py-2" id="publishedHeader"><i class="fas fa-list"></i> Published posts ({{ dashboard_stats.published_count }}):
-    </h3>
-    {% for post in user_posts %}
-    {% if post.status == 2 %}
-    <div class="col-md-4 align-items-stretch featured-img">
-      <div class="card mb-4">
-        {% if "placeholder" in post.featured_image.url %}
-        <img class="card-img-top card-img-thumbnail" src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" alt="Thumbnail image for post {{ post.title }}">
-        {% else %}
-        <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}" alt="Featured image of the post {{ post.title}}">
-        {% endif %}
-        <div class="overlay controls">
-          <a href="{% url 'full_post' slug=post.slug %}" title="View post" class="btn btn-info me-2">VIEW</a>
-          <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
-          <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
-        </div>
-        <div class="dashboard-image-caption">
-          <i class="fa-regular fa-folder"></i> {{ post.category }}
-        </div>
-        <div class="card-body">
-          <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a></h5>
-            <div class="dashboard-details">{{ post.created_on }} | 
-              <i class="far fa-heart"></i> {{ post.number_of_likes }} |
-              <i class="far fa-comments"></i> {{ post.number_of_comments }}
+  <main>
+    <!-- Dashboard welcome and icons start -->
+    <div class="container bg-white rounded-3">
+      <div class="container my-4 py-4">
+        <div class="row row-cols-1 row-cols-lg-2 mx-3">
+          <div class="dashboard-welcome d-flex flex-column align-items-start px-4">
+            <h2 class="fw-semibold my-3">Welcome back {{ user }}.</h2>
+            <div class="row g-2">
+              <div class="col-sm-3 dashboard-gravatar">
+                {{ request.user.email|gravatar:100 }}
+              </div>
+              <div class="col-sm-9">
+                This is your dashboard from where you can manage your content.
+                View your post history and monitor engagement, such as likes and comments.
+              </div>
             </div>
+            <a href="{% url 'add_post' %}" class="btn btn-green my-3"><i class="fas fa-pen"></i> Add new post</a>
+          </div>
+          <div class="row row-cols-1 row-cols-lg-2 dashboard-keypoints text-center g-0 py-3">
+            <div class="d-flex flex-column gap-2">
+              <h4 class="fw-semibold mb-2"><i class="fas fa-pen"></i> Create blog post</h4>
+              <p class="text-muted">Share your adventures with our community.</p>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <h4 class="fw-semibold mb-2"><i class="fas fa-fire"></i> Check performance</h4>
+              <p class="text-muted">Are your posts popular?</p>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <h4 class="fw-semibold mb-2"><i class="fas fa-pen-to-square"></i> Edit or delete</h4>
+              <p class="text-muted">Manage your posts if needed.</p>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <h4 class="fw-semibold mb-2"><i class="fas fa-face-smile"></i> Enjoy!</h4>
+              <p class="text-muted">You're creator :)</p>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- Dashboard welcome and icons end -->
+      <!-- Dashboard stats start -->
+      <div class="container bg-white my-4" data-aos="fade-up">
+        <div class="row justify-content-around g-2">
+          <div class="col-lg-4 col-md-4 col-sm-12 h-100 text-center">
+            <div class="count-box rounded-3">
+              <p><i class="fa-solid fa-square-check"></i> Published Posts:</p>
+              <p class="count-value"><a href="#publishedContainer">{{ dashboard_stats.published_count }}</a></p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 h-100 text-center">
+            <div class="count-box rounded-3">
+              <p><i class="fa-regular fa-square-check"></i> Awaiting moderation:</p>
+              <p class="count-value"><a href="#awaitingContainer">{{ dashboard_stats.awaiting_moderation_count }}</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 h-100 text-center">
+            <div class="count-box rounded-3">
+              <p><i class="fa-solid fa-pencil"></i> Draft Posts:</p>
+              <p class="count-value"><a href="#draftsContainer">{{ dashboard_stats.draft_count }}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Dashboard stats end -->
+      <div class="container bg-white my-4 py-4">
+        <!-- Draft posts start -->
+        {% if user_posts %}
+        <div class="container bg-white" id="draftsContainer">
+          <div class="row g-3">
+            <h3 class="my-2 py-2" id="draftsHeader"><i class="fas fa-list"></i> Drafts
+              ({{ dashboard_stats.draft_count }}): </h3>
+            {% for post in user_posts %}
+            {% if post.status == 0 %}
+            <div class="col-md-4 align-items-stretch featured-img">
+              <div class="card card-dashboard mb-4">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top card-img-thumbnail"
+                  src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp"
+                  alt="Thumbnail image for post {{ post.title }}">
+                {% else %}
+                <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
+                  alt="Thumbnail image for post {{ post.title }}">
+                {% endif %}
+                <div class="overlay controls">
+                  <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
+                  <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
+                </div>
+                <div class="dashboard-image-caption">
+                  <i class="fa-regular fa-folder"></i> {{ post.category }}
+                </div>
+                <div class="card-body">
+                  <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a>
+                  </h5>
+                  <div class="dashboard-details">{{ post.created_on }} |
+                    <i class="far fa-heart"></i> {{ post.number_of_likes }} |
+                    <i class="far fa-comments"></i> {{ post.number_of_comments }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        <!-- Draft posts end -->
+        <!-- Posts awaiting moderation start -->
+        {% if user_posts %}
+        <div class="container bg-white my-4 py-4" id="awaitingContainer">
+          <div class="row g-3">
+            <h3 class="my-2 py-2" id="awaitingHeader"><i class="fas fa-list"></i> Awaiting moderation
+              ({{ dashboard_stats.awaiting_moderation_count }}): </h3>
+            {% for post in user_posts %}
+            {% if post.status == 1 %}
+            <div class="col-md-4 align-items-stretch featured-img">
+              <div class="card card-dashboard mb-4">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top card-img-thumbnail"
+                  src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp"
+                  alt="Thumbnail image for post {{ post.title }}">
+                {% else %}
+                <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
+                  alt="Thumbnail image fot the post {{ post.title}}">
+                {% endif %}
+                <div class="overlay controls">
+                  <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
+                  <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
+                </div>
+                <div class="dashboard-image-caption">
+                  <i class="fa-regular fa-folder"></i> {{ post.category }}
+                </div>
+                <div class="card-body">
+                  <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a>
+                  </h5>
+                  <div class="dashboard-details">{{ post.created_on }} |
+                    <i class="far fa-heart"></i> {{ post.number_of_likes }} |
+                    <i class="far fa-comments"></i> {{ post.number_of_comments }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        <!-- Posts awaiting moderation end -->
+        <!-- Published posts start -->
+        {% if user_posts %}
+        <div class="container bg-white my-4 pt-4 pb-1" id="publishedContainer">
+          <div class="row card-row g-3">
+            <h3 class="my-2 py-2" id="publishedHeader"><i class="fas fa-list"></i> Published posts
+              ({{ dashboard_stats.published_count }}):
+            </h3>
+            {% for post in user_posts %}
+            {% if post.status == 2 %}
+            <div class="col-md-4 align-items-stretch featured-img">
+              <div class="card mb-4">
+                {% if "placeholder" in post.featured_image.url %}
+                <img class="card-img-top card-img-thumbnail"
+                  src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp"
+                  alt="Thumbnail image for post {{ post.title }}">
+                {% else %}
+                <img class="card-img-top card-img-thumbnail" src="{{ post.featured_image.url }}"
+                  alt="Featured image of the post {{ post.title}}">
+                {% endif %}
+                <div class="overlay controls">
+                  <a href="{% url 'full_post' slug=post.slug %}" title="View post" class="btn btn-info me-2">VIEW</a>
+                  <a href="{% url 'edit_post' slug=post.slug %}" title="Edit post" class="btn btn-success me-2">EDIT</a>
+                  <a href="{% url 'delete_post' slug=post.slug %}" title="Delete post" class="btn btn-danger">DELETE</a>
+                </div>
+                <div class="dashboard-image-caption">
+                  <i class="fa-regular fa-folder"></i> {{ post.category }}
+                </div>
+                <div class="card-body">
+                  <h5 class="dashboard-card-title"><a href="{% url 'full_post' slug=post.slug %}">{{ post.title }}</a>
+                  </h5>
+                  <div class="dashboard-details">{{ post.created_on }} |
+                    <i class="far fa-heart"></i> {{ post.number_of_likes }} |
+                    <i class="far fa-comments"></i> {{ post.number_of_comments }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+        <!-- Published posts end -->
+      </div>
     </div>
-    {% endif %}
-    {% endfor %}
-  </div>
-</div>
-{% endif %}
-<!-- Published posts end -->
-</div>
-</div>
+  </main>
 </div>
 {% endblock %}

@@ -1,89 +1,86 @@
 {% extends "base.html" %}
 {% block title %}Photo Adventures - Home{% endblock %}
 
-
 {% block content %}
-
 <!-- Carousel start -->
 <div class="carousel slide" data-bs-ride="carousel" id="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item carousel-image bg-img-1 active">
-            <div class="carousel-caption d-md-block" data-aos="fade-up">
-                <h1 class="display-2">Breathtaking Landscapes</h1>
-                <p class="display-6">Nature's masterpiece in all shades of green.</p>
-            </div>
-        </div>
-        <div class="carousel-item carousel-image bg-img-2">
-            <div class="carousel-caption d-md-block" data-aos="fade-up">
-                <h1 class="display-2">The beauty of the wild</h1>
-                <p class="display-6">In the heart of nature, where every living thing has a story to tell.</p>
-            </div>
-        </div>
-        <div class="carousel-item carousel-image bg-img-3">
-            <div class="carousel-caption d-md-block" data-aos="fade-up">
-                <h1 class="display-2">Travel</h1>
-                <p class="display-6">Discovering the world, one adventure at a time</p>
-            </div>
-        </div>
-        <div class="carousel-item carousel-image bg-img-4">
-            <div class="carousel-caption d-md-block" data-aos="fade-up">
-                <h1 class="display-2">Architecture</h1>
-                <p class="display-6">Where the city lights shine bright</p>
-            </div>
-        </div>
+  <div class="carousel-inner">
+    <div class="carousel-item carousel-image bg-img-1 active">
+      <div class="carousel-caption d-md-block" data-aos="fade-up">
+        <h1 class="display-2">Breathtaking Landscapes</h1>
+        <p class="display-6">Nature's masterpiece in all shades of green.</p>
+      </div>
     </div>
-    <div>
-        <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span>
-        </a>
+    <div class="carousel-item carousel-image bg-img-2">
+      <div class="carousel-caption d-md-block" data-aos="fade-up">
+        <h1 class="display-2">The beauty of the wild</h1>
+        <p class="display-6">In the heart of nature, where every living thing has a story to tell.</p>
+      </div>
     </div>
+    <div class="carousel-item carousel-image bg-img-3">
+      <div class="carousel-caption d-md-block" data-aos="fade-up">
+        <h1 class="display-2">Travel</h1>
+        <p class="display-6">Discovering the world, one adventure at a time</p>
+      </div>
+    </div>
+    <div class="carousel-item carousel-image bg-img-4">
+      <div class="carousel-caption d-md-block" data-aos="fade-up">
+        <h1 class="display-2">Architecture</h1>
+        <p class="display-6">Where the city lights shine bright</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span>
+    </a>
+  </div>
 </div>
 <!-- Carousel end -->
-
 <div class="wrapper">
-    <!-- Hero container start -->
-<main>
+  <!-- Hero container start -->
+  <main>
     <div class="container-fluid hero-container">
-        <div class="container-lg my-5 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-0 py-5">
-                <div class="col-10 col-sm-8 col-lg-6 ps-5" data-aos="fade-left">
-                    <img src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp"
-                        class="d-block mx-lg-auto img-fluid rounded shadow my-5" alt="Group of photographers on the beach"
-                        width="700" loading="lazy">
-                </div>
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-4 fw-bold lh-2 mb-4">Join us today and share your adventures</h1>
-                    <p class="lead lh-lg my-4 py-4">
-                        We believe that every moment is worth capturing, and we're on a mission to help photography
-                        enthusiasts share their adventures with the world. Whether you're a professional photographer or a
-                        hobbyist, we invite you to join our community and share your photos, stories, and tips with fellow
-                        enthusiasts.</p>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'add_post' %}" class="btn btn-green btn-lg px-4 me-md-2">Add post</a>
-                        {% else %}
-                        <a href="{% url 'account_signup' %}" class="btn btn-green btn-lg px-4 me-md-2">Sign up</a>
-                        {% endif %}
-                        <a href="{% url 'blog' %}" class="btn btn-outline-green btn-lg px-4">Visit blog</a>
-                    </div>
-                </div>
+      <div class="container-lg my-5 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-0 py-5">
+          <div class="col-10 col-sm-8 col-lg-6 ps-5" data-aos="fade-left">
+            <img
+              src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676912223/BHK_3293-obrabiane_2048px_tjr6h3.webp"
+              class="d-block mx-lg-auto img-fluid rounded shadow my-5" alt="Group of photographers on the beach"
+              width="700" loading="lazy">
+          </div>
+          <div class="col-lg-6" data-aos="fade-right">
+            <h1 class="display-4 fw-bold lh-2 mb-4">Join us today and share your adventures</h1>
+            <p class="lead lh-lg my-4 py-4">
+              We believe that every moment is worth capturing, and we're on a mission to help photography
+              enthusiasts share their adventures with the world. Whether you're a professional photographer or a
+              hobbyist, we invite you to join our community and share your photos, stories, and tips with fellow
+              enthusiasts.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              {% if user.is_authenticated %}
+              <a href="{% url 'add_post' %}" class="btn btn-green btn-lg px-4 me-md-2">Add post</a>
+              {% else %}
+              <a href="{% url 'account_signup' %}" class="btn btn-green btn-lg px-4 me-md-2">Sign up</a>
+              {% endif %}
+              <a href="{% url 'blog' %}" class="btn btn-outline-green btn-lg px-4">Visit blog</a>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</main>
-<!-- Hero container end -->
-
-<!-- Stats start -->
-<div class="container my-5 py-5" id="scrollToCounters" data-aos="fade-up">
+  </main>
+  <!-- Hero container end -->
+  <!-- Stats start -->
+  <div class="container my-5 py-5" id="scrollToCounters" data-aos="fade-up">
     <div class="row d-flex justify-content-around g-2">
       <div class="col-lg-3 col-md-6 text-center align-items-stretch">
         <div class="count-box rounded-3">
-          <p><i class="fa-regular fa-file-lines"></i> Total Posts:</p> 
+          <p><i class="fa-regular fa-file-lines"></i> Total Posts:</p>
           <p class="count-value">{{ total_posts }}</p>
-          </div>
+        </div>
       </div>
       <div class="col-lg-3 col-md-6 text-center">
         <div class="count-box rounded-3">
@@ -93,54 +90,52 @@
       </div>
       <div class="col-lg-3 col-md-6 text-center">
         <div class="count-box rounded-3">
-          <p><i class="fa-regular fa-heart"></i> Total reactions:</p> 
+          <p><i class="fa-regular fa-heart"></i> Total reactions:</p>
           <p class="count-value">{{ total_likes }}</p>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 text-center">
         <div class="count-box rounded-3">
-          <p><i class="fa-regular fa-user"></i> Registered users:</p> 
+          <p><i class="fa-regular fa-user"></i> Registered users:</p>
           <p class="count-value">{{ total_users }}</p>
         </div>
       </div>
     </div>
   </div>
-<!-- Stats end --> 
-
-<!-- Most liked post start -->
-<section>
-    <div class="container my-5 py-5" data-aos="fade-up">
-        <h2 class="most-liked text-center mb-2 mt-2 py-5">Most liked posts</h2>
-        <div class="row pb-3">
-            {% for post in trending %}
-            <div class="col-lg-4 col-md-12 col-sm-12 d-flex align-items-stretch justify-content-around">
-                <div class="card card-main-page" data-aos="zoom-in-up">
-                    {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img-top card-img-thumbnail"
-                        src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" alt="Feature image for post {{ post.title }}">
-                    {% else %}
-                    <img src="{{ post.featured_image.url }}" class="card-img-top card-img-thumbnail" alt="Feature image for post {{ post.title }}">
-                    {% endif %}
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-category mt-1">{{ post.category }}</h5>
-                        <h5 class="card-title-popular">
-                            <a href="{% url 'full_post' post.slug %}" class="stretched-link card-title-popular">{{ post.title }}</a>
-                        </h5>
-                        <h5 class="card-category mb-1">
-                            <i class="far fa-heart heart-main-page"></i> {{ post.number_of_likes }}</h5>
-                        <p class="card-text mb-4">
-                            {{ post.excerpt }}
-                        </p>
-                        <a href="{% url 'full_post' post.slug %}" class="btn btn-green mt-auto align-self-start">Full
-                            story</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+  <!-- Stats end -->
+  <!-- Most liked post start -->
+  <div class="container my-5 py-5" data-aos="fade-up">
+    <h2 class="most-liked text-center mb-2 mt-2 py-5">Most liked posts</h2>
+    <div class="row pb-3">
+      {% for post in trending %}
+      <div class="col-lg-4 col-md-12 col-sm-12 d-flex align-items-stretch justify-content-around">
+        <div class="card card-main-page" data-aos="zoom-in-up">
+          {% if "placeholder" in post.featured_image.url %}
+          <img class="card-img-top card-img-thumbnail"
+            src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp"
+            alt="Feature image for post {{ post.title }}">
+          {% else %}
+          <img src="{{ post.featured_image.url }}" class="card-img-top card-img-thumbnail"
+            alt="Feature image for post {{ post.title }}">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-category mt-1">{{ post.category }}</h5>
+            <h5 class="card-title-popular">
+              <a href="{% url 'full_post' post.slug %}" class="stretched-link card-title-popular">{{ post.title }}</a>
+            </h5>
+            <h5 class="card-category mb-1">
+              <i class="far fa-heart heart-main-page"></i> {{ post.number_of_likes }}</h5>
+            <p class="card-text mb-4">
+              {{ post.excerpt }}
+            </p>
+            <a href="{% url 'full_post' post.slug %}" class="btn btn-green mt-auto align-self-start">Full
+              story</a>
+          </div>
         </div>
+      </div>
+      {% endfor %}
     </div>
-</section>
-<!-- Most liked post end -->
+  </div>
+  <!-- Most liked post end -->
 </div>
-
 {% endblock %}

@@ -1,78 +1,76 @@
 {% extends "base.html" %}
 {% block title %}Photo Adventures - Blog{% endblock %}
-
 {% block content %}
 <div class="wrapper mt-5 pt-5">
-    <!-- Blog post card start -->
-    <article>
-        <div class="container">
-            {% if tag %}
-            <div class="container rounded-3 accent-green border border-success p-1 mt-4">
-                <h4 class="text-center m-0">You are browsing all posts with tag "{{ tag }}"</h4>
-            </div>
-            {% endif %}
-            <div class="row">
-                <div class="col-12 left">
-                    <div class="row">
-                        {% for post in post_list %}
-                        <div class="col-12 my-4">
-                            <div class="card" data-aos="zoom-in-up">
-                                <div class="card-body box-shadow">
-                                    <div class="image-container">
-                                        {% if "placeholder" in post.featured_image.url %}
-                                        <img class="card-img-top"
-                                            src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp" alt="Featured image for article {{ post.title }}">
-                                        {% else %}
-                                        <img class="card-img-top card-img-blog" src="{{ post.featured_image.url }}" alt="Featured image for article {{ post.title }}">
-                                        {% endif %}
-                                        <div class="image-caption">
-                                            <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
-                                        </div>
-                                    </div>
-                                    <a href="{% url 'full_post' post.slug %}" class="stretched-link post-link">
-                                        <h2 class="card-title mt-3">{{ post.title }}</h2>
-                                    </a>
-                                    <p class="post-excerpt">{{ post.excerpt }}</p>
-                                    <hr>
-                                    <p class="post-details text-muted mt-1 mb-1">
-                                        <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
-                                        <i class="fa-regular fa-folder"></i> {{ post.category }} |
-                                        <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
-                                        <i class="far fa-heart"></i> {{ post.number_of_likes }} |
-                                        <i class="far fa-comments"></i> {{ post.number_of_comments }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {% if forloop.counter|divisibleby:5 %}
+  <!-- Blog post card start -->
+  <article>
+    <div class="container">
+      {% if tag %}
+      <div class="container rounded-3 accent-green border border-success p-1 mt-4">
+        <h4 class="text-center m-0">You are browsing all posts with tag "{{ tag }}"</h4>
+      </div>
+      {% endif %}
+      <div class="row">
+        <div class="col-12 left">
+          <div class="row">
+            {% for post in post_list %}
+            <div class="col-12 my-4">
+              <div class="card" data-aos="zoom-in-up">
+                <div class="card-body box-shadow">
+                  <div class="image-container">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img class="card-img-top"
+                      src="https://res.cloudinary.com/ddvsgi5xw/image/upload/v1676809771/placeholder_map_qnsegu.webp"
+                      alt="Featured image for article {{ post.title }}">
+                    {% else %}
+                    <img class="card-img-top card-img-blog" src="{{ post.featured_image.url }}"
+                      alt="Featured image for article {{ post.title }}">
+                    {% endif %}
+                    <div class="image-caption">
+                      <i class="fa-solid fa-earth-europe"></i> {{ post.location }}
                     </div>
-                    <div class="row">
-                        {% endif %}
-                        {% endfor %}
-                    </div>
+                  </div>
+                  <a href="{% url 'full_post' post.slug %}" class="stretched-link post-link">
+                    <h2 class="card-title mt-3">{{ post.title }}</h2>
+                  </a>
+                  <p class="post-excerpt">{{ post.excerpt }}</p>
+                  <hr>
+                  <p class="post-details text-muted mt-1 mb-1">
+                    <i class="fa-regular fa-pen-to-square"></i> {{ post.author }} |
+                    <i class="fa-regular fa-folder"></i> {{ post.category }} |
+                    <i class="fa-regular fa-calendar-check"></i> {{ post.created_on }} |
+                    <i class="far fa-heart"></i> {{ post.number_of_likes }} |
+                    <i class="far fa-comments"></i> {{ post.number_of_comments }}
+                  </p>
                 </div>
+              </div>
             </div>
+            {% if forloop.counter|divisibleby:5 %}
+          </div>
+          <div class="row">
+            {% endif %}
+            {% endfor %}
+          </div>
         </div>
-    </article>
-    <!-- Blog post card end -->
-
-    <!-- Pagination buttons start -->
-    {% if is_paginated %}
-    <nav aria-label="Pagination">
-        <ul class="pagination justify-content-center pb-5">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-green btn-lg"><i
-                        class="fa-solid fa-angle-left"></i> Previous</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-green btn-lg">Next <i
-                        class="fa-solid fa-angle-right"></i></a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-    <!-- Pagination buttons end -->
+      </div>
+    </div>
+  </article>
+  <!-- Blog post card end -->
+  <!-- Pagination buttons start -->
+  {% if is_paginated %}
+  <nav aria-label="Pagination">
+    <ul class="pagination justify-content-center pb-5">
+      {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-green btn-lg"><i
+            class="fa-solid fa-angle-left"></i> Previous</a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-green btn-lg">Next <i
+            class="fa-solid fa-angle-right"></i></a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+  <!-- Pagination buttons end -->
 </div>
-
-
 {% endblock %}
