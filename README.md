@@ -1,6 +1,6 @@
 <h1 align="center">Photo Adventures Website</h1>
 
-<h3 align="center">Full-Stack Project (HTML5 CSS3, Bootstrap, Django, Python, JavaScript, PostgreSQL, Cloudinary)</h3>
+<h3 align="center">Full-Stack Project (HTML5 CSS3, Bootstrap, Django, Python, JavaScript, jQuery, PostgreSQL, Cloudinary)</h3>
 
 <br>
 
@@ -485,28 +485,29 @@ Django messages are implemented in the website's app. These messages are display
 - [Bootstrap 5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter
 - [Balsamiq](https://balsamiq.com/) - used to create project wireframes
 - [Cloudinary](https://cloudinary.com/) - cloude-based image and video API
-- [Django](https://www.djangoproject.com/) - python-based web framework with MTV architectural pattern
-- [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) - web template engine for python/django apps
+- [Canva](https://www.canva.com/) - used to design logo picture
+- [Convertio.io](https://convertio.co/) - used to convert images to webp format
 - [Coolors.co](https://coolors.co/) - was used to create colour palette for terminal display page
+- [Django](https://www.djangoproject.com/) - python-based web framework with MTV architectural pattern
+- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database as a service
+- [EmailJS](https://www.emailjs.com/) - JavaScript library used to send emails usung only client-side technologies
 - [Favicon.io](https://www.favicon.io) - tool used to create favicon
 - [Font Awesome:](https://fontawesome.com/) - Font Awesome icons were used for social links in terminal display page
 - [Git](https://git-scm.com/) - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub
 - [GitHub](https://github.com/) - GitHub is used to store the project's code after being pushed from Git
-- [Heroku](https://heroku.com) - online app used to deploy project
-- [Pexels](https://www.pexels.com/) - was used to source bacground picture for terminal display page
-- [WebAIM](https://webaim.org/resources/contrastchecker/) - online tool to check colour contrast/accesibility
-- [Gravatar](https://en.gravatar.com/) - global avatar, allows to display user profile picture related to email
-- [EmailJS](https://www.emailjs.com/) - JavaScript library used to send emails usung only client-side technologies
 - [Google DevTools](https://developer.chrome.com/docs/devtools/) - used for developing HTML/CSS/DOM navigating/JavaScript console
 - [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - used for testing website performance
 - [Google Maps](https://www.google.com/maps) - google map used in contact page
 - [Google reCaptcha v2](https://developers.google.com/recaptcha/docs/display?hl=en) - captcha widget used to prevent spam
 - [Gmail](https://mail.google.com/) - SMTP service used for sending emails
-- [Canva](https://www.canva.com/) - used to design logo picture
-- [Convertio.io](https://convertio.co/) - used to convert images to webp format
-- [WAVE](https://wave.webaim.org/) - web accessibility online tool
+- [Gravatar](https://en.gravatar.com/) - global avatar, allows to display user profile picture related to email
+- [Heroku](https://heroku.com) - online app used to deploy project
+- [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) - web template engine for python/django apps
+- [jQuery](https://jquery.com/) - JavaScript library
+- [Pexels](https://www.pexels.com/) - was used to source bacground picture for terminal display page
 - [Techsini.com](https://techsini.com/multi-mockup/) - website mockup generator
-- [ElephantSQL](https://www.elephantsql.com/) - PostgreSQL database as a service
+- [WAVE](https://wave.webaim.org/) - web accessibility online tool
+- [WebAIM](https://webaim.org/resources/contrastchecker/) - online tool to check colour contrast/accesibility
 
 ## Python libraries/modules
 
