@@ -136,7 +136,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Set disable property for form submit button = not clickable
     const disableSubmitButton = () => {
-        console.log(submitButton);
         submitButton.disabled = true;
         submitButton.classList.add("submit-disabled-state");
     };
