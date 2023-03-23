@@ -482,6 +482,7 @@ Django messages are implemented in the website's app. These messages are display
 
 ## Software used
 
+- [Animate On Scroll AOS](https://michalsnik.github.io/aos/) - library used to animate containers on the website
 - [Bootstrap 5](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) - CSS framework developed by Twitter
 - [Balsamiq](https://balsamiq.com/) - used to create project wireframes
 - [Cloudinary](https://cloudinary.com/) - cloude-based image and video API
